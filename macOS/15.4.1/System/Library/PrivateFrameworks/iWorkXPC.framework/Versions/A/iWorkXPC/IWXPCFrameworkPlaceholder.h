@@ -1,0 +1,3 @@
+@interface IWXPCFrameworkPlaceholder : NSObject
+
+@end

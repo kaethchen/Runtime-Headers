@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.SprinklerHandleDelegate : HomeAutomationInternal.AppIntentHandleDelegate
+
+@end

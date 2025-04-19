@@ -1,0 +1,3 @@
+@interface TCIMSuchengPreferencesModule : CIMPreferencesModule
+
+@end

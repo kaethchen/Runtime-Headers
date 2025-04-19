@@ -1,0 +1,3 @@
+@interface PKFinishBinding : PKCollectionSpecialization
+
+@end

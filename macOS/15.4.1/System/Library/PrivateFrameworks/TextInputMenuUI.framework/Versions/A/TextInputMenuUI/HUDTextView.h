@@ -1,0 +1,3 @@
+@interface HUDTextView : NSTextField
+
+@end

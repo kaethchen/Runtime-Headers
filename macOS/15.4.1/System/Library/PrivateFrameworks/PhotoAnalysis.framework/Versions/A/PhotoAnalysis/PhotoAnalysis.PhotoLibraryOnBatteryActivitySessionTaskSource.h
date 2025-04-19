@@ -1,0 +1,3 @@
+@interface PhotoAnalysis.PhotoLibraryOnBatteryActivitySessionTaskSource : _TtCs12_SwiftObject
+
+@end

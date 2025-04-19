@@ -1,0 +1,3 @@
+@interface _TtCE23LocalAuthenticationCoreCSo8NSBundleP33_06C5009961CF12380B02F6187ECF79568Sentinel : _TtCs12_SwiftObject
+
+@end

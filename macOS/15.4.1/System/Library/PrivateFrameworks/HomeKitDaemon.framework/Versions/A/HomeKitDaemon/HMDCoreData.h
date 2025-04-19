@@ -1,0 +1,103 @@
+@class HMFTimer, NSPersistentStoreDescription, NSNotificationCenter, NSString, HMCContext, NSArray, NSPersistentStoreCoordinator, HMDCoreDataCloudKitSetupActivityLogEvent, NSPersistentStore, NSUserDefaults, NSObject, NSSet, NSManagedObjectModel, NSPersistentCloudKitContainer, HMFPromise, NSUUID, NSURL, NSMapTable, HMFFuture, NSHashTable;
+@protocol HMDFeaturesDataSource, OS_os_log, OS_dispatch_queue;
+
+@interface HMDCoreData : HMFObject <HMFTimerDelegate, HMFLogging> {
+    NSObject<OS_os_log> *_logger;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    unsigned long long _setupSignpostID;
+    BOOL _firstCloudKitImportComplete;
+    BOOL _usingLiveCloudKit;
+    BOOL _firstSetupEvent;
+    BOOL _firstSetupActivity;
+    NSPersistentStore *_workingStore;
+    NSPersistentStore *_cloudPrivateStore;
+    NSPersistentStore *_cloudSharedStore;
+    NSPersistentStore *_localStore;
+    NSHashTable *_listeners;
+    NSMapTable *_contexts;
+    HMFPromise *_firstCloudKitImportPromise;
+    NSUserDefaults *_userDefaults;
+    double _startTime;
+    NSObject<OS_dispatch_queue> *_queue;
+    HMFTimer *_activityTimedOutTimer;
+    NSUUID *_activityIdentifier;
+    HMDCoreDataCloudKitSetupActivityLogEvent *_activityLogEvent;
+}
+
+@property (class, readonly, nonatomic) NSURL *managedObjectModelURL;
+@property (class, readonly, copy, nonatomic) NSPersistentStoreDescription *cloudPrivateStoreDescription;
+@property (class, readonly, copy, nonatomic) NSPersistentStoreDescription *cloudSharedStoreDescription;
+@property (class, readonly, copy, nonatomic) NSPersistentStoreDescription *localStoreDescription;
+@property (class, readonly, copy, nonatomic) NSPersistentStoreDescription *workingStoreDescription;
+@property (class, readonly, copy, nonatomic) NSArray *defaultPersistentStoreDescriptions;
+@property (class, readonly, copy, nonatomic) NSArray *entitiesExcludedFromWorkingStoreHistory;
+@property (class, readonly, nonatomic) id<HMDFeaturesDataSource> featuresDataSource;
+@property (class, readonly, nonatomic) BOOL isUsingProductionObjectModel;
+@property (class, readonly, nonatomic) NSURL *managedObjectModelURL;
+@property (class, readonly, copy, nonatomic) NSPersistentStoreDescription *cloudPrivateStoreDescription;
+@property (class, readonly, copy, nonatomic) NSPersistentStoreDescription *cloudSharedStoreDescription;
+@property (class, readonly, copy, nonatomic) NSPersistentStoreDescription *localStoreDescription;
+@property (class, readonly, copy, nonatomic) NSPersistentStoreDescription *workingStoreDescription;
+@property (class, readonly, copy, nonatomic) NSArray *defaultPersistentStoreDescriptions;
+@property (class, readonly, copy, nonatomic) NSArray *entitiesExcludedFromWorkingStoreHistory;
+@property (class, readonly, nonatomic) id<HMDFeaturesDataSource> featuresDataSource;
+@property (class, readonly, nonatomic) BOOL isUsingProductionObjectModel;
+@property (class, readonly, nonatomic) HMDCoreData *sharedInstance;
+@property (class, readonly, nonatomic) NSManagedObjectModel *managedObjectModel;
+
+@property (readonly, copy, nonatomic) NSSet *allContexts;
+@property (readonly, nonatomic) NSNotificationCenter *notificationCenter;
+@property (readonly, nonatomic) HMFFuture *firstCloudKitImportFuture;
+@property (readonly, copy, nonatomic) NSSet *allContexts;
+@property (readonly, nonatomic) NSNotificationCenter *notificationCenter;
+@property (readonly, nonatomic) HMFFuture *firstCloudKitImportFuture;
+@property (readonly, nonatomic) NSPersistentCloudKitContainer *container;
+@property (readonly, nonatomic) NSPersistentStoreCoordinator *coordinator;
+@property (readonly, nonatomic) NSPersistentStore *workingStore;
+@property (readonly, nonatomic) NSPersistentStore *cloudPrivateStore;
+@property (readonly, nonatomic) NSPersistentStore *cloudSharedStore;
+@property (readonly, nonatomic) NSPersistentStore *localStore;
+@property (readonly, nonatomic) HMCContext *contextWithRootPartition;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)logCategory;
++ (void)cleanUpSharedInstance;
++ (id)createWithPersistentStoreDescriptions:(id)a0;
++ (id)createWithPersistentStoreDescriptions:(id)a0 notificationCenter:(id)a1 userDefaults:(id)a2;
++ (id)getPersistentCloudKitContainerOptionsForStore:(id)a0 userDefaults:(id)a1;
++ (BOOL)isDatabaseCorruptedFromError:(id)a0;
++ (BOOL)isDiskFullFromError:(id)a0;
++ (id)sharedInstanceWithoutLiveCloudKit;
++ (id)storeNameForConfiguration:(id)a0;
++ (id)userInitiatedCKOperationConfiguration;
++ (id)userInitiatedVoucherWithLabel:(id)a0 forEventsOfType:(long long)a1 affectingObjectsMatching:(id)a2;
+
+- (void).cxx_destruct;
+- (void)timerDidFire:(id)a0;
+- (BOOL)_shouldPruneWorkingStoreHistory;
+- (void)_handleChangeNotification:(id)a0;
+- (void)_handleDidResetSyncNotification:(id)a0;
+- (void)_handlePersistentCloudKitContainerActivityChangedNotification:(id)a0;
+- (void)_handlePersistentCloudKitContainerEventChangedNotification:(id)a0;
+- (void)_handleWillResetSyncNotification:(id)a0;
+- (BOOL)_pruneStoreHistoryWhenHistoryPercentageOfStoreIsGreaterThan:(long long)a0 storeType:(unsigned long long)a1;
+- (BOOL)_shouldPruneCloudStoreHistory;
+- (void)addNotificationListener:(id)a0;
+- (void)applyInitialImportVoucherIfNeeded;
+- (void)applyVoucherForModel:(id)a0 withModelID:(id)a1 eventType:(long long)a2 storeType:(unsigned long long)a3;
+- (id)contextWithHomeUUID:(id)a0;
+- (id)dumpCloudKitConfiguration:(BOOL)a0 localConfiguration:(BOOL)a1 workingConfiguration:(BOOL)a2 includeFakeModels:(BOOL)a3 context:(id)a4 error:(id *)a5;
+- (id)dumpConfiguration:(id)a0 includeFakeModels:(BOOL)a1 context:(id)a2 error:(id *)a3;
+- (id)initWithCloudKitContainer:(id)a0 notificationCenter:(id)a1 userDefaults:(id)a2;
+- (id)initWithPersistentStoreDescriptions:(id)a0 notificationCenter:(id)a1 userDefaults:(id)a2;
+- (BOOL)isRelatedContext:(id)a0;
+- (id)newManagedObjectContext;
+- (void)removeNotificationListener:(id)a0;
+- (void)startLoadingStores;
+- (void)startWatchingManagedObjectChanges;
+- (void)stopWatchingManagedObjectChanges;
+
+@end

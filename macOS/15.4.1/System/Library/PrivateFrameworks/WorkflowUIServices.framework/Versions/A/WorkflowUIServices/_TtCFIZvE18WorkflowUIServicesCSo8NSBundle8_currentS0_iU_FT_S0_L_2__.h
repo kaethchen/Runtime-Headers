@@ -1,0 +1,3 @@
+@interface _TtCFIZvE18WorkflowUIServicesCSo8NSBundle8_currentS0_iU_FT_S0_L_2__ : _TtCs12_SwiftObject
+
+@end

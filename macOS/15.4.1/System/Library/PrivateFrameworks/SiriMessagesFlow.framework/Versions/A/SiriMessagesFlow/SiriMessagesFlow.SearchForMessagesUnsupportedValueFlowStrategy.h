@@ -1,0 +1,3 @@
+@interface SiriMessagesFlow.SearchForMessagesUnsupportedValueFlowStrategy : SiriMessagesFlow.SearchForMessagesBaseFlowStrategy
+
+@end

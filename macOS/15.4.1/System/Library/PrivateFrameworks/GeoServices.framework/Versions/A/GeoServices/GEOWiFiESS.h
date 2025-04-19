@@ -1,0 +1,94 @@
+@class NSString, NSMutableArray, PBDataReader;
+
+@interface GEOWiFiESS : PBCodable <NSCopying> {
+    PBDataReader *_reader;
+    struct { int *list; unsigned long long count; unsigned long long size; } _attributes;
+    struct { int *list; unsigned long long count; unsigned long long size; } _authTraits;
+    NSMutableArray *_bss;
+    NSString *_identifier;
+    NSString *_name;
+    NSMutableArray *_ownerIdentifiers;
+    NSMutableArray *_qualities;
+    long long _uniqueIdentifier;
+    unsigned int _readerMarkPos;
+    unsigned int _readerMarkLength;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _readerLock;
+    int _networkType;
+    int _venueGroup;
+    unsigned int _venueType;
+    struct { unsigned char has_uniqueIdentifier : 1; unsigned char has_networkType : 1; unsigned char has_venueGroup : 1; unsigned char has_venueType : 1; unsigned char read_attributes : 1; unsigned char read_authTraits : 1; unsigned char read_bss : 1; unsigned char read_identifier : 1; unsigned char read_name : 1; unsigned char read_ownerIdentifiers : 1; unsigned char read_qualities : 1; unsigned char wrote_anyField : 1; } _flags;
+}
+
+@property (readonly, nonatomic) BOOL hasIdentifier;
+@property (retain, nonatomic) NSString *identifier;
+@property (retain, nonatomic) NSMutableArray *bss;
+@property (readonly, nonatomic) BOOL hasName;
+@property (retain, nonatomic) NSString *name;
+@property (readonly, nonatomic) unsigned long long authTraitsCount;
+@property (readonly, nonatomic) int *authTraits;
+@property (retain, nonatomic) NSMutableArray *qualities;
+@property (readonly, nonatomic) unsigned long long attributesCount;
+@property (readonly, nonatomic) int *attributes;
+@property (nonatomic) BOOL hasUniqueIdentifier;
+@property (nonatomic) long long uniqueIdentifier;
+@property (retain, nonatomic) NSMutableArray *ownerIdentifiers;
+@property (nonatomic) BOOL hasNetworkType;
+@property (nonatomic) int networkType;
+@property (nonatomic) BOOL hasVenueGroup;
+@property (nonatomic) int venueGroup;
+@property (nonatomic) BOOL hasVenueType;
+@property (nonatomic) unsigned int venueType;
+
++ (Class)bssType;
++ (BOOL)isValid:(id)a0;
++ (Class)ownerIdentifierType;
++ (Class)qualitiesType;
+
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (id)init;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithData:(id)a0;
+- (id)initWithDictionary:(id)a0;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (int)StringAsAttributes:(id)a0;
+- (void)clearAttributes;
+- (int)StringAsAuthTraits:(id)a0;
+- (int)StringAsNetworkType:(id)a0;
+- (int)StringAsVenueGroup:(id)a0;
+- (void)addBss:(id)a0;
+- (void)clearAuthTraits;
+- (void)addAttributes:(int)a0;
+- (void)addAuthTraits:(int)a0;
+- (void)addOwnerIdentifier:(id)a0;
+- (void)addQualities:(id)a0;
+- (id)attributesAsString:(int)a0;
+- (int)attributesAtIndex:(unsigned long long)a0;
+- (id)authTraitsAsString:(int)a0;
+- (int)authTraitsAtIndex:(unsigned long long)a0;
+- (id)bssAtIndex:(unsigned long long)a0;
+- (unsigned long long)bssCount;
+- (void)clearBss;
+- (void)clearOwnerIdentifiers;
+- (void)clearQualities;
+- (BOOL)hasGreenTeaWithValue:(BOOL)a0;
+- (id)initWithJSON:(id)a0;
+- (id)jsonRepresentation;
+- (id)networkTypeAsString:(int)a0;
+- (id)ownerIdentifierAtIndex:(unsigned long long)a0;
+- (unsigned long long)ownerIdentifiersCount;
+- (id)qualitiesAtIndex:(unsigned long long)a0;
+- (unsigned long long)qualitiesCount;
+- (void)readAll:(BOOL)a0;
+- (void)setAttributes:(int *)a0 count:(unsigned long long)a1;
+- (void)setAuthTraits:(int *)a0 count:(unsigned long long)a1;
+- (id)venueGroupAsString:(int)a0;
+
+@end

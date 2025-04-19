@@ -1,0 +1,3 @@
+@interface PKFinishTrimming : PKCollectionSpecialization
+
+@end

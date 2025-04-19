@@ -1,0 +1,3 @@
+@interface APOdmlAssetManagersForPlacement : NSObject
+
+@end

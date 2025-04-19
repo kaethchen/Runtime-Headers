@@ -1,0 +1,3 @@
+@interface GenerativeExperiencesRuntime.SystemRetrievalInProcessHandler : _TtCs12_SwiftObject
+
+@end

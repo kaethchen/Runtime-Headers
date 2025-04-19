@@ -1,0 +1,76 @@
+@class _ATXAppInfoManager, BMBiomeScheduler, BPSSink, ATXInternalAppRegistrationNotification, NSObject, _ATXDuetHelper, ATXSafariIntentEventQualityFilter, PETScalarEventTracker, ATXUserActivityStream, PETDistributionEventTracker, _ATXAppLaunchSequenceManager, _ATXDataStore, ATXIntentStream, NSUserDefaults, _ATXAppLaunchHistogramManager, _PASSimpleCoalescingTimer;
+@protocol OS_dispatch_queue, _CDLocalContext, ATXPredictionContextBuilderProtocol;
+
+@interface ATXAppIntentMonitor : NSObject {
+    _ATXAppLaunchHistogramManager *_appLaunchHistogramManager;
+    _ATXDuetHelper *_duetHelper;
+    _ATXAppInfoManager *_appInfoManager;
+    _ATXAppLaunchSequenceManager *_appActionLaunchSequenceManager;
+    _ATXDataStore *_dataStore;
+    ATXUserActivityStream *_activityStream;
+    ATXIntentStream *_intentStream;
+    id<ATXPredictionContextBuilderProtocol> _predictionContextBuilder;
+    NSObject<OS_dispatch_queue> *_appIntentHistoryQueue;
+    id<_CDLocalContext> _context;
+    NSObject<OS_dispatch_queue> *_donationQueue;
+    NSObject<OS_dispatch_queue> *_donationQueueLinkActions;
+    unsigned long long deletionHandlerToken;
+    PETScalarEventTracker *_donatedActionsTracker;
+    PETDistributionEventTracker *_donatedActionInCacheTracker;
+    ATXInternalAppRegistrationNotification *_appRegistrationListener;
+    _PASSimpleCoalescingTimer *_coalescedIntentOrActivityDeletion;
+    NSUserDefaults *_userDefaults;
+    ATXSafariIntentEventQualityFilter *_safariIntentQualityFilter;
+    BMBiomeScheduler *_intentScheduler;
+    BPSSink *_intentSink;
+    BMBiomeScheduler *_linkActionScheduler;
+    BPSSink *_linkActionSink;
+    BMBiomeScheduler *_nsuaScheduler;
+    BPSSink *_nsuaSink;
+}
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)start;
+- (void)stop;
+- (id)_appActionLaunchSequenceManager;
+- (void)_updateActionPredictionHistogramsForIntentEvent:(id)a0 weight:(float)a1 context:(id)a2;
+- (void)_displayDonationOnLockscreenWithAction:(id)a0;
+- (void)_handleCompletedIntentForForSourceItemID:(id)a0 atxIntentSource:(long long)a1;
+- (void)_handleDonationImmediatelyForBundleId:(id)a0 sourceItemID:(id)a1 completedSuccessfully:(BOOL)a2 isDonatedBySiri:(BOOL)a3 isAllowedDaemonDonationBundleId:(BOOL)a4;
+- (BOOL)_isAllowedDaemonDonationBundleId:(id)a0;
+- (void)_listenToActivityStream;
+- (void)_listenToIntentStream;
+- (void)_listenToLinkActionStream;
+- (void)_logIntentPredictionsForIntentEvent:(id)a0 context:(id)a1;
+- (void)_respondToIntentStreamChangingWithIntent:(id)a0;
+- (void)_respondToLinkActionStreamChangingWithInvocation:(id)a0;
+- (void)_syncForTests;
+- (void)_updateActionPredictionHistogramsRemovingActionUUIDs:(id)a0;
+- (id)adjustedEndDateForOneSecondFlooringWithAppSessionEndDate:(id)a0;
+- (id)adjustedEndDateForTombstoneStreamQuery:(id)a0;
+- (id)adjustedStartDateForOneSecondFlooringWithAppSessionStartDate:(id)a0;
+- (id)adjustedStartDateForTombstoneStreamQuery:(id)a0;
+- (void)coalescedHandleIntentOrActivityDeletion;
+- (id)deletionHighWaterMarkForDefaultsKey:(id)a0 currentDate:(id)a1;
+- (id)fetchIntentEventsForAppSessionWithBundleId:(id)a0 startDate:(id)a1 endDate:(id)a2;
+- (id)fetchNSUAEventsForAppSessionWithBundleId:(id)a0 startDate:(id)a1 endDate:(id)a2;
+- (void)handleAppRegistrationForBundleIds:(id)a0;
+- (void)handleIntentOrActivityDeletion;
+- (id)initWithAppLaunchHistogramManager:(id)a0 appInfoManager:(id)a1 appActionLaunchSequenceManager:(id)a2 dataStore:(id)a3;
+- (id)initWithAppLaunchHistogramManager:(id)a0 appInfoManager:(id)a1 appActionLaunchSequenceManager:(id)a2 duetHelper:(id)a3 intentStream:(id)a4 activityStream:(id)a5 dataStore:(id)a6 predictionContextBuilder:(id)a7 userDefaults:(id)a8 safariIntentFilter:(id)a9;
+- (void)processIntentDonationsDuringAppSessionForBundleId:(id)a0 startDate:(id)a1 endDate:(id)a2 globals:(id)a3;
+- (void)processNSUADonationsDuringAppSessionForBundleId:(id)a0 startDate:(id)a1 endDate:(id)a2 globals:(id)a3;
+- (void)removeDonationFromLockscreenForAction:(id)a0;
+- (BOOL)sessionStartedBeforeDonationForStartDate:(id)a0 latestDonationDate:(id)a1;
+- (void)setDeletionHighWaterMark:(id)a0 defaultsKey:(id)a1;
+- (BOOL)shouldAcceptMessageDonation:(id)a0;
+- (BOOL)shouldProcessIntentDonationsForSessionStartDate:(id)a0;
+- (BOOL)shouldProcessNSUADonationsForSessionStartDate:(id)a0;
+- (void)updateActionPredictionPipelineForAppSession:(id)a0 startDate:(id)a1 endDate:(id)a2;
+- (void)updateActionPredictionPipelineForIntentEvent:(id)a0 weight:(float)a1 appSessionStartDate:(id)a2 appSessionEndDate:(id)a3;
+- (void)updateActionPredictionPipelineForIntentEvent:(id)a0 weight:(float)a1 appSessionStartDate:(id)a2 appSessionEndDate:(id)a3 context:(id)a4;
+- (void)updateActionPredictionSlotResolutionForIntentEvent:(id)a0 weight:(float)a1 prevLocationUUID:(id)a2 locationUUID:(id)a3 currentMotionType:(long long)a4 appSessionStartDate:(id)a5 appSessionEndDate:(id)a6 geohash:(long long)a7 coarseGeohash:(long long)a8;
+
+@end

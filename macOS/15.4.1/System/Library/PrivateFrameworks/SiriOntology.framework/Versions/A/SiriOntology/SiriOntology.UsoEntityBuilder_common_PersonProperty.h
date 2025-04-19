@@ -1,0 +1,3 @@
+@interface SiriOntology.UsoEntityBuilder_common_PersonProperty : SiriOntology.UsoEntityBuilderGlobalArgs
+
+@end

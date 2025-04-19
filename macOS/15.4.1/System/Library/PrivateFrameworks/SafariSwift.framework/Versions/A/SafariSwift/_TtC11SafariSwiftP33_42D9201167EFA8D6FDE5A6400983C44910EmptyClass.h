@@ -1,0 +1,3 @@
+@interface _TtC11SafariSwiftP33_42D9201167EFA8D6FDE5A6400983C44910EmptyClass : _TtCs12_SwiftObject
+
+@end

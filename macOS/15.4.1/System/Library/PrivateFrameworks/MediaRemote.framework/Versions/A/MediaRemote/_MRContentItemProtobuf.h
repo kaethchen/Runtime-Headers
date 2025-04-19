@@ -1,0 +1,92 @@
+@class NSString, NSData, _MRContentItemMetadataProtobuf, NSMutableArray, _MRLyricsItemProtobuf;
+
+@interface _MRContentItemProtobuf : PBCodable <NSCopying> {
+    struct { unsigned char artworkDataHeight : 1; unsigned char artworkDataWidth : 1; } _has;
+}
+
+@property (readonly, nonatomic) BOOL hasIdentifier;
+@property (retain, nonatomic) NSString *identifier;
+@property (readonly, nonatomic) BOOL hasMetadata;
+@property (retain, nonatomic) _MRContentItemMetadataProtobuf *metadata;
+@property (readonly, nonatomic) BOOL hasArtworkData;
+@property (retain, nonatomic) NSData *artworkData;
+@property (readonly, nonatomic) BOOL hasInfo;
+@property (retain, nonatomic) NSString *info;
+@property (retain, nonatomic) NSMutableArray *availableLanguageOptions;
+@property (retain, nonatomic) NSMutableArray *currentLanguageOptions;
+@property (readonly, nonatomic) BOOL hasLyrics;
+@property (retain, nonatomic) _MRLyricsItemProtobuf *lyrics;
+@property (retain, nonatomic) NSMutableArray *sections;
+@property (readonly, nonatomic) BOOL hasParentIdentifier;
+@property (retain, nonatomic) NSString *parentIdentifier;
+@property (readonly, nonatomic) BOOL hasAncestorIdentifier;
+@property (retain, nonatomic) NSString *ancestorIdentifier;
+@property (readonly, nonatomic) BOOL hasQueueIdentifier;
+@property (retain, nonatomic) NSString *queueIdentifier;
+@property (readonly, nonatomic) BOOL hasRequestIdentifier;
+@property (retain, nonatomic) NSString *requestIdentifier;
+@property (nonatomic) BOOL hasArtworkDataWidth;
+@property (nonatomic) int artworkDataWidth;
+@property (nonatomic) BOOL hasArtworkDataHeight;
+@property (nonatomic) int artworkDataHeight;
+@property (readonly, nonatomic) BOOL hasAssociatedParticipantIdentifier;
+@property (retain, nonatomic) NSString *associatedParticipantIdentifier;
+@property (retain, nonatomic) NSMutableArray *availableArtworkFormats;
+@property (retain, nonatomic) NSMutableArray *availableRemoteArtworkFormats;
+@property (retain, nonatomic) NSMutableArray *dataArtworks;
+@property (retain, nonatomic) NSMutableArray *remoteArtworks;
+@property (retain, nonatomic) NSMutableArray *transcriptAlignments;
+
++ (Class)availableArtworkFormatsType;
++ (Class)availableLanguageOptionsType;
++ (Class)availableRemoteArtworkFormatsType;
++ (Class)currentLanguageOptionsType;
++ (Class)dataArtworksType;
++ (Class)remoteArtworksType;
++ (Class)sectionsType;
++ (Class)transcriptAlignmentsType;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)dictionaryRepresentation;
+- (void)copyTo:(id)a0;
+- (void)mergeFrom:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (void)clearSections;
+- (unsigned long long)sectionsCount;
+- (id)availableArtworkFormatsAtIndex:(unsigned long long)a0;
+- (void)addAvailableArtworkFormats:(id)a0;
+- (void)addAvailableLanguageOptions:(id)a0;
+- (void)addAvailableRemoteArtworkFormats:(id)a0;
+- (void)addCurrentLanguageOptions:(id)a0;
+- (void)addDataArtworks:(id)a0;
+- (void)addRemoteArtworks:(id)a0;
+- (void)addSections:(id)a0;
+- (void)addTranscriptAlignments:(id)a0;
+- (unsigned long long)availableArtworkFormatsCount;
+- (id)availableLanguageOptionsAtIndex:(unsigned long long)a0;
+- (unsigned long long)availableLanguageOptionsCount;
+- (id)availableRemoteArtworkFormatsAtIndex:(unsigned long long)a0;
+- (unsigned long long)availableRemoteArtworkFormatsCount;
+- (void)clearAvailableArtworkFormats;
+- (void)clearAvailableLanguageOptions;
+- (void)clearAvailableRemoteArtworkFormats;
+- (void)clearCurrentLanguageOptions;
+- (void)clearDataArtworks;
+- (void)clearRemoteArtworks;
+- (void)clearTranscriptAlignments;
+- (id)currentLanguageOptionsAtIndex:(unsigned long long)a0;
+- (unsigned long long)currentLanguageOptionsCount;
+- (id)dataArtworksAtIndex:(unsigned long long)a0;
+- (unsigned long long)dataArtworksCount;
+- (id)remoteArtworksAtIndex:(unsigned long long)a0;
+- (unsigned long long)remoteArtworksCount;
+- (id)sectionsAtIndex:(unsigned long long)a0;
+- (id)transcriptAlignmentsAtIndex:(unsigned long long)a0;
+- (unsigned long long)transcriptAlignmentsCount;
+
+@end

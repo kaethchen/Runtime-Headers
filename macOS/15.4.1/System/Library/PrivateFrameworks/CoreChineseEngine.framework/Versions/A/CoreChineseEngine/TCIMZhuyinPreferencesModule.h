@@ -1,0 +1,3 @@
+@interface TCIMZhuyinPreferencesModule : CIMPreferencesModule
+
+@end

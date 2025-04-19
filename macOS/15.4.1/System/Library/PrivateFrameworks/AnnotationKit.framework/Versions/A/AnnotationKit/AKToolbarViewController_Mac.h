@@ -1,0 +1,86 @@
+@class NSView, NSString, NSMenu, AKToolbarSeparatorItem_Mac, AKTextAttributesViewController, AKLineStylesViewController_Mac, AKToolbarColorWellItem_Mac, AKToolbarButtonItem_Mac, NSMutableSet, NSPopover, NSWindow;
+
+@interface AKToolbarViewController_Mac : AKToolbarViewController <NSMenuItemValidation, NSPopoverDelegate> {
+    NSMenu *_signaturesMenu;
+    NSWindow *_signaturesCreationWindow;
+    AKToolbarSeparatorItem_Mac *_sidecarLeftSeparator;
+    AKToolbarSeparatorItem_Mac *_sidecarRightSeparator;
+}
+
+@property (retain) AKToolbarButtonItem_Mac *shapesButton;
+@property (retain) AKToolbarButtonItem_Mac *textToolButton;
+@property (retain) AKToolbarButtonItem_Mac *lineStyleButton;
+@property (retain) AKToolbarButtonItem_Mac *textAttributesButton;
+@property (retain) AKToolbarButtonItem_Mac *signatureButton;
+@property (retain) AKToolbarButtonItem_Mac *intelligentSketchButton;
+@property (retain) AKToolbarButtonItem_Mac *variableSketchButton;
+@property (retain) AKToolbarButtonItem_Mac *inkButton;
+@property (retain) AKToolbarButtonItem_Mac *simpleHighlightButton;
+@property (retain) AKToolbarButtonItem_Mac *simpleRotateLeftButton;
+@property (retain) AKToolbarButtonItem_Mac *simpleRotateRightButton;
+@property (retain) AKToolbarButtonItem_Mac *rotateButton;
+@property (retain) AKToolbarButtonItem_Mac *cropButton;
+@property (retain) AKToolbarButtonItem_Mac *imageDescriptionButton;
+@property (retain) AKToolbarButtonItem_Mac *formFillButton;
+@property (retain) AKToolbarButtonItem_Mac *sidecarButton;
+@property (retain) AKToolbarColorWellItem_Mac *strokeColorWell;
+@property (retain) AKToolbarColorWellItem_Mac *fillColorWell;
+@property (retain) NSMutableSet *noteButtons;
+@property (retain) NSMutableSet *highlightControls;
+@property (retain) NSPopover *shapesPopover;
+@property (retain) NSPopover *signaturesPopover;
+@property (retain) NSPopover *textAttributesPopover;
+@property (retain) NSPopover *lineStylesPopover;
+@property (retain) NSPopover *highlightsPopover;
+@property (retain) NSPopover *imageDescriptionPopover;
+@property (retain) AKTextAttributesViewController *textAttributesViewController;
+@property (retain) AKLineStylesViewController_Mac *lineStylesViewController;
+@property (retain) id eventMonitor;
+@property (readonly) NSView *applyCropButton;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)teardown;
+- (id)initWithController:(id)a0;
+- (void)loadView;
+- (void)popoverDidClose:(id)a0;
+- (BOOL)validateMenuItem:(id)a0;
+- (void)viewDidLoad;
+- (id)_toolbarButtonItemOfType:(unsigned long long)a0 style:(unsigned long long)a1;
+- (BOOL)isPresentingPopover;
+- (void)intelligentSketchButtonClicked:(id)a0;
+- (void)revalidateItems;
+- (void)setStrokeColorUIDisplayToColor:(id)a0;
+- (void)_buildLineStylesPopoverIfNecessary;
+- (void)_buildTextAttributesPopoverIfNecessary;
+- (void)_configureToolbarItemItem:(id)a0 forToolbarButtonItemType:(unsigned long long)a1;
+- (void)_createDefaultToolbarItems;
+- (id)_newToolbarSeparator;
+- (void)_rebuildSignaturesMenu:(id)a0;
+- (void)_refreshImageDescriptionButton;
+- (void)_showSignaturesCreationWindow;
+- (void)_signatureMenuItemSelected:(id)a0;
+- (id)_signatures;
+- (void)applyCropButtonClicked:(id)a0;
+- (void)doodleButtonClicked:(id)a0;
+- (void)forwardToActionControllerFrom:(id)a0;
+- (void)imageDescriptionButtonClicked:(id)a0;
+- (void)inkButtonClicked:(id)a0;
+- (void)lineStyleButtonClicked:(id)a0;
+- (void)setFillColorUIDisplayToColor:(id)a0;
+- (void)shapeButtonClicked:(id)a0;
+- (void)sidecarButtonPressed:(id)a0;
+- (void)sidecarConnectionUpdated:(id)a0;
+- (void)sidecarDeviceSelected:(id)a0;
+- (void)sidecarDevicesUpdated:(id)a0;
+- (void)signatureButtonClicked:(id)a0;
+- (id)signaturesMenu;
+- (void)textAttributesButtonClicked:(id)a0;
+- (void)variableSketchButtonClicked:(id)a0;
+- (void)windowWillCloseNotification:(id)a0;
+
+@end

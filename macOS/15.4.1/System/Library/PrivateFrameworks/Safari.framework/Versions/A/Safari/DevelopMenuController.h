@@ -1,0 +1,96 @@
+@class OpenPageWithSimulatorMenuController, NSString, NSArray, NSMenu, NSMenuItem, BrowserDiagnosticLoggingDelegate, NSWindowController, NSMutableSet;
+
+@interface DevelopMenuController : NSObject <RWIPairableDelegate, Safari.RWIInspectorActionDelegate, RWITargetDelegate, NSMenuDelegate> {
+    NSMenuItem *_developMenuItem;
+    NSMenuItem *_highlightedRemoteWebInspectorMenuItem;
+    NSMenu *_userAgentMenu;
+    NSMenu *_openWithMenu;
+    NSMenu *_serviceWorkersMenu;
+    NSMenu *_webExtensionBackgroundPagesMenu;
+    NSMenuItem *_getSafariTechnologyPreviewMenuItem;
+    BOOL _developMenuOpen;
+    NSArray *_userAgents;
+    struct optional<unsigned long long> { union { char __null_state_; unsigned long long __val_; } ; BOOL __engaged_; } _notificationHandlerID;
+    BrowserDiagnosticLoggingDelegate *_sharedInspectorDiagnosticLoggingDelegate;
+    NSMutableSet *_uuidsOfWebExtensionBackgroundPagesToInspect;
+    OpenPageWithSimulatorMenuController *_openPageWithSimulatorMenuController;
+    NSWindowController *_webInspectorGadgetWindowController;
+}
+
+@property (readonly, nonatomic, getter=isMenuInstalled) BOOL menuInstalled;
+@property (readonly) NSArray *userAgents;
+@property (readonly) NSString *iPhoneUserAgent;
+@property (readonly) NSString *iPadUserAgent;
+@property (readonly) NSString *iPadMiniUserAgent;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedController;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id).cxx_construct;
+- (BOOL)updateMenu:(id)a0 withEvent:(id)a1 withFlags:(unsigned long long)a2;
+- (void)menu:(id)a0 willHighlightItem:(id)a1;
+- (void)menuDidClose:(id)a0;
+- (BOOL)menuHasKeyEquivalent:(id)a0 forEvent:(id)a1 target:(id *)a2 action:(SEL *)a3;
+- (void)menuWillOpen:(id)a0;
+- (void)_setDeveloperExtrasEnabled:(BOOL)a0;
+- (id)_extensionForDebuggableURLHost:(id)a0;
+- (void)_actuallyInstallMenu;
+- (BOOL)_areAnyExtensionsFromNamedProfilesLoaded;
+- (id)_autoAttachPreferenceKeyForTarget:(id)a0;
+- (BOOL)_autoAttachSettingForTarget:(id)a0;
+- (id)_autoPausePreferenceKeyForTarget:(id)a0;
+- (BOOL)_autoPauseSettingForTarget:(id)a0;
+- (void)_configureAutomaticInspectionForTarget:(id)a0;
+- (id)_createMenuItemForTarget:(id)a0;
+- (id)_generateRemoteInspectorTargetMenuItems;
+- (void)_handleRWINotification:(id)a0;
+- (void)_indicate:(id)a0 enabled:(BOOL)a1;
+- (void)_insertMenuItem:(id)a0 forTarget:(id)a1;
+- (void)_invalidateAllDeveloperModeExtensions;
+- (BOOL)_isRemoteWebInspectorMenuItem:(id)a0;
+- (id)_menuItemForDebuggable:(id)a0 title:(id)a1;
+- (id)_menuItemForTarget:(id)a0;
+- (id)_menuItemForWebExtensionWithUnloadedBackgroundPage:(id)a0;
+- (id)_menuTitleForWebExtensionDebuggable:(id)a0 webExtension:(id)a1;
+- (id)_noServiceWorkersMenuItem;
+- (id)_noWebExtensionBackgroundPagesMenuItem;
+- (void)_pairWithRWIPairable:(id)a0;
+- (void)_populateApplicationsInSubmenu:(id)a0 forTarget:(id)a1;
+- (void)_populateSettingsInSubmenu:(id)a0 forTarget:(id)a1;
+- (id)_profileDisplayTitleFromMenuItem:(id)a0;
+- (void)_registerForRWINotifications;
+- (void)_removeMenuForTarget:(id)a0;
+- (void)_requestAllDeveloperModeExtensions:(id /* block */)a0;
+- (id)_serviceWorkerDisplayNameForExtensionDebuggable:(id)a0;
+- (BOOL)_toggleAttachSettingForTarget:(id)a0;
+- (void)_toggleAutoAttach:(id)a0;
+- (void)_toggleAutoPause:(id)a0;
+- (BOOL)_togglePauseSettingForTarget:(id)a0;
+- (void)_toggleWirelessDebugging:(id)a0;
+- (id)_unloadedBackgroundPageItems;
+- (void)_unpairFromDevice:(id)a0;
+- (void)_unregisterForRWINotifications;
+- (void)_updateMenuForTarget:(id)a0;
+- (void)_updateMenuItem:(id)a0 forTarget:(id)a1;
+- (void)_updateServiceWorkerMenuItems;
+- (void)_updateWebExtensionBackgroundPagesMenuMenuItems;
+- (id /* block */)_webExtensionBackgroundPageMenuItemsComparator;
+- (id)_webExtensionFromMenuItem:(id)a0;
+- (void)application:(id)a0 didAddDebuggable:(id)a1;
+- (void)application:(id)a0 didRemoveDebuggable:(id)a1;
+- (void)inspectDebuggable:(id)a0;
+- (void)inspectUnloadedBackgroundPage:(id)a0;
+- (void)installMenuWithCompletionHandler:(id /* block */)a0;
+- (void)pairable:(id)a0 requestedPin:(id /* block */)a1 withReason:(long long)a2 options:(id)a3;
+- (void)pairable:(id)a0 transitionedToState:(long long)a1;
+- (void)removeMenu;
+- (void)showInspectorForDebuggable:(id)a0;
+- (void)target:(id)a0 decidePolicyForAutomaticInspectionCandidate:(id)a1 decisionHandler:(id /* block */)a2;
+- (id)webInspectorGadgetWindowController;
+
+@end

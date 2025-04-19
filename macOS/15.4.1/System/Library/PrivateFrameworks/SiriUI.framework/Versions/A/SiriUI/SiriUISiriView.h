@@ -1,0 +1,80 @@
+@class SiriUISiriStatusView, SiriUIConfiguration, NSString, NSView, SiriUIButton, NSLayoutConstraint, NSTrackingArea;
+@protocol SiriUISiriViewDelegate;
+
+@interface SiriUISiriView : NSView <SiriUISiriStatusViewDelegate, AFUISiriRemoteViewHosting> {
+    BOOL _didBeginDismissalAnimation;
+    NSTrackingArea *_trackingArea;
+    NSTrackingArea *_closeButtonTrackingArea;
+    BOOL _isMouseHovering;
+    BOOL _isMouseHoveringCloseButton;
+}
+
+@property (weak) NSLayoutConstraint *statusViewBottomConstraint;
+@property (retain, nonatomic) SiriUISiriStatusView *statusView;
+@property (weak) SiriUIButton *reportBugButton;
+@property (retain, nonatomic) SiriUIConfiguration *configuration;
+@property (weak, nonatomic) id<SiriUISiriViewDelegate> delegate;
+@property (nonatomic) BOOL disabled;
+@property (nonatomic) BOOL statusViewHidden;
+@property (nonatomic) BOOL keepStatusViewHidden;
+@property (nonatomic) long long siriSessionState;
+@property (nonatomic) long long mode;
+@property (retain, nonatomic) NSLayoutConstraint *leadingConstraint;
+@property (retain, nonatomic) NSLayoutConstraint *trailingConstraint;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (retain, nonatomic) NSView *remoteContentView;
+
+- (void).cxx_destruct;
+- (void)layout;
+- (id)accessibilityChildren;
+- (void)awakeFromNib;
+- (id)hitTest:(struct CGPoint { double x0; double x1; })a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)mouseEntered:(id)a0;
+- (void)mouseExited:(id)a0;
+- (void)updateTrackingAreas;
+- (void)viewDidMoveToWindow;
+- (void)viewWillMoveToWindow:(id)a0;
+- (BOOL)wantsScrollEventsForSwipeTrackingOnAxis:(long long)a0;
+- (void)audioOutputPowerLevelDidUpdate:(float)a0;
+- (void)siriStatusViewSiriButtonTapped:(id)a0;
+- (void)_animateButtonsHidden:(BOOL)a0;
+- (void)_loadReportBugButtonTemplateImageInBackgroundWithCompletion:(id /* block */)a0;
+- (BOOL)_showsReportBugButton;
+- (void)_updateControlsAppearance;
+- (void)_updateDismissalOffering;
+- (void)animateDismissalForTearDownWithCompletion:(id /* block */)a0;
+- (void)audioInputPowerLevelDidUpdate:(float)a0;
+- (void)clearUserInput;
+- (void)closeButtonTapped:(id)a0;
+- (void)fadeTextAndMoveDown;
+- (void)handleRequestHandlingStatus:(id)a0;
+- (void)reportBugButtonTapped:(id)a0;
+- (void)setBugReportingAvailable:(BOOL)a0;
+- (void)siriDidActivateFromSource:(long long)a0;
+- (void)siriStatusView:(id)a0 didChangeText:(id)a1;
+- (void)siriStatusView:(id)a0 didReceiveTextInput:(id)a1;
+- (void)siriStatusView:(id)a0 requestsDismissalWithOptions:(id)a1;
+- (void)siriStatusViewAudioInputDeviceChanged:(id)a0;
+- (void)siriStatusViewHoldDidBegin:(id)a0;
+- (void)siriStatusViewHoldDidEnd:(id)a0;
+- (void)siriStatusViewIsListening:(BOOL)a0;
+- (void)siriStatusViewReportConcernButtonTapped:(id)a0;
+- (void)siriStatusViewSuggestionsButtonTapped:(id)a0;
+- (void)siriStatusViewTextInputDidClearMarkedText;
+- (void)siriStatusViewTextInputDidInsertAccentVariant;
+- (void)siriStatusViewTextInputDidInsertMarkedText;
+- (void)siriStatusViewTextUpdated:(id)a0;
+- (BOOL)siriStatusViewWantsToSwitchFocus:(id)a0;
+- (BOOL)siriStatusViewWantsToSwitchFocusToResultsView:(id)a0;
+- (void)siriStatusViewWantsTointerruptRequest:(id)a0;
+- (void)siriStatusViewWasClicked:(id)a0;
+- (void)siriWillActivateFromSource:(long long)a0;
+- (double)topEdgePadding;
+- (void)updateCloseButtonTrackingArea;
+- (BOOL)userInputIsEmpty;
+
+@end

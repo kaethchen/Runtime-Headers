@@ -1,0 +1,5 @@
+@interface _TtCE13HomeKitDaemonCSo32HMDHAPAccessoryDefaultDataSourceP33_20CB725DA59D40191565D4397F1C28B022DefaultSwiftDataSource : NSObject <HMDHAPAccessorySwiftDataSource>
+
+- (id)init;
+
+@end

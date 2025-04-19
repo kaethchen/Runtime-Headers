@@ -1,0 +1,3 @@
+@interface VisualTabPickerToolbarButton : RolloverTrackingButton
+
+@end

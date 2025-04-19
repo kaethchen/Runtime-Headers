@@ -1,0 +1,3 @@
+@interface HAECGSample : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC27_SonicKit_MusicKit_PackagesP33_621ACBB81100A2B81D102DB8A698644434SonicKit_MusicKit_Packages_Locator : _TtCs12_SwiftObject
+
+@end

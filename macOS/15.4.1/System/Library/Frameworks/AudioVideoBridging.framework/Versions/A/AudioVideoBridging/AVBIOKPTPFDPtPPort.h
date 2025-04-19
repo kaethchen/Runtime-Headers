@@ -1,0 +1,3 @@
+@interface AVBIOKPTPFDPtPPort : AVBIOKPTPNetworkPort
+
+@end

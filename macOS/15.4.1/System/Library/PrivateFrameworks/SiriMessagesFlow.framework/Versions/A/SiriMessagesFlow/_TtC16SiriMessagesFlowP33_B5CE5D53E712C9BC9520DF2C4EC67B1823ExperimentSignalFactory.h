@@ -1,0 +1,3 @@
+@interface _TtC16SiriMessagesFlowP33_B5CE5D53E712C9BC9520DF2C4EC67B1823ExperimentSignalFactory : _TtCs12_SwiftObject
+
+@end

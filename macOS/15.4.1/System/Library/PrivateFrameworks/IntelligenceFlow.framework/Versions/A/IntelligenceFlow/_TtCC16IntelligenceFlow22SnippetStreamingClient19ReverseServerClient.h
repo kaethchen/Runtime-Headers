@@ -1,0 +1,3 @@
+@interface _TtCC16IntelligenceFlow22SnippetStreamingClient19ReverseServerClient : _TtCs12_SwiftObject
+
+@end

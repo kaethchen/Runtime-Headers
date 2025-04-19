@@ -1,0 +1,3 @@
+@interface AXEHIDGamePadDevice : AXEHIDDevice
+
+@end

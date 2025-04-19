@@ -1,0 +1,3 @@
+@interface JSOCSubclass : NSObject
+
+@end

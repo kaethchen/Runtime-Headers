@@ -1,0 +1,3 @@
+@interface NFHardwareManagerCallbacks : NSObject
+
+@end

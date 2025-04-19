@@ -1,0 +1,3 @@
+@interface CoreEmbeddedSpeechRecognition.CESRAsrReplayCounterfactualABManager : _TtCs12_SwiftObject
+
+@end

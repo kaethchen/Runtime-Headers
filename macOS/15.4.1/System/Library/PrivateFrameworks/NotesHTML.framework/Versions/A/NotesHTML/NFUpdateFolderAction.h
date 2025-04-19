@@ -1,0 +1,3 @@
+@interface NFUpdateFolderAction : NFFolderAction
+
+@end

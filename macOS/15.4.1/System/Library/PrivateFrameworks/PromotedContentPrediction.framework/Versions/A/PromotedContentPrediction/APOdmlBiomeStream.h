@@ -1,0 +1,3 @@
+@interface APOdmlBiomeStream : NSObject
+
+@end

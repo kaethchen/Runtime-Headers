@@ -1,0 +1,3 @@
+@interface VFXGraphController : VFXBehaviorGraph
+
+@end

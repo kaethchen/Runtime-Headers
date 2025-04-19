@@ -1,0 +1,3 @@
+@interface TCIMCangjiePreferencesModule : CIMPreferencesModule
+
+@end

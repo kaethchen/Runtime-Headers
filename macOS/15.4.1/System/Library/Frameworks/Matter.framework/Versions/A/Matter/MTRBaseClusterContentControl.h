@@ -1,0 +1,60 @@
+@interface MTRBaseClusterContentControl : MTRGenericBaseCluster
+
++ (void)readAttributeAcceptedCommandListWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeAttributeListWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeBlockUnratedWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeClusterRevisionWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeEnabledWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeFeatureMapWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeGeneratedCommandListWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeOnDemandRatingThresholdWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeOnDemandRatingsWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeRemainingScreenTimeWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeScheduledContentRatingThresholdWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeScheduledContentRatingsWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeScreenDailyTimeWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
+
+- (void)enableWithCompletion:(id /* block */)a0;
+- (void)updatePINWithParams:(id)a0 completion:(id /* block */)a1;
+- (void)addBonusTimeWithCompletion:(id /* block */)a0;
+- (void)addBonusTimeWithParams:(id)a0 completion:(id /* block */)a1;
+- (void)blockUnratedContentWithCompletion:(id /* block */)a0;
+- (void)blockUnratedContentWithParams:(id)a0 completion:(id /* block */)a1;
+- (void)disableWithCompletion:(id /* block */)a0;
+- (void)disableWithParams:(id)a0 completion:(id /* block */)a1;
+- (void)enableWithParams:(id)a0 completion:(id /* block */)a1;
+- (void)readAttributeAcceptedCommandListWithCompletion:(id /* block */)a0;
+- (void)readAttributeAttributeListWithCompletion:(id /* block */)a0;
+- (void)readAttributeBlockUnratedWithCompletion:(id /* block */)a0;
+- (void)readAttributeClusterRevisionWithCompletion:(id /* block */)a0;
+- (void)readAttributeEnabledWithCompletion:(id /* block */)a0;
+- (void)readAttributeFeatureMapWithCompletion:(id /* block */)a0;
+- (void)readAttributeGeneratedCommandListWithCompletion:(id /* block */)a0;
+- (void)readAttributeOnDemandRatingThresholdWithCompletion:(id /* block */)a0;
+- (void)readAttributeOnDemandRatingsWithCompletion:(id /* block */)a0;
+- (void)readAttributeRemainingScreenTimeWithCompletion:(id /* block */)a0;
+- (void)readAttributeScheduledContentRatingThresholdWithCompletion:(id /* block */)a0;
+- (void)readAttributeScheduledContentRatingsWithCompletion:(id /* block */)a0;
+- (void)readAttributeScreenDailyTimeWithCompletion:(id /* block */)a0;
+- (void)resetPINWithCompletion:(id /* block */)a0;
+- (void)resetPINWithParams:(id)a0 completion:(id /* block */)a1;
+- (void)setOnDemandRatingThresholdWithParams:(id)a0 completion:(id /* block */)a1;
+- (void)setScheduledContentRatingThresholdWithParams:(id)a0 completion:(id /* block */)a1;
+- (void)setScreenDailyTimeWithParams:(id)a0 completion:(id /* block */)a1;
+- (void)subscribeAttributeAcceptedCommandListWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeAttributeListWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeBlockUnratedWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeClusterRevisionWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeEnabledWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeFeatureMapWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeGeneratedCommandListWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeOnDemandRatingThresholdWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeOnDemandRatingsWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeRemainingScreenTimeWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeScheduledContentRatingThresholdWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeScheduledContentRatingsWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeScreenDailyTimeWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)unblockUnratedContentWithCompletion:(id /* block */)a0;
+- (void)unblockUnratedContentWithParams:(id)a0 completion:(id /* block */)a1;
+
+@end

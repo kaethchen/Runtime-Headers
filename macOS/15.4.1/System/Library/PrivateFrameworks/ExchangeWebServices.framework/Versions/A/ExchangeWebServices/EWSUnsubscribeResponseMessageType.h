@@ -1,0 +1,3 @@
+@interface EWSUnsubscribeResponseMessageType : EWSResponseMessageType
+
+@end

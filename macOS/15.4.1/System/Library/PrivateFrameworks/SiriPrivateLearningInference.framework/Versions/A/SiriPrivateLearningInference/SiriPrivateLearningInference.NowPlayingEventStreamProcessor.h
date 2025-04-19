@@ -1,0 +1,3 @@
+@interface SiriPrivateLearningInference.NowPlayingEventStreamProcessor : SiriPrivateLearningInference.AsyncCoreDuetEventStreamProcessor
+
+@end

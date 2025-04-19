@@ -1,0 +1,3 @@
+@interface AXSSAudioOutputDevice : AXSSAudioDevice
+
+@end

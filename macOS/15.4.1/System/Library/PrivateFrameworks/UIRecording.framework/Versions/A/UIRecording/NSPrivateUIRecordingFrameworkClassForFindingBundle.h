@@ -1,0 +1,3 @@
+@interface NSPrivateUIRecordingFrameworkClassForFindingBundle : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface NFSingleUserSessionInterface : NSObject
+
+@end

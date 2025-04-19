@@ -1,0 +1,94 @@
+@class NSDate, NSString, CADisplayLink, SUICWEdgeLight, NSScreen, MTLRenderPassDescriptor, CAFilter;
+@protocol MTLDevice, MTLTexture, MTLCommandQueue, MTLRenderPipelineState;
+
+@interface SUICEdgeLightMaskMetalLayer : CAMetalLayer <CAAnimationDelegate> {
+    id<MTLDevice> _device;
+    SUICWEdgeLight *_wedgeLight;
+    NSDate *_burstStartDate;
+    CADisplayLink *_displayLink;
+    id<MTLCommandQueue> _commandQueue;
+    id<MTLTexture> _noiseTexture;
+    id<MTLRenderPipelineState> _renderPipeline;
+    id<MTLRenderPipelineState> _renderPipeline2;
+    MTLRenderPassDescriptor *_renderPassDesc;
+    NSScreen *_screen;
+    SUICEdgeLightMaskMetalLayer *_baseLayer;
+    id /* block */ _offCompletion;
+    id /* block */ _onCompletion;
+    struct { void /* unknown type, empty encoding */ noiseScale; void /* unknown type, empty encoding */ offset; void /* unknown type, empty encoding */ noiseOffset; } _vertUniforms;
+    struct { void /* unknown type, empty encoding */ burstCenter; void /* unknown type, empty encoding */ direction; void /* unknown type, blank encoding */ directionRadius; void /* unknown type, blank encoding */ falloffScale; void /* unknown type, blank encoding */ time; void /* unknown type, blank encoding */ noiseRotation; void /* unknown type, blank encoding */ defaultFlameOpacity; } _fragUniforms;
+    struct { void /* unknown type, empty encoding */ resolution; float yxRatio; float screenRadiusRatio; float falloffCoefficient; void /* unknown type, blank encoding */ flameScale; void /* unknown type, blank encoding */ burstOpacity; void /* unknown type, blank encoding */ contrast; } _layout;
+    struct { struct { unsigned long long physicsRate; int maxPhysicsIterationsPerFrame; float physicsTickDelta; float framerateEnergyModifier; float micPowerLevel; float chipRandomOffset[33]; float chipRotation; BOOL drawingVeryLastFrame; BOOL reduceMotion; } common; struct { float value; float curVelocity; float maxAcceleration; float springAmount; } flameSpring; struct { float value; float curVelocity; float maxAcceleration; float springAmount; } onSpring; struct { float value; float curVelocity; float maxAcceleration; float springAmount; } volumeSpring; struct { float value; float curVelocity; float maxAcceleration; float springAmount; } glowSpring; unsigned long long zoning; BOOL isBuddy; BOOL slowAudioReactivity; struct { float value; float curVelocity; float maxAcceleration; float springAmount; } energySpring; struct { float value; float curVelocity; float maxAcceleration; float springAmount; } lightnessSpring; float flameDrawnSize; float baseRotationSlowdownModifier; float extraRotationSlowdownModifier; void /* unknown type, empty encoding */ lights[11]; } _physics;
+    double _screenScale;
+    double _nativeScreenWidth;
+    unsigned long long _burstAnimationType;
+    void /* unknown type, empty encoding */ _buttonCenter;
+    float _volumeLinearPowerLevel;
+    float _minPowerLevel;
+    float _customFlameScale;
+    float _customCornerRadius;
+    BOOL _animating;
+    BOOL _useRound2Pipeline;
+    BOOL _burstModeHasBeenSet;
+    BOOL _shouldBurst;
+    BOOL _iPadReduceMotionBoost;
+    unsigned long long _firstFrameSignpost;
+    BOOL _firstFrame;
+    int _maxPhysicsIterationsBeforePerformanceOptimization;
+    long long _framesPerSecondBeforePerformanceOptimization;
+    CAFilter *_dismissalBlurFilter;
+    BOOL _isInFluidDismissal;
+    float _fluidDismissalProgress;
+}
+
+@property (nonatomic, getter=isPaused) BOOL paused;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)prewarm;
++ (BOOL)currentIdiomDefaultsToFullBorder;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)stopVolumeInput;
+- (void)_invalidate;
+- (void)animationDidStop:(id)a0 finished:(BOOL)a1;
+- (void)setBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)setMinimumPowerLevel:(float)a0;
+- (void)setScreen:(id)a0;
+- (void)updateVolumeInputdB:(float)a0;
+- (id)initWithCommandQueue:(id)a0;
+- (void)animateOffWithCompletion:(id /* block */)a0;
+- (void)animateOn;
+- (id)initWithFullBorder:(BOOL)a0;
+- (void)setInputAveragePowerLevel:(float)a0 withPeakPowerLevel:(float)a1;
+- (void)_loadMetalState;
+- (void)setCustomCornerRadius:(float)a0 forWidth:(float)a1;
+- (void)_calculateCornerRadiusRatio;
+- (void)_commonInitWithScreen:(id)a0 commandQueue:(id)a1;
+- (id)_createRenderPipelineFromLibrary:(id)a0 archive:(id)a1 vert:(id)a2 frag:(id)a3;
+- (void)_drawFrame:(id)a0;
+- (id)_getCommandQueue;
+- (id)_getNoiseTexture;
+- (id)_getScreen;
+- (void)_loadMetalPipelines;
+- (void)_startOffAnimation;
+- (void)_updateCustomCornerRadius;
+- (void)_updateForUIIdiom;
+- (void)_updateMetalRatios:(struct CGSize { double x0; double x1; })a0;
+- (void)animateOnWithCompletion:(id /* block */)a0;
+- (void)dismissalBlur:(float)a0;
+- (void)endReducedFramerateForPerformance;
+- (id)initWithBaseEdgeLightLayer:(id)a0;
+- (id)initWithScreen:(id)a0 commandQueue:(id)a1;
+- (void)setBurstOpacity:(float)a0;
+- (void)setBurstStartPosition:(unsigned long long)a0;
+- (void)setBurstStartPositionCustom:(struct CGPoint { double x0; double x1; })a0;
+- (void)setFlamePosX:(float)a0 posY:(float)a1 radius:(float)a2;
+- (void)setFlameScale:(float)a0;
+- (void)startReducedFramerateForPerformance;
+
+@end

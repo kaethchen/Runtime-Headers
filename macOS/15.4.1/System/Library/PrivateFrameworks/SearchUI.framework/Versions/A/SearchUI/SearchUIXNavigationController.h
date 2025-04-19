@@ -1,0 +1,3 @@
+@interface SearchUIXNavigationController : NSViewController
+
+@end

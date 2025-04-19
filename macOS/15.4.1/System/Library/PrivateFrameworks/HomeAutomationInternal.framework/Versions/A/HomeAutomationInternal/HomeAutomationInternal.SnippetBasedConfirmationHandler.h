@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.SnippetBasedConfirmationHandler : HomeAutomationInternal.BaseConfirmationHandler
+
+@end

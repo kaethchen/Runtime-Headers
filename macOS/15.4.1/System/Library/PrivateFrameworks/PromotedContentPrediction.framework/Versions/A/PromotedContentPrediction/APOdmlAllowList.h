@@ -1,0 +1,3 @@
+@interface APOdmlAllowList : APOdmlSingleton
+
+@end

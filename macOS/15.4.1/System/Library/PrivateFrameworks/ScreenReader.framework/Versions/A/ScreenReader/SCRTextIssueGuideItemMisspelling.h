@@ -1,0 +1,3 @@
+@interface SCRTextIssueGuideItemMisspelling : SCRTextIssueGuideItemCapitalization
+
+@end

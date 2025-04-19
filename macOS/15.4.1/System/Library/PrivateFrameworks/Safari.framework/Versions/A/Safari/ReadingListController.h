@@ -1,0 +1,107 @@
+@class NSTimer, NSString, NSArray, ReadingListDataStore, NSURL, NSMutableDictionary, NSMutableArray, NSMutableSet, NSObject, ReadingListThumbnailProvider;
+@protocol OS_dispatch_queue;
+
+@interface ReadingListController : NSObject <FetcherDelegate> {
+    struct unique_ptr<Safari::ReadingListFetcher, std::default_delete<Safari::ReadingListFetcher>> { struct __compressed_pair<Safari::ReadingListFetcher *, std::default_delete<Safari::ReadingListFetcher>> { struct ReadingListFetcher *__value_; } __ptr_; } _backgroundFetcher;
+    NSMutableSet *_readingListItemUUIDsWithPendingThumbnailRequests;
+    NSObject *_networkChangeNotificationObserver;
+    long long _headroom;
+    unsigned long long _queuedDeleteOperationsCount;
+    struct unique_ptr<SafariShared::SuddenTerminationDisabler, std::default_delete<SafariShared::SuddenTerminationDisabler>> { struct __compressed_pair<SafariShared::SuddenTerminationDisabler *, std::default_delete<SafariShared::SuddenTerminationDisabler>> { struct SuddenTerminationDisabler *__value_; } __ptr_; } _suddenTerminationDisabler;
+    NSTimer *_deleteRemovedItemsTimer;
+    NSMutableArray *_readingListItemsToFetch;
+    NSMutableDictionary *_syncItemsToFetchSoon;
+    NSTimer *_fetchSyncItemsSoonTimer;
+    ReadingListDataStore *_readingListDataStore;
+    NSObject<OS_dispatch_queue> *_fileIOQueue;
+    BOOL _userIsOffline;
+    NSURL *_readingListWebArchivesDirectoryURL;
+    ReadingListThumbnailProvider *_thumbnailProvider;
+    BOOL _widgetNeedsReloading;
+}
+
+@property (class, readonly, nonatomic) ReadingListController *sharedController;
+
+@property (nonatomic) BOOL readerShouldBeShownIfPossible;
+@property (readonly, nonatomic) BOOL hasOfflineReadingListItems;
+@property (readonly, nonatomic, getter=isLoaded) BOOL loaded;
+@property (readonly, copy, nonatomic) NSArray *allItems;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)readingListIsAvailable;
+
+- (void).cxx_destruct;
+- (unsigned long long)itemCount;
+- (id).cxx_construct;
+- (void)removeItem:(id)a0;
+- (void)clearAllItems;
+- (id)itemForURLString:(id)a0;
+- (void)savePendingChangesBeforeTermination;
+- (void)canFetchAnotherItemWithFetcher:(void *)a0;
+- (void)queueFetchForAllUnarchivedItems;
+- (void)_addItem:(id)a0 atIndex:(unsigned long long)a1 allowUndo:(BOOL)a2 didCheckIfBookmarkEditingIsPermitted:(BOOL)a3;
+- (void)_addItemWithBookmark:(id)a0 addUserInteraction:(int)a1 allowUndo:(BOOL)a2 didCheckIfBookmarkEditingIsPermitted:(BOOL)a3;
+- (id)_archiveFolderURLForReadingListItem:(id)a0;
+- (id)_archiveFolderURLForReadingListItemUUID:(id)a0;
+- (id)_archiveURLIfOnDiskForReadingListItem:(id)a0 pageNumber:(unsigned long long)a1;
+- (void)_beginObservingNetworkChangeNotifications;
+- (void)_deleteAllArchives;
+- (void)_deleteOperationDidFinish;
+- (void)_deleteOperationWillBeAddedToQueue;
+- (void)_deleteRemovedItemsSoon;
+- (void)_didFailFetchingReadingListItem:(id)a0 pageFetchResult:(int)a1;
+- (void)_didFinishArchivingReadingListItemWithUUID:(id)a0 pageType:(int)a1 fileSaveResult:(int)a2 fileSize:(long long)a3;
+- (void)_didReceiveNetworkChangeNotification;
+- (void)_didRemoveReadingListItem:(id)a0;
+- (void)_didSaveWebArchiveOfSize:(unsigned long long)a0;
+- (void)_didUpdateReadingListItem:(id)a0 readingListFetcherInfo:(id)a1;
+- (void)_fetchSyncedReadingListItemSoon:(id)a0;
+- (void)_processItemsToFetch;
+- (void)_readingListItemsDidChange:(id)a0;
+- (void)_reloadWidgetIfNeeded;
+- (void)_saveWebArchiveData:(id)a0 pageType:(int)a1 forReadingListItem:(id)a2 toFileURL:(id)a3;
+- (BOOL)_shouldSaveArticlesOfflineAutomatically;
+- (BOOL)_shouldSaveWebArchiveDataForItem:(id)a0;
+- (void)_stopObservingNetworkChangeNotifications;
+- (id)_thumbnailFileURLForReadingListItem:(id)a0;
+- (id)_thumbnailFileURLForReadingListItemUUID:(id)a0;
+- (void)addItemWithBookmark:(id)a0 addUserInteraction:(int)a1 allowUndo:(BOOL)a2 didCheckIfBookmarkEditingIsPermitted:(BOOL)a3;
+- (void)addItemWithLinkTitle:(id)a0 linkLabel:(id)a1 linkURL:(id)a2 addUserInteraction:(int)a3 allowUndo:(BOOL)a4;
+- (void)addItemWithTitle:(id)a0 url:(id)a1 addUserInteraction:(int)a2 allowUndo:(BOOL)a3;
+- (void)addItemWithTitle:(id)a0 url:(id)a1 previewText:(id)a2 addUserInteraction:(int)a3 allowUndo:(BOOL)a4;
+- (BOOL)addURLsFromPasteboard:(id)a0;
+- (void)cancelFallbackIconRequestForToken:(id)a0;
+- (void)dequeuePendingNonUserInitiatedFetches;
+- (void)fetchInfoForItem:(id)a0;
+- (void)fetcher:(void *)a0 didFailFetchWithResult:(int)a1 forItem:(id)a2;
+- (void)fetcher:(void *)a0 didFetchReaderWebArchive:(id)a1 forItem:(id)a2;
+- (void)fetcher:(void *)a0 didFetchWebArchive:(id)a1 forPageNumber:(unsigned long long)a2 ofItem:(id)a3;
+- (void)fetcher:(void *)a0 didFindURL:(id)a1 forPageNumber:(unsigned long long)a2 ofItem:(id)a3;
+- (void)fetcher:(void *)a0 didSucceedFetchingInfo:(id)a1 forItem:(id)a2;
+- (void)fetcher:(void *)a0 didUpdateInfo:(id)a1 forItem:(id)a2;
+- (void)fetcher:(void *)a0 willFetchItem:(id)a1;
+- (id)getFallbackIconForItem:(id)a0 completionHandler:(id /* block */)a1;
+- (void)getReadingListItem:(id *)a0 outPageNumber:(unsigned long long *)a1 forBackForwardItem:(const void *)a2;
+- (id)initWithWebArchivesDirectoryURL:(id)a0;
+- (BOOL)isFetchInProgress;
+- (BOOL)isReadingListItemArchiveURL:(id)a0;
+- (BOOL)isReadingListItemReaderizedPageArchiveURL:(id)a0;
+- (id)itemForUUID:(id)a0;
+- (id)liveOrArchiveURLForReadingListItem:(id)a0 pageURL:(id)a1;
+- (void)markItem:(id)a0 asUnread:(BOOL)a1;
+- (id)pageArchiveURLForReadingListItem:(id)a0 pageNumber:(unsigned long long)a1;
+- (void)pruneWebArchives;
+- (void)queueFetchForItem:(id)a0;
+- (id)readerizedPageArchiveURLForReadingListItem:(id)a0;
+- (void)removeArchiveForReadingListItem:(id)a0;
+- (void)resetImageURLIconFetchAndOfflineArchiveRequestStateForItemsAddedAfterDate:(id)a0;
+- (void)setReadingListItem:(id)a0 pageNumber:(unsigned long long)a1 forBackForwardItem:(const void *)a2;
+- (id)thumbnailImageForItem:(id)a0;
+- (void)thumbnailImageForItem:(id)a0 completion:(id /* block */)a1;
+- (void)thumbnailImageForUUID:(id)a0 completion:(id /* block */)a1;
+- (id)urlForViewingReadingListItem:(id)a0;
+
+@end

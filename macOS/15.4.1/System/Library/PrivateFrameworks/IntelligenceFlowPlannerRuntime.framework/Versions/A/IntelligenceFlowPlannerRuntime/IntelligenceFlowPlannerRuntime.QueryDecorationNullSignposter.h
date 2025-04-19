@@ -1,0 +1,3 @@
+@interface IntelligenceFlowPlannerRuntime.QueryDecorationNullSignposter : _TtCs12_SwiftObject
+
+@end

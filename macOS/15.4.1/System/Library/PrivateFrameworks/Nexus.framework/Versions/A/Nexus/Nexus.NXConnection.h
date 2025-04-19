@@ -1,0 +1,55 @@
+@interface Nexus.NXConnection : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ _cancelCalled;
+    void /* unknown type, empty encoding */ _clientMode;
+    void /* unknown type, empty encoding */ _configuration;
+    void /* unknown type, empty encoding */ connectionID;
+    void /* unknown type, empty encoding */ _environment;
+    void /* unknown type, empty encoding */ _ioProtocol;
+    void /* unknown type, empty encoding */ _nextID;
+    void /* unknown type, empty encoding */ _pauseBeforePairing;
+    void /* unknown type, empty encoding */ _runRetryTask;
+    void /* unknown type, empty encoding */ _signpostBonjourDiscover;
+    void /* unknown type, empty encoding */ _signpostConnect;
+    void /* unknown type, empty encoding */ _signpostConnectBluetooth;
+    void /* unknown type, empty encoding */ _signpostConnectNW;
+    void /* unknown type, empty encoding */ _signpostID;
+    void /* unknown type, empty encoding */ _signpostNANDiscover;
+    void /* unknown type, empty encoding */ _signpostNANSessionStart;
+    void /* unknown type, empty encoding */ _signpostPairSetup;
+    void /* unknown type, empty encoding */ _signpostPairVerify;
+    void /* unknown type, empty encoding */ _signpostStart;
+    void /* unknown type, empty encoding */ _stepError;
+    void /* unknown type, empty encoding */ _state;
+    void /* unknown type, empty encoding */ _eventHandler;
+    void /* unknown type, empty encoding */ _messageHandler;
+    void /* unknown type, empty encoding */ _bluetoothConnection;
+    void /* unknown type, empty encoding */ _bonjourBrowser;
+    void /* unknown type, empty encoding */ _bonjourEndpoint;
+    void /* unknown type, empty encoding */ _nanDataSession;
+    void /* unknown type, empty encoding */ _nanDataSessionTimerTask;
+    void /* unknown type, empty encoding */ _nanDiscoverEndpointFound;
+    void /* unknown type, empty encoding */ _nanDiscoverSubscriber;
+    void /* unknown type, empty encoding */ _nanDiscoverTimerTask;
+    void /* unknown type, empty encoding */ _nanPeerEndpointString;
+    void /* unknown type, empty encoding */ _connectionEnded;
+    void /* unknown type, empty encoding */ _endpoint;
+    void /* unknown type, empty encoding */ _logFrames;
+    void /* unknown type, empty encoding */ _logMessages;
+    void /* unknown type, empty encoding */ _networkCanceled;
+    void /* unknown type, empty encoding */ _networkConnection;
+    void /* unknown type, empty encoding */ _networkReceiving;
+    void /* unknown type, empty encoding */ _securityAuthTagLength;
+    void /* unknown type, empty encoding */ _securityStream;
+    void /* unknown type, empty encoding */ _sendQueue;
+    void /* unknown type, empty encoding */ _allowedPairingKeyTypes;
+    void /* unknown type, empty encoding */ customPeerIdentity;
+    void /* unknown type, empty encoding */ customSelfIdentity;
+    void /* unknown type, empty encoding */ _authenticationConfiguration;
+    void /* unknown type, empty encoding */ _pairingCompleted;
+    void /* unknown type, empty encoding */ _pairingReported;
+    void /* unknown type, empty encoding */ _pairingSession;
+    void /* unknown type, empty encoding */ _pairingStartTicks;
+    void /* unknown type, empty encoding */ _pairVerifyKeyType;
+}
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC19RemindersAppIntentsP33_2F3EBAF7DBEAC13601258610569CF7C811LookupClass : _TtCs12_SwiftObject
+
+@end

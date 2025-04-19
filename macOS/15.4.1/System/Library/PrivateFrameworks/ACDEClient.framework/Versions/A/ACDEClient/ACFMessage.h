@@ -1,0 +1,91 @@
+@class NSString, NSMutableDictionary;
+
+@interface ACFMessage : NSObject <ACFGeneralMessageProtocol, ACFErrorReportingProtocol> {
+    NSMutableDictionary *_mutableInfo;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)message;
++ (id)messageWithIdentifier:(id)a0;
++ (id)messageWithInfo:(id)a0;
+
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (void)encodeWithCoder:(id)a0;
+- (id)error;
+- (id)identifier;
+- (id)initWithCoder:(id)a0;
+- (id)objectForKey:(id)a0;
+- (void)removeObjectForKey:(id)a0;
+- (void)setObject:(id)a0 forKey:(id)a1;
+- (id)info;
+- (id)initWithInfo:(id)a0;
+- (void)setError:(id)a0;
+- (void)setIdentifier:(id)a0;
+- (void)setInfo:(id)a0;
+- (id)serviceName;
+- (id)userName;
+- (void)setServiceName:(id)a0;
+- (id)applicationName;
+- (void)setUserName:(id)a0;
+- (id)personId;
+- (void)setPersonId:(id)a0;
+- (id)realm;
+- (long long)errorCode;
+- (id)appID;
+- (void)setAppID:(id)a0;
+- (id)publicKeyVersion;
+- (void)setPublicKeyVersion:(id)a0;
+- (void)setApplicationName:(id)a0;
+- (void)setRealm:(id)a0;
+- (id)sessionToken;
+- (void)setSessionToken:(id)a0;
+- (id)errorMessage;
+- (id)personID;
+- (void)setPersonID:(id)a0;
+- (void)clearError;
+- (id)principal;
+- (void)setPrincipal:(id)a0;
+- (int)senderProcessID;
+- (void)setServiceHost:(id)a0;
+- (id)user2SVEnrolled;
+- (id)app2SVRequired;
+- (id)appIDKey;
+- (BOOL)doNotSaveHSASessionInKeychain;
+- (id)encryptedContent;
+- (id)encryptedContentHMAC;
+- (BOOL)ignoreHSASessionInKeychain;
+- (BOOL)isInApp2SVEnabledOption;
+- (id)mutableInfo;
+- (id)senderPortName;
+- (id)senderProcessName;
+- (id)serverResponseTimeout;
+- (id)serviceApplicationId;
+- (id)serviceApplicationIdKey;
+- (id)serviceHost;
+- (id)serviceTicketString;
+- (void)setApp2SVRequired:(id)a0;
+- (void)setAppIDKey:(id)a0;
+- (void)setDoNotSaveHSASessionInKeychain:(BOOL)a0;
+- (void)setEncryptedContent:(id)a0;
+- (void)setEncryptedContentHMAC:(id)a0;
+- (void)setIgnoreHSASessionInKeychain:(BOOL)a0;
+- (void)setIsInApp2SVEnabledOption:(BOOL)a0;
+- (void)setSenderPortName:(id)a0;
+- (void)setSenderProcessID:(int)a0;
+- (void)setSenderProcessName:(id)a0;
+- (void)setServerResponseTimeout:(id)a0;
+- (void)setServiceApplicationId:(id)a0;
+- (void)setServiceApplicationIdKey:(id)a0;
+- (void)setServiceTicketString:(id)a0;
+- (void)setShouldUseHSAToken:(id)a0;
+- (void)setSuppressPasswordExpiryErrorOnSignIn:(BOOL)a0;
+- (void)setUser2SVEnrolled:(id)a0;
+- (id)shouldUseHSAToken;
+- (BOOL)suppressPasswordExpiryErrorOnSignIn;
+
+@end

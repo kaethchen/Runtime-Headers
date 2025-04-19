@@ -1,0 +1,3 @@
+@interface ADHistoryDistributionEnumerator : NSObject
+
+@end

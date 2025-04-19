@@ -1,0 +1,3 @@
+@interface _TtC20UserNotificationsKitP33_FDB6B83FFD9E461301BB7B73A7F76FA119ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

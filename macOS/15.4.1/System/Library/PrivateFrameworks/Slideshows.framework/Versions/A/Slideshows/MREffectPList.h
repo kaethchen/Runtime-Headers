@@ -1,0 +1,3 @@
+@interface MREffectPList : MREffect
+
+@end

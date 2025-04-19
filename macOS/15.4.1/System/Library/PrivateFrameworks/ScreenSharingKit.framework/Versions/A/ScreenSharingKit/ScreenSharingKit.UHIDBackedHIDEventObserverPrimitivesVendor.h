@@ -1,0 +1,3 @@
+@interface ScreenSharingKit.UHIDBackedHIDEventObserverPrimitivesVendor : _TtCs12_SwiftObject
+
+@end

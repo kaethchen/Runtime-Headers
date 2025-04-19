@@ -1,0 +1,3 @@
+@interface SBScriptableApplication : SBApplication
+
+@end

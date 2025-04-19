@@ -1,0 +1,3 @@
+@interface APOdmlFeature : NSManagedObject
+
+@end

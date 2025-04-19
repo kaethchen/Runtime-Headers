@@ -1,0 +1,3 @@
+@interface _TtC18MessagesSettingsUIP33_062470A18EE9626A00587F01D8D5104819ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

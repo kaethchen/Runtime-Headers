@@ -1,0 +1,3 @@
+@interface WBSCyclerTopScopedBookmarkListRepresentation : WBSCyclerItemListRepresentation
+
+@end

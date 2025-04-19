@@ -1,0 +1,3 @@
+@interface _TtC20ExtensionKitSettingsP33_F4FA905FE9AF9BDE42FFF600441015C916ObserverRegistry : _TtCs12_SwiftObject
+
+@end

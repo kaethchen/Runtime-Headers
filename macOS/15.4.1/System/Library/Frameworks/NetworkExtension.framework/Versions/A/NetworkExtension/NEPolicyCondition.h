@@ -1,0 +1,93 @@
+@class NSUUID, NSString, NWAddressEndpoint;
+
+@interface NEPolicyCondition : NSObject <NEPrettyDescription> {
+    unsigned char _prefix;
+    unsigned char _localNetworksFlags;
+    unsigned short _ipProtocol;
+    unsigned short _packetFilterTags;
+    unsigned short _schemePort;
+    int _pid;
+    int _pid_version;
+    unsigned int _uid;
+    unsigned int _domainFilter;
+    unsigned int _interfaceFlags;
+    unsigned int _interfaceEflags;
+    unsigned int _interfaceXflags;
+    unsigned int _trafficClassStart;
+    unsigned int _trafficClassEnd;
+    unsigned int _clientFlags;
+    unsigned int _platform;
+    unsigned int _sdkVersion;
+    unsigned int _minSDKVersion;
+    NSUUID *_applicationUUID;
+    NSString *_accountIdentifier;
+    NSString *_domain;
+    NSString *_url;
+    NSString *_interfaceName;
+    NWAddressEndpoint *_startAddress;
+    NWAddressEndpoint *_endAddress;
+    NSString *_customEntitlement;
+    NSString *_agentDomain;
+    NSString *_agentType;
+    NSString *_signingIdentifier;
+}
+
+@property long long conditionType;
+@property (getter=isNegative) BOOL negative;
+@property BOOL exactMatch;
+
++ (id)isInbound;
++ (id)isListener;
++ (id)fallbackTraffic;
++ (id)hasSignedResult;
++ (id)domain:(id)a0;
++ (id)flowIPProtocol:(unsigned short)a0;
++ (id)accountIdentifier:(id)a0;
++ (id)allInterfaces;
++ (id)allowsUnsafeSocketAccess;
++ (id)clientFlags:(unsigned int)a0;
++ (id)clientProhibitsContrained;
++ (id)clientProhibitsExpensive;
++ (id)customEntitlement:(id)a0;
++ (id)delegateIsPlatformBinary;
++ (id)domainFilter:(unsigned long long)a0;
++ (id)effectiveApplication:(id)a0;
++ (id)effectivePID:(int)a0;
++ (id)effectivePID:(int)a0 version:(int)a1;
++ (id)entitlement;
++ (id)flowLocalAddress:(id)a0 prefix:(unsigned char)a1;
++ (id)flowLocalAddressEmpty;
++ (id)flowLocalAddressStart:(id)a0 end:(id)a1;
++ (id)flowRemoteAddress:(id)a0 prefix:(unsigned char)a1;
++ (id)flowRemoteAddressEmpty;
++ (id)flowRemoteAddressStart:(id)a0 end:(id)a1;
++ (id)ipProtocol:(unsigned short)a0;
++ (id)isLoopback;
++ (id)isSystemProxyConnection;
++ (id)localAddress:(id)a0 prefix:(unsigned char)a1;
++ (id)localAddressStart:(id)a0 end:(id)a1;
++ (id)localNetworks;
++ (id)localNetworksWithFlags:(unsigned char)a0;
++ (id)packetFilterTags:(unsigned short)a0;
++ (id)platformBinary;
++ (id)realApplication:(id)a0;
++ (id)realUID:(unsigned int)a0;
++ (id)remoteAddress:(id)a0 prefix:(unsigned char)a1;
++ (id)remoteAddressStart:(id)a0 end:(id)a1;
++ (id)requiredAgentDomain:(id)a0 agentType:(id)a1;
++ (id)schemeUsingPort:(unsigned short)a0;
++ (id)scopedInterface:(id)a0;
++ (id)scopedInterfaceFlags:(unsigned int)a0 eflags:(unsigned int)a1 xflags:(unsigned int)a2;
++ (id)sdkVersion:(unsigned int)a0 minSDKVersion:(unsigned int)a1 platform:(unsigned int)a2;
++ (id)signingIdentifier:(id)a0;
++ (id)trafficClassStart:(unsigned int)a0 end:(unsigned int)a1;
++ (id)uid:(unsigned int)a0;
++ (id)url:(id)a0;
++ (id)usesModernNetworkAPI;
+
+- (id)description;
+- (id)init;
+- (void).cxx_destruct;
+- (id)descriptionWithIndent:(int)a0 options:(unsigned long long)a1;
+
+@end

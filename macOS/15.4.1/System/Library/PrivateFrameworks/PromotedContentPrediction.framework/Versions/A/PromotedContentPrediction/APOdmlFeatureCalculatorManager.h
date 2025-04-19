@@ -1,0 +1,3 @@
+@interface APOdmlFeatureCalculatorManager : NSObject
+
+@end

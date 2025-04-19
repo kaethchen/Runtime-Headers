@@ -1,0 +1,3 @@
+@interface CUIPlaceholderCUINamedImage : NSObject
+
+@end

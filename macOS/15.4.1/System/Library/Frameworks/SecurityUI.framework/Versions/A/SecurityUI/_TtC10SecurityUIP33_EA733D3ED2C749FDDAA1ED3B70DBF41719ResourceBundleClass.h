@@ -1,0 +1,3 @@
+@interface _TtC10SecurityUIP33_EA733D3ED2C749FDDAA1ED3B70DBF41719ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

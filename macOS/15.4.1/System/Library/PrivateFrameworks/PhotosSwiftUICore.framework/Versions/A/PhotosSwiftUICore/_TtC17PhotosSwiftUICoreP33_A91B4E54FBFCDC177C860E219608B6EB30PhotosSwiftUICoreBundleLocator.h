@@ -1,0 +1,3 @@
+@interface _TtC17PhotosSwiftUICoreP33_A91B4E54FBFCDC177C860E219608B6EB30PhotosSwiftUICoreBundleLocator : _TtCs12_SwiftObject
+
+@end

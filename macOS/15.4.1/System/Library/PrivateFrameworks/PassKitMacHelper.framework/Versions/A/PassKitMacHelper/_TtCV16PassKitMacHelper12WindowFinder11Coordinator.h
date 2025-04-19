@@ -1,0 +1,3 @@
+@interface _TtCV16PassKitMacHelper12WindowFinder11Coordinator : _TtCs12_SwiftObject
+
+@end

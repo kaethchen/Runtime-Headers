@@ -1,0 +1,3 @@
+@interface FMFLocationSharingViewController : NSObject
+
+@end

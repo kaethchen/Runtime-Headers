@@ -1,0 +1,105 @@
+@class NSArray, NSString, NSURL, NSDictionary;
+
+@interface HPDHelpBook : NSObject <NSCoding, NSSecureCoding> {
+    NSURL *_iconURL;
+    NSString *_exactMatchPath;
+    NSString *_suggestionsPath;
+    NSString *_pathToLoadFrom;
+    NSString *_accessPathToLoadFrom;
+    NSString *_lastSuccessfullySetPath;
+    NSString *_lastSuccessfullySetLocale;
+    unsigned short _alreadyCheckedMask;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (retain) NSArray *indexPaths;
+@property (retain) NSURL *remoteURL;
+@property (retain) NSString *kbURLString;
+@property (retain) NSString *kbProductString;
+@property (retain) NSString *accessPagePath;
+@property (retain) NSString *topiclistTemplatePath;
+@property (retain) NSString *topiclistCSSPath;
+@property (retain) NSString *csIndexPath;
+@property (readonly) unsigned int type;
+@property (readonly) NSURL *iconURL;
+@property (readonly) NSString *path;
+@property (readonly) NSString *localization;
+@property (readonly) NSString *bookVersion;
+@property (readonly) NSString *appBundleVersion;
+@property (readonly) NSString *unsandboxedLocation;
+@property (readonly) NSString *appBundleID;
+@property (readonly) NSString *appPath;
+@property (readonly) NSString *productName;
+@property (readonly) NSString *title;
+@property (readonly) NSString *unversionedBookID;
+@property (readonly) NSString *suggestionsPath;
+@property (readonly) NSString *pathToLoadFrom;
+@property (readonly) NSString *accessPathToLoadFrom;
+@property (readonly) NSString *resourcesRootPath;
+@property (readonly) NSString *description;
+@property (readonly) NSDictionary *bookshelfDictionary;
+@property (retain) NSDictionary *remoteBookInfo;
+@property (retain) NSString *exactMatchPath;
+@property (retain) NSString *bookID;
+@property (readonly) BOOL usesExternalViewer;
+@property (readonly) BOOL isRemote;
+@property unsigned long long stringEncoding;
+
++ (id)allowedClasses;
++ (BOOL)isKeyExcludedFromWebScript:(const char *)a0;
++ (BOOL)isSelectorExcludedFromWebScript:(SEL)a0;
++ (id)webScriptNameForSelector:(SEL)a0;
++ (id)_findIndicesInDirectoryWithURL:(id)a0;
++ (id)_URLFromBundleAtPath:(id)a0 toPartialPath:(id)a1 forLocalization:(id)a2;
++ (BOOL)_appleTitleExistsInDoc:(id)a0;
++ (id)_determinePotentialAccessPages:(id)a0 forDirectory:(id)a1;
++ (unsigned int)_determineTypeFromBundle:(id)a0;
++ (unsigned long long)_encodingOfXMLDocument:(id)a0;
++ (id)_findAccessPageInDirectoryAtPath:(id)a0;
++ (id)_fullURLFromBasePath:(id)a0 toPartialPath:(id)a1;
++ (id)_parseMetasForXMLDocument:(id)a0;
++ (id)_xmlDocumentForFileAtPath:(id)a0;
++ (id)remoteBookWithID:(id)a0 params:(id)a1 isRemote:(BOOL)a2;
++ (id)type4BookWithID:(id)a0;
++ (id)type4BookWithID:(id)a0 params:(id)a1;
++ (id)unversionedbookIDFromBookID:(id)a0;
+
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)initWithPath:(id)a0;
+- (BOOL)isSandboxed;
+- (id)containerPath;
+- (void)setIconURL:(id)a0;
+- (BOOL)_configureType4BookFromDDMConfigDictionary:(id)a0;
+- (id)_determineAccessPagePathForBookType:(unsigned int)a0;
+- (id)_determineDefaultIconURL;
+- (id)_determineExactMatchPlistPath;
+- (id)_determineSuggestionsPlistPath;
+- (id)_dictionaryForPath:(id)a0 withLocalization:(id)a1;
+- (id)_dictionaryFromAccessPage:(id)a0 forBookType:(unsigned int)a1;
+- (id)_dictionaryFromBundle:(id)a0 withLocalization:(id)a1;
+- (id)_pathToParentBundle;
+- (void)_populateAppIDAndVersionFromAppBundle:(id)a0;
+- (void)_populateFromKnownGoodDictionary:(id)a0;
+- (BOOL)_setPath:(id)a0 withLocalization:(id)a1;
+- (void)_validateRemoteBookInfo;
+- (void)_verifyBundleDictionary:(id)a0 containsAbsolutePathForKey:(id)a1;
+- (BOOL)_verifyString:(id)a0 existsInDictionary:(id)a1;
+- (id)absolutePathForApplicationWithBundleIdentifier:(id)a0;
+- (id)bookIDFromAppHelp:(id)a0;
+- (void)copyToSandboxCache;
+- (void)deleteSandboxCache;
+- (id)initWithID:(id)a0 andCacheDictionary:(id)a1 isRemote:(BOOL)a2;
+- (BOOL)isEqualToHelpBook:(id)a0;
+- (BOOL)isInSandboxCache;
+- (id)pathToResourceAtRelativePath:(id)a0;
+- (void)setPathToLoadFrom:(id)a0;
+- (BOOL)setPreferredLocalization:(id)a0;
+- (void)setSuggestionsPath:(id)a0;
+- (void)setUnsandboxedLocation:(id)a0;
+- (long long)titleCompare:(id)a0;
+- (BOOL)validateAppPathAndVersion;
+
+@end

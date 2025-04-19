@@ -1,0 +1,77 @@
+@interface SFCertificateTrustPanel : SFCertificatePanel {
+    id _reserved_SFCertificateTrustPanel;
+}
+
++ (id)sharedCertificateTrustPanel;
+
+- (void)dealloc;
+- (id)init;
+- (void)lock;
+- (void)unlock;
+- (id)informativeText;
+- (void)setInformativeText:(id)a0;
+- (id)_informationField;
+- (id)_messageField;
+- (id)_splitView;
+- (void)setShowsHelp:(BOOL)a0;
+- (void)tableViewSelectionDidChange:(id)a0;
+- (void)windowDidResize:(id)a0;
+- (id)_aboveContentBox;
+- (id)_belowContentBox;
+- (id)_bundleIdentifier;
+- (id)_defaultHelpAnchor;
+- (BOOL)showsCertButton;
+- (void)_discloseClicked:(id)a0;
+- (id)_discloseContentHeightConstraint;
+- (void)_cancelClicked:(id)a0;
+- (id)_defaultMessage;
+- (void)_SFCertificateTrustPanel_disclosureStateChanged:(id)a0;
+- (id)_appendTrustStatements:(struct __SecTrust { } *)a0 toString:(id)a1;
+- (id)_showCertButton;
+- (id)_binarySearchTruncateString:(id)a0 withEllipsis:(id)a1 maxRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 formatHandler:(id /* block */)a3 measurementBlock:(id /* block */)a4;
+- (id)_bulletIndentedAttributedString:(id)a0;
+- (void)_certTrustSheetDidEnd:(id)a0 returnCode:(long long)a1 contextInfo:(void *)a2;
+- (void)_constructDefaultMessage:(struct __SecTrust { } *)a0;
+- (id)_defaultInformation;
+- (void)_discloseCertificates:(BOOL)a0;
+- (id)_discloseContentBox;
+- (void)_dismissModalLoop:(id)a0;
+- (void)_forceAdminTrust:(BOOL)a0;
+- (id)_iconView;
+- (id)_localizedAppName;
+- (void)_okClicked:(id)a0;
+- (id)_plainAttributedString:(id)a0;
+- (long long)_prepPanel:(struct __SecTrust { } *)a0 message:(id)a1 showGroup:(BOOL)a2;
+- (id)_reserved_SFCertificateTrustPanel;
+- (void)_saveTrustValues;
+- (id)_stackView;
+- (id)_truncatedAlwaysTrustCertString:(id)a0 forHostOrEmail:(id)a1;
+- (id)_trustButton;
+- (void)_trustClicked:(id)a0;
+- (void)beginSheetForWindow:(id)a0 modalDelegate:(id)a1 didEndSelector:(SEL)a2 contextInfo:(void *)a3 trust:(struct __SecTrust { } *)a4 message:(id)a5;
+- (BOOL)certificatesDisclosed;
+- (BOOL)editableTrust;
+- (id)loadTrustNibFile;
+- (long long)runModalForTrust:(struct __SecTrust { } *)a0 message:(id)a1;
+- (void)setCertificatesDisclosed:(BOOL)a0;
+- (void)setDefaultInformation:(id)a0;
+- (void)setDefaultMessage:(id)a0;
+- (void)setEditableTrust:(BOOL)a0;
+- (void)setRef:(id *)a0 toObj:(id)a1;
+- (void)setShowsCertButton:(BOOL)a0;
+- (void)setShowsTrustButton:(BOOL)a0;
+- (void)setTrustButtonState:(long long)a0;
+- (void)set_aboveContentBox:(id)a0;
+- (void)set_belowContentBox:(id)a0;
+- (void)set_discloseContentBox:(id)a0;
+- (void)set_discloseContentHeightConstraint:(id)a0;
+- (void)set_iconView:(id)a0;
+- (void)set_informationField:(id)a0;
+- (void)set_messageField:(id)a0;
+- (void)set_showCertButton:(id)a0;
+- (void)set_splitView:(id)a0;
+- (void)set_stackView:(id)a0;
+- (void)set_trustButton:(id)a0;
+- (BOOL)showsTrustButton;
+
+@end

@@ -1,0 +1,81 @@
+@class NSString, UNCKeyedObservable, NSMutableSet, UNCBundleLibrarian, UNCKeyedDataStoreRepository, NSObject;
+@protocol UNCNotificationRepositoryDelegate, UNCBadgeService, UNSNotificationCategoryRepository, OS_dispatch_queue, UNCNotificationRepositorySettingsProvider;
+
+@interface UNCLocalNotificationRepository : NSObject <UNCNotificationRepository> {
+    UNCKeyedDataStoreRepository *_repository;
+    UNCKeyedObservable *_observable;
+    NSMutableSet *_unlimitedBodyBundleIdentifiers;
+    NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_badgeServiceQueue;
+    UNCBundleLibrarian *_librarian;
+    id<UNCBadgeService> _badgeService;
+    id<UNSNotificationCategoryRepository> _categoryRepository;
+}
+
+@property (weak, nonatomic) id<UNCNotificationRepositoryDelegate> delegate;
+@property (weak, nonatomic) id<UNCNotificationRepositorySettingsProvider> settingsProvider;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)performMigration;
+- (id)badgeNumberForBundleIdentifier:(id)a0;
+- (void)addObserver:(id)a0 forBundleIdentifier:(id)a1;
+- (void)removeObserver:(id)a0 forBundleIdentifier:(id)a1;
+- (void)setBadgeCount:(long long)a0 forBundleIdentifier:(id)a1 withCompletionHandler:(id /* block */)a2;
+- (void)setBadgeNumber:(id)a0 forBundleIdentifier:(id)a1 withCompletionHandler:(id /* block */)a2;
+- (void)setBadgeString:(id)a0 forBundleIdentifier:(id)a1 withCompletionHandler:(id /* block */)a2;
+- (id)allBundleIdentifiers;
+- (void)removeNotificationRecordsWithNonPushTriggerForBundleIdentifier:(id)a0;
+- (void)removeStoreForBundleIdentifier:(id)a0;
+- (id)_badgeNumberForBundleIdentifier:(id)a0;
+- (void)_badge_queue_setBadgeValue:(id)a0 forBundleIdentifier:(id)a1 withCompletionHandler:(id /* block */)a2;
+- (void)_logNotification:(id)a0 forBundleIdentifier:(id)a1;
+- (long long)_maxObjectsPerKey;
+- (id)_notificationsForObjects:(id)a0;
+- (id)_queue_notificationRecordForIdentifier:(id)a0 forBundleIdentifier:(id)a1;
+- (id)_queue_notificationRecordsForBundleIdentifier:(id)a0;
+- (void)_queue_notifyObserversNotificationsDidAddNotifications:(id)a0 replaceNotifications:(id)a1 replacementNotifications:(id)a2 removedNotifications:(id)a3 shouldRepost:(BOOL)a4 shouldSync:(BOOL)a5 forBundleIdentifier:(id)a6;
+- (void)_queue_notifyObserversWithReceipt:(id)a0 bundleIdentifier:(id)a1;
+- (void)_queue_performMigration;
+- (void)_queue_performMigrationForBundleIdentifier:(id)a0;
+- (void)_queue_performMigrationForPushStore;
+- (void)_queue_performMigrationForPushStoreAtPath:(id)a0;
+- (void)_queue_performMigrationForUserNotificationsStore;
+- (void)_queue_performValidation;
+- (void)_queue_removeAllNotificationRecordsForBundleIdentifier:(id)a0;
+- (void)_queue_removeInvalidNotificationRecordsForBundleIdentifier:(id)a0;
+- (void)_queue_removeNotificationRecordsForIdentifiers:(id)a0 bundleIdentifier:(id)a1;
+- (void)_queue_removeNotificationRecordsPassingTest:(id /* block */)a0 forBundleIdentifier:(id)a1;
+- (void)_queue_removeNotificationRecordsWithNonPushTriggerForBundleIdentifier:(id)a0;
+- (void)_queue_removeSimilarNotificationRecords:(id)a0 bundleIdentifier:(id)a1;
+- (BOOL)_queue_saveNotificationRecord:(id)a0 targetRevisionNumber:(id)a1 shouldRepost:(BOOL)a2 withOptions:(unsigned long long)a3 forBundleIdentifier:(id)a4;
+- (void)_queue_triggerInvalidationForFirstUnlock;
+- (void)_setBadgeCount:(long long)a0 forBundleIdentifier:(id)a1 withCompletionHandler:(id /* block */)a2;
+- (void)_setBadgeNumber:(id)a0 forBundleIdentifier:(id)a1 withCompletionHandler:(id /* block */)a2;
+- (void)_setBadgeString:(id)a0 forBundleIdentifier:(id)a1 withCompletionHandler:(id /* block */)a2;
+- (void)_setBadgeValue:(id)a0 forBundleIdentifier:(id)a1 withCompletionHandler:(id /* block */)a2;
+- (BOOL)_shouldPersistNotificationRecord:(id)a0 forBundleSettings:(id)a1 perTopicSettings:(id)a2;
+- (void)contentProtectionStateChangedForFirstUnlock:(BOOL)a0;
+- (id)initWithDataStoreRepository:(id)a0 observable:(id)a1 librarian:(id)a2 categoryRepository:(id)a3 badgeService:(id)a4;
+- (id)initWithDirectory:(id)a0 librarian:(id)a1 repositoryProtectionStrategy:(id)a2 categoryRepository:(id)a3 badgeService:(id)a4;
+- (id)notificationRecordForIdentifier:(id)a0 bundleIdentifier:(id)a1;
+- (id)notificationRecordsForBundleIdentifier:(id)a0;
+- (void)notificationSourcesDidInstall:(id)a0;
+- (void)notificationSourcesDidUninstall:(id)a0;
+- (void)performValidation;
+- (void)removeAllNotificationRecordsForBundleIdentifier:(id)a0;
+- (void)removeAllNotificationRecordsForBundleIdentifierSync:(id)a0;
+- (void)removeInvalidNotificationRecordsForBundleIdentifier:(id)a0;
+- (void)removeNotificationRecordsForIdentifiers:(id)a0 bundleIdentifier:(id)a1;
+- (void)removeNotificationRecordsPassingTest:(id /* block */)a0 forBundleIdentifier:(id)a1;
+- (void)removeNotificationRepository;
+- (void)removeSimilarNotificationRecords:(id)a0 bundleIdentifier:(id)a1;
+- (void)saveNotificationRecord:(id)a0 shouldRepost:(BOOL)a1 forBundleIdentifier:(id)a2 withCompletionHandler:(id /* block */)a3;
+- (void)saveNotificationRecord:(id)a0 targetRevisionNumber:(id)a1 shouldRepost:(BOOL)a2 forBundleIdentifier:(id)a3 withCompletionHandler:(id /* block */)a4;
+- (void)saveNotificationRequest:(id)a0 shouldRepost:(BOOL)a1 apsMessageTimestamp:(id)a2 forBundleIdentifier:(id)a3;
+- (void)saveNotificationRequest:(id)a0 shouldRepost:(BOOL)a1 withMessage:(id)a2 forBundleIdentifier:(id)a3;
+
+@end

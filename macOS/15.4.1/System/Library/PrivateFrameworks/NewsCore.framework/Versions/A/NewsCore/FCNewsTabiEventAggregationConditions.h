@@ -1,0 +1,24 @@
+@class FCNewsTabiEventAggregationArticleUnsavedConditions, FCNewsTabiEventAggregationArticleLikedConditions, FCNewsTabiEventAggregationTrackVisitedConditions, FCNewsTabiEventAggregationArticleVisitedConditions, FCNewsTabiEventAggregationArticleSavedConditions, FCNewsTabiEventAggregationArticleSharedConditions, FCNewsTabiEventAggregationArticleSeenConditions, FCNewsTabiEventAggregationArticleReadConditions, FCNewsTabiEventAggregationTrackListenedConditions, FCNewsTabiEventAggregationTrackFinishedConditions, FCNewsTabiEventAggregationArticleUndislikedConditions, FCNewsTabiEventAggregationArticleDislikedConditions, FCNewsTabiEventAggregationNotificationVendedConditions, FCNewsTabiEventAggregationArticleUnlikedConditions;
+
+@interface FCNewsTabiEventAggregationConditions : NSObject
+
+@property (readonly, nonatomic) FCNewsTabiEventAggregationArticleSeenConditions *articleSeenConditions;
+@property (readonly, nonatomic) FCNewsTabiEventAggregationArticleReadConditions *articleReadConditions;
+@property (readonly, nonatomic) FCNewsTabiEventAggregationArticleVisitedConditions *articleVisitedConditions;
+@property (readonly, nonatomic) FCNewsTabiEventAggregationArticleSharedConditions *articleSharedConditions;
+@property (readonly, nonatomic) FCNewsTabiEventAggregationArticleLikedConditions *articleLikedConditions;
+@property (readonly, nonatomic) FCNewsTabiEventAggregationArticleDislikedConditions *articleDislikedConditions;
+@property (readonly, nonatomic) FCNewsTabiEventAggregationArticleSavedConditions *articleSavedConditions;
+@property (readonly, nonatomic) FCNewsTabiEventAggregationTrackVisitedConditions *trackVisitedConditions;
+@property (readonly, nonatomic) FCNewsTabiEventAggregationTrackListenedConditions *trackListenedConditions;
+@property (readonly, nonatomic) FCNewsTabiEventAggregationTrackFinishedConditions *trackFinishedConditions;
+@property (readonly, nonatomic) FCNewsTabiEventAggregationArticleUnlikedConditions *articleUnlikedConditions;
+@property (readonly, nonatomic) FCNewsTabiEventAggregationArticleUndislikedConditions *articleUndislikedConditions;
+@property (readonly, nonatomic) FCNewsTabiEventAggregationArticleUnsavedConditions *articleUnsavedConditions;
+@property (readonly, nonatomic) FCNewsTabiEventAggregationNotificationVendedConditions *notificationVendedConditions;
+
+- (id)description;
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0;
+
+@end

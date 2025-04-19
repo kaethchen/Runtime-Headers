@@ -1,0 +1,3 @@
+@interface BFSkipSpeechElement : BFSpeechElement
+
+@end

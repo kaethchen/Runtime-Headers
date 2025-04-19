@@ -1,0 +1,3 @@
+@interface NFContactlessPaymentSessionInterface : NSObject
+
+@end

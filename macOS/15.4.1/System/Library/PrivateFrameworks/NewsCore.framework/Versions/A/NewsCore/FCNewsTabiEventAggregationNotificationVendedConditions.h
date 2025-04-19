@@ -1,0 +1,3 @@
+@interface FCNewsTabiEventAggregationNotificationVendedConditions : FCNewsTabiEventAggregationBaseEventConditions
+
+@end

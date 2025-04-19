@@ -1,0 +1,3 @@
+@interface MUBezierEdgeIntersection : NSObject
+
+@end

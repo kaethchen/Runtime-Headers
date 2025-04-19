@@ -1,0 +1,3 @@
+@interface _TtC16CoreHapticsToolsP33_CA2E5AF9E31FB4BCC4E9AB90B4D09A3227CHTLocalizationBundleLookup : _TtCs12_SwiftObject
+
+@end

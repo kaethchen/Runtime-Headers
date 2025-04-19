@@ -1,0 +1,3 @@
+@interface AOSAccountLite : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface CSAudioRecordDeviceInfo : CSFAudioRecordDeviceInfo
+
+@end

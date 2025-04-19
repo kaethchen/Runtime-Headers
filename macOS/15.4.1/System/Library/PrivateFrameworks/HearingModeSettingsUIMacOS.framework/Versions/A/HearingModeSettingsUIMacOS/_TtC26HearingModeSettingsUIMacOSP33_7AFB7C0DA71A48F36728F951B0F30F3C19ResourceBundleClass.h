@@ -1,0 +1,3 @@
+@interface _TtC26HearingModeSettingsUIMacOSP33_7AFB7C0DA71A48F36728F951B0F30F3C19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

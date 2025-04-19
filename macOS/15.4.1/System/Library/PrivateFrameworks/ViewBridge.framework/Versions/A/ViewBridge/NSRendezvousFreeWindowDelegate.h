@@ -1,0 +1,3 @@
+@interface NSRendezvousFreeWindowDelegate : NSSemiAutonomousRendezvousWindowDelegate
+
+@end

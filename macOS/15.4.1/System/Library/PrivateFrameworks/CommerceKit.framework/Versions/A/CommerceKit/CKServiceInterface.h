@@ -1,0 +1,3 @@
+@interface CKServiceInterface : ISServiceProxy
+
+@end

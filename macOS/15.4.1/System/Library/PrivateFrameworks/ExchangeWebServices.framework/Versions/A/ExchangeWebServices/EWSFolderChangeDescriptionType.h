@@ -1,0 +1,3 @@
+@interface EWSFolderChangeDescriptionType : EWSChangeDescriptionType
+
+@end

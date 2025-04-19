@@ -1,0 +1,3 @@
+@interface _TtC16ScreenSharingKitP33_12D681FD0EE506CBA19615B588CDC09820KeyboardEventService : _TtCs12_SwiftObject
+
+@end

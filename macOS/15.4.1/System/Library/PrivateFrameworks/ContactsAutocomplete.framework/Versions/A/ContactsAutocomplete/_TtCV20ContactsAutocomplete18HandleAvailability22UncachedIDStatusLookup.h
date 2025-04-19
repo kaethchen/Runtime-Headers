@@ -1,0 +1,3 @@
+@interface _TtCV20ContactsAutocomplete18HandleAvailability22UncachedIDStatusLookup : _TtCs12_SwiftObject
+
+@end

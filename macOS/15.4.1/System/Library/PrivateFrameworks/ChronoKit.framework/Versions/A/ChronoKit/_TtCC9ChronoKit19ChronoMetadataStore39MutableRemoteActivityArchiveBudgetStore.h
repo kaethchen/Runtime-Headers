@@ -1,0 +1,3 @@
+@interface _TtCC9ChronoKit19ChronoMetadataStore39MutableRemoteActivityArchiveBudgetStore : _TtCC9ChronoKit19ChronoMetadataStore32RemoteActivityArchiveBudgetStore
+
+@end

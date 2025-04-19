@@ -1,0 +1,3 @@
+@interface CSAlertBehaviorPredictor : NSObject
+
+@end

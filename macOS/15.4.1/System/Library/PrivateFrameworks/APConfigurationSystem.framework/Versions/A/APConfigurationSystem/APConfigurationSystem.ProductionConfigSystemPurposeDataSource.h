@@ -1,0 +1,3 @@
+@interface APConfigurationSystem.ProductionConfigSystemPurposeDataSource : _TtCs12_SwiftObject
+
+@end

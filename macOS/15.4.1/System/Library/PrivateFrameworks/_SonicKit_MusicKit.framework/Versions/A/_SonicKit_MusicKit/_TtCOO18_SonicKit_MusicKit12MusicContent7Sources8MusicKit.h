@@ -1,0 +1,3 @@
+@interface _TtCOO18_SonicKit_MusicKit12MusicContent7Sources8MusicKit : _TtCs12_SwiftObject
+
+@end

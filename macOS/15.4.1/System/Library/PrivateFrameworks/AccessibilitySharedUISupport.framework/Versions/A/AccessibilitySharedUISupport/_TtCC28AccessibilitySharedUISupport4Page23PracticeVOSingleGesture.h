@@ -1,0 +1,3 @@
+@interface _TtCC28AccessibilitySharedUISupport4Page23PracticeVOSingleGesture : _TtCC28AccessibilitySharedUISupport4Page10PracticeVO
+
+@end

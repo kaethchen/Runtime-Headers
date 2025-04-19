@@ -1,0 +1,3 @@
+@interface _TtCO27SiriSuggestionsIntelligence27SiriSuggestionsIntelligence31DefaultNetworkConnectionService : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface WBSEmptyClass : NSObject
+
+@end

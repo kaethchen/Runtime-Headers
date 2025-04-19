@@ -1,0 +1,3 @@
+@interface VoiceShortcuts.ToolKitHighPriorityDeferredDeltaIndexingTask : _TtCs12_SwiftObject
+
+@end

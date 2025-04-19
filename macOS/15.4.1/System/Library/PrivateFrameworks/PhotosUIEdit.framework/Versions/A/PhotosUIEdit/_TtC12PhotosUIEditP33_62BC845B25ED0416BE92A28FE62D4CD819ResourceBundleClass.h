@@ -1,0 +1,3 @@
+@interface _TtC12PhotosUIEditP33_62BC845B25ED0416BE92A28FE62D4CD819ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

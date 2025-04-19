@@ -1,0 +1,3 @@
+@interface _TtCC16ContactsAccounts19SwiftDataDataMapper4Save : _TtCC16ContactsAccounts19SwiftDataDataMapper15ExtractedMethod
+
+@end

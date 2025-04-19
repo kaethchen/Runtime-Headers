@@ -1,0 +1,3 @@
+@interface ITLibModelKind : NSObject
+
+@end

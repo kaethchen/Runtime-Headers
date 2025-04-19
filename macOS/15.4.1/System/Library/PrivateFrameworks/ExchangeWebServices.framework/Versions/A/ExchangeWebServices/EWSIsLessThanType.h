@@ -1,0 +1,3 @@
+@interface EWSIsLessThanType : EWSTwoOperandExpressionType
+
+@end

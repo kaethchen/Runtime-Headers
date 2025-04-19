@@ -1,0 +1,3 @@
+@interface ScreenSharingKit.AXPBackedAccessibilityClientPrimitivesVendor : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.RVCAppIntentHandleDelegate : HomeAutomationInternal.AppIntentHandleDelegate
+
+@end

@@ -1,0 +1,3 @@
+@interface EWSRemoveItemType : EWSResponseObjectType
+
+@end

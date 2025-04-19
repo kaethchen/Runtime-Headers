@@ -1,0 +1,3 @@
+@interface EWSMoveFolderType : EWSBaseMoveCopyFolderType
+
+@end

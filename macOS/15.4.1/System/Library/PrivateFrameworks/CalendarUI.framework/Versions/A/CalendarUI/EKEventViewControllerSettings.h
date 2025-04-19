@@ -1,0 +1,3 @@
+@interface EKEventViewControllerSettings : EKViewControllerSettings
+
+@end

@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.BlockIncompleteMatterAccessoryManagerLoadHandler : HomeAutomationInternal.BaseBlockingHandler
+
+@end

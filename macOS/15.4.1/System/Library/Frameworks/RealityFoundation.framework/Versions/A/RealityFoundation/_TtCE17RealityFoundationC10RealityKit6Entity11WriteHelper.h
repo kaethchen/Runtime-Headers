@@ -1,0 +1,3 @@
+@interface _TtCE17RealityFoundationC10RealityKit6Entity11WriteHelper : _TtCs12_SwiftObject
+
+@end

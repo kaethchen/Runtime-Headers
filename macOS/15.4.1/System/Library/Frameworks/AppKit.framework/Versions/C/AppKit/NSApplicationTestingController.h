@@ -1,0 +1,83 @@
+@class NSString, NSMutableDictionary, NSURL, NSMutableSet;
+
+@interface NSApplicationTestingController : NSObject {
+    NSMutableDictionary *_currentTests;
+    NSString *_quitTestName;
+    BOOL _isExtendedLaunch;
+    BOOL _checkForLeaks;
+    double _launchTime;
+    NSString *_aggregate;
+    NSString *_testNameForLiveTest;
+    id /* block */ _testCompletionHandler;
+    NSURL *_currentDocumentURL;
+    BOOL _waitingForDocumentWindow;
+    BOOL _waitingForLaunchComplete;
+    NSMutableSet *_testsDelayingReportingResults;
+    NSMutableDictionary *_delayedResults;
+}
+
++ (void)performResizeTestOnWindow:(id)a0 preTestHandler:(id /* block */)a1 postTestHandler:(id /* block */)a2;
++ (id)sharedTestingController;
+
+- (void).cxx_destruct;
+- (void)_reportResults:(id)a0;
+- (void)emitPPTStartTracePointForSubTestName:(id)a0 identifier:(unsigned long long)a1 testIdentifier:(unsigned long long)a2;
+- (void)installCACommitCompletionBlock:(id /* block */)a0;
+- (BOOL)_applySandboxExtensionFromBookmarkForTestName:(id)a0 options:(id)a1;
+- (void)_closeDocumentForCodelessTest:(id)a0;
+- (id)_currentFrameCountForTestDisplay;
+- (void)_finishLaunchTestIfAppropriate;
+- (void)_liveScrollDidEnd:(id)a0;
+- (void)_liveScrollWillStart:(id)a0;
+- (void)_openDocumentForTestName:(id)a0 options:(id)a1 asOpenTest:(BOOL)a2 completion:(id /* block */)a3;
+- (id)_previouslyOpenedDocumentForCodelessTest:(id)a0;
+- (id)_previouslyOpenedDocumentWithFailure:(id *)a0;
+- (void)_progressCodelessTest:(id)a0 options:(id)a1 type:(unsigned long long)a2;
+- (struct __CFMessagePort { } *)_purplePPTServerPort;
+- (void)_resetToDefaultStateWindow:(id)a0 scrollView:(id)a1;
+- (void)_runActivationTestWithTestName:(id)a0 options:(id)a1 completion:(id /* block */)a2;
+- (void)_runResizeTestWithTestName:(id)a0 options:(id)a1 completion:(id /* block */)a2;
+- (void)_runScrollTestWithTestName:(id)a0 options:(id)a1 completion:(id /* block */)a2;
+- (void)_scrollToTop:(id)a0;
+- (id)_scrollViewForCodelessTestingInWindow:(id)a0;
+- (void)_sendDictionaryToPPT:(id)a0;
+- (BOOL)_setUpCodelessTest:(id)a0 options:(id)a1;
+- (id)_subTest:(id)a0 forTest:(id)a1 withMetrics:(id)a2;
+- (id)_windowForDocument:(id)a0;
+- (void)emitPPTEndTracePointForSubTestName:(id)a0 identifier:(unsigned long long)a1;
+- (void)emitPPTEndTracePointForTestName:(id)a0 identifier:(unsigned long long)a1;
+- (void)emitPPTStartTracePointForTestName:(id)a0 identifier:(unsigned long long)a1;
+- (void)failedTest:(id)a0;
+- (void)failedTest:(id)a0 withFailure:(id)a1;
+- (void)failedTest:(id)a0 withFailure:(id)a1 withResults:(id)a2;
+- (void)failedTest:(id)a0 withResults:(id)a1;
+- (void)finishedSubTest:(id)a0 forTest:(id)a1;
+- (void)finishedSubTest:(id)a0 forTest:(id)a1 waitForCommit:(BOOL)a2 withCompletionHandler:(id /* block */)a3;
+- (void)finishedTest:(id)a0;
+- (void)finishedTest:(id)a0 extraResults:(id)a1;
+- (void)finishedTest:(id)a0 extraResults:(id)a1 waitForNotification:(id)a2;
+- (void)finishedTest:(id)a0 extraResults:(id)a1 waitForNotification:(id)a2 withTeardownBlock:(id /* block */)a3;
+- (void)finishedTest:(id)a0 extraResults:(id)a1 withTeardownBlock:(id /* block */)a2;
+- (void)finishedTest:(id)a0 waitForCommit:(BOOL)a1 extraResults:(id)a2;
+- (void)finishedTest:(id)a0 waitForCommit:(BOOL)a1 extraResults:(id)a2 withTeardownBlock:(id /* block */)a3;
+- (BOOL)handleTestURL:(id)a0;
+- (BOOL)isRunningQuitTest;
+- (BOOL)isRunningTest;
+- (BOOL)isRunningTest:(id)a0;
+- (void)performActivateDeactivateTestUsingTestName:(id)a0 completionHandler:(id /* block */)a1;
+- (void)performNaturalResizeTestOnWindow:(id)a0 usingTestName:(id)a1 completionHandler:(id /* block */)a2;
+- (void)performNaturalScrollTestOnScrollView:(id)a0 usingTestName:(id)a1 completionHandler:(id /* block */)a2;
+- (void)performResizeTestOnWindow:(id)a0 usingTestName:(id)a1 completionHandler:(id /* block */)a2;
+- (void)performScrollTestOnScrollView:(id)a0 usingTestName:(id)a1 completionHandler:(id /* block */)a2;
+- (void)reportAppLaunchStartWithLaunchTime:(double)a0;
+- (BOOL)reportApplicationTerminating;
+- (void)reportBasicAppLaunchCompleteWillExtended:(BOOL)a0;
+- (void)reportDidOpenWindowsForURLs:(BOOL)a0;
+- (void)reportFullAppLaunchCompleteWasExtended:(BOOL)a0;
+- (void)reportWillOpenDocumentURLs:(id)a0 fileURLs:(id)a1 otherURLs:(id)a2;
+- (BOOL)runTest:(id)a0 options:(id)a1;
+- (void)startedSubTest:(id)a0 forTest:(id)a1;
+- (void)startedSubTest:(id)a0 forTest:(id)a1 withMetrics:(id)a2;
+- (void)startedTest:(id)a0;
+
+@end

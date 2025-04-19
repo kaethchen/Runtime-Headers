@@ -1,0 +1,16 @@
+@class PHPhotoLibrary;
+
+@interface PXCuratedLibraryAssetsDataSourceManagerConfiguration : NSObject
+
+@property (readonly, nonatomic) PHPhotoLibrary *photoLibrary;
+@property (nonatomic) BOOL enableDays;
+
++ (id)configurationWithPhotoLibrary:(id)a0 enableDays:(BOOL)a1;
++ (id)configurationWithPhotoLibrary:(id)a0 yearsAssetsDataSourceManager:(id)a1 monthsAssetsDataSourceManager:(id)a2 daysAssetsDataSourceManager:(id)a3 allPhotosAssetsDataSourceManager:(id)a4;
+
+- (void).cxx_destruct;
+- (id)initWithPhotoLibrary:(id)a0;
+- (id)configurationForZoomLevel:(long long)a0;
+- (id)keyAssetCollectionReferenceInDataSource:(id)a0 zoomLevel:(long long)a1 matchingAssetCollectionReference:(id)a2 fromDataSource:(id)a3 zoomLevel:(long long)a4;
+
+@end

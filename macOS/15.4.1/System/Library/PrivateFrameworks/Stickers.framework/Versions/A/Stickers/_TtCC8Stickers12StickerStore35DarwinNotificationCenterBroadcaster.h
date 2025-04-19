@@ -1,0 +1,3 @@
+@interface _TtCC8Stickers12StickerStore35DarwinNotificationCenterBroadcaster : _TtCs12_SwiftObject
+
+@end

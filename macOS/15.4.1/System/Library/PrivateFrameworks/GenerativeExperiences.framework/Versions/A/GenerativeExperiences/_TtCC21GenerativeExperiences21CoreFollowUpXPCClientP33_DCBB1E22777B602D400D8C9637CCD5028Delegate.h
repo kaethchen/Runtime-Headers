@@ -1,0 +1,3 @@
+@interface _TtCC21GenerativeExperiences21CoreFollowUpXPCClientP33_DCBB1E22777B602D400D8C9637CCD5028Delegate : _TtCs12_SwiftObject
+
+@end

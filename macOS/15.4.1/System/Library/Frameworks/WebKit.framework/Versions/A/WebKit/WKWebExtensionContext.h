@@ -1,0 +1,93 @@
+@class WKWebExtensionController, NSString, NSArray, NSURL, NSSet, WKWebExtension, NSDictionary, WKWebViewConfiguration, WKWebView;
+@protocol WKWebExtensionWindow;
+
+@interface WKWebExtensionContext : NSObject <WKObject> {
+    struct ObjectStorage<WebKit::WebExtensionContext> { struct type { unsigned char __lx[768]; } data; } _webExtensionContext;
+}
+
+@property (readonly, nonatomic) void *_webExtensionContext;
+@property (readonly, nonatomic) WKWebView *_backgroundWebView;
+@property (readonly, nonatomic) NSURL *_backgroundContentURL;
+@property (readonly, nonatomic) WKWebExtension *webExtension;
+@property (readonly, weak, nonatomic) WKWebExtensionController *webExtensionController;
+@property (readonly, nonatomic, getter=isLoaded) BOOL loaded;
+@property (readonly, copy, nonatomic) NSArray *errors;
+@property (copy, nonatomic) NSURL *baseURL;
+@property (copy, nonatomic) NSString *uniqueIdentifier;
+@property (nonatomic, getter=isInspectable) BOOL inspectable;
+@property (copy, nonatomic) NSString *inspectionName;
+@property (copy, nonatomic) NSSet *unsupportedAPIs;
+@property (readonly, copy, nonatomic) WKWebViewConfiguration *webViewConfiguration;
+@property (readonly, copy, nonatomic) NSURL *optionsPageURL;
+@property (readonly, copy, nonatomic) NSURL *overrideNewTabPageURL;
+@property (copy, nonatomic) NSDictionary *grantedPermissions;
+@property (copy, nonatomic) NSDictionary *grantedPermissionMatchPatterns;
+@property (copy, nonatomic) NSDictionary *deniedPermissions;
+@property (copy, nonatomic) NSDictionary *deniedPermissionMatchPatterns;
+@property (nonatomic) BOOL hasRequestedOptionalAccessToAllHosts;
+@property (nonatomic) BOOL hasAccessToPrivateData;
+@property (readonly, copy, nonatomic) NSSet *currentPermissions;
+@property (readonly, copy, nonatomic) NSSet *currentPermissionMatchPatterns;
+@property (readonly, nonatomic) BOOL hasAccessToAllURLs;
+@property (readonly, nonatomic) BOOL hasAccessToAllHosts;
+@property (readonly, nonatomic) BOOL hasInjectedContent;
+@property (readonly, nonatomic) BOOL hasContentModificationRules;
+@property (readonly, copy, nonatomic) NSArray *commands;
+@property (readonly, copy, nonatomic) NSArray *openWindows;
+@property (readonly, weak, nonatomic) id<WKWebExtensionWindow> focusedWindow;
+@property (readonly, copy, nonatomic) NSSet *openTabs;
+@property (readonly) struct Object { void /* function */ **x0; void *x1; } *_apiObject;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
++ (id)contextForExtension:(id)a0;
+
+- (void)_objc_initiateDealloc;
+- (void)dealloc;
+- (void)didFocusWindow:(id)a0;
+- (void)didCloseWindow:(id)a0;
+- (BOOL)hasAccessToURL:(id)a0;
+- (void)performCommand:(id)a0;
+- (struct Ref<WebKit::WebExtensionContext, WTF::RawPtrTraits<WebKit::WebExtensionContext>, WTF::DefaultRefDerefTraits<WebKit::WebExtensionContext>> { struct WebExtensionContext *x0; })_protectedWebExtensionContext;
+- (void)_sendTestMessage:(id)a0 withArgument:(id)a1;
+- (id)actionForTab:(id)a0;
+- (void)clearUserGestureInTab:(id)a0;
+- (id)commandForEvent:(id)a0;
+- (void)didActivateTab:(id)a0 previousActiveTab:(id)a1;
+- (void)didChangeTabProperties:(unsigned long long)a0 forTab:(id)a1;
+- (void)didCloseTab:(id)a0 windowIsClosing:(BOOL)a1;
+- (void)didDeselectTabs:(id)a0;
+- (void)didMoveTab:(id)a0 fromIndex:(unsigned long long)a1 inWindow:(id)a2;
+- (void)didOpenTab:(id)a0;
+- (void)didOpenWindow:(id)a0;
+- (void)didReplaceTab:(id)a0 withTab:(id)a1;
+- (void)didSelectTabs:(id)a0;
+- (BOOL)hasAccessToURL:(id)a0 inTab:(id)a1;
+- (BOOL)hasActiveUserGestureInTab:(id)a0;
+- (BOOL)hasInjectedContentForURL:(id)a0;
+- (BOOL)hasPermission:(id)a0;
+- (BOOL)hasPermission:(id)a0 inTab:(id)a1;
+- (id)initForExtension:(id)a0;
+- (void)loadBackgroundContentWithCompletionHandler:(id /* block */)a0;
+- (id)menuItemsForTab:(id)a0;
+- (void)performActionForTab:(id)a0;
+- (BOOL)performCommandForEvent:(id)a0;
+- (long long)permissionStatusForMatchPattern:(id)a0;
+- (long long)permissionStatusForMatchPattern:(id)a0 inTab:(id)a1;
+- (long long)permissionStatusForPermission:(id)a0;
+- (long long)permissionStatusForPermission:(id)a0 inTab:(id)a1;
+- (long long)permissionStatusForURL:(id)a0;
+- (long long)permissionStatusForURL:(id)a0 inTab:(id)a1;
+- (void)setPermissionStatus:(long long)a0 forMatchPattern:(id)a1;
+- (void)setPermissionStatus:(long long)a0 forMatchPattern:(id)a1 expirationDate:(id)a2;
+- (void)setPermissionStatus:(long long)a0 forPermission:(id)a1;
+- (void)setPermissionStatus:(long long)a0 forPermission:(id)a1 expirationDate:(id)a2;
+- (void)setPermissionStatus:(long long)a0 forURL:(id)a1;
+- (void)setPermissionStatus:(long long)a0 forURL:(id)a1 expirationDate:(id)a2;
+- (id)sidebarForTab:(id)a0;
+- (void)userGesturePerformedInTab:(id)a0;
+
+@end

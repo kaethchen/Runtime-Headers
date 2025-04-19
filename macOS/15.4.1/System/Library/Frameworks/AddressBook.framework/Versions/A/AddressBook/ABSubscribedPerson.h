@@ -1,0 +1,3 @@
+@interface ABSubscribedPerson : ABPerson
+
+@end

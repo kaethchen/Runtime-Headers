@@ -1,0 +1,90 @@
+@class NSString, NSMutableDictionary;
+
+@interface TSCEWarning : NSObject <NSCopying> {
+    NSMutableDictionary *_warningInfoDict;
+    struct TSCERangeRef { struct TSCERangeCoordinate { struct TSUCellCoord { unsigned int row; unsigned short column; BOOL _preserveRow; BOOL _preserveColumn; } _topLeft; struct TSUCellCoord { unsigned int row; unsigned short column; BOOL _preserveRow; BOOL _preserveColumn; } _bottomRight; } range; struct TSKUIDStruct { unsigned long long _lower; unsigned long long _upper; } _tableUID; } _rangeRef;
+    unsigned long long _cachedHashValue;
+}
+
+@property (readonly, nonatomic) long long warningType;
+@property (readonly, nonatomic) BOOL isEvaluationWarning;
+@property (readonly, nonatomic) NSString *originalFormula;
+@property (readonly, nonatomic) NSString *originalDataFormat;
+@property (readonly, nonatomic) NSString *supplementaryText;
+
++ (id)loadFromArchive:(const void *)a0;
++ (id)warningForUnsupportedCondFormat;
++ (long long)warningTypePrunedToThisVersion:(unsigned int)a0;
++ (id)warningForTransposedWithIssues:(id)a0;
++ (void)reportAutomaticUnitConversionWarningInContext:(id)a0;
++ (void)reportBoolToNumberConversionWarningInContext:(id)a0;
++ (void)reportComparisonWarningInContext:(id)a0 leftType:(char)a1 rightType:(char)a2;
++ (void)reportDayOutOfRangeWarningInContext:(id)a0;
++ (void)reportLossOfUnitsWarningInContext:(id)a0;
++ (void)reportMonthOutOfRangeWarningInContext:(id)a0;
++ (void)reportNonNumericCellWarningInContext:(id)a0;
++ (void)reportNonNumericCellWarningInContext:(id)a0 rangeRef:(const struct TSCERangeRef { struct TSCERangeCoordinate { struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; } x0; struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; } x1; } x0; struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; } x1; } *)a1;
++ (void)reportWarningInContext:(id)a0 warningType:(long long)a1;
++ (id)warningFor3DReferenceFormula:(id)a0;
++ (id)warningForArrayModeWarning:(id)a0;
++ (id)warningForArrayedFormula:(id)a0;
++ (id)warningForAutomaticUnitConversion;
++ (id)warningForBoolToNumberConversion;
++ (id)warningForComparisonWithLeftType:(char)a0 rightType:(char)a1;
++ (id)warningForCondFormatAboveAvgEqualAvg;
++ (id)warningForCondFormatAboveAvgStdDev;
++ (id)warningForCondFormatComplexFormula;
++ (id)warningForCondFormatContainsErrors;
++ (id)warningForCondFormatExpr;
++ (id)warningForCondFormatNotContainsErrors;
++ (id)warningForCondFormatParamatersNotAllTheSame;
++ (id)warningForCondFormatStopIfTrue;
++ (id)warningForCondFormatUnsupportedOperator;
++ (id)warningForCondFormatUnsupportedStyling;
++ (id)warningForCondFormatUnsupportedTimePeriod;
++ (id)warningForDayOutOfRange;
++ (id)warningForDifferentBehaviorForFunctionFormula:(id)a0 originalFormula:(id)a1;
++ (id)warningForDurationFormatRangeChanged;
++ (id)warningForErrorTokenFormula:(id)a0;
++ (id)warningForExternalReferenceFormula:(id)a0;
++ (id)warningForFilteredColumnFormulaNotCopied;
++ (id)warningForFormulaReplacedForExcelCompat:(id)a0 originalFormula:(id)a1;
++ (id)warningForLossOfUnits;
++ (id)warningForMonthOutOfRange;
++ (id)warningForNaturalLanguageFormula:(id)a0;
++ (id)warningForNonNumericCell;
++ (id)warningForNonNumericCellWithRangeRef:(const struct TSCERangeRef { struct TSCERangeCoordinate { struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; } x0; struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; } x1; } x0; struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; } x1; } *)a0;
++ (id)warningForReferenceOutOfBoundsFormula:(id)a0;
++ (id)warningForSharedFormulaBaseNotFoundFormula:(id)a0;
++ (id)warningForTransposeUnmodifiedWithIssues;
++ (id)warningForTransposedWithoutIssues:(id)a0;
++ (id)warningForUnknownName:(id)a0 originalFormula:(id)a1;
++ (id)warningForUnsupportedDataFormat:(id)a0;
++ (id)warningForUnsupportedFormula:(id)a0;
++ (id)warningForUnsupportedFunction:(id)a0 originalFormula:(id)a1;
++ (id)warningForUnsupportedNameFormula:(id)a0 originalFormula:(id)a1;
++ (id)warningWithType:(long long)a0;
++ (id)warningWithType:(long long)a0 originalDataFormat:(id)a1;
++ (id)warningWithType:(long long)a0 originalFormula:(id)a1;
++ (id)warningWithType:(long long)a0 originalFormula:(id)a1 supplementaryText:(id)a2;
++ (id)warningWithType:(long long)a0 originalFormula:(id)a1 supplementaryText:(id)a2 originalDataFormat:(id)a3;
++ (id)warningWithType:(long long)a0 rangeRef:(const struct TSCERangeRef { struct TSCERangeCoordinate { struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; } x0; struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; } x1; } x0; struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; } x1; } *)a1;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id).cxx_construct;
+- (id)numberForKey:(id)a0;
+- (id)stringForKey:(id)a0;
+- (void)setString:(id)a0 forKey:(id)a1;
+- (void)setNumber:(id)a0 forKey:(id)a1;
+- (void)saveToArchive:(void *)a0;
+- (void)_calculatehashValue;
+- (id)displayStringWithCalculationEngine:(id)a0 forTable:(const struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; } *)a1;
+- (id)displayStringWithCalculationEngine:(id)a0 forTable:(const struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; } *)a1 andCellID:(struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; })a2;
+- (id)initWithWarningType:(long long)a0 originalFormula:(id)a1 supplementaryText:(id)a2 originalDataFormat:(id)a3;
+- (id)initWithWarningType:(long long)a0 rangeRef:(const struct TSCERangeRef { struct TSCERangeCoordinate { struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; } x0; struct TSUCellCoord { unsigned int x0; unsigned short x1; BOOL x2; BOOL x3; } x1; } x0; struct TSKUIDStruct { unsigned long long x0; unsigned long long x1; } x1; } *)a1;
+
+@end

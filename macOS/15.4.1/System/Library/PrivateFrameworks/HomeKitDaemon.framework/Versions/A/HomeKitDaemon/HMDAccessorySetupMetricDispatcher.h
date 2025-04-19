@@ -1,0 +1,81 @@
+@class NSUUID, NSString, HMFTimer, HMDHomeManager, NSError, HMAccessoryDiagnosticInfoProtoDiagnosticInfo, NSObject, HMDHome;
+@protocol HMMLogEventSubmitting, OS_os_log, HMDDeviceSetupTrackingInfo, HMMRadarInitiating, HMFCancellable, OS_dispatch_queue, HMDAccessorySetupMetricDispatcherDelegate;
+
+@interface HMDAccessorySetupMetricDispatcher : HMFObject <HMFTimerDelegate, HMFLogging, HMEEventConsumer> {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    NSObject<OS_os_log> *_logger;
+    BOOL _submitted;
+    id<HMDDeviceSetupTrackingInfo> _trackingInfo;
+    NSObject<OS_dispatch_queue> *_queue;
+    HMFTimer *_timer;
+    id<HMMLogEventSubmitting> _submitter;
+    id<HMMRadarInitiating> _radarInitiator;
+    HMDHomeManager *_homeManager;
+    id _discoveryController;
+    id _networkInfoController;
+    HMDHome *_home;
+    HMAccessoryDiagnosticInfoProtoDiagnosticInfo *_accessoryDiagnosticInfo;
+    NSError *_accessoryDiagnosticInfoFetchError;
+    HMAccessoryDiagnosticInfoProtoDiagnosticInfo *_primaryResidentDiagnosticInfo;
+    NSError *_primaryResidentDiagnosticInfoFetchError;
+    id<HMFCancellable> _remoteEventRouterAssertion;
+    id _discoveryAssertion;
+}
+
+@property (readonly, copy, nonatomic) NSUUID *setupSessionIdentifier;
+@property (readonly) BOOL isRepairSession;
+@property (readonly) unsigned long long firstSettingTime;
+@property (readonly) unsigned long long languageSettingTime;
+@property (readonly) unsigned long long addAccessoryFinishTime;
+@property (readonly) unsigned long long accessoryRemovedTime;
+@property (readonly) long long selectedHomeLocationStatus;
+@property (readonly) BOOL isUserAtOtherOwnedHome;
+@property (readonly) unsigned long long lastPrimaryResidentAvailableTime;
+@property (readonly) unsigned int numberOfTimesPrimaryResidentChanged;
+@property (readonly) unsigned long long lastPrimaryClientConnectedTime;
+@property (readonly) unsigned int numberOfTimesPrimaryClientConnected;
+@property (readonly) unsigned int numberOfTimesPrimaryClientDisconnected;
+@property (readonly) unsigned int numberOfTimesPrimaryClientConnectMessageFailed;
+@property (readonly, copy) NSError *lastPrimaryClientConnectMessageFailError;
+@property (readonly) BOOL didSendAddAccessoryRequestToPrimary;
+@property (readonly, copy) NSError *addAccessoryOnPrimaryFailError;
+@property (readonly) BOOL didAddAccessoryLocally;
+@property (readonly) BOOL primaryResidentIdenticalToAccessoryBeingAdded;
+@property (readonly) BOOL primaryResidentAssignedInHomeWhenAddAccessory;
+@property (readonly) unsigned int numberOfMediaAccessoriesnHome;
+@property (readonly) unsigned int numberOfAvailableResidentsInHome;
+@property (readonly) unsigned int numberOfResidentsInHome;
+@property (readonly, copy, nonatomic) NSUUID *setupSessionIdentifier;
+@property (readonly) BOOL isRepairSession;
+@property (readonly) unsigned long long firstSettingTime;
+@property (readonly) unsigned long long languageSettingTime;
+@property (readonly) unsigned long long addAccessoryFinishTime;
+@property (readonly) unsigned long long accessoryRemovedTime;
+@property (readonly) long long selectedHomeLocationStatus;
+@property (readonly) BOOL isUserAtOtherOwnedHome;
+@property (readonly) unsigned long long lastPrimaryResidentAvailableTime;
+@property (readonly) unsigned int numberOfTimesPrimaryResidentChanged;
+@property (readonly) unsigned long long lastPrimaryClientConnectedTime;
+@property (readonly) unsigned int numberOfTimesPrimaryClientConnected;
+@property (readonly) unsigned int numberOfTimesPrimaryClientDisconnected;
+@property (readonly) unsigned int numberOfTimesPrimaryClientConnectMessageFailed;
+@property (readonly, copy) NSError *lastPrimaryClientConnectMessageFailError;
+@property (readonly) BOOL didSendAddAccessoryRequestToPrimary;
+@property (readonly, copy) NSError *addAccessoryOnPrimaryFailError;
+@property (readonly) BOOL didAddAccessoryLocally;
+@property (readonly) BOOL primaryResidentIdenticalToAccessoryBeingAdded;
+@property (readonly) BOOL primaryResidentAssignedInHomeWhenAddAccessory;
+@property (readonly) unsigned int numberOfMediaAccessoriesnHome;
+@property (readonly) unsigned int numberOfAvailableResidentsInHome;
+@property (readonly) unsigned int numberOfResidentsInHome;
+@property (readonly) id<HMDDeviceSetupTrackingInfo> trackingInfo;
+@property (readonly) BOOL submitted;
+@property (weak) id<HMDAccessorySetupMetricDispatcherDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)logCategory;
+
+@end

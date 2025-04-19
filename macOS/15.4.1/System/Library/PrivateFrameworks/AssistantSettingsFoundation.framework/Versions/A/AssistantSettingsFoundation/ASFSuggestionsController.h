@@ -1,0 +1,3 @@
+@interface ASFSuggestionsController : NSObject
+
+@end

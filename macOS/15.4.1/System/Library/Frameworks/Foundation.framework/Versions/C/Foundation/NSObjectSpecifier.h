@@ -1,0 +1,3 @@
+@interface NSObjectSpecifier : NSScriptObjectSpecifier
+
+@end

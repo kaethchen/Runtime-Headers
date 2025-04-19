@@ -1,0 +1,84 @@
+@class NWDatagramConnection, NSString, NSFileHandle, NWConnectionManager, SSConnectionOptions, NSDictionary, IDSSession, NSMutableSet, CNContactStore;
+
+@interface SSAddress : NSObject <NSCopying>
+
+@property (copy) NSString *originalAddress;
+@property (retain) NSMutableSet *types;
+@property BOOL isOSX_10OrLater;
+@property (copy) NSString *embeddedUsername;
+@property (copy) NSString *embeddedPassword;
+@property (copy) NSString *hostname;
+@property (copy) NSString *bonjourName;
+@property (copy) NSDictionary *options;
+@property struct in6_addr { union { unsigned char __u6_addr8[16]; unsigned short __u6_addr16[8]; unsigned int __u6_addr32[4]; } __u6_addr; } address;
+@property unsigned short port;
+@property (retain) NSFileHandle *_socketHandle;
+@property int socket;
+@property (copy) NSString *remoteIPPort;
+@property unsigned long long multicastAddress;
+@property unsigned long long multicastPort;
+@property unsigned long long session;
+@property (retain) IDSSession *idsSession;
+@property (retain) IDSSession *idsSessionOSX_QR;
+@property (retain) NWDatagramConnection *datagramConnection;
+@property (retain) NWConnectionManager *datagramConnectionManager;
+@property (retain) CNContactStore *cnStore;
+@property (retain) SSConnectionOptions *connectionOptions;
+@property BOOL inviterAppIsMessages;
+@property (readonly, nonatomic, getter=isEmpty) BOOL empty;
+@property (readonly, copy) NSString *connectionID;
+@property (readonly, copy) NSString *inviterName;
+@property (readonly, copy) NSString *invitationType;
+@property (readonly, retain) NSString *idsDestination;
+@property (readonly) BOOL isPerson;
+@property (readonly, copy) NSString *abPersonID;
+@property (readonly, copy) NSString *appleID;
+@property int resolverStatus;
+@property (retain) NSString *resolverAccountName;
+@property (readonly) struct sockaddr_in6 { unsigned char x0; unsigned char x1; unsigned short x2; unsigned int x3; struct in6_addr { union { unsigned char x0[16]; unsigned short x1[8]; unsigned int x2[4]; } x0; } x4; unsigned int x5; } sockaddr;
+@property (readonly) BOOL isAppleIDAddress;
+@property (copy) NSString *callUUID;
+@property (readonly, copy) NSString *displayString;
+
++ (id)optionsFromURL:(id)a0;
++ (id)addressFromString:(id)a0;
++ (id)addressWithNWDatagramConnection:(id)a0 remoteIPPort:(id)a1 fromAcceptedInvitationAtAddress:(id)a2;
++ (id)addressWithNWDatagramConnection:(id)a0 xpcConnection:(id)a1 NWConnectionManager:(id)a2 fromAcceptedInvitationAtAddress:(id)a3;
++ (id)appleIDAddressWithIDSSession:(id)a0 fromAddress:(id)a1;
++ (id)appleIDAddressWithIDSSession:(id)a0 osxSecondarySession:(id)a1 fromAddress:(id)a2;
++ (id)ipv6AddressWithIn6Addr:(struct in6_addr { union { unsigned char x0[16]; unsigned short x1[8]; unsigned int x2[4]; } x0; })a0 port:(unsigned short)a1;
++ (id)ipv6AddressWithIn6Addr:(struct in6_addr { union { unsigned char x0[16]; unsigned short x1[8]; unsigned int x2[4]; } x0; })a0 port:(unsigned short)a1 bonjourName:(id)a2 resolvedFromAddress:(id)a3;
++ (id)ipv6AddressWithIn6Addr:(struct in6_addr { union { unsigned char x0[16]; unsigned short x1[8]; unsigned int x2[4]; } x0; })a0 port:(unsigned short)a1 resolvedFromAddress:(id)a2;
++ (id)multicastUDPSocketAddressWithSocket:(int)a0 remoteIPPort:(id)a1 multicastAddress:(unsigned long long)a2 multicastPort:(unsigned long long)a3 session:(unsigned long long)a4;
++ (id)newSSAddress;
++ (id)stringFromIn6Addr:(struct in6_addr { union { unsigned char x0[16]; unsigned short x1[8]; unsigned int x2[4]; } x0; })a0 port:(unsigned short)a1;
++ (id)udpSocketAddressWithSocket:(int)a0 remoteIPPort:(id)a1;
++ (id)udpSocketAddressWithSocket:(int)a0 remoteIPPort:(id)a1 fromAcceptedInvitationAtAddress:(id)a2;
++ (id)udpSocketAddressWithSocketHandle:(id)a0 remoteIPPort:(id)a1 xpcConnection:(id)a2 fromAcceptedInvitationAtAddress:(id)a3;
++ (BOOL)validHostname:(id)a0;
+
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (id)init;
+- (BOOL)isEqual:(id)a0;
+- (id)initWithString:(id)a0;
+- (void)addAddressType:(int)a0;
+- (BOOL)isLinkLocalIPv6;
+- (id)addressCopy;
+- (id)canonicalURLWithStrippedUser:(BOOL)a0 passwordBullets:(BOOL)a1;
+- (id)contactForABPersonID:(id)a0;
+- (id)contactForAppleID:(id)a0;
+- (BOOL)foundBonjourInString:(id)a0;
+- (BOOL)foundIPv4InString:(id)a0;
+- (BOOL)foundIPv6InString:(id)a0;
+- (BOOL)foundPhoneNumber:(id)a0;
+- (BOOL)hasAppleIDInvitationType;
+- (BOOL)hasType:(int)a0;
+- (id)initWithUDPSocket:(int)a0 remoteIPPort:(id)a1 multicastAddress:(unsigned long long)a2 multicastPort:(unsigned long long)a3 session:(unsigned long long)a4;
+- (void)removeAddressType:(int)a0;
+- (void)removeAllAddressTypes;
+- (void)removeAllNonAppleIDTypes;
+- (id)typeStrings;
+
+@end

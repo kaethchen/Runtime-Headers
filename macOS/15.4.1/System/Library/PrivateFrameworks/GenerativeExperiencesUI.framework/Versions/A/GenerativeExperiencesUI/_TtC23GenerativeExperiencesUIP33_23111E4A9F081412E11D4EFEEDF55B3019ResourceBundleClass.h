@@ -1,0 +1,3 @@
+@interface _TtC23GenerativeExperiencesUIP33_23111E4A9F081412E11D4EFEEDF55B3019ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

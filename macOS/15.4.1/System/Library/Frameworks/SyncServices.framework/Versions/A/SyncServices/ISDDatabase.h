@@ -1,0 +1,80 @@
+@class ISDDataDirectoryVersion, NSMutableSet, NSString;
+
+@interface ISDDatabase : NSObject {
+    struct sqlite3 { } *_db;
+    ISDDataDirectoryVersion *_dataVersion;
+    NSMutableSet *_globalStringTable;
+    NSString *_tracingPrefix;
+    id _dirtyCoderDelegate;
+}
+
++ (void)initialize;
++ (void)toggleSqlLogging;
++ (void)clearThreadGlobalUniqueStringTable;
++ (id)defaultDatabasePath:(id)a0;
++ (id)getThreadGlobalUniqueStringTable;
++ (void)maybeEnableSqlLogging;
+
+- (void)dealloc;
+- (void)beginTransaction;
+- (void)vacuum;
+- (void)commitTransaction;
+- (void)execute:(const char *)a0;
+- (void)rollbackTransaction;
+- (struct sqlite3_stmt { } *)prepareStatement:(const char *)a0;
+- (void)closeDatabase;
+- (void)beginExclusiveTransaction;
+- (void)bindObject:(id)a0 atIndex:(int)a1 inStatement:(struct sqlite3_stmt { } *)a2;
+- (void)bindInt:(int)a0 atIndex:(int)a1 inStatement:(struct sqlite3_stmt { } *)a2;
+- (void)bindUnsignedLongLong:(unsigned long long)a0 atIndex:(int)a1 inStatement:(struct sqlite3_stmt { } *)a2;
+- (void)disableSqliteTracing;
+- (void)enableSqliteTracing:(id)a0;
+- (void)executeWithBlob:(const void *)a0 length:(int)a1 format:(const char *)a2;
+- (void)executeWithCallback:(void /* function */ *)a0 context:(void *)a1 sql:(const char *)a2;
+- (void)executeWithRollbackOnError:(const char *)a0;
+- (void)finalizeStatement:(struct sqlite3_stmt **)a0;
+- (int)intFromColumn:(int)a0 inStatement:(struct sqlite3_stmt { } *)a1;
+- (void)openDatabaseAtPath:(id)a0;
+- (void)resetStatement:(struct sqlite3_stmt { } *)a0 unbindValuesThroughIndex:(int)a1;
+- (void)setSqliteCacheSize:(long long)a0;
+- (void)setTracingPrefix:(id)a0;
+- (BOOL)stepStatement:(struct sqlite3_stmt { } *)a0;
+- (unsigned long long)unsignedLongLongFromColumn:(int)a0 inStatement:(struct sqlite3_stmt { } *)a1;
+- (void)runStatement:(struct sqlite3_stmt { } *)a0 withBoundObjects:(id)a1 startingAtIndex:(unsigned int)a2 callback:(void /* function */ *)a3 context:(void *)a4;
+- (void)bindString:(id)a0 atIndex:(int)a1 inStatement:(struct sqlite3_stmt { } *)a2;
+- (id)createGlobalIdStringFromColumn:(int)a0 inStatement:(struct sqlite3_stmt { } *)a1 uniqueInStringTable:(id)a2;
+- (BOOL)_isDatabaseAvailableForMode:(int)a0;
+- (void)beginExclusiveTransactionWithCallback:(void /* function */ *)a0 numberOfAttempts:(unsigned int)a1 interval:(double)a2;
+- (void)beginImmediateTransaction;
+- (void)beginImmediateTransactionWithCallback:(void /* function */ *)a0 numberOfAttempts:(unsigned int)a1 interval:(double)a2;
+- (void)beginTransactionWithCallback:(void /* function */ *)a0 numberOfAttempts:(unsigned int)a1 interval:(double)a2;
+- (void)bindGlobalId:(id)a0 atIndex:(int)a1 inStatement:(struct sqlite3_stmt { } *)a2;
+- (void)checkBinding:(int)a0 forValue:(id)a1 atIndex:(int)a2;
+- (void)commitTransactionWithCallback:(void /* function */ *)a0 numberOfAttempts:(unsigned int)a1 interval:(double)a2;
+- (id)createDataFromColumn:(int)a0 inStatement:(struct sqlite3_stmt { } *)a1 copyBytes:(BOOL)a2;
+- (id)createDataWrapperFromDataInColumn:(int)a0 statement:(struct sqlite3_stmt { } *)a1;
+- (id)createGlobalIdFromColumn:(int)a0 inStatement:(struct sqlite3_stmt { } *)a1;
+- (id)createGlobalIdStringFromColumn:(int)a0 inStatement:(struct sqlite3_stmt { } *)a1;
+- (id)createPropertiesFromDataInColumn:(int)a0 statement:(struct sqlite3_stmt { } *)a1 forRecordWithIdentifier:(id)a2;
+- (id)createStringFromColumn:(int)a0 inStatement:(struct sqlite3_stmt { } *)a1 uniqueInStringTable:(id)a2;
+- (int)databaseAccessStatus;
+- (id)dirtyCoderDelegate;
+- (void)executeSQL:(const char *)a0 withCallback:(void /* function */ *)a1 context:(void *)a2;
+- (void)executeWithCallback:(void /* function */ *)a0 context:(void *)a1 rollbackOnError:(BOOL)a2 sql:(const char *)a3;
+- (id)initWithDatabaseAtPath:(id)a0;
+- (BOOL)isDatabaseAvailableForReading;
+- (BOOL)isDatabaseAvailableForWriting;
+- (void)raiseSQLiteExceptionWithName:(id)a0 format:(id)a1;
+- (void)raiseSQLiteInternalInconsistencyException:(id)a0;
+- (void)reopenDatabaseAtPath:(id)a0;
+- (void)rollbackTransactionWithCallback:(void /* function */ *)a0 numberOfAttempts:(unsigned int)a1 interval:(double)a2;
+- (void)runStatement:(struct sqlite3_stmt { } *)a0 callback:(void /* function */ *)a1 context:(void *)a2;
+- (void)runStatement:(struct sqlite3_stmt { } *)a0 withBoundGlobalIds:(id)a1 startingAtIndex:(unsigned int)a2 callback:(void /* function */ *)a3 context:(void *)a4;
+- (void)runStatement:(struct sqlite3_stmt { } *)a0 withBoundRecordStates:(int *)a1 count:(unsigned long long)a2 withBoundEntityNumbers:(id)a3 callback:(void /* function */ *)a4 context:(void *)a5;
+- (void)runStatement:(struct sqlite3_stmt { } *)a0 withBoundRowIds:(unsigned long long *)a1 count:(unsigned long long)a2 startingAtIndex:(unsigned int)a3 callback:(void /* function */ *)a4 context:(void *)a5;
+- (void)runStatement:(struct sqlite3_stmt { } *)a0 withBoundRowIds:(id)a1 startingAtIndex:(unsigned int)a2 callback:(void /* function */ *)a3 context:(void *)a4;
+- (void)setDataVersionGivenPath:(id)a0;
+- (void)setDirtyCoderDelegate:(id)a0;
+- (struct sqlite3 { } *)sqliteDatabase;
+
+@end

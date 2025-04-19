@@ -1,0 +1,3 @@
+@interface _TtC16LinkPresentationP33_F544980524C638259C3A28C2AA31A6F819ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

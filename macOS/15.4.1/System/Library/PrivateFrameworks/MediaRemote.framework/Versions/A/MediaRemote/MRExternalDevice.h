@@ -1,0 +1,81 @@
+@class MRSupportedProtocolMessages, NSString, NSArray, NSMutableDictionary, MRDeviceInfo, MROrigin, MRGroupSessionToken;
+
+@interface MRExternalDevice : NSObject {
+    NSMutableDictionary *_discoveryOutputDevicesCallbacks;
+    NSMutableDictionary *_discoveryConfigurations;
+    NSMutableDictionary *_discoveryModes;
+}
+
+@property (readonly, nonatomic) MRSupportedProtocolMessages *supportedMessages;
+@property (nonatomic, getter=isUsingSystemPairing) BOOL usingSystemPairing;
+@property (nonatomic) long long connectionRecoveryBehavior;
+@property (readonly, nonatomic) BOOL supportsIdleDisconnection;
+@property (readonly, nonatomic) BOOL supportsExternalDiscovery;
+@property (readonly, nonatomic) NSString *name;
+@property (readonly, nonatomic) NSString *hostName;
+@property (readonly, nonatomic) long long port;
+@property (readonly, nonatomic) MROrigin *customOrigin;
+@property (readonly, nonatomic) NSString *uid;
+@property (readonly, nonatomic) MRDeviceInfo *deviceInfo;
+@property (readonly, nonatomic) NSArray *personalOutputDevices;
+@property (readonly, nonatomic) MRGroupSessionToken *groupSessionToken;
+@property (nonatomic) BOOL wantsNowPlayingNotifications;
+@property (nonatomic) BOOL wantsNowPlayingArtworkNotifications;
+@property (nonatomic) BOOL wantsVolumeNotifications;
+@property (nonatomic) BOOL wantsOutputDeviceNotifications;
+@property (nonatomic) BOOL wantsSystemEndpointNotifications;
+@property (nonatomic) BOOL wantsEndpointChangeNotifications;
+@property (copy, nonatomic) NSArray *subscribedPlayerPaths;
+@property (readonly, nonatomic, getter=isValid) BOOL valid;
+@property (readonly, nonatomic, getter=isConnected) BOOL connected;
+@property (readonly, nonatomic) unsigned int connectionState;
+@property (readonly, nonatomic, getter=isPaired) BOOL paired;
+
+- (void).cxx_destruct;
+- (id)_init;
+- (void)disconnect:(id)a0;
+- (void)setOutputDeviceVolume:(float)a0 outputDeviceUID:(id)a1 details:(id)a2 queue:(id)a3 completion:(id /* block */)a4;
+- (void)adjustOutputDeviceVolume:(long long)a0 outputDeviceUID:(id)a1 details:(id)a2 queue:(id)a3 completion:(id /* block */)a4;
+- (void)connectWithOptions:(unsigned int)a0;
+- (void)connectWithOptions:(unsigned int)a0 userInfo:(id)a1;
+- (void)connectWithOptions:(unsigned int)a0 userInfo:(id)a1 completion:(id /* block */)a2;
+- (void)createHostedEndpointWithOutputDeviceUIDs:(id)a0 queue:(id)a1 completion:(id /* block */)a2;
+- (id)currentClientUpdatesConfigMessage;
+- (BOOL)disconnectWhenUndiscoverable;
+- (id)discoveryDescription;
+- (id)errorForCurrentState;
+- (void)modifyTopologyWithRequest:(id)a0 withReplyQueue:(id)a1 completion:(id /* block */)a2;
+- (void)muteOutputDeviceVolume:(BOOL)a0 outputDeviceUID:(id)a1 details:(id)a2 queue:(id)a3 completion:(id /* block */)a4;
+- (void)notifyDiscoveryOutputDevicesChanged:(id)a0 forConfiguration:(id)a1;
+- (void)outputDeviceVolume:(id)a0 queue:(id)a1 completion:(id /* block */)a2;
+- (void)outputDeviceVolumeControlCapabilities:(id)a0 queue:(id)a1 completion:(id /* block */)a2;
+- (void)ping:(double)a0 callback:(id /* block */)a1 withQueue:(id)a2;
+- (id)registerDiscoveryTokenForConfiguration:(id)a0;
+- (void)removeFromParentGroup:(id)a0 queue:(id)a1 completion:(id /* block */)a2;
+- (void)requestGroupSessionWithDetails:(id)a0 queue:(id)a1 completion:(id /* block */)a2;
+- (void)sendButtonEvent:(struct _MRHIDButtonEvent { unsigned int x0; unsigned int x1; BOOL x2; })a0;
+- (void)sendClientUpdatesConfigMessage;
+- (void)sendCustomData:(id)a0 withName:(id)a1;
+- (void)setConnectionStateCallback:(id /* block */)a0 withQueue:(id)a1;
+- (void)setConversationDetectionEnabled:(BOOL)a0 outputDeviceUID:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
+- (void)setCustomDataCallback:(id /* block */)a0 withQueue:(id)a1;
+- (void)setDeviceInfoChangedCallback:(id /* block */)a0 withQueue:(id)a1;
+- (void)setDiscoveryMode:(unsigned int)a0 forConfiguration:(id)a1;
+- (void)setDiscoveryMode:(unsigned int)a0 forToken:(id)a1;
+- (void)setDiscoveryOutputDevicesChangedCallback:(id /* block */)a0 forToken:(id)a1;
+- (void)setListeningMode:(id)a0 outputDeviceUID:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
+- (void)setNameCallback:(id /* block */)a0 withQueue:(id)a1;
+- (void)setOutputDeviceVolume:(float)a0 outputDeviceUID:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
+- (void)setOutputDevicesRemovedCallback:(id /* block */)a0 withQueue:(id)a1;
+- (void)setOutputDevicesUpdatedCallback:(id /* block */)a0 withQueue:(id)a1;
+- (void)setPairingAllowedCallback:(id /* block */)a0 withQueue:(id)a1;
+- (void)setPairingCallback:(id /* block */)a0 withQueue:(id)a1;
+- (void)setVolumeCallback:(id /* block */)a0 withQueue:(id)a1;
+- (void)setVolumeChangedCallback:(id /* block */)a0 withQueue:(id)a1;
+- (void)setVolumeControlCapabilitiesCallback:(id /* block */)a0 withQueue:(id)a1;
+- (void)setVolumeMutedChangedCallback:(id /* block */)a0 withQueue:(id)a1;
+- (BOOL)supportsDesignatedGroupLeaderUpdates;
+- (void)unregisterDiscoveryToken:(id)a0;
+- (void)updateDesignatedGroupLeader:(id)a0;
+
+@end

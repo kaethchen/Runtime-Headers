@@ -1,0 +1,88 @@
+@class SmartStyleRendererPlist, NSString, NSArray, CMISmartStyleColorCubePoolV1, NSMutableDictionary, NSDictionary, NSMutableSet, CMIExternalMemoryResource, FigMetalContext;
+@protocol MTLComputePipelineState, MTLTexture, MTLCommandQueue, MTLBuffer;
+
+@interface CMISmartStyleProxyRendererV1 : NSObject <CMISmartStyleProxyRenderer> {
+    FigMetalContext *_metalContext;
+    struct __CVMetalTextureCache { } *_textureCache;
+    SmartStyleRendererPlist *_internalTuningParams;
+    int _processingType;
+    id<MTLTexture> _inputImageTexture;
+    id<MTLTexture> _inputMaskTexture;
+    id<MTLTexture> _outputImageTexture;
+    struct { struct { int transferFunction; struct { void /* unknown type, empty encoding */ columns[3]; } colorConversionMatrix; } inputImage; struct { int transferFunction; struct { void /* unknown type, empty encoding */ columns[3]; } colorConversionMatrix; } inputLinearImage; struct { int transferFunction; struct { void /* unknown type, empty encoding */ columns[3]; } colorConversionMatrix; } inputMasks; struct { int transferFunction; struct { void /* unknown type, empty encoding */ columns[3]; } colorConversionMatrix; } outputImage; } _colorManagement;
+    id<MTLBuffer> _paramsBuf;
+    id<MTLBuffer> _statsBuf;
+    id<MTLTexture> _cubicSplineToneCurveTexture;
+    id<MTLComputePipelineState> _hueSatLumLUTPipelineState;
+    id<MTLComputePipelineState> _renderingParamsFromStatsPipelineState;
+    id<MTLComputePipelineState> _generateColorCubesPipelineState;
+    id<MTLComputePipelineState> _renderWithColorCubesPipelineState[2];
+    id<MTLComputePipelineState> _renderWithColorPriorsPipelineState[2];
+    NSMutableSet *_internallyAllocatedTextures;
+    CMISmartStyleColorCubePoolV1 *_colorCubePool;
+    unsigned long long _colorCubePixelFormat;
+    unsigned long long _colorCubeDimension;
+    NSMutableDictionary *_colorCubeCache;
+    NSDictionary *_currentStatsForCubes;
+    int _currentSceneTypeForCubes;
+    float _currentBrightnessValueForCubes;
+    NSMutableSet *_texturesToPurge;
+    NSDictionary *_hueSatLumLUTTexByCastTypeForVariant;
+}
+
+@property (retain, nonatomic) NSString *tuningParameterVariant;
+@property (nonatomic) unsigned long long maxInputStylesCount;
+@property (nonatomic) float foregroundRatio;
+@property (retain, nonatomic) NSArray *inputStyles;
+@property (nonatomic) struct __CVBuffer { } *inputPixelBuffer;
+@property (nonatomic) struct __CVBuffer { } *inputMaskPixelBuffer;
+@property (retain, nonatomic) NSDictionary *inputMetadata;
+@property (retain, nonatomic) NSDictionary *inputImageStatistics;
+@property (nonatomic) struct __CVBuffer { } *outputPixelBuffer;
+@property (nonatomic) float personMasksValidHint;
+@property (retain, nonatomic) id<MTLCommandQueue> metalCommandQueue;
+@property (readonly, nonatomic) BOOL supportsExternalMemoryResource;
+@property (retain, nonatomic) CMIExternalMemoryResource *externalMemoryResource;
+@property (retain, nonatomic) NSDictionary *tuningParameters;
+@property (retain, nonatomic) NSDictionary *cameraInfoByPortType;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (int)prewarm;
+- (int)finishProcessing;
+- (int)process;
+- (int)resetState;
+- (int)setup;
+- (int)prepareToProcess:(unsigned int)a0;
+- (id)externalMemoryDescriptorForConfiguration:(id)a0;
+- (id)initWithOptionalMetalCommandQueue:(id)a0;
+- (int)purgeResources;
+- (void)_updateColorManagementForInputs;
+- (int)_allocateParamsAndStatsBuffers;
+- (int)_bindInputPixelBuffersAsTextures;
+- (int)_bindPixelBufferToTexture:(struct __CVBuffer { } *)a0 usage:(unsigned long long)a1 overrideMTLPixelFormatWithFormat:(unsigned long long)a2 planeIndex:(int)a3 texturePtr:(id *)a4;
+- (int)_calculateCubicSplineToneCurve;
+- (int)_calculateDynamicRenderParameters;
+- (id)_calculateHueSatLumLUTTexForAllCastTypesAndVariants;
+- (int)_compileMetalShadersForProcessingType:(int)a0;
+- (void)_configureColorConversion:(struct { int x0; struct { void /* unknown type, empty encoding */ x0[3]; } x1; } *)a0 forTexture:(id)a1 isOutput:(BOOL)a2;
+- (int)_generateColorCubes;
+- (id)_newBufferWithLength:(unsigned long long)a0 options:(unsigned long long)a1 label:(id)a2;
+- (id)_newTexture2DWithFormat:(unsigned long long)a0 width:(unsigned long long)a1 height:(unsigned long long)a2 usage:(unsigned long long)a3 disableCompression:(BOOL)a4 label:(id)a5 retainUntilPurge:(BOOL)a6 useFigMetalAllocator:(BOOL)a7;
+- (id)_newTexture2DWithFormat:(unsigned long long)a0 width:(unsigned long long)a1 height:(unsigned long long)a2 usage:(unsigned long long)a3 label:(id)a4 retainUntilPurge:(BOOL)a5 useFigMetalAllocator:(BOOL)a6;
+- (int)_populateStaticRenderParameters:(struct { unsigned int x0; float x1; float x2; float x3; float x4; float x5; float x6; float x7; unsigned int x8; struct { float x0; float x1; float x2; float x3; float x4; float x5; float x6[3]; float x7[3]; float x8[3]; float x9; float x10; float x11; float x12[3]; float x13[3]; float x14[3]; float x15; float x16; float x17; float x18; float x19; float x20; float x21; } x9; struct { float x0; float x1; float x2; float x3; float x4; float x5; float x6; float x7; float x8; float x9; float x10; float x11; float x12; float x13; float x14; float x15; float x16; float x17; float x18; float x19; float x20; float x21; float x22; float x23; float x24; float x25; float x26; float x27; float x28; float x29; float x30; float x31; float x32; float x33; float x34; float x35; float x36; float x37; float x38; float x39; float x40; float x41; float x42; float x43; float x44; float x45; float x46; float x47; float x48; float x49; float x50; float x51; float x52; float x53; float x54; float x55; float x56; float x57; float x58; float x59; float x60; float x61; float x62; float x63; float x64; float x65; } x10; struct { float x0; float x1; float x2; float x3; } x11; struct { BOOL x0; float x1; float x2; float x3; float x4; float x5; float x6; float x7; float x8; } x12; struct { float x0; float x1; float x2; float x3; float x4; float x5; float x6; float x7; float x8; float x9; float x10; float x11; float x12; float x13; float x14; float x15; float x16; } x13; struct { float x0; float x1; float x2; float x3; float x4; float x5; float x6; float x7; float x8; float x9; float x10; float x11; float x12; float x13; float x14; float x15; } x14; struct { float x0; float x1; float x2; float x3; float x4; float x5; float x6; } x15; float x16; unsigned int x17; float x18; float x19; float x20; float x21; } *)a0 forInputStyle:(id)a1 fromTuning:(id)a2;
+- (int)_populateStaticRenderParametersFromTuning:(id)a0;
+- (void)_releaseInputPixelBuffersAndBoundTextures;
+- (int)_renderWithColorCubes;
+- (int)_renderWithColorPriors;
+- (unsigned long long)_requiredAllocatorCapacity;
+- (int)_updateColorCubeCache;
+- (int)_updateColorCubesFromTuning:(id)a0;
+- (void)_updateHazeTuningAdjustments:(struct { unsigned int x0; float x1; float x2; float x3; float x4; float x5; float x6; float x7; unsigned int x8; struct { float x0; float x1; float x2; float x3; float x4; float x5; float x6[3]; float x7[3]; float x8[3]; float x9; float x10; float x11; float x12[3]; float x13[3]; float x14[3]; float x15; float x16; float x17; float x18; float x19; float x20; float x21; } x9; struct { float x0; float x1; float x2; float x3; float x4; float x5; float x6; float x7; float x8; float x9; float x10; float x11; float x12; float x13; float x14; float x15; float x16; float x17; float x18; float x19; float x20; float x21; float x22; float x23; float x24; float x25; float x26; float x27; float x28; float x29; float x30; float x31; float x32; float x33; float x34; float x35; float x36; float x37; float x38; float x39; float x40; float x41; float x42; float x43; float x44; float x45; float x46; float x47; float x48; float x49; float x50; float x51; float x52; float x53; float x54; float x55; float x56; float x57; float x58; float x59; float x60; float x61; float x62; float x63; float x64; float x65; } x10; struct { float x0; float x1; float x2; float x3; } x11; struct { BOOL x0; float x1; float x2; float x3; float x4; float x5; float x6; float x7; float x8; } x12; struct { float x0; float x1; float x2; float x3; float x4; float x5; float x6; float x7; float x8; float x9; float x10; float x11; float x12; float x13; float x14; float x15; float x16; } x13; struct { float x0; float x1; float x2; float x3; float x4; float x5; float x6; float x7; float x8; float x9; float x10; float x11; float x12; float x13; float x14; float x15; } x14; struct { float x0; float x1; float x2; float x3; float x4; float x5; float x6; } x15; float x16; unsigned int x17; float x18; float x19; float x20; float x21; } *)a0;
+- (int)_updateStatsBuffer;
+
+@end

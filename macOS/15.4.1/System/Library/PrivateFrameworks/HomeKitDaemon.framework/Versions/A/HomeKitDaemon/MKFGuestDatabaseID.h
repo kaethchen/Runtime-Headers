@@ -1,0 +1,3 @@
+@interface MKFGuestDatabaseID : MKFModelDatabaseID
+
+@end

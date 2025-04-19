@@ -1,0 +1,3 @@
+@interface _TtC19_AppIntents_SwiftUIP33_B23B11DEA722B3BC9EE17423521691A29DummyView : _TtCs12_SwiftObject
+
+@end

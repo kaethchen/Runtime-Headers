@@ -1,0 +1,3 @@
+@interface SiriMessageTypes.LLMBridgeResultSelectedMessage : SiriMessageTypes.ResultSelectedMessageBase
+
+@end

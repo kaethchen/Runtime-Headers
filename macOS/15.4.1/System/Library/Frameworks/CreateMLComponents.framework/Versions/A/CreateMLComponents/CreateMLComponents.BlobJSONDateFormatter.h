@@ -1,0 +1,5 @@
+@interface CreateMLComponents.BlobJSONDateFormatter : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ formatter;
+}
+
+@end

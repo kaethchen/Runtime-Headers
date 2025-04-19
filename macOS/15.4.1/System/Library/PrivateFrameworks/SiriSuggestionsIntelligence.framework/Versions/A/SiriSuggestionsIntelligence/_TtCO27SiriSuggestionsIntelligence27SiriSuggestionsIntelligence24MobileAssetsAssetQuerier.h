@@ -1,0 +1,3 @@
+@interface _TtCO27SiriSuggestionsIntelligence27SiriSuggestionsIntelligence24MobileAssetsAssetQuerier : _TtCs12_SwiftObject
+
+@end

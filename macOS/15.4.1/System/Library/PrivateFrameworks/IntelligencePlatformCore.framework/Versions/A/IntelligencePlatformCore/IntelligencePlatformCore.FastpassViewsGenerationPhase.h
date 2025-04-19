@@ -1,0 +1,3 @@
+@interface IntelligencePlatformCore.FastpassViewsGenerationPhase : IntelligencePlatformCore.ViewGenerationDeltaPipelinePhase
+
+@end

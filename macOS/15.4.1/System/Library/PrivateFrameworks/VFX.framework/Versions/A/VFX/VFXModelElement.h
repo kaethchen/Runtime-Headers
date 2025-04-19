@@ -1,0 +1,3 @@
+@interface VFXModelElement : VFXMeshElement
+
+@end

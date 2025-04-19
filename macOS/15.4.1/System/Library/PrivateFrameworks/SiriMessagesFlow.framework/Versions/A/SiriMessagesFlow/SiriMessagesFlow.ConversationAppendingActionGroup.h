@@ -1,0 +1,3 @@
+@interface SiriMessagesFlow.ConversationAppendingActionGroup : SiriMessagesFlow.MessageReadingActionGroup
+
+@end

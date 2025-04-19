@@ -1,0 +1,3 @@
+@interface _TtC17_StoreKit_SwiftUIP33_187435CD1DF1B19C2B3BB9CA7077D0EA19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,94 @@
+@class MRCroppingSprite, NSMutableDictionary, NSDictionary, NSArray, MRImageProvider, NSMutableArray, MRImage;
+
+@interface MREffectDateline : MREffect <MZEffectTiming> {
+    NSMutableDictionary *mSprites;
+    NSDictionary *mJournal;
+    NSMutableArray *mLengths;
+    NSMutableArray *mChapterDurations;
+    NSMutableArray *mChapters;
+    NSMutableDictionary *mText;
+    NSMutableDictionary *mChapterDates;
+    NSMutableDictionary *mChapterNumDate;
+    NSMutableArray *mIndicies;
+    NSMutableDictionary *mWeatherImages;
+    NSMutableDictionary *mDayImages;
+    NSMutableDictionary *mBreakInformation;
+    NSMutableDictionary *mMovieProviders;
+    NSArray *mSlideInformation;
+    BOOL mIsLoaded;
+    BOOL mIsRotating;
+    BOOL mIsVertical;
+    MRImageProvider *mTextBackground;
+    MRImageProvider *mQuoteOpen;
+    MRImageProvider *mQuoteClose;
+    MRImageProvider *mQuoteBox;
+    MRImageProvider *mWeatherWindowMask;
+    MRImageProvider *mDateWindowMask;
+    MRImage *mGrayImage;
+    MRCroppingSprite *mChapterSprite;
+}
+
+@property (readonly, nonatomic) double phaseInDuration;
+@property (readonly, nonatomic) double mainDuration;
+@property (readonly, nonatomic) double phaseOutDuration;
+
++ (void)initialize;
++ (BOOL)hasCustomTiming;
++ (BOOL)_timeIs24HourFormat;
++ (id)customTimingWithEffectID:(id)a0 effectAttributes:(id)a1 slideInformation:(id)a2 textInformation:(id)a3 inAspectRatio:(double)a4;
++ (id)localizedDateStringForMainTitle:(id)a0 latest:(id)a1;
++ (id)localizedStringsDictByDate:(id)a0 useHours:(BOOL)a1;
+
+- (void)setAttributes:(id)a0;
+- (void)_cleanup;
+- (void)setPixelSize:(struct CGSize { double x0; double x1; })a0;
+- (void)_unload;
+- (void)_addTextImage:(id)a0 forKey:(id)a1 inDictionary:(id)a2;
+- (double)_aspectRatioForSlideIndex:(long long)a0;
+- (void)_calculateDurations:(id)a0 slideInformation:(id)a1 aspectRatio:(double)a2;
+- (double)_calculateMainDurationWithAttributes:(id)a0;
+- (long long)_chapterIndexForTime:(double)a0;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })_chapterRangeForSlide:(long long)a0 startIndex:(long long *)a1 endIndex:(long long *)a2;
+- (void)_cleanUpDictionary:(id)a0;
+- (long long)_currentItemForChapter:(long long)a0 atTime:(double)a1 forDuration:(double *)a2 fromTime:(double *)a3;
+- (void)_drawChapterDateSwitch:(long long)a0 to:(long long)a1 progress:(double)a2 time:(double)a3 arguments:(id)a4 context:(id)a5;
+- (void)_drawGrayChapters:(id)a0 time:(double)a1 arguments:(id)a2 showInfo:(BOOL)a3 startProgress:(double)a4 titleEnd:(double)a5 titleToChapter:(double)a6 drawPhotos:(BOOL)a7 startIndex:(long long)a8 exit:(double)a9 isExiting:(BOOL)a10 chapterIntro:(double)a11 chapterProgress:(double)a12;
+- (BOOL)_isMovieForSlideAtIndex:(long long)a0;
+- (void)_loadDateForChapter:(long long)a0 context:(id)a1;
+- (void)_loadForTime:(double)a0 inContext:(id)a1 withArguments:(id)a2;
+- (void)_loadTextForChapter:(long long)a0 context:(id)a1;
+- (long long)_maxLinesForTextElement:(id)a0;
+- (struct CGSize { double x0; double x1; })_maxSizeForTextElement:(id)a0;
+- (double)_movieDurationForSlideAtIndex:(long long)a0;
+- (double)_offsetForChapterIndex:(long long)a0 layoutIndex:(long long)a1 aspectRatio:(double)a2;
+- (id)_retainedByUserTextImageForString:(id)a0 string2:(id)a1 type:(long long)a2 inContext:(id)a3 firstLine:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a4 lastLine:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a5;
+- (id)_retainedByUserTextImageForString:(id)a0 type:(long long)a1 inContext:(id)a2;
+- (struct CGSize { double x0; double x1; })_sizeForBreakAspectRatio:(double)a0 size:(struct CGSize { double x0; double x1; })a1 inContext:(id)a2;
+- (double)_startTimeForChapter:(long long)a0;
+- (double)_startTimeForSlideIndex:(long long)a0 inChapter:(long long)a1;
+- (void)_unloadTextForChapter:(long long)a0;
+- (void)_updateIndiciesWithAttributes:(id)a0;
+- (void)_updateSlideProviders:(double)a0 context:(id)a1 renderArguments:(id)a2;
+- (id)_weatherStringForCondition:(unsigned long long)a0;
+- (void)beginMorphingToAspectRatio:(double)a0 withDuration:(double)a1;
+- (double)displayTimeForSlideAtIndex:(unsigned long long)a0;
+- (double)displayTimeForTextAtIndex:(unsigned long long)a0;
+- (id)elementHitAtPoint:(struct CGPoint { double x0; double x1; })a0 withInverseMatrix:(float[16])a1 localPoint:(struct CGPoint { double x0; double x1; } *)a2;
+- (void)endMorphing;
+- (void)getLazyDuration:(double *)a0 lazyFactor:(double *)a1 animationDuration:(double *)a2 fromInterestingTime:(double)a3;
+- (BOOL)getVerticesCoordinates:(struct CGPoint { double x0; double x1; }[4] *)a0 withMatrix:(float[16])a1 forElement:(id)a2;
+- (BOOL)hasMoreSlidesFromTime:(double)a0 backwards:(BOOL)a1 startTime:(double *)a2 duration:(double *)a3;
+- (id)initWithEffectID:(id)a0;
+- (double)interestingTimeForElement:(id)a0;
+- (double)interestingTimeForTime:(double)a0;
+- (BOOL)isLoadedForTime:(double)a0;
+- (double)lowestDisplayTime;
+- (BOOL)prerenderForTime:(double)a0 inContext:(id)a1 withArguments:(id)a2;
+- (void)renderAtTime:(double)a0 inContext:(id)a1 withArguments:(id)a2;
+- (double)showDurationForSlideAtIndex:(unsigned long long)a0;
+- (double)showTimeForSlideAtIndex:(unsigned long long)a0;
+- (BOOL)supportsChapters;
+- (double)timeForNextChapterAfterTime:(double)a0;
+- (double)timeForPreviousChapterBeforeTime:(double)a0;
+
+@end

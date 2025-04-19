@@ -1,0 +1,84 @@
+@class NSError, NSString, CATTransport, DMTTaskOperationBuilder, NSColor, NSDictionary, OBTemplateView, NSObject, CATStateMachine, DMTAutomatedDeviceEnroller, CATTaskServer;
+@protocol DMTRemoteSetupBroadcasting, DMTProximityDEPEnrollmentManagerTransitionDelegate, DMTDeviceInformationPrimitives, DMTProximityDEPEnrollmentManagerViewControllerPresentingDelegate, DMTDisplayBrightnessPrimitives, MBSecondPartyHost;
+
+@interface DMTProximityDEPEnrollmentManager : NSObject <CATTaskServerDelegate, DMTActivationPrimitives>
+
+@property (readonly, nonatomic) NSObject<DMTRemoteSetupBroadcasting> *broadcaster;
+@property (retain, nonatomic) OBTemplateView *templateView;
+@property (nonatomic) BOOL shouldTransitionToEnrollment;
+@property (retain, nonatomic) NSString *statusMessage;
+@property (nonatomic, getter=isCancelled) BOOL cancelled;
+@property (retain, nonatomic) NSString *displayedPIN;
+@property (nonatomic) BOOL isForwardNavigateItemHidden;
+@property (nonatomic) BOOL isBackwardNavigateItemHidden;
+@property (nonatomic) BOOL isLinkNavigateItemHidden;
+@property (retain, nonatomic) NSColor *billboardBackgroundColor;
+@property (readonly, nonatomic) CATStateMachine *enrollmentStateMachine;
+@property (retain, nonatomic) CATTransport *pairedTransport;
+@property (retain, nonatomic) NSError *error;
+@property (getter=isObservingBroadcaster) BOOL observingBroadcaster;
+@property (readonly, nonatomic) id<DMTDeviceInformationPrimitives> deviceInformationPrimitives;
+@property (readonly, nonatomic) id<DMTDisplayBrightnessPrimitives> displayBrightnessPrimitives;
+@property (readonly, nonatomic) DMTAutomatedDeviceEnroller *enroller;
+@property (readonly, nonatomic) DMTTaskOperationBuilder *operationBuilder;
+@property (readonly, nonatomic) CATTaskServer *taskServer;
+@property (readonly, nonatomic) NSDictionary *localizedLinkButtonTitlesByKey;
+@property (retain, nonatomic) NSString *currentLocalizedLinkButtonTitleKey;
+@property (readonly, nonatomic) NSString *formattedEnrollmentOrganizationName;
+@property (weak, nonatomic) NSObject<MBSecondPartyHost> *secondPartyHost;
+@property (weak, nonatomic) id<DMTProximityDEPEnrollmentManagerTransitionDelegate> transitionDelegate;
+@property (weak, nonatomic) id<DMTProximityDEPEnrollmentManagerViewControllerPresentingDelegate> viewControllerPresentationDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)makeEnrollmentStateMachineWithTarget:(id)a0;
++ (id)observedBroadcasterKeyPaths;
++ (id)observedEnrollerKeyPaths;
+
+- (void).cxx_destruct;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)activateWithCompletion:(id /* block */)a0;
+- (void)paired;
+- (void)server:(id)a0 clientSession:(id)a1 didInterruptWithError:(id)a2;
+- (id)server:(id)a0 clientSession:(id)a1 operationForRequest:(id)a2 error:(id *)a3;
+- (void)server:(id)a0 clientSessionDidDisconnect:(id)a1;
+- (void)serverDidInvalidate:(id)a0;
+- (void)fatalError;
+- (void)cancelledByUser;
+- (void)addBroadcasterHandlers;
+- (void)beginObservingBroadcaster;
+- (void)beginObservingEnrollmentState;
+- (void)broadcastingStarted;
+- (void)connectPairedClientTransport;
+- (void)displayPIN;
+- (void)endDisplayingPIN;
+- (void)endObservingBroadcaster;
+- (void)endObservingEnrollmentState;
+- (void)errorHasOccurred:(id)a0;
+- (void)fetchActivationStateWithCompletion:(id /* block */)a0;
+- (void)handleServerFailureWithError:(id)a0;
+- (id)initWithBroadcaster:(id)a0 powerOffPrimitives:(id)a1;
+- (void)invertPairingVisualState;
+- (id)localizedOrganizationType;
+- (void)removeBroadcasterHandlers;
+- (void)startBroadcasting;
+- (void)startBroadcastingIfNeeded;
+- (void)startTemplateViewIfNeeded;
+- (void)stopTemplateViewIfNeeded;
+- (void)tearDownAndShowError:(id)a0;
+- (void)tearDownNetworking;
+- (void)tearDownSilently;
+- (void)updateDisplayedPIN:(id)a0;
+- (void)updatePairedTransport:(id)a0;
+- (void)updateTemplateViewForCompletionWithError:(id)a0;
+- (void)updateTemplateViewForDisplayedPIN;
+- (void)updateTemplateViewForEraseWithBehavior:(long long)a0;
+- (void)updateTemplateViewForFatalError:(id)a0;
+- (void)updateTemplateViewForFinalizationWithExternalError:(id)a0;
+- (void)updateTemplateViewForStatusMessage:(id)a0;
+- (void)updateTemplateViewForWaitingForNetwork;
+- (void)waitForNetwork;
+
+@end

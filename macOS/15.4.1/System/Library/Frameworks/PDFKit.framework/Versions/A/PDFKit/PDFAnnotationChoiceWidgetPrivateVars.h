@@ -1,0 +1,3 @@
+@interface PDFAnnotationChoiceWidgetPrivateVars : NSObject
+
+@end

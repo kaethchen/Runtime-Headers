@@ -1,0 +1,81 @@
+@class NSString, NSResponder, NSMenuItem, NSMenuTrackingSession;
+@protocol NSSubmenuPresenting;
+
+@interface NSRemoteMenuImpl : NSCocoaMenuImpl {
+    void /* unknown type, empty encoding */ _highlightedItem;
+    void /* unknown type, empty encoding */ itemIdentifierToCachedFrame;
+}
+
+@property (nonatomic, readonly) NSString *debugDescription;
+@property (nonatomic, readonly) NSMenuItem *targetedItem;
+@property (nonatomic) BOOL isViewPopulated;
+@property (nonatomic, readonly) NSResponder<NSSubmenuPresenting> *parentMenuImpl;
+@property (nonatomic, retain) NSMenuTrackingSession *trackingSession;
+@property (nonatomic, readonly) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } _accessibilityFrame;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeRequiresModifiersToBeVisibleFrom:(BOOL)a2 to:(BOOL)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeSubmenuParentItemUnchoosableFrom:(BOOL)a2 to:(BOOL)a3;
+- (BOOL)_highlightItemAtIndex:(long long)a0 allowingDisabledItems:(BOOL)a1;
+- (void)_initTrackingSessionIfNeeded;
+- (void)_menu:(id)a0 didChangeHiddenInRepresentationFrom:(BOOL)a1 to:(BOOL)a2;
+- (void)_menuDidChangeAccessibilityOverriddenAttribute:(id)a0 from:(id)a1 to:(id)a2;
+- (void)_menuDidChangeCondensesSeparatorsFrom:(BOOL)a0 to:(BOOL)a1;
+- (void)_menuDidChangeFontFrom:(id)a0 to:(id)a1;
+- (void)_menuDidChangeHasBottomPaddingFrom:(BOOL)a0 to:(BOOL)a1;
+- (void)_menuDidChangeHasTopPaddingFrom:(BOOL)a0 to:(BOOL)a1;
+- (void)_menuDidChangeIndentationWidthFrom:(long long)a0 to:(long long)a1;
+- (void)_menuDidChangeNCStyleFrom:(BOOL)a0 to:(BOOL)a1;
+- (void)_menuDidChangeNextMenuFrom:(id)a0 to:(id)a1;
+- (void)_menuDidChangeShowsStateColumnFrom:(BOOL)a0 to:(BOOL)a1;
+- (void)_menuDidChangeTitleFrom:(id)a0 to:(id)a1;
+- (void)_menuDidChangeUserInterfaceLayoutDirectionFrom:(long long)a0 to:(long long)a1;
+- (void)_menuDidChangeWidthFrom:(double)a0 to:(double)a1;
+- (void)_menuDidRemoveAllItems:(id)a0;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 customViewDidChangeSize:(struct CGSize { double x0; double x1; })a2;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeAccessibilityOverriddenAttribute:(id)a2 from:(id)a3 to:(id)a4;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeActionFrom:(SEL)a2 to:(SEL)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeAlternateFrom:(BOOL)a2 to:(BOOL)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeAttributedTitleFrom:(id)a2 to:(id)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeBadgeFrom:(id)a2 to:(id)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeCustomViewFrom:(id)a2 to:(id)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeCustomViewHandlesEventsFrom:(BOOL)a2 to:(BOOL)a3 viewDidWantHIView:(BOOL)a4;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeCustomViewIsDrawingOnlyFrom:(BOOL)a2 to:(BOOL)a3 viewDidWantHIView:(BOOL)a4;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeDestructiveFrom:(BOOL)a2 to:(BOOL)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeEnabledStateFrom:(BOOL)a2 to:(BOOL)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeFontFrom:(id)a2 to:(id)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeGroupHeaderFrom:(BOOL)a2 to:(BOOL)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeHiddenFrom:(BOOL)a2 to:(BOOL)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeHiddenInRepresentationFrom:(BOOL)a2 to:(BOOL)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeImageFrom:(id)a2 to:(id)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeImageSizeFrom:(struct CGSize { double x0; double x1; })a2 to:(struct CGSize { double x0; double x1; })a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeImagesTo:(id)a2 highlightedImage:(id)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeIndentFrom:(long long)a2 to:(long long)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeKeyEquivalentDisplayOverrideTo:(id)a2;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeKeyEquivalentFrom:(id)a2 to:(id)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeKeyEquivalentModifierMaskFrom:(unsigned long long)a2 to:(unsigned long long)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeKeyEquivalentVirtualKeyCodeFrom:(unsigned short)a2 to:(unsigned short)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeNewItemsCountFrom:(long long)a2 to:(long long)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeNextItemIsAlternateFrom:(BOOL)a2 to:(BOOL)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeRespectsKeyEquivalentWhileHiddenFrom:(BOOL)a2 to:(BOOL)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeSeparatorStatusFrom:(BOOL)a2 to:(BOOL)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeShowsBlockedByScreenTimeFrom:(BOOL)a2 to:(BOOL)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeStateImageFrom:(id)a2 to:(id)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeSubmenuContentsWithSubmenu:(id)a2;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeSubmenuFrom:(id)a2 to:(id)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeSubtitleFrom:(id)a2 to:(id)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeTitleFrom:(id)a2 to:(id)a3;
+- (void)_menuItem:(id)a0 atIndex:(long long)a1 didChangeTooltipFrom:(id)a2 to:(id)a3;
+- (void)_menuItem:(id)a0 wasAddedToNewIndex:(long long)a1;
+- (void)_menuItem:(id)a0 wasRemovedFromPreviousIndex:(long long)a1;
+- (void)dismissSingleSubmenuAnimated:(BOOL)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameForViewAtMenuIndex:(long long)a0;
+- (void)highlightItemAtIndex:(long long)a0;
+- (id)initWithMenu:(id)a0;
+- (void)makeVisible;
+- (void)prepareToOpenSubmenuAtIndex:(long long)a0 options:(long long)a1;
+- (void)resignVisible;
+
+@end

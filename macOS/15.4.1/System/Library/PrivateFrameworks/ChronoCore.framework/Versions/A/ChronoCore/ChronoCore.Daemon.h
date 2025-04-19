@@ -1,0 +1,56 @@
+@interface ChronoCore.Daemon : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ environmentProvidingFactory;
+    void /* unknown type, empty encoding */ widgetCenterServer;
+    void /* unknown type, empty encoding */ servicesServer;
+    void /* unknown type, empty encoding */ toolServicesServer;
+    void /* unknown type, empty encoding */ rendererServer;
+    void /* unknown type, empty encoding */ reaperService;
+    void /* unknown type, empty encoding */ controlsServer;
+    void /* unknown type, empty encoding */ controlCenterServer;
+    void /* unknown type, empty encoding */ liveControlsService;
+    void /* unknown type, empty encoding */ previewControlsService;
+    void /* unknown type, empty encoding */ extensionManager;
+    void /* unknown type, empty encoding */ placeholderService;
+    void /* unknown type, empty encoding */ timelineService;
+    void /* unknown type, empty encoding */ snapshotService;
+    void /* unknown type, empty encoding */ interactionService;
+    void /* unknown type, empty encoding */ discoveryService;
+    void /* unknown type, empty encoding */ widgetCacheKeyProvider;
+    void /* unknown type, empty encoding */ controlsCacheKeyProvider;
+    void /* unknown type, empty encoding */ keybagStateProvider;
+    void /* unknown type, empty encoding */ taskService;
+    void /* unknown type, empty encoding */ descriptorService;
+    void /* unknown type, empty encoding */ deviceService;
+    void /* unknown type, empty encoding */ widgetHostService;
+    void /* unknown type, empty encoding */ controlHostService;
+    void /* unknown type, empty encoding */ stateCaptureService;
+    void /* unknown type, empty encoding */ dataProtectionMonitor;
+    void /* unknown type, empty encoding */ powerlogControlsViewService;
+    void /* unknown type, empty encoding */ widgetsPowerlogUpdateService;
+    void /* unknown type, empty encoding */ controlsPowerlogUpdateService;
+    void /* unknown type, empty encoding */ powerlogSuggestionService;
+    void /* unknown type, empty encoding */ localeChangeCoordinator;
+    void /* unknown type, empty encoding */ storefrontChangeCoordinator;
+    void /* unknown type, empty encoding */ layerSnapshotter;
+    void /* unknown type, empty encoding */ userManager;
+    void /* unknown type, empty encoding */ clientScreenshotManager;
+    void /* unknown type, empty encoding */ locationService;
+    void /* unknown type, empty encoding */ replicationService;
+    void /* unknown type, empty encoding */ remoteWidgetExtensionService;
+    void /* unknown type, empty encoding */ remoteWidgetRapportNotifier;
+    void /* unknown type, empty encoding */ iconStore;
+    void /* unknown type, empty encoding */ widgetRelevanceService;
+    void /* unknown type, empty encoding */ pushService;
+    void /* unknown type, empty encoding */ replicator;
+    void /* unknown type, empty encoding */ replicatorMigrationService;
+    void /* unknown type, empty encoding */ subscriptions;
+    void /* unknown type, empty encoding */ servicesBootstrapExtension;
+    void /* unknown type, empty encoding */ finishLaunchingToken;
+    void /* unknown type, empty encoding */ appAuthorizationMonitor;
+    void /* unknown type, empty encoding */ focusConfigurationMonitor;
+    void /* unknown type, empty encoding */ preferences;
+    void /* unknown type, empty encoding */ wakeManager;
+    void /* unknown type, empty encoding */ sigtermSource;
+}
+
+@end

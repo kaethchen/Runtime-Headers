@@ -1,0 +1,3 @@
+@interface _TtCC16SiriAudioSupport19ErrorFilingProviderP33_35DCE3D6F0D64029689780897F5B807018TrialClientManager : _TtCs12_SwiftObject
+
+@end

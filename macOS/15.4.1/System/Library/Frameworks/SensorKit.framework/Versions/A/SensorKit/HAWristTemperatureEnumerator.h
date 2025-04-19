@@ -1,0 +1,3 @@
+@interface HAWristTemperatureEnumerator : NSEnumerator
+
+@end

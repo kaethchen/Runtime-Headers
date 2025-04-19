@@ -1,0 +1,3 @@
+@interface SSOSXHusk : NSObject
+
+@end

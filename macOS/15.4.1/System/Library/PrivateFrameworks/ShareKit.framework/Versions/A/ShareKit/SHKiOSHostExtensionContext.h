@@ -1,0 +1,3 @@
+@interface SHKiOSHostExtensionContext : NSExtensionContext
+
+@end

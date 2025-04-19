@@ -1,0 +1,3 @@
+@interface EWSCopyItemType : EWSBaseMoveCopyItemType
+
+@end

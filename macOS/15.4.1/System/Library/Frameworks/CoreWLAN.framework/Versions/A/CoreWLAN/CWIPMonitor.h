@@ -1,0 +1,91 @@
+@class NSString, NSDictionary, NSArray, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface CWIPMonitor : NSObject {
+    NSObject<OS_dispatch_queue> *_internalQueue;
+    void *_globalStore;
+    void *_networkServiceStore;
+    void *_ipStore;
+    void *_reachabilityRef;
+}
+
+@property (copy) NSString *wifiServiceID;
+@property (copy) NSString *interfaceName;
+@property (copy) NSString *ipv4WiFiStateKey;
+@property (copy) NSDictionary *ipv4WiFiStateConfig;
+@property (copy) NSString *ipv4WiFiSetupKey;
+@property (copy) NSDictionary *ipv4WiFiSetupConfig;
+@property (copy) NSString *ipv4GlobalStateKey;
+@property (copy) NSDictionary *ipv4WiFiGlobalStateConfig;
+@property (copy) NSString *ipv4GlobalSetupKey;
+@property (copy) NSDictionary *ipv4WiFiGlobalSetupConfig;
+@property (copy) NSString *ipv6WiFiStateKey;
+@property (copy) NSDictionary *ipv6WiFiStateConfig;
+@property (copy) NSString *ipv6WiFiSetupKey;
+@property (copy) NSDictionary *ipv6WiFiSetupConfig;
+@property (copy) NSString *ipv6GlobalStateKey;
+@property (copy) NSDictionary *ipv6WiFiGlobalStateConfig;
+@property (copy) NSString *ipv6GlobalSetupKey;
+@property (copy) NSDictionary *ipv6WiFiGlobalSetupConfig;
+@property unsigned int reachabilityFlags;
+@property (readonly) BOOL ipv4Available;
+@property (readonly) BOOL ipv6Available;
+@property (readonly) BOOL ipv4Routable;
+@property (readonly) BOOL ipv6Routable;
+@property (readonly) BOOL ipv4PrimaryInterface;
+@property (readonly) BOOL ipv6PrimaryInterface;
+@property (readonly) NSString *ipv4PrimaryServiceID;
+@property (readonly) NSString *ipv6PrimaryServiceID;
+@property (readonly) BOOL internetReachable;
+@property (readonly) NSArray *ipv4Addresses;
+@property (readonly) NSArray *ipv6Addresses;
+@property (readonly) NSString *ipv4Router;
+@property (readonly) NSString *ipv6Router;
+@property (readonly) NSDictionary *ipv4StateConfig;
+@property (readonly) NSDictionary *ipv6StateConfig;
+@property (readonly) NSDictionary *ipv4GlobalStateConfig;
+@property (readonly) NSDictionary *ipv6GlobalStateConfig;
+@property (readonly) NSDictionary *ipv4SetupConfig;
+@property (readonly) NSDictionary *ipv6SetupConfig;
+@property (readonly) NSDictionary *ipv4GlobalSetupConfig;
+@property (readonly) NSDictionary *ipv6GlobalSetupConfig;
+
++ (id)ipMonitorForInterfaceWithName:(id)a0;
+
+- (void)dealloc;
+- (id)description;
+- (id)ipv4SetupConfig;
+- (id)ipv6SetupConfig;
+- (id)ipv4StateConfig;
+- (id)ipv6StateConfig;
+- (id)initForInterfaceWithName:(id)a0;
+- (BOOL)internetReachable;
+- (id)ipv4Addresses;
+- (BOOL)ipv4Available;
+- (id)ipv4GlobalSetupConfig;
+- (id)ipv4GlobalStateConfig;
+- (BOOL)ipv4PrimaryInterface;
+- (id)ipv4PrimaryServiceID;
+- (BOOL)ipv4Routable;
+- (id)ipv4Router;
+- (id)ipv6Addresses;
+- (BOOL)ipv6Available;
+- (id)ipv6GlobalSetupConfig;
+- (id)ipv6GlobalStateConfig;
+- (BOOL)ipv6PrimaryInterface;
+- (id)ipv6PrimaryServiceID;
+- (BOOL)ipv6Routable;
+- (id)ipv6Router;
+- (void)monitorNetworkServiceID:(id)a0;
+- (id)queryGlobalIPv4SetupConfig;
+- (id)queryGlobalIPv4StateConfig;
+- (id)queryGlobalIPv6SetupConfig;
+- (id)queryGlobalIPv6StateConfig;
+- (unsigned int)queryNetworkReachabilityFlags;
+- (id)queryWiFiIPv4SetupConfig;
+- (id)queryWiFiIPv4StateConfig;
+- (id)queryWiFiIPv6SetupConfig;
+- (id)queryWiFiIPv6StateConfig;
+- (id)queryWiFiNetworkServiceID;
+
+@end

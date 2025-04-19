@@ -1,0 +1,3 @@
+@interface SiriMessagesFlow.SendMessageUnsupportedValueFlowStrategy : SiriMessagesFlow.SendMessageBaseFlowStrategy
+
+@end

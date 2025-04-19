@@ -1,0 +1,3 @@
+@interface ABDatabaseChangeProcessOperation : NSBlockOperation
+
+@end

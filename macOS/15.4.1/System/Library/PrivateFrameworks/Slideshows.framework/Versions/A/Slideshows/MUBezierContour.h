@@ -1,0 +1,3 @@
+@interface MUBezierContour : NSObject
+
+@end

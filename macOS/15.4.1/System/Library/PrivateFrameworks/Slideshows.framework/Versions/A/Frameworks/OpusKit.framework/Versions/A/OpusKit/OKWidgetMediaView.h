@@ -1,0 +1,3 @@
+@interface OKWidgetMediaView : OKWidgetMediaViewProxy
+
+@end

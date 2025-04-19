@@ -1,0 +1,3 @@
+@interface TTSSpeechVoice : TTSAXResource
+
+@end

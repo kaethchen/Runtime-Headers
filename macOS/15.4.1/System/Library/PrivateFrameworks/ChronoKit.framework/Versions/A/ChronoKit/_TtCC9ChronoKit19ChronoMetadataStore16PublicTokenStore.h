@@ -1,0 +1,3 @@
+@interface _TtCC9ChronoKit19ChronoMetadataStore16PublicTokenStore : _TtCC9ChronoKit19ChronoMetadataStore16DatabaseAccessor
+
+@end

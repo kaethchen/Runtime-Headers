@@ -1,0 +1,93 @@
+@class NSView, TTRMDatePickerPanel, NSArray, TTRMClosableDatePicker, IIDatePicker, EKViewController, TTRMDatePickerPanelContentView, NSDate, NSPanel, NSString, NSTableView;
+@protocol TTRMDatePickerWithMiniCalDelegate;
+
+@interface TTRMDatePickerWithMiniCal : NSView <NSDatePickerCellDelegate, IIDatePickerDelegate, TTRMDatePickerPanelDelegate, NSTableViewDelegate, NSTableViewDataSource> {
+    TTRMDatePickerPanel *_calPanel;
+    NSPanel *_timeSuggestionPanel;
+}
+
+@property (weak) EKViewController *viewController;
+@property (retain, nonatomic) IIDatePicker *textDatePicker;
+@property (retain, nonatomic) IIDatePicker *textTimePicker;
+@property (retain, nonatomic) TTRMClosableDatePicker *calDatePicker;
+@property (retain, nonatomic) IIDatePicker *textDatePickerForPanel;
+@property (readonly, nonatomic) TTRMDatePickerPanel *calPanel;
+@property (retain, nonatomic) TTRMDatePickerPanelContentView *calPanelContentView;
+@property (weak, nonatomic) NSView *nextGadget;
+@property (nonatomic) BOOL calendarDatePickerShown;
+@property (nonatomic) BOOL userDismissedCalendarPicker;
+@property (nonatomic) long long indexOfSelectedTimeSuggestion;
+@property (retain, nonatomic) NSTableView *timeSuggestionTable;
+@property (retain, nonatomic) NSArray *timeDescriptions;
+@property (retain, nonatomic) NSDate *sourceDate;
+@property BOOL openingCalendarPicker;
+@property BOOL makeCalendarPickerKeyOnNextWindowUpdate;
+@property (retain) NSArray *horizontalConstraints;
+@property (weak) id<TTRMDatePickerWithMiniCalDelegate> delegate;
+@property (readonly, nonatomic) NSPanel *timeSuggestionPanel;
+@property double pixelsBetweenDateAndTime;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)_durationDescriptions;
++ (double)_maximumWidthFromAttributedStringArray:(id)a0;
++ (id)_selectedDurationDescriptions;
++ (id)_timeDescriptionsForDate:(id)a0 inTimeZone:(id)a1;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)setEnabled:(BOOL)a0;
+- (void)setTimeZone:(id)a0;
+- (BOOL)isEnabled;
+- (id)dateValue;
+- (void)setNextKeyView:(id)a0;
+- (BOOL)allowsVibrancy;
+- (void)awakeFromNib;
+- (double)baselineOffsetFromBottom;
+- (id)cell;
+- (void)datePickerCell:(id)a0 validateProposedDateValue:(id *)a1 timeInterval:(double *)a2;
+- (struct CGSize { double x0; double x1; })intrinsicContentSize;
+- (long long)numberOfRowsInTableView:(id)a0;
+- (void)setBackgroundColor:(id)a0;
+- (void)setDateValue:(id)a0;
+- (void)setFont:(id)a0;
+- (void)setMinDate:(id)a0;
+- (void)setTextColor:(id)a0;
+- (void)setTouchBar:(id)a0;
+- (id)tableView:(id)a0 objectValueForTableColumn:(id)a1 row:(long long)a2;
+- (void)windowDidUpdate:(id)a0;
+- (void)setup;
+- (id)initWithViewController:(id)a0;
+- (void)_textDatePickerForPanelChanged:(id)a0;
+- (void)_calPickerChanged:(id)a0;
+- (id)_calendar;
+- (BOOL)_datePickerCell:(id)a0 receivedKeyDown:(id)a1;
+- (BOOL)_datePickerCell:(id)a0 receivedMouseDown:(id)a1;
+- (void)_datePickerCellDidBecomeFirstResponder:(id)a0;
+- (void)_datePickerCellDidResignFirstResponder:(id)a0;
+- (void)_displayCalendarPicker;
+- (void)_displayTimeSuggestions;
+- (void)_hideCalendarPicker;
+- (void)_hideCalendarPickerAndSelectDatePicker;
+- (void)_hideTimeSuggestions;
+- (void)_inspectorWasScrolled:(id)a0;
+- (void)_openCalendarPickerWindowAndConfigureKeyViews;
+- (void)_setTimeToSuggestionAtIndex:(long long)a0;
+- (void)_textDatePickerChanged:(id)a0;
+- (void)_textTimePickerChanged:(id)a0;
+- (void)_timeSuggestionPicked:(id)a0;
+- (void)_updateAllPickersWithDate:(id)a0;
+- (void)_updateSelectedTimeSuggestionCheckbox;
+- (void)_updateSuggestionPanelSize;
+- (void)clearDelegates;
+- (void)datePickerPanelDidResignKeyWindow:(id)a0;
+- (void)makeCalendarPickerKey;
+- (void)selectNextKeyViewHidingPanel:(id)a0;
+- (void)selectPreviousKeyViewHidingPanel:(id)a0;
+- (void)showElements:(long long)a0;
+- (void)_setCalenderPanelPosition;
+
+@end

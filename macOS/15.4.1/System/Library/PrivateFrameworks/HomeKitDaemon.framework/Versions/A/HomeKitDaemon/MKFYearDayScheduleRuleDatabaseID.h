@@ -1,0 +1,3 @@
+@interface MKFYearDayScheduleRuleDatabaseID : MKFModelDatabaseID
+
+@end

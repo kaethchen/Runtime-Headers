@@ -1,0 +1,3 @@
+@interface ABCDPostalAddress : CNCDPostalAddress
+
+@end

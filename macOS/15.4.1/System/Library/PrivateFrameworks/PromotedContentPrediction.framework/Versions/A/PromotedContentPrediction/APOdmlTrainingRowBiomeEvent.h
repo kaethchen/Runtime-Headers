@@ -1,0 +1,3 @@
+@interface APOdmlTrainingRowBiomeEvent : NSObject
+
+@end

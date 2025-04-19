@@ -1,0 +1,3 @@
+@interface _TtCV5Human17BodyMeshGeneratorP33_E4C1F2DB5B3D7AFA90D33FE50B8FB8F520InternalBundleHelper : _TtCs12_SwiftObject
+
+@end

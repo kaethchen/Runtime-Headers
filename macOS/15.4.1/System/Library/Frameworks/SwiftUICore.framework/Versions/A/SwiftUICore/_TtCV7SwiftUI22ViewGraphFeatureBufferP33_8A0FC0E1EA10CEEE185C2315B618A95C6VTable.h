@@ -1,0 +1,3 @@
+@interface _TtCV7SwiftUI22ViewGraphFeatureBufferP33_8A0FC0E1EA10CEEE185C2315B618A95C6VTable : SwiftUI._UnsafeHeterogeneousBuffer_VTable
+
+@end

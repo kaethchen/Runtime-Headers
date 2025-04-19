@@ -1,0 +1,72 @@
+@class NSString, WPDAdvertisingData, NSMutableDictionary, CBPeripheralManager, NSMutableSet, AdvMetrics, NSMutableIndexSet, WPAdvertisingRequestsQueue;
+
+@interface WPDAdvertisingManager : WPDManager <CBPeripheralManagerDelegate>
+
+@property (retain) WPAdvertisingRequestsQueue *advertisingRequests;
+@property (retain) NSMutableDictionary *clientAdvertisingRequests;
+@property (retain) NSMutableIndexSet *currentAdvertisers;
+@property (retain) NSMutableSet *clientsToNotifyOnAddressChange;
+@property (retain) NSMutableDictionary *publishedServices;
+@property (retain, nonatomic) CBPeripheralManager *connectablePeripheralManager;
+@property (retain, nonatomic) CBPeripheralManager *nonConnectablePeripheralManager;
+@property (retain, nonatomic) CBPeripheralManager *nonConnectableSecondaryPeripheralManager;
+@property (retain, nonatomic) WPDAdvertisingData *currentConnectableAdvertisingData;
+@property (retain, nonatomic) WPDAdvertisingData *currentNonConnectableAdvertisingData;
+@property (retain, nonatomic) WPDAdvertisingData *currentNonConnectableSecondaryAdvertisingData;
+@property BOOL allowCompoundAdvertisements;
+@property (retain) NSMutableDictionary *preallocatedServices;
+@property (readonly, nonatomic) BOOL isRanging;
+@property (nonatomic) unsigned long long nonConnectableAdvDropCount;
+@property (nonatomic) unsigned long long nonConnectableAdvTotalCount;
+@property (nonatomic) unsigned long long connectableAdvDropCount;
+@property (nonatomic) unsigned long long connectableAdvTotalCount;
+@property (retain) AdvMetrics *advMetrics;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)update;
+- (void)peripheralManager:(id)a0 central:(id)a1 didSubscribeToCharacteristic:(id)a2;
+- (void)peripheralManager:(id)a0 central:(id)a1 didUnsubscribeFromCharacteristic:(id)a2;
+- (void)peripheralManager:(id)a0 didAddService:(id)a1 error:(id)a2;
+- (void)peripheralManager:(id)a0 didReceiveReadRequest:(id)a1;
+- (void)peripheralManager:(id)a0 didReceiveWriteRequests:(id)a1;
+- (void)peripheralManagerDidStartAdvertising:(id)a0 error:(id)a1;
+- (void)peripheralManagerIsReadyToUpdateSubscribers:(id)a0;
+- (id)initWithServer:(id)a0;
+- (void)peripheralManager:(id)a0 didStopAdvertisingWithError:(id)a1;
+- (id)NSUUIDfromCBUUID:(id)a0;
+- (id)addAdvertisingRequest:(id)a0 forClient:(id)a1;
+- (void)addAdvertisingRequest:(id)a0 forDaemon:(id)a1;
+- (void)addCharacteristic:(id)a0 Properties:(unsigned long long)a1 Permissions:(unsigned long long)a2 Service:(id)a3 Name:(id)a4;
+- (void)addCharacteristic:(id)a0 forService:(id)a1 forClient:(id)a2;
+- (id)addXPCDelayTiming:(id)a0 IsMetricOnly:(BOOL)a1 UseCase:(unsigned long long)a2 timeStamp:(unsigned long long)a3;
+- (BOOL)addressChangeNotificationNeeded:(id)a0 advertiserTypeString:(id)a1;
+- (id)advertisingRules;
+- (id)clientForAdvRequest:(id)a0;
+- (void)enableRanging:(BOOL)a0 forClient:(id)a1;
+- (id)generateStateDumpStrings;
+- (id)getCharacteristicForClient:(id)a0;
+- (id)getClientUUIDsForCharacteristic:(id)a0;
+- (id)getCurrentAdvertisers;
+- (id)getManager;
+- (BOOL)heySiriAdvertActive:(BOOL)a0;
+- (BOOL)heySiriAdvertActiveAllDevices;
+- (void)informClientsAdvertisingPending:(id)a0;
+- (BOOL)isAdvertiserTestMode;
+- (int)maxAdvertisingRules;
+- (BOOL)platformSupportsMultipleAdvertising;
+- (void)preallocateServices;
+- (id)removeAdvertisingRequest:(id)a0 forClient:(id)a1;
+- (id)removeAdvertisingRequest:(id)a0 forClient:(id)a1 shouldUpdate:(BOOL)a2;
+- (void)removeAdvertisingRequest:(id)a0 forDaemon:(id)a1;
+- (id)removeAdvertisingRequestsForClient:(id)a0;
+- (void)removeServiceForClient:(id)a0;
+- (id)requestFromAdvertisingDataFromInstance:(long long)a0 AddressChangeNotificationNeeded:(BOOL)a1;
+- (void)resetAdvertisingManager;
+- (void)statsExportTimerFired;
+- (void)updateAdvertiser;
+
+@end

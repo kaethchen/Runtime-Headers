@@ -1,0 +1,3 @@
+@interface IKScannerPreviewSimple : IKNImageView
+
+@end

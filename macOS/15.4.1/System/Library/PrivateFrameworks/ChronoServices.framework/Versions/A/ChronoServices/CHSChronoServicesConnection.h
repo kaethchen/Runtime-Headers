@@ -1,0 +1,92 @@
+@class NSHashTable, NSString, NSSet, NSMutableDictionary, BSServiceConnection, CHSWidgetExtensionProviderOptions, NSObject, CHSServerSubscription, NSMapTable;
+@protocol OS_dispatch_queue;
+
+@interface CHSChronoServicesConnection : NSObject <CHSChronoWidgetServiceClientInterface> {
+    NSString *_machServiceName;
+    NSObject<OS_dispatch_queue> *_queue;
+    BSServiceConnection *_queue_connection;
+    BOOL _queue_connectionIsActive;
+    NSHashTable *_queue_observers;
+    NSMapTable *_queue_extensionProviderOptionsByClient;
+    NSMutableDictionary *_queue_widgetHostsByHostIdentifier;
+    CHSWidgetExtensionProviderOptions *_queue_currentExtensionSubscriptionProviderOptions;
+    NSObject<OS_dispatch_queue> *_callOutQueue;
+    int _serverStartupToken;
+    NSSet *_notQueue_subscriptions;
+    CHSServerSubscription *_notQueue_extensionsSubscription;
+    CHSServerSubscription *_notQueue_timelineEntryRelevanceSubscription;
+    CHSServerSubscription *_notQueue_remoteDevicesSubscription;
+    CHSServerSubscription *_notQueue_widgetRelevanceSubscription;
+    CHSServerSubscription *_notQueue_activityServiceSubscription;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedInstance;
++ (void)_debugRestartServer;
++ (id)ncBridgeConnection;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)addClient:(id)a0;
+- (void)removeClient:(id)a0;
+- (void)_queue_removeClient:(id)a0;
+- (id)allPairedDevices;
+- (oneway void)getAppIntentsXPCListenerEndpointForBundleIdentifier:(id)a0 completion:(id /* block */)a1;
+- (oneway void)updateWidgetHostConfigurations:(id)a0;
+- (id)_URLSessionDidCompleteForExtensionWithBundleIdentifier:(id)a0 info:(id)a1;
+- (id)_filterExtensions:(id)a0 toOptions:(id)a1;
+- (id)_initWithMachServiceName:(id)a0 listenForReconnect:(BOOL)a1;
+- (void)_queue_addClient:(id)a0;
+- (void)_queue_createConnection;
+- (void)_queue_invalidateConnection;
+- (void)_queue_notifyDevicesDidChange:(id)a0;
+- (void)_queue_notifyDidReceiveActivityUpdate:(id)a0 payloadID:(id)a1;
+- (void)_queue_notifyExtensionsDidChange:(id)a0 generatedWithOptions:(id)a1;
+- (void)_queue_notifyHandleWidgetRelevanceEvent:(id)a0;
+- (void)_queue_notifyTimelineEntryRelevanceDidChange:(id)a0;
+- (id)_queue_remoteTargetCreatingConnectionIfNecessary:(BOOL)a0;
+- (id)_subscribeToActivityService;
+- (id)_subscribeToExtensions;
+- (id)_subscribeToRemoteDevices;
+- (id)_subscribeToTimelineEntryRelevance;
+- (id)_subscribeToWidgetRelevance;
+- (id)acquireKeepAliveAssertionForExtensionBundleIdentifier:(id)a0 reason:(id)a1 error:(out id *)a2;
+- (void)acquireLifetimeAssertionForWidget:(id)a0 metrics:(id)a1 completion:(id /* block */)a2;
+- (oneway void)activityDidUpdate:(id)a0 payloadID:(id)a1;
+- (oneway void)allWidgetConfigurationsByHostWithCompletion:(id /* block */)a0;
+- (id)cachedExtensionsWithOptions:(id)a0;
+- (oneway void)fetchDescriptorsForContainerBundleIdentifier:(id)a0 completion:(id /* block */)a1;
+- (oneway void)flushPowerlog;
+- (oneway void)handleWidgetRelevanceEvent:(id)a0;
+- (void)invalidateRelevancesOfKind:(id)a0 inBundle:(id)a1 completion:(id /* block */)a2;
+- (oneway void)launchLiveActivityWithID:(id)a0 deviceID:(id)a1 url:(id)a2;
+- (void)modifyDescriptorEnablement:(id)a0 completion:(id /* block */)a1;
+- (oneway void)nearbyDevicesDidChange:(id)a0;
+- (void)pairDevice:(id)a0 completion:(id /* block */)a1;
+- (oneway void)performDescriptorDiscoveryForHost:(id)a0;
+- (oneway void)reloadDescriptorsForContainerBundleIdentifier:(id)a0 completion:(id /* block */)a1;
+- (BOOL)reloadRemoteWidgetsWithError:(id *)a0;
+- (BOOL)reloadTimeline:(id)a0 error:(id *)a1;
+- (void)reloadWidgetRelevanceForExtensionIdentity:(id)a0 kind:(id)a1 completion:(id /* block */)a2;
+- (BOOL)remoteWidgetsEnabled;
+- (oneway void)removeWidgetHost:(id)a0;
+- (oneway void)retryStuckRemotePairings;
+- (void)setCachedExtensions:(id)a0 withProviderOptions:(id)a1;
+- (id)subscribeToActivityPayloadUpdates:(id *)a0;
+- (id)subscribeToExtensions:(id *)a0 fromClient:(id)a1 withOptions:(id)a2 outExtensions:(id *)a3;
+- (id)subscribeToRemoteDevices:(id *)a0 outRemoteDevices:(id *)a1;
+- (id)subscribeToTimelineEntryRelevance:(id *)a0 outTimelineEntryRelevance:(id *)a1;
+- (id)subscribeToWidgetRelevanceEvents:(id *)a0;
+- (oneway void)timelineEntryRelevanceDidChange:(id)a0;
+- (BOOL)toggleRemoteWidgetsEnabled:(BOOL)a0 error:(id *)a1;
+- (BOOL)unpairDevice:(id)a0 error:(id *)a1;
+- (oneway void)updateWidgetHostActivationState:(id)a0;
+- (id)widgetEnvironmentDataForBundleIdentifier:(id)a0;
+- (oneway void)widgetExtensionsDidChange:(id)a0;
+
+@end

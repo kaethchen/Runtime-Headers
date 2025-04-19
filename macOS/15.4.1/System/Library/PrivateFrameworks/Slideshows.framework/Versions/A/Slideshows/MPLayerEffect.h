@@ -1,0 +1,94 @@
+@class NSMutableArray, NSString, NSArray, NSMutableDictionary, NSObject, MCContainerEffect;
+@protocol MZEffectTiming;
+
+@interface MPLayerEffect : MPLayer <MPEffectSupportPrivate, MPEffectSupport> {
+    MCContainerEffect *_layerEffect;
+    NSString *_effectID;
+    NSString *_presetID;
+    NSMutableArray *_slides;
+    NSMutableArray *_secondarySlides;
+    NSMutableArray *_texts;
+    NSMutableDictionary *_effectAttributes;
+    long long _randomSeed;
+    BOOL _supportsEffectTiming;
+    BOOL _skipEffectTiming;
+    long long _liveIndex;
+}
+
+@property (copy, nonatomic) NSString *effectID;
+@property (copy, nonatomic) NSString *presetID;
+@property (readonly, nonatomic) NSArray *slides;
+@property (readonly, nonatomic) NSArray *texts;
+@property (readonly, nonatomic) NSObject<MZEffectTiming> *effectTiming;
+
++ (id)layerEffectWithEffectID:(id)a0;
++ (id)layerEffectWithEffectID:(id)a0 andPaths:(id)a1;
++ (id)layerEffectWithEffectID:(id)a0 andStrings:(id)a1;
++ (id)layerEffectWithEffectID:(id)a0 strings:(id)a1 paths:(id)a2;
+
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (id)init;
+- (id)container;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void)setDuration:(double)a0;
+- (BOOL)isLive;
+- (long long)randomSeed;
+- (void)addText:(id)a0;
+- (double)fullDuration;
+- (void)addSlide:(id)a0;
+- (void)setRandomSeed:(long long)a0;
+- (void)createSecondarySlidesWithPaths:(id)a0;
+- (id)secondarySlides;
+- (void)setLayerEffect:(id)a0;
+- (id)initWithEffectID:(id)a0 strings:(id)a1 paths:(id)a2;
+- (void)removeAllSlides;
+- (void)removeSecondarySlidesAtIndices:(id)a0;
+- (id)_effectAttributes;
+- (void)_updateEffectTiming;
+- (void)_updateTiming:(BOOL)a0;
+- (void)addSecondarySlide:(id)a0;
+- (void)addSecondarySlides:(id)a0;
+- (void)addSlides:(id)a0;
+- (void)addTexts:(id)a0;
+- (id)allSlides:(BOOL)a0;
+- (void)applyFormattedAttributes;
+- (void)copySecondarySlides:(id)a0;
+- (void)copySlides:(id)a0;
+- (void)copyTexts:(id)a0;
+- (void)createSlidesWithPaths:(id)a0;
+- (void)createTextsWithStrings:(id)a0 secondLineFactor:(double)a1;
+- (void)createTextsWithStrings:(id)a0 secondLineFactor:(double)a1 fillIn:(BOOL)a2;
+- (id)effectAttributeForKey:(id)a0;
+- (id)effectAttributes;
+- (id)formattedAttributes;
+- (id)initWithEffectID:(id)a0;
+- (id)initWithEffectID:(id)a0 andPaths:(id)a1;
+- (id)initWithEffectID:(id)a0 andStrings:(id)a1;
+- (void)insertSecondarySlides:(id)a0 atIndex:(long long)a1;
+- (void)insertSlides:(id)a0 atIndex:(long long)a1;
+- (void)insertTexts:(id)a0 atIndex:(long long)a1;
+- (long long)liveIndex;
+- (double)lowestDisplayTime;
+- (double)mainDuration;
+- (long long)maxNumberOfSecondarySlides;
+- (long long)maxNumberOfSlides;
+- (void)moveSlidesFromIndices:(id)a0 toIndex:(long long)a1;
+- (void)moveTextsFromIndices:(id)a0 toIndex:(long long)a1;
+- (void)removeAllSecondarySlides;
+- (void)removeAllTexts;
+- (void)removeSlidesAtIndices:(id)a0;
+- (void)removeTextsAtIndices:(id)a0;
+- (void)setEffectAttribute:(id)a0 forKey:(id)a1;
+- (void)setEffectAttributes:(id)a0;
+- (void)setLiveIndex:(long long)a0;
+- (void)setPhaseInDuration:(double)a0;
+- (void)setPhaseOutDuration:(double)a0;
+- (void)setSkipEffectTiming:(BOOL)a0;
+- (id)slideForMCSlide:(id)a0;
+- (id)slideInformation;
+- (void)updateTiming;
+
+@end

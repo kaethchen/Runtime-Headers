@@ -1,0 +1,3 @@
+@interface SiriMessageTypes.IntelligenceFlowRequestCompletedMessage : SiriMessageTypes.RequestMessageBase
+
+@end

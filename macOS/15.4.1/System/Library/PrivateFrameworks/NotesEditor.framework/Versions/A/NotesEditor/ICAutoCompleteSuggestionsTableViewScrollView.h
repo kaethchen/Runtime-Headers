@@ -1,0 +1,3 @@
+@interface ICAutoCompleteSuggestionsTableViewScrollView : ICMOverlayScrollView
+
+@end

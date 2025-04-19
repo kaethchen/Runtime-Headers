@@ -1,0 +1,72 @@
+@class NSString, NSMutableArray, NSMutableDictionary;
+
+@interface ISDRecord : NSObject <NSCopying> {
+    NSString *_recordId;
+    int _entityNumber;
+    NSMutableArray *_propertyValues;
+    NSMutableArray *_unformattedRelationshipValues;
+    unsigned int _addedGeneration;
+    unsigned int _lastChangedGeneration;
+    int _state;
+    int _lastChangedByClientNumber;
+    BOOL _deleted;
+    BOOL _propertyValuesIncludeDataReferences;
+    NSMutableDictionary *_relationshipMap;
+    NSMutableArray *_reorderOnlyPropertyNames;
+}
+
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (int)state;
+- (void)setState:(int)a0;
+- (id)entityName;
+- (BOOL)isDeleted;
+- (id)recordId;
+- (void)setRecordId:(id)a0;
+- (id)propertyValues;
+- (id)propertyNames;
+- (unsigned int)addedGeneration;
+- (id)relationshipMap;
+- (void)addPropertyValue:(id)a0;
+- (void)addReorderOnlyPropertyName:(id)a0;
+- (void)addUnformattedRelationshipValue:(id)a0;
+- (BOOL)addedOrModifiedPropertyValue:(id)a0;
+- (id)createRecordDictionary;
+- (void)deleteUnformattedRelationshipValueWithName:(id)a0;
+- (int)entityNumber;
+- (id)fastEntityName;
+- (id)fastLastChangedByClientId;
+- (id)fastRecordId;
+- (id)initWithRecordId:(id)a0 entityName:(id)a1 propertyValues:(id)a2 addedGeneration:(unsigned int)a3 lastChangedGeneration:(unsigned int)a4 state:(int)a5 lastChangedByClientId:(id)a6 isDeleted:(BOOL)a7;
+- (id)initWithRecordId:(id)a0 entityNumber:(int)a1 propertyValues:(id)a2 addedGeneration:(unsigned int)a3 lastChangedGeneration:(unsigned int)a4 state:(int)a5 lastChangedByClientNumber:(int)a6 isDeleted:(BOOL)a7;
+- (id)initWithRecordId:(id)a0 propertyChanges:(id)a1;
+- (BOOL)isReorderOnlyChangeForPropertyName:(id)a0;
+- (id)lastChangedByClientId;
+- (int)lastChangedByClientNumber;
+- (unsigned int)lastChangedGeneration;
+- (void)noteModificationDate:(id)a0 inGeneration:(unsigned int)a1 byClientWithId:(id)a2;
+- (id)propertyValueWithName:(id)a0;
+- (BOOL)propertyValuesIncludeDataReferences;
+- (id)propertyValuesWithNames:(id)a0;
+- (BOOL)recordWithId:(id)a0 isInCachedRelationship:(id)a1 atIndex:(long long *)a2;
+- (void)removeAllPropertyValues;
+- (void)removePropertyValueWithName:(id)a0;
+- (BOOL)removePropertyValuesWithNames:(id)a0;
+- (void)replaceRecordId:(id)a0 withRecordId:(id)a1;
+- (void)replaceRecordIds:(id)a0;
+- (void)setDeleted:(BOOL)a0 forPropertyValueWithName:(id)a1 inGeneration:(unsigned int)a2 byClientId:(id)a3;
+- (void)setDeletedInGeneration:(unsigned int)a0 byClientId:(id)a1;
+- (void)setLastChangedGeneration:(unsigned int)a0;
+- (id)setPropertyValueWithType:(int)a0 name:(id)a1 value:(id)a2 inGeneration:(unsigned int)a3 byClientId:(id)a4;
+- (id)setPropertyValueWithType:(int)a0 name:(id)a1 value:(id)a2 unformattedValue:(id)a3 inGeneration:(unsigned int)a4 byClientId:(id)a5;
+- (void)setPropertyValuesIncludeDataReferences:(BOOL)a0;
+- (void)setRelationshipMap:(id)a0;
+- (void)takeUnformattedRelationshipValueWithName:(id)a0 fromRecord:(id)a1 inGeneration:(unsigned int)a2 byClientId:(id)a3;
+- (id)undeletedRecordIdsForRelationshipNamed:(id)a0;
+- (id)unformattedRelationshipValueWithName:(id)a0;
+- (id)unformattedRelationshipValues;
+
+@end

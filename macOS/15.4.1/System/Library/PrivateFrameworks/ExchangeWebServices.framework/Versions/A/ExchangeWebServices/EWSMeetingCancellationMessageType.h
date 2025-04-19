@@ -1,0 +1,3 @@
+@interface EWSMeetingCancellationMessageType : EWSMeetingMessageType
+
+@end

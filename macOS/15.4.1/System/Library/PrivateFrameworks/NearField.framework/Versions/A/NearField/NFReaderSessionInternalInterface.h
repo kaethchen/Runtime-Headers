@@ -1,0 +1,3 @@
+@interface NFReaderSessionInternalInterface : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC12AMPDesktopUIP33_E41E19C3757292445A6E0B33542C649E19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface ITLibModelGenreKind : ITLibModelKind
+
+@end

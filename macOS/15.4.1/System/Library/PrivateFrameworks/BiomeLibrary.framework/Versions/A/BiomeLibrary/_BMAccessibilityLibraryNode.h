@@ -1,0 +1,57 @@
+@interface _BMAccessibilityLibraryNode : _BMLibraryNode
+
++ (id)identifier;
++ (id)validKeyPaths;
++ (id)SoundDetection;
++ (id)streamWithName:(id)a0;
++ (id)streamNames;
++ (id)sublibraries;
++ (id)ClassicInvert;
++ (id)ColorFilters;
++ (id)Contrast;
++ (id)ReduceTransparency;
++ (id)ReduceMotion;
++ (id)SmartInvert;
++ (id)VoiceControl;
++ (id)VoiceOver;
++ (id)WhitePoint;
++ (id)Zoom;
++ (id)storeConfigurationForMotionCues;
++ (id)MotionCues;
++ (id)storeConfigurationForWhitePoint;
++ (id)syncPolicyForReduceTransparency;
++ (id)configurationForClassicInvert;
++ (id)configurationForColorFilters;
++ (id)configurationForContrast;
++ (id)configurationForMotionCues;
++ (id)configurationForReduceMotion;
++ (id)configurationForReduceTransparency;
++ (id)configurationForSmartInvert;
++ (id)configurationForSoundDetection;
++ (id)configurationForVoiceControl;
++ (id)configurationForVoiceOver;
++ (id)configurationForWhitePoint;
++ (id)configurationForZoom;
++ (id)storeConfigurationForClassicInvert;
++ (id)storeConfigurationForColorFilters;
++ (id)storeConfigurationForContrast;
++ (id)storeConfigurationForReduceMotion;
++ (id)storeConfigurationForReduceTransparency;
++ (id)storeConfigurationForSmartInvert;
++ (id)storeConfigurationForSoundDetection;
++ (id)storeConfigurationForVoiceControl;
++ (id)storeConfigurationForVoiceOver;
++ (id)storeConfigurationForZoom;
++ (id)syncPolicyForClassicInvert;
++ (id)syncPolicyForColorFilters;
++ (id)syncPolicyForContrast;
++ (id)syncPolicyForMotionCues;
++ (id)syncPolicyForReduceMotion;
++ (id)syncPolicyForSmartInvert;
++ (id)syncPolicyForSoundDetection;
++ (id)syncPolicyForVoiceControl;
++ (id)syncPolicyForVoiceOver;
++ (id)syncPolicyForWhitePoint;
++ (id)syncPolicyForZoom;
+
+@end

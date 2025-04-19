@@ -1,0 +1,3 @@
+@interface _TtC24FaceTimeNotificationCoreP33_69536B920B857171941A94699F89E81411BundleClass : _TtCs12_SwiftObject
+
+@end

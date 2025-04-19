@@ -1,0 +1,3 @@
+@interface _TtC7SwiftUIP33_9DFC34E25264BAA930CEB50D58794D4B20_AppearanceWidgetBox : _TtCs12_SwiftObject
+
+@end

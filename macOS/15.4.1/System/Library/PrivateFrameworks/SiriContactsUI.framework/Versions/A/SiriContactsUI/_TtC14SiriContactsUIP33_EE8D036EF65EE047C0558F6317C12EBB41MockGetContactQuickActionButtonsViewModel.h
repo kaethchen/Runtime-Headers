@@ -1,0 +1,3 @@
+@interface _TtC14SiriContactsUIP33_EE8D036EF65EE047C0558F6317C12EBB41MockGetContactQuickActionButtonsViewModel : SiriContactsUI.GetContactQuickActionButtonsViewModel
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC27GenerativeAssistantSettingsP33_E243B0455FFC1DF3227985235180CD8519ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

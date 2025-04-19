@@ -1,0 +1,3 @@
+@interface GKFocusableButton : NSButton
+
+@end

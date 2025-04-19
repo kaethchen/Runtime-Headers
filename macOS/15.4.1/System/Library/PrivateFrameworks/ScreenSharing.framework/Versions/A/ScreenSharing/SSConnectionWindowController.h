@@ -1,0 +1,3 @@
+@interface SSConnectionWindowController : NSWindowController
+
+@end

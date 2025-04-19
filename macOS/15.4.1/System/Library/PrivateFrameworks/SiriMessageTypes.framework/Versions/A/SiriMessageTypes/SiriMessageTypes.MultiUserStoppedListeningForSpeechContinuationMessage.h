@@ -1,0 +1,3 @@
+@interface SiriMessageTypes.MultiUserStoppedListeningForSpeechContinuationMessage : SiriMessageTypes.StoppedListeningForSpeechContinuationMessage
+
+@end

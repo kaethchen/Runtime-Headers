@@ -1,0 +1,71 @@
+@class NSString, NSData;
+
+@interface PEGASUSSchemaPEGASUSCirAlerts : SISchemaInstrumentationMessage
+
+@property (copy, nonatomic) NSString *cirAlert;
+@property (nonatomic) BOOL hasCirAlert;
+@property (copy, nonatomic) NSString *cirAlertContext;
+@property (nonatomic) BOOL hasCirAlertContext;
+@property (copy, nonatomic) NSString *cirAlertDictionaryOverKgBoost;
+@property (nonatomic) BOOL hasCirAlertDictionaryOverKgBoost;
+@property (copy, nonatomic) NSString *cirAlertDomainFallback;
+@property (nonatomic) BOOL hasCirAlertDomainFallback;
+@property (copy, nonatomic) NSString *cirAlertEmergencyOverride;
+@property (nonatomic) BOOL hasCirAlertEmergencyOverride;
+@property (copy, nonatomic) NSString *cirAlertKgWaBoost;
+@property (nonatomic) BOOL hasCirAlertKgWaBoost;
+@property (copy, nonatomic) NSString *cirAlertKgWaBoostQa;
+@property (nonatomic) BOOL hasCirAlertKgWaBoostQa;
+@property (copy, nonatomic) NSString *cirAlertKgWaBoostWebPost;
+@property (nonatomic) BOOL hasCirAlertKgWaBoostWebPost;
+@property (copy, nonatomic) NSString *cirAlertKgWaBoostWebPre;
+@property (nonatomic) BOOL hasCirAlertKgWaBoostWebPre;
+@property (copy, nonatomic) NSString *cirAlertMapsKgSwap;
+@property (nonatomic) BOOL hasCirAlertMapsKgSwap;
+@property (copy, nonatomic) NSString *cirAlertMediaPodcastOverride;
+@property (nonatomic) BOOL hasCirAlertMediaPodcastOverride;
+@property (copy, nonatomic) NSString *cirAlertProfaneFilter;
+@property (nonatomic) BOOL hasCirAlertProfaneFilter;
+@property (copy, nonatomic) NSString *cirAlertRespectIsFollowUpHeuristicFlag;
+@property (nonatomic) BOOL hasCirAlertRespectIsFollowUpHeuristicFlag;
+@property (copy, nonatomic) NSString *cirAlertRespectMultiTurnResolvedRankingFlag;
+@property (nonatomic) BOOL hasCirAlertRespectMultiTurnResolvedRankingFlag;
+@property (copy, nonatomic) NSString *cirAlertRespectScoreOverrides;
+@property (nonatomic) BOOL hasCirAlertRespectScoreOverrides;
+@property (copy, nonatomic) NSString *cirAlertVerblessQueriesKgBoost;
+@property (nonatomic) BOOL hasCirAlertVerblessQueriesKgBoost;
+@property (copy, nonatomic) NSString *cirAlertVideoMediaBoost;
+@property (nonatomic) BOOL hasCirAlertVideoMediaBoost;
+@property (copy, nonatomic) NSString *cirAlertWaBoost;
+@property (nonatomic) BOOL hasCirAlertWaBoost;
+@property (readonly, nonatomic) NSData *jsonData;
+
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0;
+- (id)dictionaryRepresentation;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)initWithJSON:(id)a0;
+- (void)deleteCirAlertEmergencyOverride;
+- (void)deleteCirAlert;
+- (void)deleteCirAlertContext;
+- (void)deleteCirAlertDictionaryOverKgBoost;
+- (void)deleteCirAlertDomainFallback;
+- (void)deleteCirAlertKgWaBoost;
+- (void)deleteCirAlertKgWaBoostQa;
+- (void)deleteCirAlertKgWaBoostWebPost;
+- (void)deleteCirAlertKgWaBoostWebPre;
+- (void)deleteCirAlertMapsKgSwap;
+- (void)deleteCirAlertMediaPodcastOverride;
+- (void)deleteCirAlertProfaneFilter;
+- (void)deleteCirAlertRespectIsFollowUpHeuristicFlag;
+- (void)deleteCirAlertRespectMultiTurnResolvedRankingFlag;
+- (void)deleteCirAlertRespectScoreOverrides;
+- (void)deleteCirAlertVerblessQueriesKgBoost;
+- (void)deleteCirAlertVideoMediaBoost;
+- (void)deleteCirAlertWaBoost;
+- (id)suppressMessageUnderConditions;
+
+@end

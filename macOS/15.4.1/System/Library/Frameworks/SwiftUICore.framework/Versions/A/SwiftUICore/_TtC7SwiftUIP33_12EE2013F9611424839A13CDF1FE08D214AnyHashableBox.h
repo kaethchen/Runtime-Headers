@@ -1,0 +1,3 @@
+@interface _TtC7SwiftUIP33_12EE2013F9611424839A13CDF1FE08D214AnyHashableBox : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCC9SwiftData12DefaultStore34DefaultManagedObjectContextFactory : _TtCs12_SwiftObject
+
+@end

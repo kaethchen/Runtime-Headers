@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.PowerOffDeltaDecreaseHandleDelegate : HomeAutomationInternal.AppIntentHandleDelegate
+
+@end

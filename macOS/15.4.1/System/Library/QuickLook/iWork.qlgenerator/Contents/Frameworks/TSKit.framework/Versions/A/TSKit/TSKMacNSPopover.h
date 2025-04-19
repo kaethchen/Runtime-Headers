@@ -1,0 +1,3 @@
+@interface TSKMacNSPopover : NSPopover
+
+@end

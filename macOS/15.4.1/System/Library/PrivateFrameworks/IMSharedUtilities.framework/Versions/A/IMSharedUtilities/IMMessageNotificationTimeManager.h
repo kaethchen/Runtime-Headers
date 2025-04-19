@@ -1,0 +1,22 @@
+@class NSString, NSMutableDictionary;
+
+@interface IMMessageNotificationTimeManager : NSObject
+
+@property (retain, nonatomic) NSMutableDictionary *chatsStartTimeDictionary;
+@property (retain, nonatomic) NSString *latestIDSTokenURI;
+
++ (id)sharedInstance;
+
+- (void)dealloc;
+- (id)init;
+- (long long)_getTimeWindowOverride;
+- (long long)_getToneTimeWindow;
+- (BOOL)_isToneToggleSwitchOn;
+- (BOOL)_shouldSendNotificationForChatIdentifier:(id)a0;
+- (void)acquireAssertionToUnsuspendProcess;
+- (void)sendNotificationMessageIfNeededForIncomingMessageFromChatIdentifier:(id)a0;
+- (void)setDate:(id)a0 forChatIdentifier:(id)a1;
+- (void)setLatestNotificationIDSTokenURI:(id)a0;
+- (void)tearDownSessionForChatIdentifier:(id)a0;
+
+@end

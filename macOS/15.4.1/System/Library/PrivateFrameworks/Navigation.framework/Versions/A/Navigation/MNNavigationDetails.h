@@ -1,0 +1,91 @@
+@class NSMutableDictionary, MNGuidanceLaneInfo, NSMapTable, MNDisplayETAInfo, MNLocation, GEODirectionsResponse, MNNavTrayGuidanceEvent, GEONavigationGuidanceState, GEOComposedRoute, NSMutableArray, MNArrivalInfo, MNActiveRouteInfo, NSString, MNVehicleParkingInfo, GEODirectionsRequest, GEOResumeRouteHandle, geo_isolater, MNRouteDistanceInfo, NSArray, MNBatteryChargeInfo;
+
+@interface MNNavigationDetails : NSObject <NSSecureCoding> {
+    MNActiveRouteInfo *_currentRoute;
+    NSArray *_previewRoutes;
+    NSArray *_alternateRoutes;
+    NSMapTable *_routeIDLookup;
+    NSMutableDictionary *_trafficIncidentAlerts;
+    geo_isolater *_routeLookupLock;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) NSMapTable *routeIDLookup;
+@property (readonly, nonatomic) NSMutableDictionary *routeLookup;
+@property (readonly, nonatomic) BOOL isServer;
+@property (nonatomic) unsigned long long state;
+@property (nonatomic) long long navigationType;
+@property (nonatomic) long long desiredNavigationType;
+@property (nonatomic) int desiredTransportType;
+@property (nonatomic) unsigned long long initialRouteSource;
+@property (nonatomic) BOOL isResumingMultipointRoute;
+@property (nonatomic) BOOL isApproachingWaypoint;
+@property (retain, nonatomic) GEODirectionsRequest *directionsRequest;
+@property (retain, nonatomic) GEODirectionsResponse *directionsResponse;
+@property (retain, nonatomic) MNLocation *location;
+@property (nonatomic) BOOL guidancePromptsEnabled;
+@property (nonatomic) BOOL isDetour;
+@property (nonatomic) int navigationState;
+@property (retain, nonatomic) GEONavigationGuidanceState *guidanceState;
+@property (nonatomic) BOOL isInPreArrivalState;
+@property (readonly, nonatomic) GEOComposedRoute *currentRoute;
+@property (readonly, nonatomic) unsigned long long routeIndex;
+@property (readonly, nonatomic) unsigned long long reconnectionRouteIndex;
+@property (readonly, nonatomic) unsigned long long selectedPreviewRouteIndex;
+@property (readonly, nonatomic) NSArray *previewRoutes;
+@property (readonly, nonatomic) NSArray *alternateRoutes;
+@property (readonly, nonatomic) GEOComposedRoute *originalRoute;
+@property (readonly, nonatomic) struct { unsigned int index; float offset; } lastOriginalRouteCoordinate;
+@property (readonly, nonatomic) unsigned long long stepIndex;
+@property (readonly, nonatomic) unsigned long long segmentIndex;
+@property (nonatomic) unsigned long long targetLegIndex;
+@property (readonly, nonatomic) long long upcomingAnchorPointIndex;
+@property (nonatomic) unsigned long long displayedStepIndex;
+@property (nonatomic) double proceedToRouteDistance;
+@property (retain, nonatomic) NSString *displayString;
+@property (nonatomic) unsigned long long closestStepIndex;
+@property (nonatomic) double distanceUntilSign;
+@property (nonatomic) double timeUntilSign;
+@property (nonatomic) double distanceUntilManeuver;
+@property (nonatomic) double timeUntilManeuver;
+@property (copy, nonatomic) NSString *currentVoiceLanguage;
+@property (nonatomic) unsigned long long voiceGuidanceLevel;
+@property (retain, nonatomic) MNGuidanceLaneInfo *activeLaneInfo;
+@property (retain, nonatomic) NSMutableArray *spokenAnnouncements;
+@property (retain, nonatomic) MNNavTrayGuidanceEvent *activeNavTrayGuidanceEvent;
+@property (readonly, nonatomic) MNDisplayETAInfo *displayETAInfo;
+@property (readonly, nonatomic) MNRouteDistanceInfo *remainingDistanceInfo;
+@property (readonly, nonatomic) MNBatteryChargeInfo *batteryChargeInfo;
+@property (retain, nonatomic) MNArrivalInfo *arrivalInfo;
+@property (retain, nonatomic) MNActiveRouteInfo *backgroundWalkingRouteInfo;
+@property (retain, nonatomic) MNVehicleParkingInfo *vehicleParkingInfo;
+@property (retain, nonatomic) GEOResumeRouteHandle *resumeRouteHandle;
+@property (copy, nonatomic) NSString *tracePath;
+@property (nonatomic) BOOL traceIsPlaying;
+@property (nonatomic) double traceDuration;
+@property (nonatomic) double tracePosition;
+@property (retain, nonatomic) NSArray *traceBookmarks;
+@property (nonatomic) long long simulationType;
+
+- (id)description;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void)setAlternateRoutes:(id)a0;
+- (id)routeInfoForID:(id)a0;
+- (id)updateWithTrafficIncidentAlert:(id)a0;
+- (void)_updateRouteIDLookup;
+- (void)copySerializableValuesFrom:(id)a0;
+- (id)initForServer:(BOOL)a0;
+- (BOOL)isFollowingOriginalRoute;
+- (void)markAnnouncementSpoken:(id)a0;
+- (id)removeTrafficIncidentAlert:(id)a0;
+- (id)routeInfoForRoute:(id)a0;
+- (id)routeLookupIDs;
+- (void)setCurrentRoute:(id)a0 withAlternateRoutes:(id)a1;
+- (void)setPreviewRoutes:(id)a0 withSelectedRouteIndex:(unsigned long long)a1;
+- (void)updateETATrafficForRoute:(id)a0;
+- (void)updateWithNavigationServiceCallbackParameters:(id)a0;
+
+@end

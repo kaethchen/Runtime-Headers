@@ -1,0 +1,61 @@
+@interface IFDPackageRep : NSObject <NSCopying> {
+    struct IFDPackageRep_Private { id x0; id x1; id x2; int x3; id x4; id x5; id x6; id x7; id x8; id x9; BOOL x10; } *_private;
+}
+
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (long long)compare:(id)a0;
+- (id)identifier;
+- (id)initWithDictionary:(id)a0;
+- (id)objectForKey:(id)a0;
+- (void)setObject:(id)a0 forKey:(id)a1;
+- (void)setTarget:(id)a0;
+- (void)setValue:(id)a0 forKey:(id)a1;
+- (id)target;
+- (id)version;
+- (BOOL)isActive;
+- (id)uniqueIdentifier;
+- (id)location;
+- (id)dictionaryRepresentation;
+- (id)filename;
+- (unsigned int)order;
+- (void)setActive:(BOOL)a0;
+- (id)componentIdentifiers;
+- (BOOL)isSelfContained;
+- (int)requiredAuthorization;
+- (void)addDigest:(id)a0;
+- (long long)compareOrder:(id)a0;
+- (id)searchIDForComponentIdentifier:(id)a0;
+- (id)validatedDigest;
+- (unsigned long long)archiveKBytes;
+- (id)defaultRelocatableLocation;
+- (id)hashOfType:(id)a0;
+- (id)hashTypes;
+- (id)initWithPackage:(id)a0 atLocation:(id)a1;
+- (unsigned long long)installKBytes;
+- (BOOL)isRelocatable;
+- (id)locationsIncludingChildren;
+- (id)locatorPathMappings;
+- (id)locatorTokenDefinitions;
+- (id)mustCloseApps;
+- (id)normalizedVersion;
+- (id)packageSpecifier;
+- (int)requiredPostInstallAction;
+- (id)resolveComponentIDs;
+- (id)resolvedPathForComponent:(id)a0;
+- (void)setMustCloseApps:(id)a0;
+- (void)setPackageSpecifier:(id)a0;
+- (void)setResolvedPath:(id)a0 forComponent:(id)a1;
+- (void)setSearchID:(id)a0 forComponentIdentifier:(id)a1;
+- (void)setSelfContained:(BOOL)a0;
+- (void)setShouldBackRev:(BOOL)a0;
+- (void)setValidatedDigest:(id)a0 replace:(BOOL)a1;
+- (void)setVersionAttributes:(id)a0 forComponentIdentifier:(id)a1;
+- (BOOL)shouldBackRev;
+- (id)subpackages;
+- (id)versionAttributesForComponentIdentifier:(id)a0;
+
+@end

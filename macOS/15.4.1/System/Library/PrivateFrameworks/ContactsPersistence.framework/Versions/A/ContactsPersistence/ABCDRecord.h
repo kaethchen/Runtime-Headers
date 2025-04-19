@@ -1,0 +1,3 @@
+@interface ABCDRecord : CNCDRecord
+
+@end

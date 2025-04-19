@@ -1,0 +1,96 @@
+@class NSXPCConnection, NSString, NSURL, NSXPCInterface, NSMutableDictionary, NSDictionary, NSMutableSet, NSObject, NSMutableArray;
+@protocol OS_dispatch_queue;
+
+@interface WAClient : NSObject {
+    NSMutableDictionary *_interestedMessageIdentifiers;
+    NSMutableDictionary *_configuredMessageIdentifiers;
+}
+
+@property (retain, nonatomic) NSXPCConnection *conn;
+@property (retain, nonatomic) NSXPCInterface *exportedRemoteInterface;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *replyQueue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *propertyQueue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *fileHandlingQueue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *queryableQueue;
+@property (retain, nonatomic) NSMutableArray *queuedInvocations;
+@property (nonatomic) double connectionRecoveryStartTime;
+@property (nonatomic) unsigned char daemonConnectionValid;
+@property (nonatomic) unsigned char blockDaemonConnection;
+@property (copy, nonatomic) id /* block */ recoveryTickBlock;
+@property (retain, nonatomic) NSString *tokenForThisClient;
+@property (retain, nonatomic) NSString *identifierForThisClient;
+@property (retain, nonatomic) NSMutableSet *registeredGroupTypes;
+@property (retain, nonatomic) NSURL *wifianalyticsTmpDir;
+@property (retain, nonatomic) NSDictionary *deviceAnalyticsConfig;
+@property (nonatomic) double allowPurgeJSONFilesAfterSec;
+@property (retain, nonatomic) NSMutableDictionary *configuredMessageIdentifiers;
+@property (retain, nonatomic) NSMutableDictionary *interestedMessageIdentifiers;
+
++ (id)sharedClient;
++ (id)sharedClientWithIdentifier:(id)a0;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (id)_initPrivate;
+- (id /* block */)_getConnectionIssueHandlerBlock;
+- (void)_triggerDeviceAnalyticsStoreMigrationAndReply:(id /* block */)a0 queuedInvocation:(id)a1;
+- (void)triggerDatapathDiagnosticsAndCollectUpdates:(long long)a0 waMessage:(id)a1 andReply:(id /* block */)a2;
+- (void)_clearMessageStoreAndReply:(id /* block */)a0 queuedInvocation:(id)a1;
+- (void)_connectionRecovered;
+- (void)_connectionRecoveryTick;
+- (void)_connectionTimedOut;
+- (void)_dequeueInvocation:(id)a0;
+- (void)_establishDaemonConnection;
+- (void)_getDeviceAnalyticsConfigurationAndReply:(id /* block */)a0 queuedInvocation:(id)a1;
+- (void)_getDpsStatsandReply:(id /* block */)a0 queuedInvocation:(id)a1;
+- (void)_getMessagesModelForGroupType:(long long)a0 andReply:(id /* block */)a1 queuedInvocation:(id)a2;
+- (void)_getNewMessageForKey:(id)a0 groupType:(long long)a1 withCopy:(id)a2 andReply:(id /* block */)a3 queuedInvocation:(id)a4;
+- (void)_getUsageStatsandReply:(id /* block */)a0 queuedInvocation:(id)a1;
+- (void)_issueIOReportManagementCommand:(unsigned long long)a0 andReply:(id /* block */)a1 queuedInvocation:(id)a2;
+- (void)_killDaemonAndReply:(id /* block */)a0 queuedInvocation:(id)a1;
+- (void)_lqmCrashTracerNotifyForInterfaceWithName:(id)a0 andReply:(id /* block */)a1 queuedInvocation:(id)a2;
+- (void)_lqmCrashTracerReceiveBlock:(id)a0 forInterfaceWithName:(id)a1 andReply:(id /* block */)a2 queuedInvocation:(id)a3;
+- (void)_processWAMessageForCoreAnalytics:(id)a0;
+- (long long)_processWAMessageForJSONDump:(id)a0;
+- (void)_registerMessageGroup:(long long)a0 andReply:(id /* block */)a1 queuedInvocation:(id)a2;
+- (void)_removeAllQueuedInvocations;
+- (void)_replyAllWithTimeoutErrorAndRemove;
+- (void)_reregister;
+- (void)_sendMemoryPressureRequestAndReply:(id /* block */)a0 queuedInvocation:(id)a1;
+- (void)_setDeviceAnalyticsConfiguration:(id)a0 andReply:(id /* block */)a1 queuedInvocation:(id)a2;
+- (void)_startConnectionRecovery;
+- (void)_submitMessage:(id)a0 groupType:(long long)a1 andReply:(id /* block */)a2 queuedInvocation:(id)a3;
+- (void)_submitWiFiAnalyticsMessageAdvanced:(id)a0 andReply:(id /* block */)a1 queuedInvocation:(id)a2;
+- (void)_trapCrashMiniTracerDumpReadyForInterfaceWithName:(id)a0 andReply:(id /* block */)a1 queuedInvocation:(id)a2;
+- (void)_triggerDatapathDiagnosticsAndCollectUpdates:(long long)a0 waMessage:(id)a1 andReply:(id /* block */)a2 queuedInvocation:(id)a3;
+- (void)_triggerQueryForNWActivity:(long long)a0 andReply:(id /* block */)a1 queuedInvocation:(id)a2;
+- (void)_wakeUpNotificationForThisClientReceived:(id)a0;
+- (long long)_writeWiFiAnalyticsMessageToJSONFile:(id)a0 metricInfo:(id)a1;
+- (void)clearMessageStoreAndReply:(id /* block */)a0;
+- (void)convertWiFiStatsIntoPercentile:(id)a0 analysisGroup:(long long)a1 groupTarget:(id)a2 andReply:(id /* block */)a3;
+- (void)convertWiFiStatsIntoPercentile:(id)a0 analysisGroup:(long long)a1 groupTarget:(id)a2 andReply:(id /* block */)a3 queuedInvocation:(id)a4;
+- (void)fakeDaemonConnectionDead:(unsigned char)a0;
+- (void)getDeviceAnalyticsConfigurationAndReply:(id /* block */)a0;
+- (void)getDpsStatsandReply:(id /* block */)a0;
+- (void)getMessagesModelForGroupType:(long long)a0 andReply:(id /* block */)a1;
+- (void)getNewMessageForKey:(id)a0 groupType:(long long)a1 andReply:(id /* block */)a2;
+- (void)getNewMessageForKey:(id)a0 groupType:(long long)a1 withCopy:(id)a2 andReply:(id /* block */)a3;
+- (void)getUsageStatsandReply:(id /* block */)a0;
+- (void)issueIOReportManagementCommand:(unsigned long long)a0 andReply:(id /* block */)a1;
+- (void)killDaemonAndReply:(id /* block */)a0;
+- (void)lqmCrashTracerNotifyForInterfaceWithName:(id)a0 andReply:(id /* block */)a1;
+- (void)lqmCrashTracerReceiveBlock:(id)a0 forInterfaceWithName:(id)a1 andReply:(id /* block */)a2;
+- (void)registerMessageGroup:(long long)a0 andReply:(id /* block */)a1;
+- (void)sendMemoryPressureRequestAndReply:(id /* block */)a0;
+- (void)setDeviceAnalyticsConfiguration:(id)a0 andReply:(id /* block */)a1;
+- (void)submitMessage:(id)a0 groupType:(long long)a1 andReply:(id /* block */)a2;
+- (void)submitWiFiAnalyticsMessageAdvanced:(id)a0;
+- (void)trapCrashMiniTracerDumpReadyForInterfaceWithName:(id)a0 andReply:(id /* block */)a1;
+- (void)triggerDeviceAnalyticsStoreMigrationAndReply:(id /* block */)a0;
+- (void)triggerQueryForNWActivity:(long long)a0 andReply:(id /* block */)a1;
+- (void)updateRoamPoliciesAndSummarizeAnalyticsForNetwork:(id)a0 maxAgeInDays:(unsigned long long)a1 andReply:(id /* block */)a2;
+- (void)updateRoamPoliciesAndSummarizeAnalyticsForNetwork:(id)a0 maxAgeInDays:(unsigned long long)a1 andReply:(id /* block */)a2 queuedInvocation:(id)a3;
+
+@end

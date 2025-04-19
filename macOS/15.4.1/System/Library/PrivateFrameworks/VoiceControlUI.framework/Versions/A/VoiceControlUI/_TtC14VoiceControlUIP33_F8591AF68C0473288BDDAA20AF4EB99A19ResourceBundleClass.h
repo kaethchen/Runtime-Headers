@@ -1,0 +1,3 @@
+@interface _TtC14VoiceControlUIP33_F8591AF68C0473288BDDAA20AF4EB99A19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,6 @@
+@interface FaceTimeNotificationCore.MessageService : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ $__lazy_storage_$_iMessageAvailable;
+    void /* unknown type, empty encoding */ cache;
+}
+
+@end

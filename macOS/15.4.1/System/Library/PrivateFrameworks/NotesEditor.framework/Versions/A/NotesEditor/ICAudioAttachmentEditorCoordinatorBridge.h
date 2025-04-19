@@ -1,0 +1,3 @@
+@interface ICAudioAttachmentEditorCoordinatorBridge : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface APOdmlCoreDataStorage : NSObject
+
+@end

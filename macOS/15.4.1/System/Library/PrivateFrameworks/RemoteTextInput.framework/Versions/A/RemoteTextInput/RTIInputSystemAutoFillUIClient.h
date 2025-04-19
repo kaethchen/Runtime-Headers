@@ -1,0 +1,3 @@
+@interface RTIInputSystemAutoFillUIClient : RTIInputSystemUIClient
+
+@end

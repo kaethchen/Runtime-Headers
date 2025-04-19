@@ -1,0 +1,3 @@
+@interface _TtCC13HomeDataModel9DataModel17PlatformUtilities : _TtCs12_SwiftObject
+
+@end

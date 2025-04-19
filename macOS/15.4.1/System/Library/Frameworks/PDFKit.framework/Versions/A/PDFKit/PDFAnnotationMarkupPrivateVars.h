@@ -1,0 +1,3 @@
+@interface PDFAnnotationMarkupPrivateVars : NSObject
+
+@end

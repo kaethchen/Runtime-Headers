@@ -1,0 +1,3 @@
+@interface EWSBaseFolderIdType : NSObject
+
+@end

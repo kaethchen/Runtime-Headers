@@ -1,0 +1,87 @@
+@class NSURL, PKPaymentOffersControllerSelectedOfferDetails, NSMutableDictionary, PKPaymentOfferCatalog, PKPaymentOffersControllerRequest, NSObject, NSString, NSMutableOrderedSet, PKPaymentOffersControllerConfiguration, NSHashTable, PKPassLibrary, PKPaymentService, PKPaymentWebService, NSError;
+@protocol OS_dispatch_queue;
+
+@interface PKPaymentOffersController : NSObject {
+    PKPaymentService *_paymentService;
+    PKPaymentWebService *_paymentWebService;
+    PKPassLibrary *_passLibrary;
+    NSError *_loadingError;
+    NSURL *_baseURL;
+    NSMutableDictionary *_sessionIdentifierForCriteriaIdentifier;
+    NSMutableDictionary *_paymentOffersForCriteriaIdentifier;
+    NSMutableDictionary *_languageDisclosuresSeenForCriteriaIdentifier;
+    NSMutableDictionary *_preferredLanguageForCriteriaIdentifier;
+    NSMutableDictionary *_preconfiguredInstallmentStateForPassUniqueID;
+    NSMutableOrderedSet *_queuedRequests;
+    PKPaymentOffersControllerRequest *_currentRequest;
+    PKPaymentOfferCatalog *_catalog;
+    BOOL _hasFetchedCatalogFromServer;
+    unsigned long long _catalogLoadingState;
+    NSMutableDictionary *_requestLoadingDetails;
+    NSMutableDictionary *_dynamicContentPagesByCriteriaIdentifier;
+    NSObject<OS_dispatch_queue> *_replyQueue;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lockObservers;
+    NSHashTable *_observers;
+}
+
+@property (readonly, nonatomic) PKPaymentOffersControllerConfiguration *configuration;
+@property (retain, nonatomic) NSString *selectedPassUniqueID;
+@property (readonly, nonatomic) PKPaymentOffersControllerSelectedOfferDetails *selectedOfferDetails;
+
+- (void).cxx_destruct;
+- (void)invalidate;
+- (void)unregisterObserver:(id)a0;
+- (void)registerObserver:(id)a0;
+- (void)_accessObserversWithHandler:(id /* block */)a0;
+- (void)_addPaymentOffersControllerRequest:(id)a0;
+- (id)_criteriaEligibilityConfigurationForCriteria:(id)a0;
+- (id)_eligibleCatalogItems;
+- (id)_eligiblePaymentOfferCriteriaForPassUniqueID:(id)a0;
+- (BOOL)_eligibleToFetchPaymentOfferCatalog;
+- (void)_executeNextPaymentOffersControllerRequestIfPossible;
+- (void)_fetchDeviceMetadataFields:(unsigned long long)a0 completion:(id /* block */)a1;
+- (void)_informObserversPaymentOfferCatalogChanged;
+- (void)_informObserversPaymentOfferDynamicContentChanged;
+- (void)_informObserversPaymentOffersChangedForPassUniqueID:(id)a0;
+- (void)_informObserversSelectedPaymentOfferChangedForPassUniqueID:(id)a0;
+- (BOOL)_paymentOfferCriteriaToKeep:(id)a0;
+- (void)_performCatalogRequest:(id)a0 completion:(id /* block */)a1;
+- (void)_performDynamicContentRequest:(id)a0 completion:(id /* block */)a1;
+- (void)_performPaymentOffersRequest:(id)a0 completion:(id /* block */)a1;
+- (void)_printCatalogEligibilityDebugDetails;
+- (id)_redeemablePaymentRewardsBalanceFrom:(id)a0;
+- (void)_updateCatalogLoadingState:(unsigned long long)a0;
+- (void)_updateLoadingDetailsState:(id)a0 criteriaIdentifier:(id)a1 passUniqueID:(id)a2 requestType:(unsigned long long)a3;
+- (void)_updatePreconfiguredInstallmentOfferState;
+- (void)_updatePreconfiguredInstallmentOfferStateForPassUniqueID:(id)a0;
+- (void)clearCurrentSelectedPaymentOfferDetails;
+- (id)dynamicContentPageForCriteriaIdentifier:(id)a0 pageType:(unsigned long long)a1;
+- (id)eligiblePaymentOfferCriteriaForPassUniqueID:(id)a0;
+- (id)eligiblePaymentOfferCriteriaForPassUniqueID:(id)a0 type:(unsigned long long)a1;
+- (id)eligiblePaymentOfferCriteriaNoAssociatedPassWithType:(unsigned long long)a0;
+- (id)eligiblePaymentOfferInstallmentCriteriaRequiringSetup;
+- (BOOL)hasAnyEligiblePaymentOfferCriteriaOfType:(unsigned long long)a0;
+- (BOOL)hasFetchedCatalogFromServer;
+- (BOOL)hasSeenLanguageDisclosureForCriteriaForIdentifier:(id)a0;
+- (id)ineligibleDetailsForCriteria:(id)a0;
+- (id)initWithPaymentService:(id)a0 paymentWebService:(id)a1 passLibrary:(id)a2 configuration:(id)a3;
+- (id)loadingDetailsForPaymentOffersForCriteriaIdentifier:(id)a0 passUniqueID:(id)a1;
+- (unsigned long long)loadingStateForCatalog;
+- (void)markLanguageDisclosureAsSeenForCriteriaForIdentifier:(id)a0;
+- (id)paymentOfferCollectionForCriteriaIdentifier:(id)a0 passUniqueID:(id)a1;
+- (id)paymentOfferCriteriaForIdentifier:(id)a0;
+- (id)paymentOfferCriteriaForPassUniqueID:(id)a0;
+- (id)paymentOfferCriteriaForPassUniqueID:(id)a0 type:(unsigned long long)a1;
+- (id)paymentOfferInstallmentCriteriaRequiringSetup;
+- (id)paymentRedeemableRewardsBalanceWithPassUniqueIdentifier:(id)a0;
+- (unsigned long long)preconfiguredInstallmentOfferStateForPassUniqueID:(id)a0;
+- (id)preferredLocalizationLanguageForCriteriaIdentifier:(id)a0;
+- (void)removeCachedPaymentOffers;
+- (void)resetLoadingDetailsForPaymentOffersForCriteriaIdentifier:(id)a0 passUniqueID:(id)a1;
+- (void)updateCurrentSelectedPaymentOffer:(id)a0 updateReason:(unsigned long long)a1;
+- (void)updateDynamicContentPageForCriteriaIdentifier:(id)a0 pageTypes:(id)a1 completion:(id /* block */)a2;
+- (void)updatePaymentOfferCatalogWithCompletion:(id /* block */)a0;
+- (void)updatePaymentOffersForCriteriaIdentifier:(id)a0 paymentPass:(id)a1 reason:(unsigned long long)a2 completion:(id /* block */)a3;
+- (void)updatePaymentRedeemableRewardsBalanceWithPassUniqueIdentifier:(id)a0 completion:(id /* block */)a1;
+
+@end

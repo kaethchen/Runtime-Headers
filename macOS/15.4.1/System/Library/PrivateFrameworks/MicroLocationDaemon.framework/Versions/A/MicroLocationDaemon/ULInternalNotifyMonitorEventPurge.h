@@ -1,0 +1,3 @@
+@interface ULInternalNotifyMonitorEventPurge : ULEvent
+
+@end

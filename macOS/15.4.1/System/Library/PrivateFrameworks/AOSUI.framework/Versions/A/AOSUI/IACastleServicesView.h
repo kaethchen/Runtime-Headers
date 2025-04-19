@@ -1,0 +1,91 @@
+@class NSTextField, NSString, CastlePlugin, MMWebKitViewController, NSView, NSMutableDictionary, MM_Account, MMInfoCapacityBarView, NSButton, NSLayoutConstraint, NSTableView;
+
+@interface IACastleServicesView : NSView <MMWebKitViewControllerDelegate, iCloudWebViewDelegate> {
+    NSTextField *_nameField;
+    NSTextField *_appleIDField;
+    NSTableView *_servicesTable;
+    NSButton *_detailsButton;
+    NSTextField *_iCloudLabel;
+    NSTextField *_storageLabel;
+    MMInfoCapacityBarView *_storageBar;
+    NSButton *_storageButton;
+    MMWebKitViewController *_webKitViewController;
+    NSString *_storageFormat;
+    NSView *_headerViewContainer;
+    NSView *_headerViewStandard;
+    NSView *_headerViewLocked;
+    NSView *_headerViewReauth;
+    NSTextField *_notVerifiedText;
+    NSTextField *_checkEmailText;
+    NSTextField *_lockedTitle;
+    NSTextField *_lockedText;
+    NSButton *_buttonDefault;
+    NSButton *_buttonAlternate;
+    NSButton *_buttonDefaultWithAlternate;
+    NSTextField *_reauthTitle;
+    NSTextField *_reauthText;
+    NSTextField *_secondaryAccountTitle;
+    NSTextField *_secondaryAccountDescription;
+    NSButton *_optimizeStorage;
+    NSTextField *_optimizeStorageDescription;
+    NSLayoutConstraint *_optimizeStorageToStorageLabelConstraint;
+    NSLayoutConstraint *_servicesViewToStorageLabelConstraint;
+    NSLayoutConstraint *_servicesViewToOptimizeStorageConstraint;
+    NSMutableDictionary *_rowViews;
+    NSView *_matterhornView;
+}
+
+@property (retain, nonatomic, setter=setMMAccount:) MM_Account *mmAccount;
+@property (nonatomic, getter=isEnabled) BOOL enabled;
+@property CastlePlugin *plugin;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)loadFromNib:(unsigned long long)a0;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)awakeFromNib;
+- (long long)numberOfRowsInTableView:(id)a0;
+- (double)tableView:(id)a0 heightOfRow:(long long)a1;
+- (id)tableView:(id)a0 objectValueForTableColumn:(id)a1 row:(long long)a2;
+- (id)tableView:(id)a0 rowViewForRow:(long long)a1;
+- (id)tableView:(id)a0 viewForTableColumn:(id)a1 row:(long long)a2;
+- (void)updateAccount:(id)a0;
+- (void)help:(id)a0;
+- (void)storagePressed:(id)a0;
+- (void)serviceEnabled:(id)a0;
+- (void)_closeWebViewWindow;
+- (BOOL)_isOptimizeStorageEnabled;
+- (void)_optimizeSetHidden:(BOOL)a0;
+- (void)_updateViewIfNeeded:(id)a0;
+- (void)displayQuota:(id)a0;
+- (id)idenfierForTableView:(id)a0 andRow:(long long)a1;
+- (void)loadInternetPrivacy:(id)a0;
+- (void)loadPrivateEmailAddresses:(id)a0;
+- (void)lockedButtonPressed:(id)a0;
+- (void)mmWebKitViewControllerDidCancel:(id)a0;
+- (void)mmWebKitViewControllerDidDismiss:(id)a0;
+- (void)mmWebKitViewControllerDidFailLoading:(id)a0 error:(id)a1;
+- (void)mmWebKitViewControllerDidFinishLoading:(id)a0;
+- (void)mmWebKitViewControllerDidSucceed:(id)a0;
+- (void)mtLogStorageActivity:(id)a0;
+- (void)optimizeStoragePressed:(id)a0;
+- (void)reAuthPressed:(id)a0;
+- (void)refreshQuota;
+- (void)resendEmailPressed:(id)a0;
+- (void)serviceEnabledMainThread:(id)a0;
+- (void)showHeaderForViewState:(unsigned long long)a0;
+- (void)showSignInError:(id)a0;
+- (void)showTerms:(id)a0;
+- (void)showTermsForAccount:(id)a0;
+- (void)unregisterNotifications;
+- (void)updateAccountMainThread:(id)a0;
+- (void)updateService:(id)a0;
+- (void)updateServiceMainThread:(id)a0;
+- (void)updateServiceRow:(id)a0;
+- (void)updateServicesTable;
+
+@end

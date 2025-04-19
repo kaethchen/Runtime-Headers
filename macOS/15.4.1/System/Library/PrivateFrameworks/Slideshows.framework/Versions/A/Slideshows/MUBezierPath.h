@@ -1,0 +1,3 @@
+@interface MUBezierPath : NSObject
+
+@end

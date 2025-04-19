@@ -1,0 +1,3 @@
+@interface DMCAuthKitUtilities : NSObject
+
+@end

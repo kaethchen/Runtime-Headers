@@ -1,0 +1,3 @@
+@interface DocumentUnderstanding.DUFoundInEventClassificationSpecification : _TtCs12_SwiftObject
+
+@end

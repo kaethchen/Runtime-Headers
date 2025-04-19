@@ -1,0 +1,3 @@
+@interface DelayedPopUpToolbarButtonCell : DelayedPopUpButtonCell
+
+@end

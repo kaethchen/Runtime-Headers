@@ -1,0 +1,3 @@
+@interface PoirotBlocks.TelemetryReportingActivityMonitor : PoirotBlocks.HostDiagnosingActivityMonitor
+
+@end

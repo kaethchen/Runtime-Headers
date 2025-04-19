@@ -1,0 +1,3 @@
+@interface LAView : NSView
+
+@end

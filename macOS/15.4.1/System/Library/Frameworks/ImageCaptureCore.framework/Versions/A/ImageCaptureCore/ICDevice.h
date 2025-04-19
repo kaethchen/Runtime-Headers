@@ -1,0 +1,87 @@
+@class NSString, ICDeviceManager, NSMutableSet, NSMutableDictionary, NSNumber, NSArray;
+@protocol ICDeviceDelegate;
+
+@interface ICDevice : NSObject
+
+@property (retain, nonatomic) NSMutableSet *deviceCapabilities;
+@property (nonatomic) int sessionID;
+@property (nonatomic) long long sessionState;
+@property (retain, nonatomic) ICDeviceManager *deviceManager;
+@property (weak, nonatomic) id deviceDelegate;
+@property (copy, nonatomic) NSString *name;
+@property (nonatomic) BOOL ready;
+@property (copy, nonatomic) NSString *productKind;
+@property (copy, nonatomic) NSString *transportType;
+@property (copy, nonatomic) NSString *UUIDString;
+@property (copy, nonatomic) NSString *persistentIDString;
+@property (nonatomic) int usbLocationID;
+@property (nonatomic) int usbProductID;
+@property (nonatomic) int usbVendorID;
+@property (copy, nonatomic) NSString *internalUUID;
+@property (copy, nonatomic) NSNumber *deviceHandle;
+@property (copy, nonatomic) NSString *systemSymbolName;
+@property (retain, nonatomic) struct CGImage { } *icon;
+@property (nonatomic) unsigned long long type;
+@property (nonatomic) int usbIntefaceClass;
+@property (nonatomic) int usbInterfaceSubClass;
+@property (nonatomic) int usbInterfaceProtocol;
+@property (copy, nonatomic) NSString *locationDescription;
+@property (nonatomic) long long fwGUID;
+@property (copy, nonatomic) NSString *modulePath;
+@property (copy, nonatomic) NSString *moduleVersion;
+@property (retain, nonatomic) NSMutableDictionary *userData;
+@property (copy, nonatomic) NSString *serialNumberString;
+@property (nonatomic) BOOL autolaunchDevice;
+@property (nonatomic) BOOL systemReportsEjectable;
+@property (copy, nonatomic) NSNumber *procID;
+@property (copy, nonatomic) NSString *volumePath;
+@property (nonatomic) BOOL hasOpenSession;
+@property BOOL autoOpenSession;
+@property BOOL openSessionPending;
+@property BOOL closeSessionPending;
+@property (readonly, nonatomic) BOOL isAppleDevice;
+@property (copy, nonatomic) NSNumber *connectionID;
+@property (copy, nonatomic) NSNumber *deviceRef;
+@property (copy, nonatomic) NSNumber *deviceID;
+@property (copy, nonatomic) NSString *iconPath;
+@property (readonly) BOOL preferred;
+@property (readonly) double softwareInstallPercentDone;
+@property (readonly) BOOL canCancelSoftwareInstallation;
+@property (nonatomic) id<ICDeviceDelegate> delegate;
+@property (readonly, nonatomic) NSArray *capabilities;
+@property (copy, nonatomic) NSString *autolaunchApplicationPath;
+@property (readonly, getter=isRemote) BOOL remote;
+@property (readonly) int moduleExecutableArchitecture;
+
++ (BOOL)automaticallyNotifiesObserversForKey:(id)a0;
+
+- (id)description;
+- (id)init;
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0;
+- (id)valueForUndefinedKey:(id)a0;
+- (void)setPreferred:(BOOL)a0;
+- (void)requestCloseSession;
+- (void)requestEjectOrDisconnect;
+- (void)requestOpenSession;
+- (void)requestEject;
+- (void)requestOpenSessionWithOptions:(id)a0 completion:(id /* block */)a1;
+- (void)addCapability:(id)a0;
+- (void)cleanupDeviceWithErrorCode:(id)a0 completionBlock:(id /* block */)a1;
+- (void)fetchAutolaunchApplicationPath;
+- (BOOL)handleCommandCompletion:(id)a0;
+- (void)handleCommandCompletionNotification:(id)a0;
+- (void)handleImageCaptureEventNotification:(id)a0;
+- (void)handleImageCaptureEventNotification:(id)a0 completion:(id /* block */)a1;
+- (void)imageCaptureEventNotification:(id)a0 completion:(id /* block */)a1;
+- (void)notifyObservers:(id)a0;
+- (void)removeCapabilities;
+- (void)removeCapability:(id)a0;
+- (void)requestCloseSessionWithOptions:(id)a0 completion:(id /* block */)a1;
+- (void)requestEjectWithCompletion:(id /* block */)a0;
+- (void)requestSendMessage:(unsigned int)a0 outData:(id)a1 maxReturnedDataSize:(unsigned int)a2 sendMessageDelegate:(id)a3 didSendMessageSelector:(SEL)a4 contextInfo:(void *)a5;
+- (void)requestYield;
+- (void)updateCapabilities:(id)a0;
+- (BOOL)updateProperties:(id)a0;
+
+@end

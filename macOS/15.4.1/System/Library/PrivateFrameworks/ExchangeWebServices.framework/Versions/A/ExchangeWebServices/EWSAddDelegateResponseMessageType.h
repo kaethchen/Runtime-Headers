@@ -1,0 +1,3 @@
+@interface EWSAddDelegateResponseMessageType : EWSBaseDelegateResponseMessageType
+
+@end

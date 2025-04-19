@@ -1,0 +1,3 @@
+@interface _TtC19RemindersAppIntentsP33_CBAA2291BA71EFE7DD1D1FE1C1FB091219ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

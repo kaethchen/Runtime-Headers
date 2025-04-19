@@ -1,0 +1,74 @@
+@class _NotificationObserver, NSOrderedSet, NSMutableOrderedSet, NSSet;
+@protocol SOOrderedSetControllerDelegate;
+
+@interface SOOrderedSetController : NSObject
+
+@property (retain, nonatomic) NSMutableOrderedSet *mutableContents;
+@property (readonly, retain, nonatomic) _NotificationObserver *resortNotificationObserver;
+@property (retain, nonatomic) NSMutableOrderedSet *mutableFilteredContents;
+@property (readonly, retain, nonatomic) _NotificationObserver *refilterNotificationObserver;
+@property (weak, nonatomic) id<SOOrderedSetControllerDelegate> delegate;
+@property (copy, nonatomic) NSOrderedSet *contents;
+@property (readonly, nonatomic) unsigned long long countOfContents;
+@property (copy, nonatomic) id /* block */ comparatorBlock;
+@property (retain, nonatomic) NSSet *resortNotifications;
+@property (readonly, copy, nonatomic) NSOrderedSet *filteredContents;
+@property (readonly, nonatomic) unsigned long long countOfFilteredContents;
+@property (copy, nonatomic) id /* block */ filterBlock;
+@property (retain, nonatomic) NSSet *refilterNotifications;
+@property (retain, nonatomic) id selectedObject;
+@property (nonatomic) unsigned long long selectionIndex;
+@property (nonatomic) BOOL avoidsEmptySelection;
+@property (nonatomic) BOOL loopsSelection;
+@property (readonly, nonatomic) BOOL canSelectNext;
+@property (readonly, nonatomic) BOOL canSelectPrevious;
+@property (readonly, nonatomic, getter=isUserEditable) BOOL userEditable;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (id)contents;
+- (unsigned long long)selectionIndex;
+- (void)setContents:(id)a0;
+- (void)setSelectionIndex:(unsigned long long)a0;
+- (void)_transformFilteredContentsInto:(id)a0;
+- (void)insertObject:(id)a0 inContentsAtIndex:(unsigned long long)a1;
+- (unsigned long long)_adjustedSortedContentsIndex:(unsigned long long)a0 forObject:(id)a1;
+- (unsigned long long)_filteredIndexForContentIndex:(unsigned long long)a0;
+- (void)_insertMutableFilteredContents:(id)a0 atIndexes:(id)a1;
+- (void)_insertObject:(id)a0 inMutableFilteredContentsAtIndex:(unsigned long long)a1;
+- (void)_moveObjectFromFilteredContentsAtIndex:(unsigned long long)a0 toIndex:(unsigned long long)a1;
+- (void)_notifyDelegateOfInsertionOfFilteredContentsAtIndexes:(id)a0;
+- (void)_notifyDelegateOfMoveOfFilteredContents:(id)a0 atIndexes:(id)a1 toFilteredContents:(id)a2 atIndexes:(id)a3;
+- (void)_notifyDelegateOfRemovalOfFilteredContents:(id)a0 atIndexes:(id)a1;
+- (void)_notifyDelegateOfReplacementOfFilteredContents:(id)a0 atIndexes:(id)a1;
+- (void)_notifyDelegateOfSelectionChange;
+- (void)_registerObjectForNotifications:(id)a0;
+- (void)_removeMutableFilteredContentsAtIndexes:(id)a0;
+- (void)_removeObjectFromMutableFilteredContentsAtIndex:(unsigned long long)a0;
+- (void)_replaceObjectFromFilteredContentsAtIndex:(unsigned long long)a0 withObject:(id)a1;
+- (void)_unregisterObjectForNotifications:(id)a0;
+- (void)addContentsObject:(id)a0;
+- (void)moveObjectFromContentsAtIndex:(unsigned long long)a0 toIndex:(unsigned long long)a1;
+- (void)noteObjectMayNeedRefiltering:(id)a0;
+- (void)noteObjectMayNeedResorting:(id)a0;
+- (void)noteObjectsMayNeedRefiltering:(id)a0;
+- (id)objectInContentsAtIndex:(unsigned long long)a0;
+- (id)objectInFilteredContentsAtIndex:(unsigned long long)a0;
+- (id)refilterNotifications;
+- (void)removeContentsObject:(id)a0;
+- (void)removeObjectFromContentsAtIndex:(unsigned long long)a0;
+- (void)removeSelectedObjects;
+- (void)replaceContentsObject:(id)a0 withObject:(id)a1;
+- (void)replaceObjectFromContentsAtIndex:(unsigned long long)a0 withObject:(id)a1;
+- (id)resortNotifications;
+- (void)restoreContents:(id)a0;
+- (void)selectNext;
+- (void)selectPrevious;
+- (void)setRefilterNotifications:(id)a0;
+- (void)setResortNotifications:(id)a0;
+- (void)sortContentsWithComparatorBlock:(id /* block */)a0;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })sortedContentsIndexRangeForObject:(id)a0;
+- (void)updateFilteredContentsWith:(id)a0;
+
+@end

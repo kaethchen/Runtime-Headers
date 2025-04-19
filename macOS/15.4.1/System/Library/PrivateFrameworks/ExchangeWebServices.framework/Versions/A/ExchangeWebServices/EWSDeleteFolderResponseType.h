@@ -1,0 +1,3 @@
+@interface EWSDeleteFolderResponseType : EWSBaseMessageResponseType
+
+@end

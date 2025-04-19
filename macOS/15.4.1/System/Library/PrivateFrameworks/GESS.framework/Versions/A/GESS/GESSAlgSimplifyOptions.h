@@ -1,0 +1,3 @@
+@interface GESSAlgSimplifyOptions : NSObject
+
+@end

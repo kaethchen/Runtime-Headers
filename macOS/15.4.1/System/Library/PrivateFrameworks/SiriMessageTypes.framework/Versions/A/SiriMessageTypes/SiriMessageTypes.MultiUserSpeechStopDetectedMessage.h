@@ -1,0 +1,3 @@
+@interface SiriMessageTypes.MultiUserSpeechStopDetectedMessage : SiriMessageTypes.SpeechStopDetectedMessage
+
+@end

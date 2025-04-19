@@ -1,0 +1,3 @@
+@interface RTHealthKitManagerWorkoutSuggestedStopWorkoutNotification : RTNotification
+
+@end

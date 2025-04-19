@@ -1,0 +1,82 @@
+@class AXFUIElement, NSArray, AXKApplicationController;
+
+@interface AXKElementController : NSObject
+
+@property (retain, nonatomic) AXFUIElement *representedElement;
+@property (weak, nonatomic) AXKElementController *parentController;
+@property (retain, nonatomic) NSArray *childControllers;
+@property (retain, nonatomic) NSArray *navigationOrderChildControllers;
+@property (retain, nonatomic, setter=_setHorizontallyOrderedChildControllers:) NSArray *_horizontallyOrderedChildControllers;
+@property (retain, nonatomic, setter=_setVerticallyOrderedChildControllers:) NSArray *_verticallyOrderedChildControllers;
+@property (nonatomic) unsigned long long layoutHash;
+@property (nonatomic) BOOL _didRegisterSelectedChildrenChangedNotification;
+@property (nonatomic) BOOL isMenuController;
+@property (retain, nonatomic) AXKElementController *menuControllerSelectedItem;
+@property (retain, nonatomic) AXKElementController *menuControllerSubMenuController;
+@property (readonly, weak, nonatomic) AXKApplicationController *applicationController;
+@property (readonly, nonatomic) NSArray *horizontallyOrderedChildControllers;
+@property (readonly, nonatomic) NSArray *verticallyOrderedChildControllers;
+@property (readonly, nonatomic, getter=isSelectable) BOOL selectable;
+@property (readonly, nonatomic, getter=isSelected) BOOL selected;
+@property (readonly, copy, nonatomic) NSArray *selectedChildControllers;
+@property (readonly, nonatomic) NSArray *supportedActions;
+
++ (void)cancelPreviousPerformRequestsWithTarget:(id)a0;
++ (void)cancelPreviousPerformRequestsWithTarget:(id)a0 selector:(SEL)a1 object:(id)a2;
++ (Class)controllerClassForElement:(id)a0;
++ (void)registerControllerBaseClass:(Class)a0;
++ (void)registerControllerClass:(Class)a0 applicationIdentifier:(id)a1 role:(id)a2 subrole:(id)a3 predicate:(id /* block */)a4;
++ (void)registerControllerClass:(Class)a0 role:(id)a1 subrole:(id)a2;
+
+- (id)description;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (void)performSelector:(SEL)a0 withObject:(id)a1 afterDelay:(double)a2;
+- (void)performSelector:(SEL)a0 withObject:(id)a1 afterDelay:(double)a2 inModes:(id)a3;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })bounds;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })visibleBounds;
+- (BOOL)addObserver:(id)a0 selector:(SEL)a1 name:(id)a2;
+- (id)defaultAction;
+- (BOOL)hasKeyboardFocus;
+- (BOOL)performDefaultAction;
+- (id)spokenDescription;
+- (void)pruneObservers;
+- (id)performBlockOnApplicationQueue:(id /* block */)a0;
+- (void)_buildMap;
+- (id)_childControllersToIncludeInPromotedHierarchy;
+- (id)_elementCacheValue;
+- (void)_menuControllerSelectedChildrenChangedHandler:(id)a0;
+- (id)_navigationOrderChildControllersToIncludeInPromotedHierarchy;
+- (id)_orderedArrayFromUnorderedElements:(id)a0 ordering:(id)a1;
+- (id)ancestorElementControllerWithPredicate:(id /* block */)a0;
+- (void)becameKeyboardFocused;
+- (BOOL)canHaveKeyboardFocus;
+- (BOOL)canSetSelectedChildControllers;
+- (void)cancelApplicationQueueOperations;
+- (BOOL)deselectChildController:(id)a0;
+- (BOOL)deselectChildControllers;
+- (BOOL)hasRowBasedChildControllers;
+- (BOOL)hasSpokenDescription;
+- (id)initWithRepresentedElement:(id)a0 applicationController:(id)a1;
+- (id)menuControllerParent;
+- (id)menuControllerRoot;
+- (BOOL)needToRebuildChildControllers;
+- (BOOL)performActivateAction;
+- (id)performBlockOnApplicationQueue:(id /* block */)a0 completionHandler:(id /* block */)a1;
+- (BOOL)rebuildMapIfNeeded;
+- (BOOL)removeObserver:(id)a0 selector:(SEL)a1 name:(id)a2;
+- (void)resignedKeyboardFocus;
+- (BOOL)selectChildController:(id)a0 exclusive:(BOOL)a1;
+- (void)setKeyboardFocus:(BOOL)a0;
+- (void)setSelected:(BOOL)a0 exclusive:(BOOL)a1;
+- (BOOL)setSelectedChildControllers:(id)a0;
+- (BOOL)shouldIncludeChildControllersInPromotedHierarchy;
+- (BOOL)shouldIncludeControllerInPromotedHierarchy;
+- (BOOL)shouldPromoteChildControllers;
+- (id)spokenDescriptionWithOptions:(unsigned long long)a0;
+- (BOOL)supportsActivateAction;
+- (id)unpromotedChildControllers;
+- (id)unpromotedParentController;
+
+@end

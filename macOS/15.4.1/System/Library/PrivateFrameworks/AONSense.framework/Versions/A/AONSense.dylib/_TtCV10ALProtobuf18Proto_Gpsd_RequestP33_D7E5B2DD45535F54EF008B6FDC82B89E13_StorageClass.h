@@ -1,0 +1,52 @@
+@interface _TtCV10ALProtobuf18Proto_Gpsd_RequestP33_D7E5B2DD45535F54EF008B6FDC82B89E13_StorageClass : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ _machContinuousTimeNs;
+    void /* unknown type, empty encoding */ _transactionID;
+    void /* unknown type, empty encoding */ _type;
+    void /* unknown type, empty encoding */ _injectAssistancePosition;
+    void /* unknown type, empty encoding */ _injectAssistanceTime;
+    void /* unknown type, empty encoding */ _setAssistancePressure;
+    void /* unknown type, empty encoding */ _setAssistanceAccel;
+    void /* unknown type, empty encoding */ _setAssistanceGyro;
+    void /* unknown type, empty encoding */ _setAssistanceDem;
+    void /* unknown type, empty encoding */ _setAssistanceMapVector;
+    void /* unknown type, empty encoding */ _setAssistanceMotionActivityContext;
+    void /* unknown type, empty encoding */ _setAssistanceMountState;
+    void /* unknown type, empty encoding */ _setAssistanceSignalEnvironment;
+    void /* unknown type, empty encoding */ _setAssistanceSpeedConstraint;
+    void /* unknown type, empty encoding */ _setAssistanceAlongTrackVelocity;
+    void /* unknown type, empty encoding */ _injectAssistanceFile;
+    void /* unknown type, empty encoding */ _injectRtiFile;
+    void /* unknown type, empty encoding */ _injectSvidBlocklist;
+    void /* unknown type, empty encoding */ _deleteGnssData;
+    void /* unknown type, empty encoding */ _setPvtmReport;
+    void /* unknown type, empty encoding */ _setNmeaHandler;
+    void /* unknown type, empty encoding */ _setConfigSimulatorMode;
+    void /* unknown type, empty encoding */ _setConfigEnableGnssConstellations;
+    void /* unknown type, empty encoding */ _setConfigDutyCycling;
+    void /* unknown type, empty encoding */ _terminationImminent;
+    void /* unknown type, empty encoding */ _exitMessage;
+    void /* unknown type, empty encoding */ _injectLtlInfo;
+    void /* unknown type, empty encoding */ _startContext;
+    void /* unknown type, empty encoding */ _cntinStatusUpdate;
+    void /* unknown type, empty encoding */ _setThermalRiskState;
+    void /* unknown type, empty encoding */ _setConfigRfBandEnable;
+    void /* unknown type, empty encoding */ _emergConfig;
+    void /* unknown type, empty encoding */ _positionRequest;
+    void /* unknown type, empty encoding */ _sessionID;
+    void /* unknown type, empty encoding */ _gpsReferenceTime;
+    void /* unknown type, empty encoding */ _referenceLocation;
+    void /* unknown type, empty encoding */ _gpsNavigationModel;
+    void /* unknown type, empty encoding */ _gpsAcqAssistance;
+    void /* unknown type, empty encoding */ _cellFtAssistance;
+    void /* unknown type, empty encoding */ _cplaneContext;
+    void /* unknown type, empty encoding */ _suplInitVec;
+    void /* unknown type, empty encoding */ _locationID;
+    void /* unknown type, empty encoding */ _suplInitIndex;
+    void /* unknown type, empty encoding */ _suplCert;
+    void /* unknown type, empty encoding */ _servingCellLte;
+    void /* unknown type, empty encoding */ _simInstance;
+    void /* unknown type, empty encoding */ _suplContext;
+    void /* unknown type, empty encoding */ _wlanMeasurementList;
+}
+
+@end

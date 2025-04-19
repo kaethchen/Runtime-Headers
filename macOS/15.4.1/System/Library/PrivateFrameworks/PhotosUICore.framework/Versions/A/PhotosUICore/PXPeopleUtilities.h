@@ -1,0 +1,75 @@
+@class NSArray;
+
+@interface PXPeopleUtilities : NSObject
+
+@property (class, readonly, nonatomic) NSArray *sortDescriptorsForManualSort;
+@property (class, readonly, nonatomic) NSArray *reverseSortDescriptorsForManualSort;
+
++ (id)sharedContactStore;
++ (id)fetchMeContact;
++ (id)personWithLocalIdentifier:(id)a0;
++ (id)_daysDictionary;
++ (id)peopleArrayFromFastEnumeration:(id)a0;
++ (id)locKeyForHasHumans:(BOOL)a0 hasPets:(BOOL)a1 key:(id)a2;
++ (BOOL)_hasRecentlyHandledBootstrapOrSuggestionForPerson:(id)a0;
++ (BOOL)_isPhotosProcess;
++ (void)_peopleFaceTilesForFaces:(id)a0 asset:(id)a1 options:(id)a2 completion:(id /* block */)a3;
++ (id)_peopleHomeFetchOptionsForPhotoLibrary:(id)a0;
++ (id)_peopleHomeFetchResultForPersonType:(long long)a0 photoLibrary:(id)a1;
++ (void)_setDaysDictionary:(id)a0;
++ (id)_titleStringForPeople:(id)a0 singlePersonFallback:(id)a1 groupFallback:(id)a2;
++ (id)assetCollectionListFetchResultForPeople:(id)a0 assetCollectionFetchResults:(id *)a1;
++ (id)assetCollectionListFetchResultForPerson:(id)a0;
++ (BOOL)canShowSuggestionForPerson:(id)a0;
++ (long long)changeTypeForPeople:(id)a0;
++ (id /* block */)comparatorByPeopleHomeSortingType:(unsigned long long)a0;
++ (unsigned long long)currentSortOrderFor:(id)a0;
++ (id)defaultTitleStringForSocialGroup:(id)a0;
++ (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })faceRectForPeopleFaceTile:(id)a0;
++ (id)facesForPerson:(id)a0 inAssets:(id)a1;
++ (id)fetchPeopleAndPetsInSocialGroup:(id)a0;
++ (id)fetchPeopleForPeopleHomeWithPhotoLibrary:(id)a0 fetchLimit:(long long)a1;
++ (id)fetchPeopleWithUUIDs:(id)a0 photoLibrary:(id)a1;
++ (id)finalMergeTargetPersonForPersonWithUUID:(id)a0;
++ (id)generateNewFaceTileFromFaceTile:(id)a0;
++ (id)identifiersForPeople:(id)a0;
++ (BOOL)isDetectionTypeHuman:(short)a0;
++ (BOOL)isFavoritePerson:(id)a0;
++ (BOOL)isGreenTeaAndContactsAccessDenied;
++ (BOOL)isPersonHiddenFromPeopleHome:(id)a0;
++ (id)keyAssetForPerson:(id)a0 face:(id)a1;
++ (id)keyFaceForPerson:(id)a0;
++ (id)lastManuallySortedPersonInSectionOfType:(long long)a0 photoLibrary:(id)a1;
++ (id)locKeyForPeople:(id)a0 key:(id)a1;
++ (id)locKeyForPersonOrPet:(id)a0 key:(id)a1;
++ (id)locKeyForPersonOrPet:(id)a0 withVisibility:(unsigned long long)a1 key:(id)a2;
++ (id)makeLemonadeDetailViewControllerForPerson:(id)a0 allPeople:(id)a1;
++ (long long)manualOrderForInsertingAtEndOfSectionWithType:(long long)a0 photoLibrary:(id)a1;
++ (id)memoryTitleStringFromPeople:(id)a0;
++ (BOOL)mergePersons:(id)a0 withPerson:(id)a1;
++ (void)people:(id)a0 hasHumans:(BOOL *)a1 hasPets:(BOOL *)a2;
++ (void)peopleFaceTilesForAsset:(id)a0 options:(id)a1 completion:(id /* block */)a2;
++ (void)peopleFaceTilesForFaces:(id)a0 asset:(id)a1 options:(id)a2 completion:(id /* block */)a3;
++ (id)peopleFetchResultFromFastEnumeration:(id)a0 photoLibrary:(id)a1;
++ (id)peopleWithPersonUris:(id)a0;
++ (void)performSetSocialGroupKeyPhotoWithAsset:(id)a0 socialGroup:(id)a1 undoManager:(id)a2 completionHandler:(id /* block */)a3;
++ (id)personFaceTileByPersonIdForPersons:(id)a0;
++ (id)personWithLocalIdentifier:(id)a0 propertySets:(id)a1;
++ (id)personWithPersonUri:(id)a0;
++ (void)resetTemporarilySuppressedBootstrapOrSuggestions;
++ (void)setSortOrder:(unsigned long long)a0 toPhotoLibrary:(id)a1;
++ (BOOL)shouldShowBootstrapForPerson:(id)a0;
++ (BOOL)shouldShowBootstrapForPerson:(id)a0 context:(id)a1;
++ (id)slideshowTitleStringForPeople:(id)a0;
++ (id)socialGroupFetchResultFromFastEnumeration:(id)a0 photoLibrary:(id)a1;
++ (id)sortDescriptorsWithPersonAssetSortOrder:(long long)a0;
++ (id)sortedPersons:(id)a0 byPersonMemoryFeatures:(id)a1;
++ (id)summaryTitleForLibrary:(id)a0 count:(long long)a1;
++ (void)temporarilySuppressBootstrapOrSuggestionForPerson:(id)a0;
++ (id)titleStringForPeople:(id)a0;
++ (id)titleStringForPerson:(id)a0;
++ (id)titleStringForSocialGroup:(id)a0;
++ (void)unblockPersonsInLibrary:(id)a0 completion:(id /* block */)a1;
++ (void)unlinkContactInfoForPerson:(id)a0 completion:(id /* block */)a1;
+
+@end

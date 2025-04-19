@@ -1,0 +1,3 @@
+@interface VKVisualSearchViewController : NSViewController
+
+@end

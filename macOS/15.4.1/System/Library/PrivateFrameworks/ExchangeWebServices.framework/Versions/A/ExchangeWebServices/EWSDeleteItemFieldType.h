@@ -1,0 +1,3 @@
+@interface EWSDeleteItemFieldType : EWSItemChangeDescriptionType
+
+@end

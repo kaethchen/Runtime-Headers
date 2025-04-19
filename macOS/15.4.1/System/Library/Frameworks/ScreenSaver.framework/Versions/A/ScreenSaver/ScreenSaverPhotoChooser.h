@@ -1,0 +1,84 @@
+@class ScreenSaverDefaults, NSTextField, NSPopUpButton, NSObject, NSButton, ILMediaBrowserView, NSMutableArray, NSString, PHPhotoLibrary, NSArray, NSView, NSWindow, PHImageManager, PHImageRequestOptions;
+@protocol OS_dispatch_queue;
+
+@interface ScreenSaverPhotoChooser : NSObject {
+    ScreenSaverDefaults *_defaults;
+    unsigned long long _currentPhotoChooserSource;
+    NSString *_selectedLocalIdentifier;
+    PHPhotoLibrary *_photosLibrary;
+    NSArray *_latestPhotosProjects;
+    NSArray *_latestPhotosEvents;
+    NSArray *_defaultCollections;
+    NSObject<OS_dispatch_queue> *_cacheMonitorQueue;
+    PHImageManager *_imageMgr;
+    PHImageRequestOptions *_cacheRequestOptions;
+    long long _remoteAssetCount;
+    long long _totalRemoteAssetCount;
+    long long _failedfetchCount;
+    BOOL _monitoring;
+    NSArray *_mediaBrowserViewTLOArray;
+    NSWindow *_mediaChooserWindow;
+    ILMediaBrowserView *_mediaBrowserView;
+    NSArray *_customControlsViewTLOArray;
+    NSView *_customControlsView;
+    NSPopUpButton *_sourcePopUpButton;
+    NSTextField *_sourceLabelField;
+    NSButton *_sourceShuffleButton;
+    id /* block */ _sourceMenuLoadedBlock;
+    NSMutableArray *_blocksToCallOnceFinishedLoading;
+}
+
++ (id)_builtInCollectionsOrder;
++ (id)photoChooser;
+
+- (void)dealloc;
+- (id)init;
+- (id)customControlsView;
+- (BOOL)mediaBrowserView:(id)a0 shouldPreviewDoubleClickedItem:(id)a1;
+- (BOOL)mediaBrowserView:(id)a0 shouldSelectMediaObject:(id)a1;
+- (void)_presentAddFolderSheetOnWindow:(id)a0;
+- (id)_defaultFetchOptions;
+- (id)_imagePathsForAssetsCollection:(id)a0;
+- (void)_addHeaderString:(id)a0 toMenu:(id)a1;
+- (id)_displayNameForIdentifier:(id)a0;
+- (id)_fetchPeopleAlbumAssets;
+- (id)_fetchPersonAlbumAssetsForIdentifier:(id)a0;
+- (id)_fetchResultForIdentifier:(id)a0;
+- (id)_filePathForURL:(id)a0 isInEligibleArray:(id)a1;
+- (void)_generateDefaultCollections;
+- (void)_generateRecentEventsList;
+- (id)_imageFilesInDirectory:(id)a0;
+- (void)_initalizeDownloadProgress;
+- (void)_monitorCacheLoading;
+- (void)_openLibraryWithUpgrade:(BOOL)a0;
+- (void)_processAsset:(id)a0 intoAssetPaths:(id)a1;
+- (void)_processAssetCollection:(id)a0 intoAssetPaths:(id)a1;
+- (void)_processCollectionList:(id)a0 intoAssetPaths:(id)a1;
+- (void)_resetLastViewedPhotoPath;
+- (void)_resetToDefaultImageSelection;
+- (void)_terminateDownloadProgress;
+- (void)_updateDownloadProgress;
+- (void)changeToSourceType:(unsigned long long)a0 identifier:(id)a1;
+- (void)changeToSourceType:(unsigned long long)a0 identifier:(id)a1 persistChange:(BOOL)a2;
+- (void)chooseFolderClickedFromMenu:(id)a0;
+- (void)chooseFromMediaBrowser:(id)a0;
+- (id)currentlySelectedIdentifierInsideSource;
+- (id)currentlySelectedName;
+- (void)generateSourcePopupMenu;
+- (void)iLifeEventClickedFromPopup:(id)a0;
+- (id)listOfPhotoPathsFromSelectedSource;
+- (void)loadPhotoSourcesAndCallBlockWhenDone:(id /* block */)a0;
+- (void)mediaBrowserCancel:(id)a0;
+- (void)mediaBrowserChoosePhotoSet:(id)a0;
+- (BOOL)mediaBrowserView:(id)a0 shouldDisplayMediaGroup:(id)a1;
+- (BOOL)mediaBrowserView:(id)a0 shouldDisplayMediaObject:(id)a1;
+- (void)presentMediaBrowserSheetOnWindow:(id)a0;
+- (void)setLastViewedPhotoPath:(id)a0 forScreenSaverView:(id)a1;
+- (void)setShufflesPhotos:(BOOL)a0;
+- (BOOL)shufflesPhotos;
+- (void)sourceChanged:(id)a0;
+- (id)sourceItemsForPhotoChooserSource:(unsigned long long)a0;
+- (void)sourcePopUpClicked:(id)a0;
+- (void)sourceShuffleClicked:(id)a0;
+
+@end

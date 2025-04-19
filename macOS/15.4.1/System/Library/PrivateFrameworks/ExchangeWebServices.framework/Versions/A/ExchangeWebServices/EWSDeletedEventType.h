@@ -1,0 +1,3 @@
+@interface EWSDeletedEventType : EWSBaseObjectChangedEventType
+
+@end

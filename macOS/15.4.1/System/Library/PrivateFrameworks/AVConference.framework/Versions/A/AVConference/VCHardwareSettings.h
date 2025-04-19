@@ -1,0 +1,98 @@
+@class NSMutableDictionary, NSMutableSet;
+
+@interface VCHardwareSettings : NSObject {
+    int _supportHEVC;
+    BOOL _supportVCPEncoderInitialized;
+    BOOL _supportVCPEncoder;
+    BOOL _isSiriVoiceTapSupported;
+    BOOL _isSiriVoicePlayoutSupported;
+}
+
+@property (retain, nonatomic) NSMutableDictionary *hardwareUsageModeSettings;
+@property (readonly, nonatomic) BOOL supportHEVC;
+@property (readonly, nonatomic) BOOL vcpSupportsHEVCEncoder;
+@property (readonly, nonatomic) BOOL isVideoRenderingSupported;
+@property (readonly, nonatomic) NSMutableSet *pixelFormatCollections;
+@property (readonly, nonatomic) BOOL isSiriVoiceTapSupported;
+@property (readonly, nonatomic) BOOL isSiriVoicePlayoutSupported;
+@property (readonly, nonatomic) BOOL isMLEnhanceOneToOneSupported;
+
++ (id)sharedInstance;
++ (long long)deviceClass;
++ (BOOL)isAppleSilicon;
++ (unsigned int)screenHeight;
++ (unsigned int)screenWidth;
++ (BOOL)supportsHEIFEncoding;
++ (unsigned int)builtinMicCount;
++ (BOOL)isVoiceProcessingAt24KSupported;
++ (BOOL)allowScreenShareResolutionModuloAdjustment;
++ (BOOL)captureFormatPrefer16by9ForSquare;
++ (BOOL)disableMLScalarDuringSharing;
++ (BOOL)disableViewPointCorrectionForSharing;
++ (id)featureListStringForPayload:(int)a0 hardwareSettingsMode:(unsigned char)a1 version:(long long)a2;
++ (BOOL)isCaptionsSupported;
++ (BOOL)isCaptureSIFRPreferred;
++ (BOOL)isCellularTappingSupported;
++ (BOOL)isDataCollectionSupported;
++ (BOOL)isDeviceLargeScreen;
++ (BOOL)isDisplayPortrait;
++ (BOOL)isExternalCameraSupported;
++ (BOOL)isHEVCDecodeSupportedForHardwareSettingsMode:(unsigned char)a0;
++ (BOOL)isHEVCEncodeSupportedForHardwareSettingsMode:(unsigned char)a0;
++ (BOOL)isMLEnhanceOneToOneSupported;
++ (BOOL)isMediaRecordingSupported;
++ (BOOL)isRemoteCameraSenderSupported;
++ (BOOL)isSiriVoicePlayoutSupported;
++ (BOOL)isSiriVoiceTapSupported;
++ (BOOL)isSpatialAudioSupported;
++ (BOOL)isVideoRenderingSupported;
++ (BOOL)isViewPointCorrectionSupported;
++ (BOOL)limitCameraDownlinkBitrateDuringSharing;
++ (unsigned int)maxActiveScreenEncoders;
++ (unsigned int)maxActiveVideoDecoders;
++ (unsigned int)maxActiveVideoEncoders;
++ (unsigned int)maxFpsCameraCaptureDuringSharing;
++ (unsigned int)maxFrameRateSupportedBackgroundBlur;
++ (unsigned int)maxFrameRateSupportedScreenShare;
++ (unsigned int)maxHighTierMLEnhanceParticipants;
++ (unsigned int)maxMultiwayFramerateSupported;
++ (unsigned int)maxOneToOneFramerateSupported;
++ (unsigned int)maxRemoteParticipants30fps;
++ (unsigned long long)maxScreenEncodingSizeSupported;
++ (unsigned int)maxVCPSupportedTemporalLayers;
++ (BOOL)preferPresentationTimestamp;
++ (double)previewPreferredAspectRatio;
++ (BOOL)retainPixelBufferForMediaRecordingEnabled;
++ (unsigned int)screenHeightForDisplayID:(unsigned int)a0;
++ (long long)screenShareCapabilities;
++ (unsigned int)screenWidthForDisplayID:(unsigned int)a0;
++ (BOOL)shouldEnforceScreenFrameRateLimit;
++ (BOOL)shouldOverrideGPUMuxing;
++ (id)supportedVideoPayloads;
++ (BOOL)supportsCompressedPixelFormat;
++ (BOOL)supportsDecodingSquareCameraVideo;
++ (BOOL)supportsDedicatedSystemAudioStream;
++ (BOOL)supportsFilteredScreenCapture;
++ (BOOL)supportsFoveation;
++ (BOOL)supportsHEVCDecoding;
++ (BOOL)supportsHEVCEncoding;
++ (BOOL)supportsMultiway1080pStream;
++ (BOOL)supportsMultiway720pStream;
++ (BOOL)supportsOptimizedHandoversForTelephony;
++ (BOOL)supportsOutOfProcessAudioDecoding;
++ (BOOL)supportsOutOfProcessVideoDecoding;
++ (BOOL)supportsPSVoiceOnAP;
++ (BOOL)supportsScreenCapture;
++ (BOOL)supportsSystemAudioTap;
++ (BOOL)supportsVideoPriority;
++ (unsigned int)tilesPerVideoFrameForHardwareSettingsMode:(unsigned char)a0;
++ (unsigned int)tilesPerVideoFrameForHardwareSettingsMode:(unsigned char)a0 hdrMode:(unsigned long long)a1;
++ (id)virtualHardwareSettings:(id)a0;
+
+- (void)dealloc;
+- (id)init;
+- (id)featureListStringForPayload:(int)a0 hardwareSettingsMode:(unsigned char)a1 version:(long long)a2;
+- (unsigned int)maxNetworkBitrateMultiwayAudioOnWifi:(BOOL)a0 isLowLatencyAudio:(BOOL)a1;
+- (BOOL)storeHardwareSettingsForAllOperatingModes;
+
+@end

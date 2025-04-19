@@ -1,0 +1,3 @@
+@interface HAPPGOpticalSample : NSObject
+
+@end

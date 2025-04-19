@@ -1,0 +1,3 @@
+@interface PAPSDExportFormat : PAExportImageFormat
+
+@end

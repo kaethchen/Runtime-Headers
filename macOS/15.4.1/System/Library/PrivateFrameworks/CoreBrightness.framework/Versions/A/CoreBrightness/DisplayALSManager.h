@@ -1,0 +1,76 @@
+@class CBDisplayModuleMacOS, NSString, NSObject;
+@protocol OS_dispatch_queue, OS_dispatch_source, OS_os_log;
+
+@interface DisplayALSManager : NSObject {
+    NSObject<OS_dispatch_queue> *_queue;
+    struct ALSStruct { float currentValue; float e1; float e1Sensor; float e2; float e2Sensor; float eThresh; float bl1; float bl2; BOOL autoEnabled; } _als;
+    struct DisplayStruct { CBDisplayModuleMacOS *displayModule; float displayIncrement; BOOL needsBrightnessSmoothing; float minimumLinearBrightness; float maximumLinearBrightness; float currentFadeTarget; NSObject<OS_dispatch_source> *fadeTimer; NSObject<OS_dispatch_source> *alsIdleTimer; NSObject<OS_dispatch_source> *forceUpdateTimer; float magsafeFactor; struct MagSafeReduction { BOOL enabled; float linearBrightnessLimit; float luxThreshold; } magSafeReduction; struct DynamicSlider { BOOL supported; NSObject<OS_dispatch_source> *fadeTimer; struct { struct { float lux; float factor; } minPoint; struct { float lux; float factor; } maxPoint; struct { float lux; float factor; } hysteresisPoint; } range; struct { struct { float lux; float factor; } minPoint; struct { float lux; float factor; } maxPoint; struct { float lux; float factor; } hysteresisPoint; } rangeBattery; struct *currentRange; float currentTargetFactor; } dynamicSlider; BOOL freezeBrightnessUpdates; NSString *uniqueID; } _display;
+    struct __CFString { } *_IOPMDynamicStoreSettingsKey;
+    struct __SCDynamicStore { } *_SCDynamicStore;
+    struct { long long x0; void *x1; void /* function */ *x2; void /* function */ *x3; void /* function */ *x4; } *_SCDynamicStoreContext;
+    int _currentReducedBrightnessSetting;
+    BOOL _ecoModeState;
+    int _ecoModeNotificationToken;
+    id /* block */ _ecoModeNotificationHandler;
+    unsigned int _powerNotifierRootIOKitPort;
+    struct IONotificationPort { } *_powerNotifierPortRef;
+    unsigned int _powerNotifierObject;
+    BOOL _removedMagSafeOnSleep;
+    NSObject<OS_os_log> *_logHandle;
+}
+
+- (void)dealloc;
+- (void)setQueue:(id)a0;
+- (BOOL)start;
+- (void)stop;
+- (BOOL)cacheDisplayAlgorithmParameters;
+- (BOOL)loadPreferences;
+- (BOOL)autoBrightnessEnabled;
+- (void)commitUserBrightnessChange;
+- (id)copyDynamicSliderConfiguration;
+- (id)copyMagsafeRestrictionConfiguration;
+- (unsigned long long)curveVersion;
+- (void)forceUpdate:(unsigned int)a0;
+- (void)forceUpdateDynamicSlider;
+- (int)getAdjustedLinearBrightness:(float *)a0;
+- (float)getAdjustedMaxLinearBrightness;
+- (float)getAdjustedMinLinearBrightness;
+- (void)handleALSUpdate:(float)a0;
+- (id)initWithDisplayModule:(id)a0;
+- (float)linearBrightness;
+- (float)linearBrightnessForLux:(float)a0;
+- (int)magsafeBrightnessLevel;
+- (void)magsafeStateChanged:(id)a0;
+- (void)registerForSystemNotifications;
+- (void)registerSleepWakeNotifications;
+- (void)saveCurvePreferences;
+- (void)saveTogglePreference;
+- (int)setAdjustedLinearBrightness:(float)a0;
+- (void)setAutoBrightnessEnabled:(BOOL)a0;
+- (void)setDisplayModuleAlsCurve;
+- (void)setDisplayModuleAutoEnabled;
+- (void)setDynamicSliderConfigurationValues:(id)a0;
+- (void)setDynamicSliderWithFade:(float)a0 length:(float)a1;
+- (void)setInitialMagsafeState;
+- (void)setMagsafeBrightnessLevel:(int)a0;
+- (void)setMagsafeRestrictionConfigurationValues:(id)a0;
+- (void)setPerceptualBrightnessWithFade:(float)a0 length:(float)a1;
+- (void)startALSIdleTimer;
+- (void)startEcoModeStateMonitoring;
+- (void)startMagsafeMonitoring;
+- (void)stopDynamicSliderFade;
+- (void)stopEcoModeStateMonitoring;
+- (void)stopFade;
+- (void)stopMagsafeMonitoring;
+- (void)unregisterForSystemNotifications;
+- (void)unregisterSleepWakeNotifications;
+- (void)updateALSParameters;
+- (BOOL)updateDynamicSlider:(float)a0;
+- (void)updateDynamicSliderConfiguration:(id)a0;
+- (BOOL)updateDynamicSliderState:(BOOL)a0 battery:(BOOL)a1;
+- (BOOL)updateDynamicSliderWithLux:(float)a0 force:(BOOL)a1;
+- (void)updateDynamicThreshold;
+- (void)updateMagsafeRestrictionConfiguration:(id)a0;
+- (void)userBrightnessChanged;
+
+@end

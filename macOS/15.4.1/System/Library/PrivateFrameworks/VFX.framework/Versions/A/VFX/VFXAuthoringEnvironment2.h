@@ -1,0 +1,94 @@
+@class VFXManipulator, VFXModel, NSMutableSet, VFXRenderer, VFXNode, NSColor;
+
+@interface VFXAuthoringEnvironment2 : NSObject {
+    NSMutableSet *_selection;
+    struct __CFXWorld { } *_world;
+    VFXNode *_layerRoot;
+    VFXNode *_overlayLayerRoot;
+    VFXNode *_lightRoot;
+    VFXNode *_cameraRoot;
+    VFXNode *_effectRoot;
+    VFXNode *_forceFieldsRoot;
+    VFXNode *_cameraTarget;
+    VFXNode *_pointsOfViewRoot;
+    VFXNode *_grid;
+    struct __CFDictionary { } *_lightsDictionary;
+    struct __CFDictionary { } *_camerasDictionary;
+    struct __CFDictionary { } *_effectsDictionary;
+    struct __CFDictionary { } *_forceFieldsDictionary;
+    VFXRenderer *_renderer;
+    VFXModel *_lightGeometry;
+    VFXModel *_cameraFrustumGeometry;
+    VFXModel *_cameraOrthographicFrustumGeometry;
+    VFXModel *_cameraGeometry;
+    VFXModel *_cameraNearPlaneGeometry;
+    VFXModel *_cameraFocusPlaneGeometry;
+    VFXModel *_effectGeometry;
+    VFXModel *_fieldGeometry;
+    NSColor *_paleGreen;
+    NSColor *_paleBlue;
+    NSColor *_red;
+    NSColor *_green;
+    NSColor *_blue;
+    NSColor *_cyan;
+    NSColor *_yellow;
+    NSColor *_orange;
+    NSColor *_pink;
+    NSColor *_grayLight;
+    NSColor *_grayMedium;
+    NSColor *_grayDark;
+    NSColor *_white;
+    VFXManipulator *_manipulator;
+}
+
+@property (readonly, nonatomic) VFXNode *authoringLayer;
+@property (readonly, nonatomic) VFXNode *authoringOverlayLayer;
+@property (readonly, nonatomic) VFXManipulator *manipulator;
+
++ (id)authoringEnvironmentForWorld:(id)a0;
++ (id)authoringEnvironmentForWorld:(id)a0 createIfNeeded:(BOOL)a1;
+
+- (void)dealloc;
+- (BOOL)mouseDown:(id)a0;
+- (BOOL)mouseDragged:(id)a0;
+- (BOOL)mouseMoved:(id)a0;
+- (BOOL)mouseUp:(id)a0;
+- (id)initWithWorld:(id)a0;
+- (void)updateLightNode:(id)a0 withSourceNode:(struct __CFXNode { } *)a1;
+- (void)cancelSelection;
+- (void)updateFieldNode:(id)a0 withSourceNode:(struct __CFXNode { } *)a1;
+- (void)_resetLightAuthoringWithContainerNode:(id)a0 source:(struct __CFXNode { } *)a1 light:(struct __CFXLight { } *)a2;
+- (void)addCameraNode:(struct __CFXNode { } *)a0;
+- (void)addLightNode:(struct __CFXNode { } *)a0;
+- (void)addedNode:(struct __CFXNode { } *)a0;
+- (id)authoringCamera:(long long)a0;
+- (id)authoringCameraNodes;
+- (id)cameraFrustumGeometry;
+- (id)cameraGeometry;
+- (id)cameraNearPlaneGeometry;
+- (id)cameraOrthographicFrustumGeometry;
+- (unsigned int)debugOptions;
+- (id)fieldGeometry;
+- (id)geometryForLightType:(int)a0;
+- (void)removeCameraNode:(struct __CFXNode { } *)a0;
+- (void)removeLightNode:(struct __CFXNode { } *)a0;
+- (void)removedNode:(struct __CFXNode { } *)a0;
+- (void)selectNodes:(id)a0;
+- (void)setAuthoringCamera:(long long)a0 forView:(id)a1;
+- (void)updateCameraNode:(id)a0 withSourceNode:(struct __CFXNode { } *)a1;
+- (void)updateLightTypeForNode:(id)a0 source:(struct __CFXNode { } *)a1 light:(struct __CFXLight { } *)a2 screenspaceScalingFactor:(float)a3;
+- (void)updateWithRenderer:(id)a0;
+- (BOOL)hasDebugOption:(unsigned int)a0;
+- (BOOL)_isPartOfSelection:(struct __CFXNode { } *)a0;
+- (BOOL)_proximityHidden:(struct { void /* unknown type, empty encoding */ x0[4]; })a0;
+- (void)addEffectNode:(struct __CFXNode { } *)a0;
+- (void)addForceFieldNode:(struct __CFXNode { } *)a0;
+- (id)cameraFocusPlaneGeometry;
+- (void)debugOptionsDidChange:(unsigned long long)a0;
+- (id)effectGeometry;
+- (void)prepareWorld:(id)a0;
+- (void)removeEffectNode:(struct __CFXNode { } *)a0;
+- (void)removeForceFieldNode:(struct __CFXNode { } *)a0;
+- (void)updateEffectNode:(id)a0 withSourceNode:(struct __CFXNode { } *)a1;
+
+@end

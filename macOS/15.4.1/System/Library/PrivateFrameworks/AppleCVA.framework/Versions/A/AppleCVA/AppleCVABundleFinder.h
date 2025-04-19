@@ -1,0 +1,3 @@
+@interface AppleCVABundleFinder : NSObject
+
+@end

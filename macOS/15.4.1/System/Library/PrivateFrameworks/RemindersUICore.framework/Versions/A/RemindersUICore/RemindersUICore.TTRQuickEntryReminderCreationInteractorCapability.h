@@ -1,0 +1,3 @@
+@interface RemindersUICore.TTRQuickEntryReminderCreationInteractorCapability : _TtCs12_SwiftObject
+
+@end

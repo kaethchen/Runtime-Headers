@@ -1,0 +1,3 @@
+@interface ABCDEmailAddress : CNCDEmailAddress
+
+@end

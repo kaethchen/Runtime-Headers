@@ -1,0 +1,3 @@
+@interface VFXTextureAsset : VFXFileAsset
+
+@end

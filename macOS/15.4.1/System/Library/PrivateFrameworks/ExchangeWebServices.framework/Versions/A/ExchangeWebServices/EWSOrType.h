@@ -1,0 +1,3 @@
+@interface EWSOrType : EWSMultipleOperandBooleanExpressionType
+
+@end

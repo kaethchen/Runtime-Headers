@@ -1,0 +1,43 @@
+@interface DAMailMessage : NSObject <NSCoding>
+
+- (id)date;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)attachments;
+- (id)subject;
+- (BOOL)isDraft;
+- (id)sender;
+- (id)clientID;
+- (id)folderID;
+- (id)from;
+- (id)to;
+- (id)instanceID;
+- (int)bodySize;
+- (id)body;
+- (id)conversationId;
+- (int)importance;
+- (id)remoteID;
+- (id)conversationIndex;
+- (BOOL)read;
+- (id)messageClass;
+- (id)serverID;
+- (id)bcc;
+- (id)cc;
+- (id)preview;
+- (id)replyTo;
+- (BOOL)flagged;
+- (int)bodyTruncated;
+- (int)bodyType;
+- (id)displayTo;
+- (BOOL)flaggedIsSet;
+- (int)lastVerb;
+- (id)longID;
+- (BOOL)meetingRequestIsActionable;
+- (id)meetingRequestMetaData;
+- (id)meetingRequestUUID;
+- (BOOL)readIsSet;
+- (int)smimeType;
+- (id)threadTopic;
+- (BOOL)verbIsSet;
+
+@end

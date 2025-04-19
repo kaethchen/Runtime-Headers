@@ -1,0 +1,96 @@
+@class NSString, NSArray, NSURL, SGTQueryGenius, SGTCategory, NSImage, SGTSuggestionReserved, NSIndexSet;
+
+@interface SGTSuggestion : NSObject {
+    SGTSuggestionReserved *_reserved;
+}
+
+@property (readonly) NSImage *tokenImage;
+@property (readonly) NSString *tokenTitle;
+@property (readonly) NSImage *imageForMenu;
+@property (readonly) NSString *displayNameForMenu;
+@property (readonly) long long scopeForUI;
+@property (readonly) NSString *suggestionDebugDescription;
+@property (nonatomic) BOOL lastWordMatch;
+@property (readonly, nonatomic) unsigned long long alignmentScore;
+@property (nonatomic) BOOL intermediateResult;
+@property (nonatomic) BOOL forceLastPosition;
+@property (nonatomic) BOOL enforceStrictMatch;
+@property BOOL exactMatch;
+@property (readonly) NSString *displayName;
+@property (readonly) NSArray *attributeNames;
+@property (readonly) NSArray *attributeValues;
+@property (retain) id representedObject;
+@property (copy) NSURL *spotlightScope;
+@property double score;
+@property (readonly) NSString *queryStringFragment;
+@property (readonly) BOOL isTopHit;
+@property (retain) SGTQueryGenius *genius;
+@property (readonly) NSIndexSet *scopes;
+@property long long scope;
+@property (readonly) long long defaultScope;
+@property (retain) SGTCategory *category;
+@property (copy) NSIndexSet *titleHighlights;
+@property (copy) NSIndexSet *uniquifierHighlights;
+@property (copy) NSString *inputString;
+
++ (id)fuzzyAttributesSet;
++ (id)keyPathsForValuesAffectingQueryStringFragment;
++ (id)keyPathsForValuesAffectingScopeForUI;
++ (id)keyPathsForValuesAffectingSuggestionDebugDescription;
++ (id)keyPathsForValuesAffectingSuggestionScopeDescription;
++ (id)keyPathsForValuesAffectingTokenImage;
++ (id)keyPathsForValuesAffectingTokenTitle;
++ (id)queryScopesForSuggestions:(id)a0;
++ (id)queryStringForSuggestions:(id)a0;
++ (id)searchPhraseForSuggestions:(id)a0;
++ (id)suggestionWithDisplayName:(id)a0;
+
+- (id)description;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)_identifier;
+- (void)_setDisplayName:(id)a0;
+- (BOOL)isEqualToSuggestion:(id)a0;
+- (id)_propertyListRepresentation;
+- (id)_rawQueryString;
+- (id)_accessibilityDisplayName;
+- (id)_additionalRawQuery;
+- (long long)_suggestionType;
+- (BOOL)_additionalRawQueryIsOr;
+- (BOOL)_isRecent;
+- (BOOL)_isTopHitCandidate;
+- (id)_originalTypedString;
+- (id)_queryStringForAttributeName:(id)a0 values:(id)a1;
+- (id)_queryStringForAttributeName:(id)a0 values:(id)a1 disableNLProcessing:(BOOL)a2;
+- (id)_queryStringForAttributeNames:(id)a0 values:(id)a1 scope:(long long)a2;
+- (id)_queryStringForSuggestionUseRawQuery:(BOOL)a0;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })_replacementRange;
+- (void)_setAdditionalRawQuery:(id)a0;
+- (void)_setAdditionalRawQueryIsOr:(BOOL)a0;
+- (void)_setIsRecent:(BOOL)a0;
+- (void)_setIsTopHitCandidate:(BOOL)a0;
+- (void)_setOriginalTypedString:(id)a0;
+- (void)_setRawQueryString:(id)a0;
+- (void)_setReplacementRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0;
+- (void)_setShowsUniquifier:(BOOL)a0;
+- (void)_setSuggestionType:(long long)a0;
+- (void)_setUniquifierString:(id)a0;
+- (id)_shorterDisplayName;
+- (BOOL)_shouldNotBeIncludedInRecents;
+- (BOOL)_showsUniquifier;
+- (id)_uniquifierString;
+- (id)allAttributeValues;
+- (BOOL)attributeName:(id)a0 isValidForScope:(long long)a1;
+- (id)displayNameForScope:(long long)a0;
+- (id)initWithAttributeNames:(id)a0 displayName:(id)a1 queryString:(id)a2 trimDisplayName:(BOOL)a3 values:(id)a4 additionalAttributes:(id)a5 representedObject:(id)a6 score:(double)a7 lastWordMatched:(BOOL)a8 alignmentScore:(unsigned long long)a9;
+- (id)initWithAttributeNames:(id)a0 displayName:(id)a1 trimDisplayName:(BOOL)a2 values:(id)a3 additionalAttributes:(id)a4 representedObject:(id)a5;
+- (id)initWithAttributeNames:(id)a0 displayName:(id)a1 trimDisplayName:(BOOL)a2 values:(id)a3 additionalAttributes:(id)a4 representedObject:(id)a5 score:(double)a6;
+- (id)initWithAttributeNames:(id)a0 displayName:(id)a1 trimDisplayName:(BOOL)a2 values:(id)a3 additionalAttributes:(id)a4 representedObject:(id)a5 score:(double)a6 lastWordMatched:(BOOL)a7;
+- (id)initWithAttributeNames:(id)a0 displayName:(id)a1 values:(id)a2 additionalAttributes:(id)a3 representedObject:(id)a4;
+- (id)initWithDisplayName:(id)a0;
+- (id)initWithDisplayName:(id)a0 query:(id)a1;
+- (long long)scopeForAttributeName:(id)a0;
+- (id)suggestionScopeDescription;
+- (id)valuesForAttributeWithName:(id)a0;
+
+@end

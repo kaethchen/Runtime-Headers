@@ -1,0 +1,16 @@
+@class NSString, NSObject;
+@protocol OS_os_log;
+
+@interface PGGraphUserBehaviorEnrichmentProcessor : NSObject <PGGraphDataModelEnrichmentProcessor>
+
+@property (readonly, nonatomic) NSObject<OS_os_log> *loggingConnection;
+@property (readonly, nonatomic) BOOL requiresValidGraph;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)enrichDataModelWithManager:(id)a0 curationContext:(id)a1 graphUpdateInventory:(id)a2 progressBlock:(id /* block */)a3;
+
+@end

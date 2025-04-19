@@ -1,0 +1,3 @@
+@interface SOActionCellView : NSTableCellView
+
+@end

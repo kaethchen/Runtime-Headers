@@ -1,0 +1,13 @@
+@class NSString, NSDictionary;
+
+@interface AMSUIWebPluginAction : AMSUIWebAction
+
+@property (readonly) NSString *actionIdentifier;
+@property (readonly) NSString *bundleIdentifier;
+@property (readonly) NSDictionary *options;
+
+- (void).cxx_destruct;
+- (id)initWithJSObject:(id)a0 context:(id)a1;
+- (id)runAction;
+
+@end

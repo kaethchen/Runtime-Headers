@@ -1,0 +1,3 @@
+@interface PKFinishMediaSheetsSupported : PKCollectionSpecialization
+
+@end

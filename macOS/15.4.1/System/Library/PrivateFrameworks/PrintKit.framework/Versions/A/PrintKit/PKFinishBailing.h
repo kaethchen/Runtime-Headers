@@ -1,0 +1,3 @@
+@interface PKFinishBailing : PKCollectionSpecialization
+
+@end

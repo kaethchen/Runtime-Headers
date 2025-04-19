@@ -1,0 +1,3 @@
+@interface CPKPopoverView : NSView
+
+@end

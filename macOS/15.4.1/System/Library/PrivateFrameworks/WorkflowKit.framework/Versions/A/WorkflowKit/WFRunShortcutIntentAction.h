@@ -1,0 +1,3 @@
+@interface WFRunShortcutIntentAction : WFOverridableLinkAction
+
+@end

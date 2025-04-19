@@ -1,0 +1,3 @@
+@interface IntelligencePlatform.K2TAgentAffiliationRelationshipTextualizer : IntelligencePlatform.K2TSubEntityTextualizer
+
+@end

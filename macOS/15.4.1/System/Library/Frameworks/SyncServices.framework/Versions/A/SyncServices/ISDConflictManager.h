@@ -1,0 +1,96 @@
+@class NSString, NSMutableArray, NSMutableDictionary;
+
+@interface ISDConflictManager : NSObject <ISDChangeSource, NSKeyedUnarchiverDelegate, NSKeyedArchiverDelegate> {
+    NSMutableArray *_conflicts;
+    NSString *_directory;
+    NSMutableArray *_deltaFileNames;
+    unsigned int _lastSyncedGeneration;
+    unsigned long long _flushCount;
+    unsigned long long _nextDeltaNumber;
+    BOOL _validateConflictsOnWrite;
+    BOOL _validateConflictsOnRead;
+    NSMutableDictionary *_deletedRecordMap;
+    NSMutableArray *_addedChanges;
+    NSMutableDictionary *_recordIdDataReferenceMap;
+    NSMutableArray *_resolvedConflicts;
+    NSMutableArray *_conflictWrappers;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)conflictsDirectoryPathnameComponent;
++ (void)postConflictsChangedDistributedNotification;
++ (id)unresolvedConflictsCountPathnameComponent;
+
+- (void)dealloc;
+- (void)commit;
+- (void)compact;
+- (id)archiver:(id)a0 willEncodeObject:(id)a1;
+- (id)unarchiver:(id)a0 didDecodeObject:(id)a1;
+- (id)conflicts;
+- (void)save;
+- (void)rollbackChanges;
+- (void)fileLocker:(id)a0 lockWasStolen:(id)a1;
+- (BOOL)_readConflicts:(BOOL)a0;
+- (void)_buildDeltaFileNames;
+- (void)_clearConflictState;
+- (void)removeConflict:(id)a0;
+- (void)updateCountFile;
+- (void)_clearBadConflictWithRecordId:(id)a0;
+- (void)_clearDeltaFileNames;
+- (id)_readConflictsFromFile:(id)a0;
+- (id)_sortDeltaFileNamesAndSetNextDeltaNumber:(id)a0;
+- (id)_validConflictsFromConflicts:(id)a0;
+- (void)_validateConflict:(id)a0;
+- (BOOL)_writeConflicts:(id)a0 toFile:(id)a1 obtainLock:(BOOL)a2;
+- (void)addConflict:(id)a0;
+- (void)addConflictWrappers:(id)a0;
+- (void)associateDataReference:(id)a0 withRecordId:(id)a1 andPropertyName:(id)a2;
+- (void)clearDataReferenceAssociationsForRecordIds:(id)a0;
+- (BOOL)commitNewlyResolvedConflicts;
+- (BOOL)commitNewlyResolvedConflictsPostingNotification:(BOOL)a0;
+- (id)commonClientId;
+- (long long)conflictCount;
+- (id)conflictForRecordWithId:(id)a0;
+- (id)dataReferencesWithRecordId:(id)a0;
+- (id)deletedRecordMap;
+- (id)dirtyCoderDelegate;
+- (void)disableFlush;
+- (void)disableFlushAndLockImmediately;
+- (unsigned int)earliestFromGenerationOfAddedRecordsForEntityName:(id)a0;
+- (void)enableFlush;
+- (id)entityNamesOfAddedRecords;
+- (void)enumerateAddsForEntityNames:(id)a0 asArgumentToFunction:(void /* function */ *)a1 context:(void *)a2;
+- (BOOL)enumerateAddsForEntityNames:(id)a0 state:(long long *)a1 maxToEnumerate:(long long)a2 asArgumentToFunction:(void /* function */ *)a3 context:(void *)a4;
+- (void)enumerateChangesForEntityNames:(id)a0 asArgumentToFunction:(void /* function */ *)a1 context:(void *)a2;
+- (BOOL)enumerateChangesForEntityNames:(id)a0 changeType:(int *)a1 state:(long long *)a2 maxToEnumerate:(long long)a3 asArgumentToFunction:(void /* function */ *)a4 context:(void *)a5;
+- (int)fileLocker:(id)a0 actionForApparentlyAbandonedLock:(id)a1 onAttempt:(int)a2;
+- (id)freezeDriedRecordWithId:(id)a0;
+- (id)initWithDataDirectory:(id)a0 lastSyncedGeneration:(unsigned int)a1;
+- (id)initWithDataDirectory:(id)a0 lastSyncedGeneration:(unsigned int)a1 validateConflictsOnRead:(BOOL)a2;
+- (BOOL)isConflictManager;
+- (BOOL)isUndoManager;
+- (void)isd_didDecodeDataWrapper:(id)a0 forRecordWithIdentifier:(id)a1 withPropertyName:(id)a2;
+- (id)newSetOfDeletedRecordIdsForEntityNames:(id)a0;
+- (void)noteAddedChange:(id)a0;
+- (void)noteConflictToRemove:(id)a0;
+- (void)postConflictsChangedDistributedNotification;
+- (id)recordIdsWithDataReferences;
+- (void)recycleDatabaseConnection;
+- (void)releaseState;
+- (id)reloadAndReturnConflictsInfo;
+- (void)removeAllConflicts;
+- (void)removeAllConflictsForEntityNames:(id)a0;
+- (unsigned long long)removeEnumeratedChanges;
+- (void)replaceRecordId:(id)a0 withRecordId:(id)a1;
+- (void)replaceRelationshipTupleId:(id)a0 withRelationshipTupleId:(id)a1;
+- (unsigned long long)resolvedConflictsForEntitiesCount:(id)a0;
+- (void)setDirtyCoderDelegate:(id)a0;
+- (id)unacceptedRecordIdsForEntityName:(id)a0;
+- (unsigned long long)unresolvedConflictCount;
+- (void)updateChangePropertiesForChange:(id)a0;
+
+@end

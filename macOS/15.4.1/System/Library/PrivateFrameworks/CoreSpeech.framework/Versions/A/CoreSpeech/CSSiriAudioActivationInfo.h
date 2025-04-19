@@ -1,0 +1,98 @@
+@class AFLanguageDetectionUserContext, NSString, NSUUID, AFExperimentContext, NSDictionary, AFClientConfiguration, AFSpeechRecordingAlertPolicy, CSAttSiriMagusSupportedPolicy;
+
+@interface CSSiriAudioActivationInfo : NSObject {
+    long long _activationMode;
+    long long _storedActivationMode;
+    long long _csAudioRecordType;
+    AFClientConfiguration *_currentClientConfiguration;
+    BOOL _suppressStartAlert;
+    AFExperimentContext *_experimentContext;
+    BOOL _isActivated;
+    float _activeMediaPlaybackVolume;
+    CSAttSiriMagusSupportedPolicy *_magusSupportedPolicy;
+}
+
+@property (readonly, nonatomic) long long speechEvent;
+@property (readonly, nonatomic) BOOL useBorealisBuffer;
+@property (readonly, nonatomic) BOOL usePrelistening;
+@property (readonly, nonatomic) long long audioAlertStyle;
+@property (readonly, copy, nonatomic) NSString *deviceIdentifier;
+@property (readonly, nonatomic) double activationSystemUptime;
+@property (readonly, nonatomic) unsigned long long activationHostTime;
+@property (readonly, nonatomic) unsigned long long buttonDownHostTime;
+@property (readonly, nonatomic) unsigned long long voiceTriggerEndHostTime;
+@property (nonatomic) long long speechRecordingMode;
+@property (readonly, nonatomic) BOOL isOnPhoneCall;
+@property (readonly, copy, nonatomic) NSDictionary *activationMetadata;
+@property (readonly, nonatomic) BOOL hasPlayedStartAlert;
+@property (readonly, nonatomic) long long speechEndpointerOperationMode;
+@property (readonly, nonatomic) AFSpeechRecordingAlertPolicy *speechRecordingAlertPolicy;
+@property (readonly, nonatomic) long long presentationMode;
+@property (readonly, nonatomic) BOOL isSpokenNotification;
+@property (readonly, nonatomic) BOOL isTriggerlessFollowup;
+@property (readonly, copy, nonatomic) AFLanguageDetectionUserContext *languageDetectionUserContext;
+@property (readonly, nonatomic) long long dictationInputOrigin;
+@property (readonly, copy, nonatomic) NSUUID *turnIdentifier;
+@property (readonly, copy, nonatomic) NSString *applicationDisplayName;
+@property (readonly, copy, nonatomic) NSString *applicationBundleIdentifier;
+@property (readonly, nonatomic) unsigned long long dictationVoiceTriggerAbsStartSampleId;
+
++ (id)_alertBehaviorForRecordRoute:(id)a0 playbackRoute:(id)a1 speechEvent:(long long)a2 speechRecordingMode:(long long)a3 ringerState:(long long)a4 startingAlertBeepOverideID:(long long)a5 presentationMode:(long long)a6 usePrelistening:(BOOL)a7 isOnPhoneCall:(BOOL)a8 hasPlayedStartAlert:(BOOL)a9 supportsEchoCancellation:(BOOL)a10 isVoiceOverTouchEnabled:(BOOL)a11 isVibrationEnabled:(BOOL)a12 isVibrationSupported:(BOOL)a13 suppressStartAlert:(BOOL)a14 activationHostTime:(unsigned long long)a15;
++ (id)_alertDictionaryForRecordRoute:(id)a0 playbackRoute:(id)a1 speechEvent:(long long)a2 ringerState:(long long)a3 startingAlertBeepOverideID:(long long)a4 presentationMode:(long long)a5 hasPlayedStartAlert:(BOOL)a6 supportsEchoCancellation:(BOOL)a7 isVoiceOverTouchEnabled:(BOOL)a8 isVibrationEnabled:(BOOL)a9 isVibrationSupported:(BOOL)a10 activationHostTime:(unsigned long long)a11;
++ (id)_dictationAlertBehaviorDictionaryForRecordRoute:(id)a0 playbackRoute:(id)a1 ringerState:(long long)a2 usePrelistening:(BOOL)a3 suppressStartAlert:(BOOL)a4 supportsEchoCancellation:(BOOL)a5 isVibrationEnabled:(BOOL)a6 isVibrationSupported:(BOOL)a7 isVoiceOverTouchEnabled:(BOOL)a8;
++ (BOOL)_doesRecordRouteSupportZLL:(id)a0;
++ (BOOL)_requestIsUsingHFPWithRecordRoute:(id)a0 playbackRoute:(id)a1;
++ (BOOL)_shouldAllowRecordWhileBeepWithRecordRoute:(id)a0 playbackRoute:(id)a1 supportsEchoCancellation:(BOOL)a2 speechRecordingMode:(long long)a3 recordingInfo:(id)a4;
++ (BOOL)_shouldPlayAlertIfNotPrelisteningForSpeechEvent:(long long)a0 isVoiceOverTouchEnabled:(BOOL)a1;
+
+- (id)description;
+- (void).cxx_destruct;
+- (long long)event;
+- (long long)_activationMode;
+- (BOOL)canGetPCMStream;
+- (BOOL)canEnterTwoShot;
+- (id)_appendDictationApplicationInfoSettings:(id)a0;
+- (id)_audioSessionActiveDelayCoreSpeechWithType:(unsigned long long)a0;
+- (id)_audioSessionActiveDelayOverride;
+- (id)_audioSessionActiveDelayServerConfiguration;
+- (id)_audioSessionActiveDelayUserPerceptionWithType:(unsigned long long)a0;
+- (BOOL)_canUseZLL;
+- (long long)_csAudioRecordType;
+- (long long)_csAudioRecordTypeForSpeechRequestOptions:(id)a0 useBorealisBuffer:(BOOL)a1 currentClientConfiguration:(id)a2;
+- (BOOL)_eventIsTVRemote;
+- (BOOL)_eventIsVoiceTrigger;
+- (BOOL)_isRequestFromSpokenNotification:(long long)a0;
+- (BOOL)_isSystemHapticEnabled;
+- (BOOL)_isVibrationDisabledInAccessibility;
+- (BOOL)_isVoiceOverTouchEnabledInAccessibility;
+- (BOOL)_shouldSkipStartRecordingAlertForRecordingInfo:(id)a0;
+- (void)audioSessionActivated;
+- (id)audioSessionActivationTargetDate;
+- (unsigned long long)beginUpdateToPostVoice;
+- (BOOL)canPrepareWithoutInterruption;
+- (BOOL)canPrewarm;
+- (id)dateByAddingTimeIntervalSinceActivation:(double)a0;
+- (void)endUpdateToPostVoiceWithContext:(unsigned long long)a0 success:(BOOL)a1;
+- (id)initWithSpeechRecordingMode:(long long)a0 clientConfiguration:(id)a1 experimentContext:(id)a2;
+- (BOOL)isVoiceOverTouchEnabled;
+- (BOOL)needsUpdateToPostVoiceMode;
+- (long long)overrideStartingAlertBeepSoundID;
+- (id)recordContext;
+- (id)recordContextForSpeechEvent:(long long)a0;
+- (id)recordSettingsWithOptions:(unsigned long long)a0 appendingSettings:(id)a1;
+- (BOOL)requiresBorealisConsumerCheck;
+- (long long)saeToneIDWithCarPlayConnected:(BOOL)a0;
+- (void)setClientConfiguration:(id)a0;
+- (void)setSpeechRequestOptions:(id)a0 currentActivationInfo:(id)a1;
+- (BOOL)shouldExplicitlyPlayAlertOnStart;
+- (BOOL)shouldPlayAlertIfNotPrelistening;
+- (BOOL)shouldSuppressRecordingErrorAlert;
+- (BOOL)shouldSuppressRecordingStopAlert;
+- (BOOL)shouldTreatTimeoutAsHardEndpoint;
+- (BOOL)shouldUseVoiceTriggerAnalyzerStyle;
+- (id)startRecordingSettingsWithRecordRoute:(id)a0 recordingInfo:(id)a1 playbackRoute:(id)a2;
+- (id)startingAlertBeepURL;
+- (long long)twoShotFeedbackAlertOverrideForRecordRoute:(id)a0 playbackRoute:(id)a1 deviceSupportsVibrator:(BOOL)a2 deviceSupportsEC:(BOOL)a3;
+- (long long)twoShotPromptTypeForRecordRoute:(id)a0 playbackRoute:(id)a1;
+
+@end

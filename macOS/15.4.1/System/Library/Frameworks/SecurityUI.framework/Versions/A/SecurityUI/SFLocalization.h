@@ -1,0 +1,3 @@
+@interface SFLocalization : NSObject
+
+@end

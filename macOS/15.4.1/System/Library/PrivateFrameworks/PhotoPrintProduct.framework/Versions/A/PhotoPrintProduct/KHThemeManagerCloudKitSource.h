@@ -1,0 +1,3 @@
+@interface KHThemeManagerCloudKitSource : KHThemeManagerSource
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCE10SecurityUICSo8NSBundleP33_46B5894D2C9CCFBC762C668630F5948A8Sentinel : _TtCs12_SwiftObject
+
+@end

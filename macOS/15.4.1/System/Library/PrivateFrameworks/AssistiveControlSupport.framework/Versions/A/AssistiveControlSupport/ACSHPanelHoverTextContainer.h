@@ -1,0 +1,3 @@
+@interface ACSHPanelHoverTextContainer : NSTextContainer
+
+@end

@@ -1,0 +1,3 @@
+@interface PXPhotosGridShowFiltersActionPerformer : PXPhotosGridActionPerformer
+
+@end

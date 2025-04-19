@@ -1,0 +1,3 @@
+@interface EWSMoveItemResponseType : EWSBaseMessageResponseType
+
+@end

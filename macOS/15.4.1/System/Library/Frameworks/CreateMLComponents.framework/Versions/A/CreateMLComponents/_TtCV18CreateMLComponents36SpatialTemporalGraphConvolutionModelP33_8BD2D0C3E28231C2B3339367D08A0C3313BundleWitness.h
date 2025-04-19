@@ -1,0 +1,3 @@
+@interface _TtCV18CreateMLComponents36SpatialTemporalGraphConvolutionModelP33_8BD2D0C3E28231C2B3339367D08A0C3313BundleWitness : _TtCs12_SwiftObject
+
+@end

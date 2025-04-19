@@ -1,0 +1,86 @@
+@class NSView, LibrarySidebarNavigationViewController, NSString, SidebarViewController, SafariSidebarSplitViewItem, NSColor, StartPageViewController, NSVisualEffectView, NSSplitViewItem, BrowserWindowController;
+@protocol BrowserWindowContentSplitViewControllerDelegate;
+
+@interface BrowserWindowContentSplitViewController : NSSplitViewController <LibrarySidebarNavigationViewControllerDelegate, NSSplitViewDelegate, SidebarStateRestorationContext> {
+    BrowserWindowController *_browserWindowController;
+    SafariSidebarSplitViewItem *_sidebarSplitViewItem;
+    NSSplitViewItem *_tabSwitcherSplitViewItem;
+    NSView *_tabViewControllerView;
+    long long _windowContent;
+    NSSplitViewItem *_startPageSplitViewItem;
+    BOOL _tabGroupHeaderState;
+    StartPageViewController *_standaloneStartPageCollectionViewController;
+    NSView *_webContentSnapshotForSidebarAnimation;
+    NSView *_webInspectorSnapshotForSidebarAnimation;
+    struct SidebarAnimationContext { unsigned long long tabViewAutoresizingMask; int revealingOrCoveringSidebar; BOOL sidebarAnimationInProgress; BOOL layoutAnalysisClaimsPageIsCentered; BOOL sidebarWillAppearAsOverlay; } _sidebarAnimationContext;
+    NSVisualEffectView *_visualEffectViewForHidingSeparator;
+    unsigned long long _fakeSidebarTransitionDepth;
+    id /* block */ _sidebarCompletionHandler;
+}
+
+@property (nonatomic) BOOL overlayingSidebar;
+@property (retain, nonatomic, setter=_setMainContentSplitViewItem:) NSSplitViewItem *_mainContentSplitViewItem;
+@property (retain, nonatomic) SidebarViewController *sidebarViewController;
+@property (retain, nonatomic) LibrarySidebarNavigationViewController *librarySidebarNavigationViewController;
+@property (readonly, nonatomic) NSView *sidebarClipView;
+@property (readonly, nonatomic) BOOL sidebarAppearsAsOverlay;
+@property (readonly, nonatomic) BOOL isSidebarAnimationInProgress;
+@property (readonly, nonatomic) BOOL isHidingSidebar;
+@property (readonly, nonatomic) BOOL isOverlayingSidebar;
+@property (readonly, nonatomic) BOOL isSuppressingSidebar;
+@property (weak, nonatomic) id<BrowserWindowContentSplitViewControllerDelegate> delegate;
+@property (retain, nonatomic) NSColor *separatorColor;
+@property (readonly, nonatomic) BOOL isDisplayingCloudTabs;
+@property (readonly, nonatomic) BOOL isDisplayingSharedWithYou;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (copy, nonatomic) NSString *lastDisplayedSidebarBookmarkListUUID;
+
+- (void).cxx_destruct;
+- (BOOL)_splitView:(id)a0 canLiveCollapseArrangedSubview:(id)a1;
+- (void)_updateConstraints;
+- (void)splitViewItem:(id)a0 didChangeCollapsed:(BOOL)a1 animated:(BOOL)a2;
+- (void)splitViewItem:(id)a0 isChangingCollapsed:(BOOL)a1 animated:(BOOL)a2;
+- (void)splitViewItem:(id)a0 willChangeCollapsed:(BOOL)a1 animated:(BOOL)a2;
+- (void)_applySplitViewItemHeight:(id)a0;
+- (void)_browserViewDidResizeForSidebarAnimation:(id)a0;
+- (id)_browserViewForPageLayoutInformation;
+- (BOOL)_canPerformLiveResizeForSidebarAnimation;
+- (void)_cleanUpAfterHidingSidebar;
+- (id)_currentSidebarViewController;
+- (double)_currentSidebarViewControllerSavedSidebarWidth;
+- (void)_hideSidebarWithAnimation:(BOOL)a0;
+- (void)_installSidebarViewController;
+- (BOOL)_isPageCenteredGivenLayoutInformation:(id)a0;
+- (BOOL)_isShowingOverlaySidebar;
+- (void)_loadSidebarSplitViewItemIfNeeded;
+- (void)_loadSplitViewItemWithStartPageViewController:(id)a0;
+- (void)_loadTabSwitcherSplitViewItemWithTabViewController:(id)a0;
+- (id)_performanceOperationName;
+- (void)_prepareForFadeOutAnimationWithSnapshot:(id)a0;
+- (void)_prepareForSidebarAnimationWithWebContent;
+- (void)_showSidebarWithAnimation:(BOOL)a0;
+- (void)_switchToStartPageViewControllerOfType:(long long)a0;
+- (void)_switchToTabViewController;
+- (BOOL)_uncachedSidebarAppearsAsOverlay;
+- (void)_updateWindowContent;
+- (void)didCollectPageLayoutInformationForSidebarAnimationBeforeResize;
+- (void)didForceContentRepaintAndCollectPageLayoutInformationForSidebarAnimationAfterResize:(id)a0;
+- (void)hideOverlaySidebarIfNeeded;
+- (void)hideSidebarWithAnimation:(BOOL)a0 completionHandler:(id /* block */)a1;
+- (id)initWithBrowserWindowController:(id)a0;
+- (BOOL)lastExpandedTabGroupHeaderState:(id)a0;
+- (BOOL)librarySidebarNavigationViewControllerIsShowingCloudTabs:(id)a0;
+- (BOOL)librarySidebarNavigationViewControllerIsShowingSharedWithYou:(id)a0;
+- (void)librarySidebarNavigationViewControllerNavigateToCloudTabs:(id)a0;
+- (void)librarySidebarNavigationViewControllerNavigateToSharedWithYou:(id)a0;
+- (void)librarySidebarNavigationViewControllerNavigateToTabView:(id)a0;
+- (id)menuForSidebarTabWithBrowserTabViewItem:(id)a0 event:(id)a1;
+- (void)showSidebarWithAnimation:(BOOL)a0 completionHandler:(id /* block */)a1;
+- (double)sidebarWidth;
+- (void)switchToSharedWithYouIfNecessary;
+- (BOOL)switchToTabViewIfNecessary;
+
+@end

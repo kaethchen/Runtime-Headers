@@ -1,0 +1,16 @@
+@interface AVB17221AEMSignalMultiplexerMapping : AVB17221AEMObject <NSCopying>
+
+@property unsigned short subSignalStart;
+@property unsigned short subSignalCount;
+@property unsigned short inputIndex;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (id)debugLogStringWithIndentation:(id)a0;
+- (id)plistRepresentationForDiagnostics:(BOOL)a0;
+- (BOOL)updateWithPlistEntry:(id)a0;
+- (BOOL)updateWithXML:(id)a0;
+- (id)xmlRepresentation;
+
+@end

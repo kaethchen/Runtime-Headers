@@ -1,0 +1,3 @@
+@interface EWSCancelCalendarItemType : EWSSmartResponseType
+
+@end

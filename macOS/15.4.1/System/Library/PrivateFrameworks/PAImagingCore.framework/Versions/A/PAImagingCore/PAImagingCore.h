@@ -1,0 +1,3 @@
+@interface PAImagingCore : NSObject
+
+@end

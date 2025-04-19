@@ -1,0 +1,91 @@
+@class NSString, TIKeyboardInput, NSArray, TITypingSession, NSMutableDictionary, TIUserModelDataStore, TIInputMode, NSMutableArray, NSObject, NSDictionary, NLTagger;
+@protocol OS_dispatch_queue, TISensorWriterWrapper;
+
+@interface TISKMetricCollector : NSObject <TITypingSessionAggregatedEventObserver> {
+    TIInputMode *_inputMode;
+    NSMutableDictionary *_touchToEventMap;
+    NSMutableArray *_events;
+    NSArray *_sortedEvents;
+    NSMutableArray *_touches;
+    NSMutableArray *_layoutIDs;
+    NSMutableArray *_taps;
+    long long _wordPosition;
+    TIKeyboardInput *_lastInput;
+    long long _currentWordPosition;
+    long long _eventOrder;
+    unsigned long long _aggregatedWordThreshold;
+    TIUserModelDataStore *_userModelDataStore;
+    BOOL _accentedLanguage;
+    NSMutableArray *_accentedLayoutsMap;
+    NSString *_identifier;
+    NSObject<OS_dispatch_queue> *_workQueue;
+    int _tccNotifyToken;
+    BOOL _isTCCAuthorized;
+    BOOL _skipTCCAuthorization;
+    NSDictionary *_wordBucketDictionary;
+    NSDictionary *_emojiBuckets;
+    NLTagger *_tagger;
+    NSString *_previousWord;
+}
+
+@property (nonatomic) unsigned long long wordAccumulationThreshold;
+@property (retain, nonatomic) id<TISensorWriterWrapper> dataWriter;
+@property (retain, nonatomic) NSMutableArray *savedSessionStatsArray;
+@property (retain, nonatomic) NSMutableArray *currentSessionStatsArray;
+@property (retain, nonatomic) TITypingSession *typingSession;
+@property (nonatomic) BOOL isLoaded;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (BOOL)isSensorKitSupported:(id)a0;
++ (id)makeMetricCollector:(id)a0 wordsThreshold:(unsigned long long)a1 isTesting:(BOOL)a2;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id)init:(id)a0;
+- (void)_clear;
+- (void)_processEvents;
+- (id)_mapIDToLayout:(unsigned long long)a0;
+- (void)_coalesceTaps;
+- (void)_consumeDeleteWordEvent:(id)a0;
+- (void)_consumeInputsAndTouches:(id)a0 occurenceTime:(double)a1 emojiSearchMode:(BOOL)a2;
+- (void)_consumePathsAndPredictions:(id)a0 emojiSearchMode:(BOOL)a1;
+- (id)_consumeTypingSession:(id)a0;
+- (void)_consumeUserAction:(id)a0;
+- (void)_consumeWordEntry:(id)a0;
+- (void)_haltSessionTypingTimer:(id)a0 event:(id)a1;
+- (id)_insertEmojiSwitchEvents:(id)a0;
+- (void)_loadStatsFromDataStore;
+- (void)_mapTapsToEvents;
+- (void)_metricWalk;
+- (void)_persistSavedSessionStatsArray;
+- (void)_resetConsumeState;
+- (id)_retrieveSavedSessionSampleArray;
+- (void)_setupTCCAuthNotification;
+- (id)consumeTypingSession:(id)a0;
+- (id)eventsDescription;
+- (id)eventsDescription:(BOOL)a0;
+- (long long)findIndexSessionStatsFromArray:(id)a0 thatHasLayout:(id)a1;
+- (id)getWordBucketCategoryForWord:(id)a0;
+- (void)handleTypingSession:(id)a0;
+- (id)init:(id)a0 wordsThreshold:(unsigned long long)a1;
+- (id)init:(id)a0 wordsThreshold:(unsigned long long)a1 accentedLanguage:(BOOL)a2;
+- (id)init:(id)a0 wordsThreshold:(unsigned long long)a1 accentedLanguage:(BOOL)a2 skipTCCAuthorization:(BOOL)a3;
+- (id)lemmatizeWord:(id)a0;
+- (id)loadDataWithFilename:(id)a0;
+- (void)loadEmojiBucketDictionaryIfNecessary;
+- (void)loadWordBucketDictionaryIfNecessary;
+- (void)placeTaskOnWorkQueue:(id /* block */)a0;
+- (id)privateEventsDescription;
+- (void)processNewSessionStatsArray:(id)a0;
+- (BOOL)publishIfSessionStatsHasWordCountMoreThanThreshold:(id)a0 withSessionStartTime:(BOOL)a1;
+- (void)removeSessionStatsWithNegativeDurationFromArray:(id)a0 ForTypingSession:(id)a1;
+- (void)sessionDidEnd:(id)a0 aligned:(id)a1;
+- (void)setupSessionStatsForLayouts;
+- (void)testTCCAuthorization;
+- (double)totalTimeSpan;
+- (double)totalTimeSpanFromLastTap;
+
+@end

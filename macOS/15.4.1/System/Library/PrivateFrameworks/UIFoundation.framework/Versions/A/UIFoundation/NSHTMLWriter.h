@@ -1,0 +1,80 @@
+@class NSData, NSAttributedString, NSFileWrapper, NSString, NSURL, NSMutableDictionary, NSDictionary, NSMutableString, NSMutableArray, NSMutableOrderedSet, NSMutableIndexSet;
+
+@interface NSHTMLWriter : NSObject {
+    NSAttributedString *_attrStr;
+    NSDictionary *_documentAttrs;
+    NSData *_htmlData;
+    NSMutableString *_bodyStr;
+    NSFileWrapper *_fileWrapper;
+    NSMutableDictionary *_subresources;
+    NSData *_webArchiveData;
+    NSMutableArray *_paraStyleStrings;
+    NSMutableArray *_paraStyleArrays;
+    NSMutableIndexSet *_paraStyleIndexes;
+    NSMutableIndexSet *_listItemStyleIndexes;
+    NSMutableOrderedSet *_charStyleStrings;
+    NSMutableArray *_charStyleArrays;
+    NSMutableArray *_fontStrings;
+    NSMutableArray *_tableStyleStrings;
+    NSMutableArray *_tableCellStyleStrings;
+    NSMutableArray *_blockStyleStrings;
+    NSMutableArray *_olistStyleStrings;
+    NSMutableArray *_ulistStyleStrings;
+    NSMutableDictionary *_fontNames;
+    NSMutableDictionary *_fontDescriptions;
+    long long _level;
+    long long _prefixSpaces;
+    NSString *_textEncodingName;
+    unsigned long long _characterEncoding;
+    NSURL *_outputBaseURL;
+    id _resourceHandler;
+    unsigned int _excludedElements1;
+    unsigned int _excludedElements2;
+    unsigned int _excludedElements3;
+    struct { unsigned char interchangeNewline : 1; unsigned char noDefaultFonts : 1; unsigned char tabsToSpaces : 1; unsigned char coalesceTabSpans : 1; unsigned char usedTabSpan : 1; unsigned char encodingIsUnicode : 1; unsigned int pad : 26; } _flags;
+}
+
++ (id)fontNameForFont:(id)a0;
+
+- (void)dealloc;
+- (id)initWithAttributedString:(id)a0;
+- (id)HTMLFileWrapper;
+- (void)_closeFlags:(unsigned long long)a0 openFlags:(unsigned long long)a1 inString:(id)a2;
+- (id)HTMLData;
+- (id)_prefix;
+- (void)_addImageElementForResource:(id)a0 description:(id)a1 inString:(id)a2;
+- (void)_addObjectElementForResource:(id)a0 description:(id)a1 inString:(id)a2;
+- (void)_addSourceElementForResource:(id)a0 MIMEType:(id)a1 inString:(id)a2;
+- (void)_appendAttachment:(id)a0 atIndex:(unsigned long long)a1 toString:(id)a2;
+- (void)_appendImageGlyph:(id)a0 withAttributes:(id)a1 toString:(id)a2;
+- (unsigned long long)_blockClassForBlock:(id)a0;
+- (BOOL)_closeBlocksForParagraphStyle:(id)a0 atIndex:(unsigned long long)a1 inString:(id)a2;
+- (BOOL)_closeListsForParagraphStyle:(id)a0 atIndex:(unsigned long long)a1 inString:(id)a2;
+- (void)_createWebArchiveData;
+- (id)_defaultValueForAttribute:(id)a0 range:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)_generateHTML;
+- (void)_generateHTMLForWebKit:(BOOL)a0;
+- (BOOL)_isStrictByParsingExcludedElements;
+- (unsigned long long)_listClassForList:(id)a0;
+- (void)_openBlocksForParagraphStyle:(id)a0 atIndex:(unsigned long long)a1 inString:(id)a2;
+- (void)_openListsForParagraphStyle:(id)a0 atIndex:(unsigned long long)a1 inString:(id)a2 isStrict:(BOOL)a3;
+- (unsigned long long)_paragraphClassforParagraphStyle:(id)a0 presentationIntent:(id)a1 range:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a2 isEmpty:(BOOL)a3 isCompletelyEmpty:(BOOL)a4 headerString:(id *)a5 alignmentString:(id *)a6 directionString:(id *)a7 forWebKit:(BOOL)a8;
+- (id)_prefixDown;
+- (id)_prefixUp;
+- (void)_prepareString:(id)a0 forConversionToEncoding:(unsigned long long)a1;
+- (id)_resourceForFileWrapper:(id)a0 filename:(id *)a1;
+- (unsigned long long)_spanClassForAttributes:(id)a0 inParagraphClass:(unsigned long long)a1 spanClass:(unsigned long long)a2 flags:(unsigned long long *)a3 forWebKit:(BOOL)a4;
+- (id)_textAttributesForHighlightColor:(id)a0;
+- (Class)_webArchiveClass;
+- (void)_writeDocumentPropertiesToString:(id)a0;
+- (void)_writeDocumentProperty:(id)a0 value:(id)a1 toString:(id)a2;
+- (id)documentFragmentForDocument:(id)a0;
+- (id)documentFragmentString;
+- (id)markElementFor:(id)a0 spanClass:(unsigned long long)a1 paraClass:(unsigned long long)a2;
+- (void)readDocumentFragment:(id)a0;
+- (void)setDocumentAttributes:(id)a0;
+- (id)subresources;
+- (id)webArchive;
+- (id)webArchiveData;
+
+@end

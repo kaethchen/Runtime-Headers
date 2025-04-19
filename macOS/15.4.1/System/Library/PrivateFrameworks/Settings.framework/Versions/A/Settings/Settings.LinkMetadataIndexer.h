@@ -1,0 +1,7 @@
+@interface Settings.LinkMetadataIndexer : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ metadataProvider;
+    void /* unknown type, empty encoding */ spotlightIndex;
+    void /* unknown type, empty encoding */ userDefaults;
+}
+
+@end

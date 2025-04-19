@@ -1,0 +1,3 @@
+@interface _TtCC16IntelligenceFlow30TranscriptEntityQueryingClient13ReverseServer : _TtCs12_SwiftObject <LXTranscriptEntityQueryingXPCClientProtocol>
+
+@end

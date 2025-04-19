@@ -1,0 +1,95 @@
+@class AVCaptureVideoPreviewLayer, NSString, NSDate, NSTimer, CALayer, ErrorLayer, AVCaptureSession, BoxLayer, AVCaptureDevice, NSDictionary, AVCaptureVideoDataOutput;
+@protocol CRCodeRedeemerLayerDelegatePrivate, CRCodeRedeemerLayerDelegate, CALayerDelegate, CRCodeRedeemerLayerDebuggingDelegate;
+
+@interface _CRCodeRedeemerLayer : CRCodeRedeemerLayer <AVCaptureVideoDataOutputSampleBufferDelegate, CAAnimationDelegate> {
+    struct vImage_Buffer { void *data; unsigned long long height; unsigned long long width; unsigned long long rowBytes; } _lastvImageBuffer;
+    double _sessionTimeout;
+    struct CGColor { } *_defaultColor;
+    BOOL _cameraIsRunning;
+    id<CALayerDelegate, CRCodeRedeemerLayerDelegate, CRCodeRedeemerLayerDelegatePrivate> _delegate;
+}
+
+@property (nonatomic) id<CRCodeRedeemerLayerDebuggingDelegate> debuggingDelegate;
+@property (nonatomic) BOOL foundBoundingBox;
+@property (nonatomic) BOOL isRectangleMoving;
+@property (nonatomic) int isCaptureModeOnly;
+@property (nonatomic) BOOL isBatchModeOnly;
+@property (nonatomic) BOOL isActiveRedeemer;
+@property (nonatomic) BOOL isFirstBoxDetection;
+@property (nonatomic) BOOL isLastCapture;
+@property (nonatomic) BOOL isContinuousCapture;
+@property (nonatomic) BOOL isCaptureUpsideDown;
+@property (nonatomic) BOOL isReadyForProcessing;
+@property (nonatomic) BOOL sessionIsRunning;
+@property (nonatomic) BOOL redeemerShowsMessageError;
+@property (nonatomic) long long whiteBalanceMode;
+@property (nonatomic) long long focusMode;
+@property (nonatomic) long long exposureMode;
+@property (nonatomic) long long torchMode;
+@property (nonatomic) long long cameraMode;
+@property (nonatomic) unsigned long long numberOfLinesInErrorText;
+@property (nonatomic) double confidenceThreshold;
+@property (retain, nonatomic) AVCaptureSession *session;
+@property (retain, nonatomic) AVCaptureDevice *inputDevice;
+@property (retain, nonatomic) AVCaptureVideoPreviewLayer *previewLayer;
+@property (retain, nonatomic) AVCaptureVideoDataOutput *videoDataOutput;
+@property (retain, nonatomic) NSString *cameraPreset;
+@property (retain, nonatomic) BoxLayer *boxLayer;
+@property (retain, nonatomic) CALayer *containerLayer;
+@property (retain, nonatomic) CALayer *overlayLayer;
+@property (retain, nonatomic) ErrorLayer *errorTextLayer;
+@property (retain, nonatomic) NSDate *date;
+@property (copy, nonatomic) NSString *currentCode;
+@property (nonatomic) struct CGPoint { double x; double y; } oldPosition;
+@property (nonatomic) double oldAngle;
+@property (nonatomic) struct CGSize { double width; double height; } oldSize;
+@property (retain, nonatomic) NSDate *boxFoundDate;
+@property (retain, nonatomic) NSDate *boxMovedTimestamp;
+@property (retain, nonatomic) NSTimer *statusFadeTimer;
+@property (nonatomic) unsigned long long cameraModel;
+@property (retain, nonatomic) NSDictionary *lastRectangleInfos;
+@property BOOL videoQueueSuspended;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)layer;
++ (id)defaultSupportedDevice;
++ (BOOL)isCRCodeRedeemerAvailable;
++ (void)loadFonts;
+
+- (void)dealloc;
+- (id)init;
+- (id)delegate;
+- (void)setDelegate:(id)a0;
+- (void)animationDidStop:(id)a0 finished:(BOOL)a1;
+- (void)stopSession;
+- (void)startSession;
+- (void)captureOutput:(id)a0 didOutputSampleBuffer:(struct opaqueCMSampleBuffer { } *)a1 fromConnection:(id)a2;
+- (struct CGColor { } *)defaultColor;
+- (id)fadeoutLayerBox;
+- (struct __CFArray { } *)codeImagesFromImageBuffer:(struct vImage_Buffer { void *x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; })a0 andPointList:(id)a1;
+- (void)didStartMaskAnimationOnLayer:(id)a0 withDuration:(double)a1;
+- (id)findRectInImageBuffer:(struct vImage_Buffer { void *x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; })a0;
+- (struct CGSize { double x0; double x1; })frameSizeForText:(id)a0 withContrainedWidth:(double)a1;
+- (void)generateBoxFromPoints:(id)a0 withTextCode:(id)a1;
+- (id)generateGradientLayer;
+- (id)generateStringFromDate:(id)a0;
+- (void)initialColorSettingForBoxLayer;
+- (void)manageFadeoutTransition;
+- (void)preprocessImageSource:(struct vImage_Buffer { void *x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; })a0 destination:(const struct vImage_Buffer { void *x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; } *)a1;
+- (id)recognizeDigitImages:(id)a0;
+- (void)screenSwitch:(id)a0;
+- (double)sessionTimeout;
+- (void)setDefaultColor:(struct CGColor { } *)a0;
+- (void)setSessionTimeout:(double)a0;
+- (void)setupCameraSession;
+- (void)setupInitialLayerConfiguration;
+- (void)showCodeRedeemStatus:(id)a0 withColor:(struct CGColor { } *)a1 forDuration:(double)a2 style:(int)a3;
+- (void)showCodeRedeemStatus:(id)a0 withColor:(struct CGColor { } *)a1 withGlow:(struct CGColor { } *)a2 forDuration:(double)a3 style:(int)a4;
+- (void)shutdownCameraSession;
+- (void)startSessionWithImage:(struct vImage_Buffer { void *x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; })a0;
+- (void)timedStatusMessageFadeOut;
+
+@end

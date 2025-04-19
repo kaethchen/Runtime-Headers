@@ -1,0 +1,3 @@
+@interface MSPUnauthFeedbackReportTicket : MSPBaseFeedbackReportTicket
+
+@end

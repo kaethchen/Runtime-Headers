@@ -1,0 +1,78 @@
+@class SCRScrollBar, NSArray, NSMutableSet;
+
+@interface SCRScrollArea : SCRMapElement {
+    SCRScrollBar *_vScrollbar;
+    SCRScrollBar *_hScrollbar;
+    double _previousEventTime;
+    unsigned long long _contentChildrenCount;
+    NSArray *_contentChildren;
+    NSMutableSet *_childrenUIElementsCheckedForScrollbars;
+}
+
+- (id)description;
+- (void).cxx_destruct;
+- (void)setChildren:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })contentBounds;
+- (BOOL)hasKeyboardFocus;
+- (id)statusDescription;
+- (BOOL)isInteractive;
+- (void)setKeyboardFocus:(BOOL)a0;
+- (id)onlyChild;
+- (BOOL)_handleScrollWithEvent:(id)a0 request:(id)a1;
+- (id)contentChildren;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })droppableBounds;
+- (id)highlightTarget;
+- (id)_copyScrollBarOfOrientation:(long long)a0;
+- (id)_defaultLocalizedStringForCommandKey:(id)a0;
+- (id)_derivedFocusedChildWithEvent:(id)a0;
+- (BOOL)_enableScrollModeWithRequest:(id)a0;
+- (BOOL)_handleScrollByPageInDirection:(long long)a0 event:(id)a1 request:(id)a2;
+- (void)_handleWindowResized:(id)a0;
+- (BOOL)_scrollDownWithRequest:(id)a0 distance:(long long)a1;
+- (BOOL)_scrollEndWithRequest:(id)a0;
+- (BOOL)_scrollHomeWithRequest:(id)a0;
+- (BOOL)_scrollLeftWithRequest:(id)a0 distance:(long long)a1;
+- (BOOL)_scrollRightWithRequest:(id)a0 distance:(long long)a1;
+- (BOOL)_scrollUpWithRequest:(id)a0 distance:(long long)a1;
+- (void)_updateCachedScrollBars;
+- (void)addContentToRequest:(id)a0 visibleOnly:(BOOL)a1;
+- (void)addElementSummaryToRequest:(id)a0;
+- (void)addItemDescriptionForBrailleToRequest:(id)a0;
+- (void)addItemDescriptionForCommand:(id)a0 toRequest:(id)a1 event:(id)a2;
+- (void)addItemDescriptionToRequest:(id)a0;
+- (BOOL)addKeyboardSelectionSummaryToRequest:(id)a0;
+- (BOOL)addSelectionDescriptionToRequest:(id)a0;
+- (BOOL)allowBuildChildren;
+- (void)beginFocusFromElement:(id)a0 withEvent:(id)a1;
+- (BOOL)chainEvent:(id)a0 request:(id)a1;
+- (BOOL)childrenShouldAddIndexToDescription;
+- (id)deepestOnlyChild;
+- (id)deepestPotentialChild;
+- (void)endFocus;
+- (id)firstChildForFocusing;
+- (id)focusedChildForChaining;
+- (id)fullItemDescriptionForMenu;
+- (id)hScrollbar;
+- (BOOL)handleEvent:(id)a0 request:(id)a1;
+- (void)handleInteractionOutput:(id)a0 forCommand:(id)a1 withStatus:(BOOL)a2;
+- (BOOL)handleSpeakScrollPageWithEvent:(id)a0 request:(id)a1;
+- (BOOL)handleTaggedOperationWithEvent:(id)a0 request:(id)a1;
+- (BOOL)handleUntaggedOperationWithEvent:(id)a0 request:(id)a1;
+- (void)incrementReadContentsElementIndex:(BOOL)a0;
+- (id)initWithUIElement:(id)a0 parent:(id)a1;
+- (BOOL)isChildScrollable:(id)a0;
+- (BOOL)isContainerElement;
+- (BOOL)isSectionView;
+- (id)linkedUIElementsForChild:(id)a0;
+- (BOOL)needToRebuildChildren;
+- (void)prepareGestureTrackingChildren;
+- (BOOL)readyToHaveKeyboardFocus;
+- (BOOL)scrollToShowDescendant:(id)a0;
+- (void)setIsEventHandler:(BOOL)a0 isKeyboardHandler:(BOOL)a1;
+- (BOOL)shouldAutoFocusOnChildren;
+- (BOOL)shouldPromoteUIElement:(id)a0;
+- (BOOL)showRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)trackElementWithGestureEvent:(id)a0 request:(id)a1;
+- (id)vScrollbar;
+
+@end

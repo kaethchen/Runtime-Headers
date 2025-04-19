@@ -1,0 +1,98 @@
+@class NSHashTable, GKServiceProxy, NSXPCConnection, GKGameActivityEventHandler, NSString, NSDictionary, NSObject;
+@protocol GKDaemonProxyDataUpdateDelegate, OS_dispatch_semaphore, OS_dispatch_queue, GKDaemonProxyNetworkActivityIndicatorDelegate;
+
+@interface GKDaemonProxy : GKServiceProxy <NSXPCConnectionDelegate, GKClientProtocol>
+
+@property (class, readonly, nonatomic) GKDaemonProxy *daemonProxy;
+@property (class, readonly, nonatomic) GKServiceProxy *proxyForLocalPlayer;
+
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *invocationQueue;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *authenticationQueue;
+@property (retain, nonatomic) NSObject<OS_dispatch_semaphore> *concurrentRequestSemaphore;
+@property (retain, nonatomic) NSDictionary *interfaceLookup;
+@property (retain, nonatomic) NSXPCConnection *connection;
+@property (nonatomic) int hostPID;
+@property (retain, nonatomic) NSHashTable *dataUpdateDelegates;
+@property (retain, nonatomic) GKGameActivityEventHandler *gameActivityEventHandler;
+@property (weak, nonatomic) id<GKDaemonProxyDataUpdateDelegate> dataUpdateDelegate;
+@property (weak, nonatomic) id<GKDaemonProxyNetworkActivityIndicatorDelegate> networkActivityIndicatorDelegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (oneway void)messagesDidReceiveGameCenterURL:(id)a0;
++ (oneway void)messagesDidReceiveGameCenterURL:(id)a0 senderHandle:(id)a1 contactID:(id)a2;
++ (id)proxyForPlayer:(id)a0;
++ (oneway void)getActiveFriendRequestCount:(id /* block */)a0;
++ (id)proxiesForPlayer;
++ (void)removeProxyForPlayer:(id)a0;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)connection:(id)a0 handleInvocation:(id)a1 isReply:(BOOL)a2;
+- (id)accountName;
+- (id)getGamedFiredUp;
+- (void)addDataUpdateDelegate:(id)a0;
+- (oneway void)friendRequestSelected:(id)a0;
+- (oneway void)refreshContentsForDataType:(unsigned int)a0 userInfo:(id)a1;
+- (oneway void)setBadgeCount:(unsigned long long)a0 forType:(unsigned long long)a1;
+- (oneway void)gameServicesRemoteCall:(id)a0 completionHandler:(id /* block */)a1;
+- (void)_resetServiceLookup;
+- (oneway void)acceptInviteWithNotification:(id)a0;
+- (oneway void)acceptMultiplayerGameInvite;
+- (oneway void)achievementSelected:(id)a0;
+- (void)addInterface:(id)a0 toLookup:(id)a1;
+- (id)authenticatedCredential;
+- (id)authenticatedLocalPlayersWithStatus:(unsigned long long)a0;
+- (void)authenticatedLocalPlayersWithStatus:(unsigned long long)a0 completion:(id /* block */)a1;
+- (id)authenticatedPlayerID;
+- (id)authenticatedPlayerInfo;
+- (oneway void)authenticatedPlayersDidChange:(id)a0 authenticatingBundleID:(id)a1 reply:(id /* block */)a2;
+- (oneway void)beginNetworkActivity;
+- (void)buildInterfaceLookup;
+- (oneway void)cancelGameInvite:(id)a0;
+- (oneway void)cancelInviteWithNotification:(id)a0;
+- (oneway void)challengeCompleted:(id)a0;
+- (oneway void)challengeReceived:(id)a0;
+- (oneway void)completedChallengeSelected:(id)a0;
+- (oneway void)declineInviteWithNotification:(id)a0;
+- (oneway void)deliverEncodedGameActivityInstance:(id)a0;
+- (oneway void)didConnectToParticipantWithID:(id)a0;
+- (oneway void)didDisconnectFromParticipantWithID:(id)a0;
+- (oneway void)didReceiveData:(id)a0 reliably:(BOOL)a1 forRecipients:(id)a2 fromSender:(id)a3;
+- (void)dispatchCompletedChallenge:(id)a0;
+- (oneway void)endNetworkActivity;
+- (oneway void)fetchTurnBasedData;
+- (oneway void)getAccountNameWithHandler:(id /* block */)a0;
+- (oneway void)getAuthenticatedPlayerIDWithHandler:(id /* block */)a0;
+- (BOOL)hasAuthenticatedAccount;
+- (id)localizedMessageFromDictionary:(id)a0 forBundleID:(id)a1;
+- (id)matchmaker;
+- (oneway void)metricsValuesChanged;
+- (oneway void)multiplayerAllowedTypeRetrievedWithUUID:(id)a0 value:(id)a1;
+- (oneway void)nearbyDataReceivedForPlayerID:(id)a0 deviceID:(id)a1 data:(id)a2;
+- (oneway void)nearbyPlayerFoundForPlayerID:(id)a0 deviceID:(id)a1 discoveryInfo:(id)a2;
+- (oneway void)nearbyPlayerLostForPlayerID:(id)a0 deviceID:(id)a1;
+- (oneway void)presentBannerWithNotification:(id)a0;
+- (oneway void)receivedChallengeSelected:(id)a0;
+- (oneway void)relayPushNotification:(id)a0;
+- (void)removeDataUpdateDelegate:(id)a0;
+- (id)replyQueueForRequestSelector:(SEL)a0;
+- (oneway void)requestSandboxExtension:(id /* block */)a0;
+- (void)resetLoginCancelCount;
+- (oneway void)resetNetworkActivity;
+- (void)resetServiceLookup;
+- (oneway void)respondedToNearbyInvite:(id)a0;
+- (BOOL)restrictionEnabledForKey:(id)a0;
+- (BOOL)restrictionEnabledForKey:(id)a0 applicationID:(id)a1;
+- (oneway void)scoreSelected:(id)a0;
+- (oneway void)setCurrentGame:(id)a0 serverEnvironment:(long long)a1 reply:(id /* block */)a2;
+- (oneway void)setPreferencesValues:(id)a0;
+- (oneway void)setTestGame:(id)a0 protocolVersion:(id)a1 reply:(id /* block */)a2;
+- (oneway void)updateInviteWithNotification:(id)a0;
+- (id)userInfoForPlayerID:(id)a0 deviceID:(id)a1 data:(id)a2 discoveryInfo:(id)a3;
+- (id)valueRestrictionForKey:(id)a0;
+- (void)valueRestrictionForKey:(id)a0 UUID:(id)a1;
+
+@end

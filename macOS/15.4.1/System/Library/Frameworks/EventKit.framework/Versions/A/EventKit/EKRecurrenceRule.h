@@ -1,0 +1,92 @@
+@class NSString, EKRecurrenceEnd, NSArray, NSDateComponents, NSDate, EKRecurrenceHelper;
+
+@interface EKRecurrenceRule : EKObject <NSCopying> {
+    EKRecurrenceHelper *_recurrenceHelper;
+}
+
+@property (readonly, nonatomic) BOOL shouldPinMonthDays;
+@property (readonly, nonatomic) NSDateComponents *dateComponents;
+@property (readonly) BOOL usesEndDate;
+@property (readonly) int firstDayOfTheWeekRaw;
+@property (readonly, nonatomic) NSString *UUID;
+@property (readonly, nonatomic) NSDate *cachedEndDate;
+@property (readonly, nonatomic) BOOL dirtyStateMayAffectExceptionDates;
+@property (readonly, nonatomic) NSString *calendarIdentifier;
+@property (copy, nonatomic) EKRecurrenceEnd *recurrenceEnd;
+@property (readonly, nonatomic) long long frequency;
+@property (readonly, nonatomic) long long interval;
+@property (readonly, nonatomic) long long firstDayOfTheWeek;
+@property (readonly, nonatomic) NSArray *daysOfTheWeek;
+@property (readonly, nonatomic) NSArray *daysOfTheMonth;
+@property (readonly, nonatomic) NSArray *daysOfTheYear;
+@property (readonly, nonatomic) NSArray *weeksOfTheYear;
+@property (readonly, nonatomic) NSArray *monthsOfTheYear;
+@property (readonly, nonatomic) NSArray *setPositions;
+
++ (id)iCalendarValueFromDayOfTheWeek:(unsigned long long)a0;
++ (id)iCalendarValueFromDate:(id)a0 isDateOnly:(BOOL)a1 isFloating:(BOOL)a2;
++ (id)iCalendarValueFromRecurrenceType:(long long)a0;
++ (long long)daysTypeForDayArray:(id)a0;
++ (id)_acceptableStartDateRangeForDailyRecurrenceWithCurrentStartDate:(id)a0;
++ (id)_acceptableStartDateRangeForMonthlyRecurrenceWithCurrentStartDate:(id)a0 calendar:(id)a1;
++ (id)_acceptableStartDateRangeForWeeklyRecurrenceWithCurrentStartDate:(id)a0 calendar:(id)a1;
++ (id)_acceptableStartDateRangeForYearlyRecurrenceWithCurrentStartDate:(id)a0 calendar:(id)a1;
++ (int)_calDayOfWeekFromEKWeekday:(long long)a0;
++ (long long)_ekWeekdayFromCalDayOfWeek:(int)a0;
++ (id)adjustDateIntoUTC:(id)a0 dateOnly:(BOOL)a1 floating:(BOOL)a2;
++ (Class)frozenClass;
++ (id)knownIdentityKeysForComparison;
++ (id)knownRelationshipWeakKeys;
++ (id)knownSingleValueKeysForComparison;
++ (id)recurrenceRuleWithType:(long long)a0 interval:(unsigned long long)a1 end:(id)a2;
+
+- (id)description;
+- (id)init;
+- (void).cxx_destruct;
+- (unsigned long long)count;
+- (id)endDate;
+- (void)setCount:(unsigned long long)a0;
+- (void)setInterval:(unsigned long long)a0;
+- (id)specifier;
+- (void)setUUID:(id)a0;
+- (void)rollback;
+- (void)setEndDate:(id)a0;
+- (void)setFrequency:(long long)a0;
+- (id)initRecurrenceWithFrequency:(long long)a0 interval:(long long)a1 daysOfTheWeek:(id)a2 daysOfTheMonth:(id)a3 monthsOfTheYear:(id)a4 weeksOfTheYear:(id)a5 daysOfTheYear:(id)a6 setPositions:(id)a7 end:(id)a8;
+- (id)initRecurrenceWithFrequency:(long long)a0 interval:(long long)a1 end:(id)a2;
+- (id)stringValueAsDateOnly:(BOOL)a0 isFloating:(BOOL)a1;
+- (void)setDaysOfTheMonth:(id)a0;
+- (void)setDaysOfTheWeek:(id)a0;
+- (void)setDaysOfTheYear:(id)a0;
+- (void)setMonthsOfTheYear:(id)a0;
+- (void)setWeeksOfTheYear:(id)a0;
+- (void)setSetPositions:(id)a0;
+- (id)_acceptableStartDateRangeWithCurrentStartDate:(id)a0 calendar:(id)a1;
+- (id)_recurrenceHelper;
+- (void)_resetInternalStateWithForce:(BOOL)a0;
+- (void)_updateSpecifierIfNeeded;
+- (id)cachedEndDateTimeZone;
+- (int)frequencyRaw;
+- (BOOL)hasDuplicateMonthsOfYear;
+- (id)humanReadableDescriptionWithStartDate:(id)a0;
+- (id)humanReadableDescriptionWithStartDate:(id)a0 isConcise:(BOOL)a1;
+- (void)invalidateCachedEndDate;
+- (BOOL)isAnyDayRule;
+- (BOOL)isEqualToRecurrenceRule:(id)a0;
+- (BOOL)isPinnedToEndOfFrequency;
+- (BOOL)isSimpleRule;
+- (BOOL)isWeekdayRule;
+- (BOOL)isWeekendRule;
+- (BOOL)mayOccurAfterDate:(id)a0;
+- (BOOL)newStartDateIsInvalid:(id)a0 currentStartDate:(id)a1 calendar:(id)a2;
+- (BOOL)newStartDateIsValid:(id)a0 currentStartDate:(id)a1 calendar:(id)a2;
+- (void)pinToEndsOfMonthsWithCalendarItem:(id)a0;
+- (BOOL)recurrenceEndHasChanges;
+- (void)setCachedEndDate:(id)a0;
+- (void)setCachedEndDateTimeZone:(id)a0;
+- (void)setFirstDayOfTheWeek:(unsigned long long)a0;
+- (void)setFirstDayOfTheWeekRaw:(int)a0;
+- (void)setFrequencyRaw:(int)a0;
+- (void)setSpecifier:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface ITIdleTimerStateService : NSObject
+
+@end

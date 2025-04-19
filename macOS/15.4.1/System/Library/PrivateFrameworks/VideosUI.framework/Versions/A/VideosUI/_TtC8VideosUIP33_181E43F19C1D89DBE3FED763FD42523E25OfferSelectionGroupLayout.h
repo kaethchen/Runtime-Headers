@@ -1,0 +1,3 @@
+@interface _TtC8VideosUIP33_181E43F19C1D89DBE3FED763FD42523E25OfferSelectionGroupLayout : VideosUI.ViewLayout
+
+@end

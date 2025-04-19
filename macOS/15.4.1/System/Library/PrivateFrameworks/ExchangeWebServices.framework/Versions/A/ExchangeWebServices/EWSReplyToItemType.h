@@ -1,0 +1,3 @@
+@interface EWSReplyToItemType : EWSSmartResponseType
+
+@end

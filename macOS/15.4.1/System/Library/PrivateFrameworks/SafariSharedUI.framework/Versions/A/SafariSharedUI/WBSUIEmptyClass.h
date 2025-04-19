@@ -1,0 +1,3 @@
+@interface WBSUIEmptyClass : NSObject
+
+@end

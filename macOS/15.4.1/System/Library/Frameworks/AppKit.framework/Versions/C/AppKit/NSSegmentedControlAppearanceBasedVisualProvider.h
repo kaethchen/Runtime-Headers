@@ -1,0 +1,85 @@
+@class NSSegmentedCell, NSView, NSArray, NSString, NSSegmentedControlBezelConfiguration, NSMutableArray;
+
+@interface NSSegmentedControlAppearanceBasedVisualProvider : NSObject <NSSegmentedControlVisualProvider> {
+    NSView *_controlView;
+    NSSegmentedCell *_segmentedCell;
+    NSSegmentedControlBezelConfiguration *_bezelConfiguration;
+    NSMutableArray *_segmentItems;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _lastBounds;
+    unsigned char _trimmedLabels : 1;
+    unsigned char _overridesCoreUIDrawSegmentBackground : 1;
+    unsigned char _overridesDrawMenuIndicator : 1;
+}
+
+@property (readonly) BOOL _usesItemViews;
+@property (weak) NSView *controlView;
+@property (weak) NSSegmentedCell *segmentedCell;
+@property (copy) NSSegmentedControlBezelConfiguration *bezelConfiguration;
+@property (copy) NSArray *segmentItemConfigurations;
+@property (readonly) BOOL wantsUpdateLayer;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)layout;
+- (struct CGSize { double x0; double x1; })cellSizeForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 distribution:(long long)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_legacy_rectForSegment:(long long)a0 inFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)noteFontChanged;
+- (void)updateSegmentItemConfiguration:(id)a0;
+- (void)_addNSSegmentItemViewsToControlView:(id)a0;
+- (void)_adjustRectForR2L:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a0 inFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_badgeRectForImage:(id)a0 inSegment:(long long)a1 inFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 inView:(id)a3 isFlipped:(BOOL)a4 drawFlags:(unsigned long long)a5;
+- (void)_configureLabelCell:(id)a0 forItem:(id)a1 controlView:(id)a2;
+- (struct __CFDictionary { } *)_copyCoreUIBackgroundDrawOptionsForSegment:(long long)a0 inView:(id)a1 drawFlags:(unsigned long long *)a2;
+- (BOOL)_coreUIDrawSegmentBackground:(long long)a0 withCellFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 inView:(id)a2 maskOnly:(BOOL)a3;
+- (void)_drawMenuIndicatorForSegment:(long long)a0 withRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 inView:(id)a2;
+- (double)_edgeInset;
+- (BOOL)_haveSegmentAtIndex:(long long)a0;
+- (BOOL)_itemAtIndexIsSelected:(long long)a0;
+- (struct CGSize { double x0; double x1; })_legacy_cellSizeForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_legacy_labelRectForSegment:(long long)a0 inFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 withView:(id)a2;
+- (struct CGSize { double x0; double x1; })_legacy_minimumCellSizeForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct NSEdgeInsets { double x0; double x1; double x2; double x3; })_legacy_segmentAlignmentRectInsetsForControlView:(id)a0;
+- (double)_maxContentWidth;
+- (struct CGSize { double x0; double x1; })_maxEqualContentWidth;
+- (void)_recalcRectsAtIndex:(long long)a0 forCell:(id)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_rectAdjustedForR2LForSegment:(long long)a0 cellFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 drawFlags:(unsigned long long)a2;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_rectForSegment:(long long)a0 inFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)_removeNSSegmentItemViewsFromControlView:(id)a0;
+- (BOOL)_resizeSegmentsForCellFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 animate:(BOOL)a1;
+- (long long)_segmentHighlightState:(long long)a0;
+- (id)_segmentItemAtIndex:(long long)a0;
+- (long long)_springLoadingHighlightForSegment:(long long)a0;
+- (void)_updateSeparatorState;
+- (BOOL)_wantsMenuIndicatorForSegment:(long long)a0;
+- (struct NSEdgeInsets { double x0; double x1; double x2; double x3; })alignmentRectInsetsForControlView:(id)a0;
+- (double)baselineOffsetFromBottom;
+- (struct CGSize { double x0; double x1; })cellSizeWithOptions:(id)a0 forBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)drawBackgroundWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)drawFocusRingMaskWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)drawInteriorWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)drawSegment:(long long)a0 inFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)invalidateSegmentSizes;
+- (BOOL)isEnabledForSegment:(long long)a0;
+- (id)labelForSegment:(long long)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })labelRectForSegment:(long long)a0 inFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (struct CGSize { double x0; double x1; })minimumCellSizeForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)noteCompressibleOptionsChanged;
+- (void)noteControlSizeChanged;
+- (void)noteDrawsBezelChanged;
+- (void)noteEnabledChanged;
+- (void)noteLayoutDirectionChanged;
+- (void)notePresentationStateChanged;
+- (void)noteSegmentStyleChanged;
+- (void)noteSelectedSegmentBezelColorChanged;
+- (void)noteSlidingStyleChanged;
+- (void)noteUseTextStyleChanged;
+- (void)noteWantsGroupRolloverChanged;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })rectForSegment:(long long)a0 inFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 layoutIfNeeded:(BOOL)a2;
+- (BOOL)resizeSegmentsForCellFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (int)vibrancyBlendMode;
+
+@end

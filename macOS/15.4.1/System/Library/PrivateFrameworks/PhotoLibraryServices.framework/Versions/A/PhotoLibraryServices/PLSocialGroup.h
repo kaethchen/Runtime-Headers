@@ -1,0 +1,95 @@
+@class NSString, NSSet, PLManagedAsset, NSNumber;
+
+@interface PLSocialGroup : PLGraphNodeContainer <PLSyncableObject, PLCloudDeletable>
+
+@property (class, readonly, copy) NSString *cloudUUIDKeyForDeletion;
+
+@property (readonly, retain, nonatomic) id localID;
+@property (nonatomic) short cloudLocalState;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) short cloudDeleteState;
+@property (readonly) long long cloudDeletionType;
+@property (readonly, copy) NSString *cloudUUIDForDeletion;
+@property (copy, nonatomic) NSString *customTitle;
+@property (copy, nonatomic) NSNumber *manualOrder;
+@property (copy, nonatomic) NSNumber *automaticOrder;
+@property (readonly, nonatomic) short socialGroupVerifiedType;
+@property (readonly, nonatomic) PLManagedAsset *keyAsset;
+@property (readonly, nonatomic) long long keyAssetPickSource;
+@property (readonly, nonatomic) BOOL keyAssetIsNeeded;
+@property (readonly, nonatomic) NSSet *members;
+
++ (id)fetchAssetIDsHavingAssetPersonEdgesToPersonID:(id)a0 inManagedObjectContext:(id)a1 error:(id *)a2;
++ (id)fetchDuplicateSocialGroupIDsWithMemberIDs:(id)a0 inContext:(id)a1 error:(id *)a2;
++ (id)keyAssetUUIDOfSocialGroupWithPersonUUIDs:(id)a0 candidateAssetUUIDs:(id)a1 inLibrary:(id)a2 error:(id *)a3;
++ (id)newNodeContainerWithManagedObjectContext:(id)a0;
++ (BOOL)deleteSocialGroupsHavingMember:(id)a0;
++ (BOOL)rejectSocialGroupsHavingMember:(id)a0;
++ (void)prepareForDeletingOutgoingEdge:(id)a0;
++ (void)_deleteEmptyGraphOrUnverifiedSocialGroupNode:(id)a0;
++ (void)_deleteUserAndGraphGroupsFromDuplicateGroupNodes:(id)a0 inContext:(id)a1;
++ (id)_fetchDuplicateSocialGroupNodes:(id)a0 error:(id *)a1;
++ (id)_memberIDsByNodeIDFromEdgeDictionaries:(id)a0;
++ (id)_personsFromEdges:(id)a0;
++ (id)_primaryLabelPredicateWithContext:(id)a0;
++ (id)_socialGroupsNodesContainingMember:(id)a0;
++ (id)_sortableKeyPaths;
++ (id)_syncablePredicate;
++ (BOOL)_verifiedTypeChangeFromRejectedToUserWithSourceNode:(id)a0;
++ (id)changeFlagsKeysByNodeContainerKey;
++ (long long)cloudDeletionTypeForTombstone:(id)a0;
++ (id)defaultValueForRequiredNodeValueKey:(id)a0 forNode:(id)a1;
++ (BOOL)deleteDuplicateGraphAndUnverifiedGroupsInContext:(id)a0 error:(id *)a1;
++ (BOOL)deleteDuplicateGroupsAfterInsertionOfGroup:(id)a0 error:(id *)a1;
++ (void)didSaveWithNode:(id)a0;
++ (BOOL)needsConstraintConflictResolutionForNode:(id)a0;
++ (id)predicateForAllSocialGroupsInContext:(id)a0;
++ (id)predicateForAllVerifiedSocialGroupsInContext:(id)a0;
++ (id)predicateForUserVerifiedSocialGroupsInContext:(id)a0;
++ (void)prepareForDeletionWithNode:(id)a0;
++ (id)requiredNodeValueKeys;
++ (BOOL)resetAllInContext:(id)a0 error:(id *)a1;
++ (id)resetAllInLibrary:(id)a0 completion:(id /* block */)a1;
++ (void)resolveConstraintConflictsForNode:(id)a0;
++ (BOOL)runAssetContainmentOnAllSocialGroupsInContext:(id)a0 error:(id *)a1;
++ (id)socialGroupsToUploadInManagedObjectContext:(id)a0 limit:(long long)a1;
++ (id)sortableKeys;
++ (void)updateKeyAssetOfSocialGroupsWithUUIDs:(id)a0 inLibrary:(id)a1;
++ (void)willSaveWithNode:(id)a0;
+
+- (id)initWithNode:(id)a0;
+- (id)scopeIdentifier;
+- (BOOL)setMembers:(id)a0 error:(id *)a1;
+- (id)exclusiveAssetIDs;
+- (id)inclusiveAssetIDs;
+- (id)scopedIdentifier;
+- (BOOL)setKeyAsset:(id)a0 error:(id *)a1;
+- (BOOL)setKeyAssetPickSource:(long long)a0 error:(id *)a1;
+- (BOOL)setSocialGroupVerifiedType:(short)a0 error:(id *)a1;
+- (id)_keyAssetEdgeWithSuccess:(BOOL *)a0 error:(id *)a1;
+- (id)_exclusiveAssetEdgesOut;
+- (id)_exclusiveAssetEdgesOutFetch;
+- (BOOL)_existingExclusiveAssetEdgeOut;
+- (id)_existingMemberEdgeForPerson:(id)a0 success:(BOOL *)a1 error:(id *)a2;
+- (void)_fetchEdgesOut;
+- (id)_inclusiveAssetEdgesOutForSpecificAssetIDs:(id)a0 prefetchEdgeLabels:(BOOL)a1;
+- (id)_insertGraphEdgeForAsset:(id)a0 exclusiveLabel:(id)a1;
+- (id)_insertMemberEdgeForPerson:(id)a0;
+- (id)_personEdgesOutWithError:(id *)a0;
+- (void)_resetExistingKeyAssetEdge:(id)a0 keyAssetLabel:(id)a1;
+- (BOOL)_updateAssetEdgesWithAssetContainmentResult:(id)a0 assetIDsToUpdate:(id)a1 error:(id *)a2;
+- (BOOL)addMember:(id)a0 error:(id *)a1;
+- (id)cplFullRecord;
+- (id)cplSocialGroupChange;
+- (BOOL)isSyncableChange;
+- (BOOL)removeMember:(id)a0 error:(id *)a1;
+- (BOOL)resetCustomDataWithError:(id *)a0;
+- (id)runAssetContainmentWithCompletion:(id /* block */)a0;
+- (BOOL)runAssetContainmentWithError:(id *)a0 assetIDsToUpdate:(id)a1;
+- (BOOL)supportsCloudUpload;
+- (void)updateSocialGroupwithCPLSocialGroupChange:(id)a0 inPhotoLibrary:(id)a1;
+
+@end

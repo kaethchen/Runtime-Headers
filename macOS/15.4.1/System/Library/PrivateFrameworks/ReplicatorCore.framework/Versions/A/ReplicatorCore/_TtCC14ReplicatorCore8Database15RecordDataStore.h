@@ -1,0 +1,3 @@
+@interface _TtCC14ReplicatorCore8Database15RecordDataStore : _TtCC14ReplicatorCore8Database16DatabaseAccessor
+
+@end

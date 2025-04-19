@@ -1,0 +1,3 @@
+@interface MPModelLibraryResponseKeepLocalStatusConfiguration : NSObject
+
+@end

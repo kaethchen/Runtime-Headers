@@ -1,0 +1,80 @@
+@class NSTextField, NSString, TUIMaskView, NSLayoutConstraint, NSStackView, NSDictionary, NSTextView, TUIMarkAsVerifiedButton, TUIStaticIdentityManager, NSButton, TUIAnalytics, NSBox;
+@protocol TUIKTConversationPaneControllerDelegate;
+
+@interface TUIKTConversationPaneController : NSViewController <TUIStaticIdentityManagerProtocol, NSTextViewDelegate, NSWindowDelegate> {
+    BOOL _accountKeysRevealed;
+    TUIMaskView *_codeMask1;
+    TUIMaskView *_codeMask2;
+    NSString *_cachedSelfKey;
+    NSString *_cachedPeerKey;
+    TUIStaticIdentityManager *_staticIdentityManager;
+    TUIAnalytics *_analytics;
+    NSLayoutConstraint *_codeDetailsLabelHeightConstraint;
+    NSLayoutConstraint *_otherPartyFooterTextHeightConstraint;
+    NSLayoutConstraint *_selfFooterTextHeightConstraint;
+    NSLayoutConstraint *_showAccountKeysLinkHeightConstraint;
+    NSLayoutConstraint *_accountKeysConstraint;
+}
+
+@property (retain, nonatomic) NSDictionary *options;
+@property (retain, nonatomic) NSTextField *verificationTitleLabel;
+@property (retain, nonatomic) NSBox *codeBox;
+@property (retain, nonatomic) NSTextField *codeLabel;
+@property (retain, nonatomic) NSTextView *codeDetailsLabel;
+@property (retain, nonatomic) NSButton *codeNoMatchButton;
+@property (retain, nonatomic) TUIMarkAsVerifiedButton *markAsVerifiedButton;
+@property (retain, nonatomic) NSBox *otherPartyAccountKeyBox;
+@property (retain, nonatomic) NSTextField *otherPartyKeyTitleLabel;
+@property (retain, nonatomic) NSTextView *otherPartyFooterText;
+@property (retain, nonatomic) NSTextField *otherPartyAccountKeyField;
+@property (retain, nonatomic) TUIMarkAsVerifiedButton *otherPartyMarkAsVerified;
+@property (retain, nonatomic) NSBox *selfAccountKeyBox;
+@property (retain, nonatomic) NSTextField *selfKeyTitleLabel;
+@property (retain, nonatomic) NSTextView *selfFooterText;
+@property (retain, nonatomic) NSTextField *selfAccountKeyField;
+@property (retain, nonatomic) NSButton *selfCopyCode;
+@property (retain, nonatomic) NSButton *doneButton;
+@property (retain, nonatomic) NSTextView *showAccountKeysLink;
+@property (retain, nonatomic) NSStackView *boxesStack;
+@property (retain, nonatomic) NSStackView *sasStack;
+@property (weak, nonatomic) id<TUIKTConversationPaneControllerDelegate> delegate;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (BOOL)textView:(id)a0 clickedOnLink:(id)a1 atIndex:(unsigned long long)a2;
+- (void)loadView;
+- (id)textView:(id)a0 willChangeSelectionFromCharacterRanges:(id)a1 toCharacterRanges:(id)a2;
+- (id)textView:(id)a0 willDisplayToolTip:(id)a1 forCharacterAtIndex:(unsigned long long)a2;
+- (void)updateUI;
+- (void)viewDidAppear;
+- (void)viewDidDisappear;
+- (void)viewDidLayout;
+- (void)viewDidLoad;
+- (void)viewWillAppear;
+- (void)viewWillDisappear;
+- (void)windowDidBecomeKey:(id)a0;
+- (void)windowDidResignKey:(id)a0;
+- (void)doneClicked:(id)a0;
+- (void)_otherPartyAccountKeyFieldClicked:(id)a0;
+- (void)_processAccountKeyFieldTextSelection:(id)a0;
+- (void)_selfAccountKeyFieldClicked:(id)a0;
+- (void)_setAtributedTextWithLink:(id)a0 text:(id)a1 alignment:(long long)a2 linkID:(id)a3 linkText:(id)a4;
+- (void)codeNoMatchButtonClicked:(id)a0;
+- (void)copySelfKeyClicked:(id)a0;
+- (void)displayAll;
+- (void)displayCode:(id)a0;
+- (id)initForMembers:(id)a0 options:(id)a1;
+- (id)initWithPeer:(id)a0 peerTransparencyUuid:(id)a1 peerAddress:(id)a2;
+- (void)markAsVerifiedClicked:(id)a0;
+- (BOOL)reportToAppleFeatureEnabled;
+- (void)showHideKeyBoxes:(BOOL)a0;
+- (void)showInfoAlert:(id)a0;
+- (void)showKeysLinkClicked:(id)a0;
+- (void)showNoMatchAlert;
+- (id)staticIdentityManager;
+- (void)verifyContact:(id)a0 peerPublicAccountIdentity:(id)a1;
+
+@end

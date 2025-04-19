@@ -1,0 +1,3 @@
+@interface IntelligenceFlowPlannerRuntime.DefaultCATResponseDialogGenerator : _TtCs12_SwiftObject
+
+@end

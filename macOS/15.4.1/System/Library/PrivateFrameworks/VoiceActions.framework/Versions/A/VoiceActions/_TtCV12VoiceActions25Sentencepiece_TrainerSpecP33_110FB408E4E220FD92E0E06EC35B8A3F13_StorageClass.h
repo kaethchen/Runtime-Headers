@@ -1,0 +1,49 @@
+@interface _TtCV12VoiceActions25Sentencepiece_TrainerSpecP33_110FB408E4E220FD92E0E06EC35B8A3F13_StorageClass : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ _input;
+    void /* unknown type, empty encoding */ _inputFormat;
+    void /* unknown type, empty encoding */ _modelPrefix;
+    void /* unknown type, empty encoding */ _modelType;
+    void /* unknown type, empty encoding */ _vocabSize;
+    void /* unknown type, empty encoding */ _acceptLanguage;
+    void /* unknown type, empty encoding */ _selfTestSampleSize;
+    void /* unknown type, empty encoding */ _enableDifferentialPrivacy;
+    void /* unknown type, empty encoding */ _differentialPrivacyNoiseLevel;
+    void /* unknown type, empty encoding */ _differentialPrivacyClippingThreshold;
+    void /* unknown type, empty encoding */ _characterCoverage;
+    void /* unknown type, empty encoding */ _inputSentenceSize;
+    void /* unknown type, empty encoding */ _shuffleInputSentence;
+    void /* unknown type, empty encoding */ _miningSentenceSize;
+    void /* unknown type, empty encoding */ _trainingSentenceSize;
+    void /* unknown type, empty encoding */ _seedSentencepieceSize;
+    void /* unknown type, empty encoding */ _shrinkingFactor;
+    void /* unknown type, empty encoding */ _maxSentenceLength;
+    void /* unknown type, empty encoding */ _numThreads;
+    void /* unknown type, empty encoding */ _numSubIterations;
+    void /* unknown type, empty encoding */ _maxSentencepieceLength;
+    void /* unknown type, empty encoding */ _splitByUnicodeScript;
+    void /* unknown type, empty encoding */ _splitByNumber;
+    void /* unknown type, empty encoding */ _splitByWhitespace;
+    void /* unknown type, empty encoding */ _treatWhitespaceAsSuffix;
+    void /* unknown type, empty encoding */ _allowWhitespaceOnlyPieces;
+    void /* unknown type, empty encoding */ _splitDigits;
+    void /* unknown type, empty encoding */ _pretokenizationDelimiter;
+    void /* unknown type, empty encoding */ _controlSymbols;
+    void /* unknown type, empty encoding */ _userDefinedSymbols;
+    void /* unknown type, empty encoding */ _requiredChars;
+    void /* unknown type, empty encoding */ _byteFallback;
+    void /* unknown type, empty encoding */ _vocabularyOutputPieceScore;
+    void /* unknown type, empty encoding */ _hardVocabLimit;
+    void /* unknown type, empty encoding */ _useAllVocab;
+    void /* unknown type, empty encoding */ _unkID;
+    void /* unknown type, empty encoding */ _bosID;
+    void /* unknown type, empty encoding */ _eosID;
+    void /* unknown type, empty encoding */ _padID;
+    void /* unknown type, empty encoding */ _unkPiece;
+    void /* unknown type, empty encoding */ _bosPiece;
+    void /* unknown type, empty encoding */ _eosPiece;
+    void /* unknown type, empty encoding */ _padPiece;
+    void /* unknown type, empty encoding */ _unkSurface;
+    void /* unknown type, empty encoding */ _trainExtremelyLargeCorpus;
+}
+
+@end

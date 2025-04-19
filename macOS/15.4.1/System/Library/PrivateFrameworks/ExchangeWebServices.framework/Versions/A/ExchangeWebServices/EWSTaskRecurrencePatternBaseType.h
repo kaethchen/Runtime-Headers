@@ -1,0 +1,3 @@
+@interface EWSTaskRecurrencePatternBaseType : NSObject
+
+@end

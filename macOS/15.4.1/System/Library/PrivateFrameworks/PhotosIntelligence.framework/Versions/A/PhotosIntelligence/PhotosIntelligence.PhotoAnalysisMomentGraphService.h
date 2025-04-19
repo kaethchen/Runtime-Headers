@@ -1,0 +1,3 @@
+@interface PhotosIntelligence.PhotoAnalysisMomentGraphService : PhotosIntelligence.PhotoAnalysisService
+
+@end

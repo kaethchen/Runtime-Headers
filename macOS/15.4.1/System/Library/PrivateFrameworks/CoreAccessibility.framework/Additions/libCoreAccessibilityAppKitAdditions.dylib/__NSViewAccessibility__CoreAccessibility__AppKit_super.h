@@ -1,0 +1,3 @@
+@interface __NSViewAccessibility__CoreAccessibility__AppKit_super : UIAccessibilitySafeCategory
+
+@end

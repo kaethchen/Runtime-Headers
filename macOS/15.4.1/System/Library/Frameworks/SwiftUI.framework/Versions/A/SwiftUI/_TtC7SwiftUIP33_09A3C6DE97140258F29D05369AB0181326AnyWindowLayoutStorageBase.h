@@ -1,0 +1,3 @@
+@interface _TtC7SwiftUIP33_09A3C6DE97140258F29D05369AB0181326AnyWindowLayoutStorageBase : _TtCs12_SwiftObject
+
+@end

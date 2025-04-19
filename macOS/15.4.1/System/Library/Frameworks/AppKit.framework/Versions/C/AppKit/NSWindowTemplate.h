@@ -1,0 +1,92 @@
+@class NSString, NSViewController, NSAppearance, NSToolbar, NSWindow;
+
+@interface NSWindowTemplate : NSObject <NSCoding, NSUserInterfaceItemIdentification> {
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } windowRect;
+    int windowStyleMask;
+    unsigned long long windowBacking;
+    NSString *windowTitle;
+    id viewClass;
+    NSString *windowClass;
+    id windowView;
+    NSWindow *realObject;
+    id extension;
+    struct CGSize { double width; double height; } minSize;
+    struct __WtFlags { unsigned short _PADDING : 9; unsigned char isRestorable : 1; unsigned char hidesToolbarButton : 1; unsigned char autorecalculatesKeyViewLoop : 1; unsigned char hideShadow : 1; unsigned char allowsToolTipsWhenInactive : 1; unsigned char autoSetMiniaturizableMask : 1; unsigned char autoSetZoomableMask : 1; unsigned char  : 2; unsigned char savePosition : 1; unsigned char autoPositionMask : 6; unsigned char dynamicDepthLimit : 1; unsigned char wantsToBeColor : 1; unsigned char visible : 1; unsigned char oneShot : 1; unsigned char defer : 1; unsigned char dontFreeWhenClosed : 1; unsigned char hidesOnDeactivate : 1; } _wtFlags;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } screenRect;
+    NSString *frameAutosaveName;
+    struct CGSize { double width; double height; } maxSize;
+    struct CGSize { double width; double height; } contentMinSize;
+    struct CGSize { double width; double height; } contentMaxSize;
+    unsigned long long windowBackingLocation;
+    unsigned long long windowSharingType;
+    BOOL autorecalculateContentBorderThicknesses[4];
+    double contentBorderThicknesses[4];
+    NSString *userInterfaceIdentifier;
+    unsigned long long animationBehavior;
+    unsigned long long collectionBehavior;
+    BOOL isRestorableWasDecodedFromArchive;
+    struct CGSize { double width; double height; } _minFullScreenContentSize;
+    struct CGSize { double width; double height; } _maxFullScreenContentSize;
+}
+
+@property (copy) NSString *title;
+@property (copy) NSString *subtitle;
+@property (copy) NSString *className;
+@property unsigned long long styleMask;
+@property unsigned long long backingType;
+@property (getter=isOneShot) BOOL oneShot;
+@property (getter=hasDynamicDepthLimit) BOOL dynamicDepthLimit;
+@property (getter=isDeferred) BOOL deferred;
+@property (getter=isReleasedWhenClosed) BOOL releasedWhenClosed;
+@property BOOL hidesOnDeactivate;
+@property BOOL wantsToBeColor;
+@property unsigned long long autoPositionMask;
+@property (copy) NSString *frameAutosaveName;
+@property struct CGSize { double x0; double x1; } minSize;
+@property struct CGSize { double x0; double x1; } maxSize;
+@property BOOL allowsToolTipsWhenApplicationIsInactive;
+@property BOOL hasShadow;
+@property BOOL autorecalculatesKeyViewLoop;
+@property (retain) NSToolbar *toolbar;
+@property unsigned long long windowSharingType;
+@property unsigned long long windowBackingLocation;
+@property struct CGSize { double x0; double x1; } contentMinSize;
+@property struct CGSize { double x0; double x1; } contentMaxSize;
+@property BOOL showsToolbarButton;
+@property long long animationBehavior;
+@property unsigned long long collectionBehavior;
+@property (getter=isRestorable) BOOL restorable;
+@property (retain, nonatomic) NSAppearance *appearance;
+@property (retain, nonatomic) NSViewController *contentViewController;
+@property struct CGSize { double x0; double x1; } minFullScreenContentSize;
+@property struct CGSize { double x0; double x1; } maxFullScreenContentSize;
+@property BOOL minFullScreenContentSizeIsSet;
+@property BOOL maxFullScreenContentSizeIsSet;
+@property (copy, nonatomic) NSString *tabbingIdentifier;
+@property long long tabbingMode;
+@property long long toolbarStyle;
+@property long long titleVisibility;
+@property BOOL titlebarAppearsTransparent;
+@property long long titlebarSeparatorStyle;
+@property long long contentTitlebarSeparatorStyle;
+@property long long level;
+@property (copy) NSString *identifier;
+
++ (void)initialize;
+
+- (void)dealloc;
+- (id)init;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void)setUserInterfaceItemIdentifier:(id)a0;
+- (BOOL)autorecalculatesContentBorderThicknessForEdge:(unsigned long long)a0;
+- (double)contentBorderThicknessForEdge:(unsigned long long)a0;
+- (unsigned long long)interfaceStyle;
+- (id)nibInstantiate;
+- (void)setAutorecalculatesContentBorderThickness:(BOOL)a0 forEdge:(unsigned long long)a1;
+- (void)setContentBorderThickness:(double)a0 forEdge:(unsigned long long)a1;
+- (void)setInterfaceStyle:(unsigned long long)a0;
+- (id)userInterfaceItemIdentifier;
+- (Class)windowClassForNibInstantiate;
+
+@end

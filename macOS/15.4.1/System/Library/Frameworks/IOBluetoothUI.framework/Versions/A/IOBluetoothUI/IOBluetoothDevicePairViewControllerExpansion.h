@@ -1,0 +1,3 @@
+@interface IOBluetoothDevicePairViewControllerExpansion : NSObject
+
+@end

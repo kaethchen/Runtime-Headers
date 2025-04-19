@@ -1,0 +1,3 @@
+@interface _TtCV16ContactsAccounts16AccountContainer10LoadMethod : _TtCs12_SwiftObject
+
+@end

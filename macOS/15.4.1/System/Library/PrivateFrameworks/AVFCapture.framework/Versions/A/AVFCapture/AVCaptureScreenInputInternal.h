@@ -1,0 +1,3 @@
+@interface AVCaptureScreenInputInternal : NSObject
+
+@end

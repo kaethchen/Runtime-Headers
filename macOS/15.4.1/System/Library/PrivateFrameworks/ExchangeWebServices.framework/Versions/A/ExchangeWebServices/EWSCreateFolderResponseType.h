@@ -1,0 +1,3 @@
+@interface EWSCreateFolderResponseType : EWSBaseMessageResponseType
+
+@end

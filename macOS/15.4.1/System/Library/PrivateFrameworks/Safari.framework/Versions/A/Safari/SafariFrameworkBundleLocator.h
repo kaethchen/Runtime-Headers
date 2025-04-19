@@ -1,0 +1,3 @@
+@interface SafariFrameworkBundleLocator : NSObject
+
+@end

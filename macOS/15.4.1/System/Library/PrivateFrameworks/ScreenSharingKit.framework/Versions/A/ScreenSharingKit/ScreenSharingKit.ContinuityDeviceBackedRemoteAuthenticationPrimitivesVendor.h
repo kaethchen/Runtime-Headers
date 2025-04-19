@@ -1,0 +1,3 @@
+@interface ScreenSharingKit.ContinuityDeviceBackedRemoteAuthenticationPrimitivesVendor : _TtCs12_SwiftObject
+
+@end

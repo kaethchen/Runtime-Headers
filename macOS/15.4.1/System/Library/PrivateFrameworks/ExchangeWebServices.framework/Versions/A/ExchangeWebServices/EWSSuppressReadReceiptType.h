@@ -1,0 +1,3 @@
+@interface EWSSuppressReadReceiptType : EWSReferenceItemResponseType
+
+@end

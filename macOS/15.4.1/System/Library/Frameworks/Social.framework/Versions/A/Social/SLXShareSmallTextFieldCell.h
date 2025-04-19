@@ -1,0 +1,3 @@
+@interface SLXShareSmallTextFieldCell : NSTextFieldCell
+
+@end

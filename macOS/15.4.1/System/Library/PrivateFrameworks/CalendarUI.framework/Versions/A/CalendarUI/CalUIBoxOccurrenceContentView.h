@@ -1,0 +1,97 @@
+@class NSDate, NSString, NSArray, EKEvent, CalDrawOccurrenceColor, CalDrawOccurrenceColorImage, CalUIBoxOccurrenceTravelTimeView, NSView, NSLayoutConstraint, CalDrawTileOptions;
+@protocol CalUIBoxOccurrenceContentViewDelegate, OccurrenceView;
+
+@interface CalUIBoxOccurrenceContentView : CalUILayerBackedView <CUIKSingleDayTimelineViewItem> {
+    NSLayoutConstraint *_contentSpecificHeightConstraint;
+    NSLayoutConstraint *_contentPinnedToBottomConstraint;
+    NSLayoutConstraint *_contentPinnedToTopConstraint;
+    NSLayoutConstraint *_colorBarPinnedToTopConstraint;
+    NSView *_colorBarView;
+    NSView<OccurrenceView> *_contentView;
+    CalDrawTileOptions *_cachedTileOptions;
+}
+
+@property (weak, nonatomic) id<CalUIBoxOccurrenceContentViewDelegate> delegate;
+@property (nonatomic) double travelTimeHeight;
+@property (nonatomic) double visibleHeight;
+@property (nonatomic) BOOL showsTravelTime;
+@property (nonatomic) struct CGSize { double width; double height; } singleLineTitleSize;
+@property double currentFontSize;
+@property (retain, nonatomic) NSArray *allEvents;
+@property (retain, nonatomic) EKEvent *displayEvent;
+@property (nonatomic) unsigned long long layoutType;
+@property (retain) CalDrawOccurrenceColor *color;
+@property (retain) CalDrawOccurrenceColorImage *backgroundImage;
+@property BOOL visibleHeightLocked;
+@property (retain) CalUIBoxOccurrenceTravelTimeView *travelTimeView;
+@property (readonly, nonatomic) NSDate *startWithTravelTime;
+@property (readonly, nonatomic) NSDate *start;
+@property (readonly, nonatomic) NSDate *end;
+@property (readonly, nonatomic) NSString *eventIdentifier;
+@property (readonly, nonatomic) BOOL hideTravelTime;
+@property (readonly, nonatomic) double enoughHeightForOneLine;
+@property (readonly, nonatomic) double viewMaxNaturalTextHeight;
+@property struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } unPinnedViewFrame;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)_cachedImageWithName:(id)a0;
++ (BOOL)_shouldShowColorBarWithIsSelected:(BOOL)a0 isAllDay:(BOOL)a1 isReminder:(BOOL)a2;
++ (id)aTextField;
++ (double)barToBarHorizontalDistanceIncludingBarWidth;
+
+- (void).cxx_destruct;
+- (id)initWithDelegate:(id)a0;
+- (id)endDate;
+- (id)startDate;
+- (BOOL)isSelected;
+- (id)textColor;
+- (id)titleFont;
+- (void)updateLayer;
+- (BOOL)updateWithEvent:(id)a0;
+- (BOOL)wantsUpdateLayer;
+- (BOOL)allDay;
+- (id)secondaryTextColor;
+- (BOOL)isProposal;
+- (id)_attributedStringFromAttributedString:(id)a0 strikethrough:(BOOL)a1 font:(id)a2 color:(id)a3;
+- (void)setStagedFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)_attributedStringFromString:(id)a0 strikethrough:(BOOL)a1 font:(id)a2 color:(id)a3;
+- (id)_attributesWithStrikethrough:(BOOL)a0 font:(id)a1 color:(id)a2;
+- (BOOL)_event1:(id)a0 ordersBeforeEvent2:(id)a1;
+- (BOOL)_isReminder;
+- (BOOL)_isReminderStack;
+- (BOOL)_shouldShowColorBar;
+- (void)_updateConstraintsForVisibleHeightLocked;
+- (void)_updateToLayoutType:(unsigned long long)a0;
+- (id)firstTextField;
+- (void)forceVisibleHeightToUnlocked;
+- (BOOL)hasPrecedingDuration;
+- (BOOL)hasTrailingDuration;
+- (BOOL)isDimmed;
+- (id)locationFont;
+- (id)moreColor;
+- (id)moreFont;
+- (long long)myParticipantStatus;
+- (BOOL)occurrenceIsFirstVisibleDayOfEvent;
+- (void)rebuildString;
+- (int)reminderStackDepth;
+- (void)resetInsets;
+- (BOOL)shouldDragCompletionProposeNewTime;
+- (BOOL)shouldInsetForEnclosingScrollView;
+- (BOOL)shouldShowTravelTime;
+- (double)sideBySideGracePeriodForFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })stagedFrame;
+- (id)tileOptions;
+- (id)timeFont;
+- (id)titleIncludingNewDotIfApplicable:(id)a0 strikethrough:(BOOL)a1;
+- (void)updateColorBarColor;
+- (void)updateInsets;
+- (void)updateTravelTimeColors;
+- (void)updateTravelTimeView;
+- (BOOL)updateWithEvent:(id)a0 rebuild:(BOOL)a1;
+- (BOOL)updateWithEvents:(id)a0 rebuild:(BOOL)a1;
+- (BOOL)wantsTentativeAppearance;
+
+@end

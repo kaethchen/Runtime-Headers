@@ -1,0 +1,3 @@
+@interface _TtCC9ChronoKit19ChronoMetadataStore23MutablePublicTokenStore : _TtCC9ChronoKit19ChronoMetadataStore16PublicTokenStore
+
+@end

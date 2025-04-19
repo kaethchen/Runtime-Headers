@@ -1,0 +1,3 @@
+@interface _TtC3PALP33_F9C7F0B52E8E0CA251D89635649421D925_WorkAroundRadar116406681 : _TtCs12_SwiftObject
+
+@end

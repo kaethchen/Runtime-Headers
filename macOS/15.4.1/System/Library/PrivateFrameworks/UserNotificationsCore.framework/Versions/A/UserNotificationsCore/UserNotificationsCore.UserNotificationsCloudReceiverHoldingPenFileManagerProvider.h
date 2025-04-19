@@ -1,0 +1,3 @@
+@interface UserNotificationsCore.UserNotificationsCloudReceiverHoldingPenFileManagerProvider : _TtCs12_SwiftObject
+
+@end

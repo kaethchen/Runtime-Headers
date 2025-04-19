@@ -1,0 +1,71 @@
+@class NSString;
+
+@interface CASubjectAltNameExtension : NSObject {
+    BOOL _caDoneCASubjectAltNameExts;
+    struct __CE_GeneralName { int x0; int x1; struct cssm_data { unsigned long long x0; char *x1; } x2; } *_subjectAltNames;
+    int _caSubjectAltNamePresent;
+    int _caSubjectAltNameIsCritical;
+    NSString *_caRFC822Name;
+    char **_caRFC822NamesArray;
+    int _caNumRFC822Names;
+    NSString *_caURI;
+    char **_caURIArray;
+    int _caNumURIs;
+    NSString *_caDNSName;
+    char **_caDNSNameArray;
+    int _caNumDNSNames;
+    NSString *_caIPAddress;
+    unsigned int *_ipAddressIntArray;
+    int _caNumIPAddresses;
+    int _caCertAuthoritySubjectAltNamePresent;
+    int _caCertAuthoritySubjectAltNameIsCritical;
+    NSString *_caCertAuthorityRFC822Name;
+    NSString *_caCertAuthorityURI;
+    NSString *_caCertAuthorityDNSName;
+    NSString *_caCertAuthorityIPAddress;
+    int _caUserSubjectAltNamePresent;
+    int _caUserSubjectAltNameIsCritical;
+    NSString *_caUserRFC822Name;
+    NSString *_caUserURI;
+    NSString *_caUserDNSName;
+    NSString *_caUserIPAddress;
+}
+
+- (void)dealloc;
+- (id)init;
+- (void)_setURI:(id)a0;
+- (id)_uri;
+- (void)_setIsCritical:(id)a0;
+- (void)_setRFC822Name:(id)a0;
+- (BOOL)_alreadySpecifiedCertAuthorityValues;
+- (BOOL)_areIPAddressesValid:(BOOL)a0;
+- (id)_dnsName;
+- (void)_fillInValuesInExtension:(struct __CE_DataAndType { int x0; union { struct __CE_AuthorityKeyID { int x0; struct cssm_data { unsigned long long x0; char *x1; } x1; int x2; struct __CE_GeneralNames *x3; int x4; struct cssm_data { unsigned long long x0; char *x1; } x5; } x0; struct cssm_data { unsigned long long x0; char *x1; } x1; unsigned short x2; struct __CE_GeneralNames { unsigned int x0; struct __CE_GeneralName *x1; } x3; struct __CE_GeneralNames { unsigned int x0; struct __CE_GeneralName *x1; } x4; struct __CE_ExtendedKeyUsage { unsigned int x0; struct cssm_data *x1; } x5; struct __CE_BasicConstraints { int x0; int x1; unsigned int x2; } x6; struct __CE_CertPolicies { unsigned int x0; struct __CE_PolicyInformation *x1; } x7; unsigned short x8; unsigned int x9; unsigned int x10; unsigned int x11; struct __CE_CRLDistPointsSyntax { unsigned int x0; struct __CE_CRLDistributionPoint *x1; } x12; struct __CE_IssuingDistributionPoint { struct __CE_DistributionPointName *x0; int x1; int x2; int x3; int x4; int x5; unsigned char x6; int x7; int x8; } x13; struct __CE_AuthorityInfoAccess { unsigned int x0; struct __CE_AccessDescription *x1; } x14; struct __CE_QC_Statements { unsigned int x0; struct __CE_QC_Statement *x1; } x15; struct __CE_NameConstraints { struct __CE_GeneralSubtrees *x0; struct __CE_GeneralSubtrees *x1; } x16; struct __CE_PolicyMappings { unsigned int x0; struct __CE_PolicyMapping *x1; } x17; struct __CE_PolicyConstraints { int x0; unsigned int x1; int x2; unsigned int x3; } x18; unsigned int x19; struct cssm_data { unsigned long long x0; char *x1; } x20; } x1; int x2; } *)a0 isCACertBeingCreated:(BOOL)a1 extensionIsPresent:(BOOL *)a2;
+- (id)_ipAddress;
+- (int)_isCritical;
+- (int)_isPresent;
+- (void)_releaseDNSNamesArray;
+- (void)_releaseRFC822NamesArray;
+- (void)_releaseURIArray;
+- (id)_rfc822Name;
+- (void)_saveCertAuthorityPanelValues;
+- (void)_saveUserPanelValues;
+- (void)_setAlreadySpecifiedCertAuthorityValues:(BOOL)a0;
+- (void)_setDNSName:(id)a0;
+- (void)_setIPAddress:(id)a0;
+- (void)_setIsPresent:(id)a0;
+- (void)_setServerDNSNameSetting:(id)a0;
+- (void)_setToDefaults;
+- (void)_setToSMIMEWithRFC822Name:(id)a0;
+- (void)_setUserDNSNames:(id)a0;
+- (void)_setUserIPAddrs:(id)a0;
+- (void)_setUserRFC822Name:(id)a0;
+- (void)_setUserURIs:(id)a0;
+- (void)_setupDNSNames:(id)a0 inCEGeneralNames:(struct __CE_GeneralNames { unsigned int x0; struct __CE_GeneralName *x1; } *)a1;
+- (void)_setupIPAddresses:(unsigned int *)a0 numIPAddresses:(int)a1 inCEGeneralNames:(struct __CE_GeneralNames { unsigned int x0; struct __CE_GeneralName *x1; } *)a2;
+- (void)_setupRFC822Names:(id)a0 inCEGeneralNames:(struct __CE_GeneralNames { unsigned int x0; struct __CE_GeneralName *x1; } *)a1;
+- (void)_setupURIs:(id)a0 inCEGeneralNames:(struct __CE_GeneralNames { unsigned int x0; struct __CE_GeneralName *x1; } *)a1;
+- (void)_updatePanelToCertAuthorityValues;
+- (void)_updatePanelToUserValues;
+
+@end

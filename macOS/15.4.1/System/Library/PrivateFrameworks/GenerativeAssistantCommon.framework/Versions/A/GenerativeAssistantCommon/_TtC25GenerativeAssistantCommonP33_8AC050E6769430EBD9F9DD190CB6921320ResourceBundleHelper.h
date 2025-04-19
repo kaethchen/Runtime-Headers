@@ -1,0 +1,3 @@
+@interface _TtC25GenerativeAssistantCommonP33_8AC050E6769430EBD9F9DD190CB6921320ResourceBundleHelper : _TtCs12_SwiftObject
+
+@end

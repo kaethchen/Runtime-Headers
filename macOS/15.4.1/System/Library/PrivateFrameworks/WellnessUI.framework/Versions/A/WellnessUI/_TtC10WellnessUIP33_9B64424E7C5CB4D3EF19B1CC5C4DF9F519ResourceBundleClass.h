@@ -1,0 +1,3 @@
+@interface _TtC10WellnessUIP33_9B64424E7C5CB4D3EF19B1CC5C4DF9F519ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

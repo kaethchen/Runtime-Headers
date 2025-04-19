@@ -1,0 +1,82 @@
+@class AnalyticsReader, AnalyticsProcessor, AnalyticsStoreFileWriter, WAAnalyticsAccess, NSError, NSObject, NSPersistentContainer;
+@protocol OS_dispatch_queue;
+
+@interface WADeviceAnalyticsClient : NSObject
+
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *dispatchQueue;
+@property (retain, nonatomic) NSPersistentContainer *persistentContainer;
+@property BOOL storeLoaded;
+@property (retain) NSError *storeLoadError;
+@property (retain, nonatomic) AnalyticsReader *analyticsReaderObj;
+@property (retain, nonatomic) AnalyticsProcessor *analyticsProcessorObj;
+@property (retain, nonatomic) AnalyticsStoreFileWriter *analyticsFileWriterObj;
+@property (retain, nonatomic) WAAnalyticsAccess *analyticsRawAccessObj;
+
++ (void)addPersistentStoreRemoteChangeNotificationObserver:(id)a0 selector:(SEL)a1 coordinator:(id)a2;
++ (void)removePersistentStoreRemoteChangeNotificationObserver:(id)a0 coordinator:(id)a1;
++ (id)sharedDeviceAnalyticsClient;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (unsigned long long)countForFetchRequest:(id)a0 error:(id *)a1;
+- (id)analyticsReader;
+- (void)releaseBackgroundFileWritingMOC;
+- (id)copyGeoTagsForNetwork:(id)a0 location:(id)a1;
+- (id)updateRoamPoliciesAndSummarizeAnalyticsForNetwork:(id)a0 maxAgeInDays:(unsigned long long)a1;
+- (void)addPersistentStoreRemoteChangeNotificationObserver:(id)a0 selector:(SEL)a1;
+- (void)ageOutAnalytics:(double)a0;
+- (id)analyticsFileWriter;
+- (id)analyticsProcessor;
+- (id)analyticsRawAccess;
+- (id)apProfileForBssid:(id)a0 andSSID:(id)a1;
+- (long long)autoLeaveRssiForBSS:(id)a0 ssid:(id)a1;
+- (id)copyAllStoredNetworkSsids;
+- (id)copyAllStoredNetworkSsidsWithColocatedScopeId:(id)a0;
+- (id)copyAllStoredNetworkSsidsWithTrait:(unsigned long long)a0;
+- (id)copyColocatedScopeIdForSsid:(id)a0;
+- (id)copyColocatedScopeTransitionInfo:(id)a0 bssid:(id)a1 minRssi:(int)a2 maxRssi:(int)a3 band:(unsigned int)a4;
+- (id)copyLocationsForNetwork:(id)a0;
+- (id)copyNetworkUsageDictionary:(id)a0;
+- (id)copyNetworksAvailableAtLocationWithinDistanceInBand:(id)a0 distance:(double)a1 band:(unsigned int)a2;
+- (id)copyPreferenceScoreDictionaryForNetwork:(id)a0;
+- (id)copyScoreSortedNetworksAvailableAtLocationWithinDistance:(id)a0 distance:(double)a1 authComparator:(id /* block */)a2;
+- (id)dumpDeploymentGraphJSONFile;
+- (BOOL)dumpDeploymentGraphJSONFileWithCompletion:(id /* block */)a0;
+- (id)dumpDeviceAnalyticsCSVsToFileWithBatchSize:(unsigned long long)a0 maxAge:(unsigned long long)a1;
+- (BOOL)dumpDeviceAnalyticsCSVsUsingBatchSizeToFileWithCompletion:(id /* block */)a0 batchSize:(unsigned long long)a1 maxAge:(unsigned long long)a2;
+- (id)dumpDeviceAnalyticsToFile;
+- (BOOL)dumpDeviceAnalyticsToFileWithCompletion:(id /* block */)a0;
+- (BOOL)dumpDeviceAnalyticsToFileWithCompletion:(id /* block */)a0 fetchLimit:(unsigned long long)a1 maxAge:(unsigned long long)a2;
+- (id)dumpDeviceAnalyticsToFileWithFetchLimit:(unsigned long long)a0 maxAge:(unsigned long long)a1;
+- (id)dumpDeviceAnalyticsUsingBatchSizeToFileWithBatchSize:(unsigned long long)a0 maxAge:(unsigned long long)a1;
+- (BOOL)dumpDeviceAnalyticsUsingBatchSizeToFileWithCompletion:(id /* block */)a0 batchSize:(unsigned long long)a1 maxAge:(unsigned long long)a2;
+- (struct { long long x0; long long x1; long long x2; })getPolicyHandlersConfig;
+- (BOOL)isHistoricallyBadLinkQualityNetwork:(id)a0;
+- (BOOL)isMovingNetwork:(id)a0;
+- (unsigned long long)isNetworkWithinRangeOfLocation:(id)a0 range:(double)a1 location:(id)a2;
+- (BOOL)isOmnipresentNetwork:(id)a0;
+- (void)loadStore;
+- (BOOL)loadStoreIfNeeded;
+- (unsigned long long)manualLeaveCountForBss:(id)a0 ssid:(id)a1;
+- (id)neighborChannelsForBSS:(id)a0 ssid:(id)a1;
+- (id)neighborsForBSS:(id)a0 ssid:(id)a1;
+- (BOOL)parsedBeaconInfoIsStored:(id)a0 ssid:(id)a1;
+- (id)performFetch:(id)a0 error:(id *)a1;
+- (void)performPruneBasedOnStoreSizeAndSave;
+- (void)performPruneTestBSSes:(id)a0;
+- (void)processDatapathMetricStream:(id)a0 withDate:(id)a1;
+- (void)processWAMessageMetric:(id)a0 data:(id)a1;
+- (void)processWAMessageMetric:(id)a0 data:(id)a1 andDeferSaveToDisk:(BOOL)a2;
+- (BOOL)rawAccessCanWrite;
+- (void)releaseBackgroundProcessingMOC;
+- (void)releaseBackgroundRawAccessMOC;
+- (void)releaseBackgroundReadingMOC;
+- (void)removePersistentStoreRemoteChangeNotificationObserver:(id)a0;
+- (void)resetBackgroundRawAccessMOC;
+- (void)resetBackgroundReadingMOC;
+- (long long)rssiRoamTriggerForBSS:(id)a0 ssid:(id)a1;
+- (BOOL)saveAndResetBackgroundProcessingMOC;
+- (void)setPolicyHandlersConfig:(struct { long long x0; long long x1; long long x2; })a0;
+
+@end

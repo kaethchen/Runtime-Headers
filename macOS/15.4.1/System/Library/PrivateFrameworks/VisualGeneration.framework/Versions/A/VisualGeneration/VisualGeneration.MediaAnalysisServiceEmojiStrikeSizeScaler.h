@@ -1,0 +1,3 @@
+@interface VisualGeneration.MediaAnalysisServiceEmojiStrikeSizeScaler : VisualGeneration.MediaAnalysisServiceImageScaler
+
+@end

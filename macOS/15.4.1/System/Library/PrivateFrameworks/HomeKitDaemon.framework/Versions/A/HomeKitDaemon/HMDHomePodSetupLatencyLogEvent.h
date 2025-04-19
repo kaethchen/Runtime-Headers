@@ -1,0 +1,72 @@
+@class NSString, NSDictionary, NSUUID;
+
+@interface HMDHomePodSetupLatencyLogEvent : HMMLogEvent <HMMCoreAnalyticsLogging>
+
+@property (nonatomic) long long sessionSetupOpenMS_HH1;
+@property (nonatomic) long long controllerKeyExchangeMS_HH1;
+@property (nonatomic) long long newAccessoryTransferMS_HH1;
+@property (nonatomic) long long sessionSetupCloseMS_HH1;
+@property (nonatomic) long long sentinelZoneFetchMS_HH1;
+@property (nonatomic) long long totalDurationMS_HH1;
+@property (nonatomic) long long accountSettleWaitMS_HH2;
+@property (nonatomic) long long currentDeviceIDSWaitMS_HH2;
+@property (nonatomic) long long homeManagerReadyMS_HH2;
+@property (nonatomic) long long firstCoreDataImportMS_HH2;
+@property (nonatomic) long long accessoryAddMS_HH2;
+@property (nonatomic) long long settingsCreationMS_HH2;
+@property (nonatomic) long long pairingIdentityCreationMS_HH2;
+@property (nonatomic) long long siriReadyMS_HH2;
+@property (nonatomic) long long eventRouterServerConnectionMS_HH2;
+@property (nonatomic) long long primaryResidentElectionMS_HH2;
+@property (nonatomic) long long eventRouterFirstEventPushMS_HH2;
+@property (nonatomic) long long totalDurationMS_HH2;
+@property (nonatomic) BOOL iCloudAvailable_INT;
+@property (nonatomic) BOOL IDSAvailable_INT;
+@property (nonatomic) long long IDSRegistrationStatus_INT;
+@property (nonatomic) long long IDSRegistrationError_INT;
+@property (nonatomic) BOOL manateeAvailable_INT;
+@property (nonatomic) BOOL networkAvailable_INT;
+@property (nonatomic) BOOL controllerInHH2_INT;
+@property (nonatomic) BOOL controllerHasSentinelZone_INT;
+@property (nonatomic) long long errorCode;
+@property (retain, nonatomic) NSString *errorDomain;
+@property (nonatomic) long long underlyingErrorCode;
+@property (retain, nonatomic) NSString *underlyingErrorDomain;
+@property (retain, nonatomic) NSString *errorStage_String;
+@property (retain, nonatomic) NSString *setupSessionIdentifier;
+@property (nonatomic) unsigned int numberOfTimesPrimaryResidentChanged_HH2;
+@property (nonatomic) unsigned long long lastPrimaryClientConnectedTime_HH2;
+@property (nonatomic) unsigned int numberOfTimesPrimaryClientConnected_HH2;
+@property (nonatomic) unsigned int numberOfTimesPrimaryClientDisconnected_HH2;
+@property (nonatomic) unsigned int numberOfTimesPrimaryClientConnectMessageFailed_HH2;
+@property (nonatomic) BOOL currentDeviceConfirmedPrimaryResident_INT;
+@property (nonatomic) long long lastPrimaryClientConnectMessageFailErrorCode_HH2;
+@property (retain, nonatomic) NSString *lastPrimaryClientConnectMessageFailErrorDomain_HH2;
+@property (nonatomic) long long lastPrimaryClientConnectMessageFailUnderlyingErrorCode_HH2;
+@property (retain, nonatomic) NSString *lastPrimaryClientConnectMessageFailUnderlyingErrorDomain_HH2;
+@property (nonatomic) long long primaryResidentElectionPeerDeviceFutureResolvedMS_HH2;
+@property (nonatomic) long long primaryResidentElectionFirstCloudKitImportFutureResolvedMS_HH2;
+@property (nonatomic) long long primaryResidentElectionModernTransportStartedFutureResolvedMS_HH2;
+@property (nonatomic) long long primaryResidentSelectionConnectedToStatusKitFutureResolvedMS_HH2;
+@property (nonatomic) long long primaryResidentElectionJoinMeshMS_HH2;
+@property (nonatomic) long long firstCoreDataContainerSetupDurationMS_HH2;
+@property (nonatomic) long long firstCoreDataContainerSetupErrorCode_HH2;
+@property (retain, nonatomic) NSString *firstCoreDataContainerSetupErrorDomain_HH2;
+@property (nonatomic) long long firstCoreDataContainerSetupUnderlyingErrorCode_HH2;
+@property (retain, nonatomic) NSString *firstCoreDataContainerSetupUnderlyingErrorDomain_HH2;
+@property (nonatomic) unsigned long long savedEventState;
+@property (readonly, copy, nonatomic) NSString *coreAnalyticsEventName;
+@property (readonly, copy, nonatomic) NSDictionary *coreAnalyticsEventDictionary;
+@property (readonly, nonatomic) unsigned long long coreAnalyticsEventOptions;
+@property (readonly, nonatomic) NSUUID *homeUUID;
+@property (readonly, copy, nonatomic) NSString *accessoryIdentifier;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (id)initLogEventWithInitialState:(unsigned long long)a0;
+- (id)initWithSessionSetupOpenMS_HH1:(long long)a0 controllerKeyExchangeMS_HH1:(long long)a1 newAccessoryTransferMS_HH1:(long long)a2 sessionSetupCloseMS_HH1:(long long)a3 sentinelZoneFetchMS_HH1:(long long)a4 totalDurationMS_HH1:(long long)a5 accountSettleWaitMS_HH2:(long long)a6 currentDeviceIDSWaitMS_HH2:(long long)a7 homeManagerReadyMS_HH2:(long long)a8 firstCoreDataImportMS_HH2:(long long)a9 accessoryAddMS_HH2:(long long)a10 settingsCreationMS_HH2:(long long)a11 pairingIdentityCreationMS_HH2:(long long)a12 siriReadyMS_HH2:(long long)a13 eventRouterServerConnectionMS_HH2:(long long)a14 primaryResidentElectionMS_HH2:(long long)a15 eventRouterFirstEventPushMS_HH2:(long long)a16 totalDurationMS_HH2:(long long)a17 iCloudAvailable_INT:(BOOL)a18 IDSAvailable_INT:(BOOL)a19 manateeAvailable_INT:(BOOL)a20 networkAvailable_INT:(BOOL)a21 controllerInHH2_INT:(BOOL)a22 controllerHasSentinelZone_INT:(BOOL)a23 errorCode:(long long)a24 errorDomain:(id)a25 underlyingErrorCode:(long long)a26 underlyingErrorDomain:(id)a27 errorStage_String:(id)a28 setupSessionIdentifier:(id)a29 numberOfTimesPrimaryResidentChanged_HH2:(unsigned int)a30 lastPrimaryClientConnectedTime_HH2:(long long)a31 numberOfTimesPrimaryClientConnected_HH2:(unsigned int)a32 numberOfTimesPrimaryClientDisconnected_HH2:(unsigned int)a33 numberOfTimesPrimaryClientConnectMessageFailed_HH2:(unsigned int)a34 currentDeviceConfirmedPrimaryResident_INT:(BOOL)a35 lastPrimaryClientConnectMessageFailErrorCode_HH2:(long long)a36 lastPrimaryClientConnectMessageFailErrorDomain_HH2:(id)a37 lastPrimaryClientConnectMessageFailUnderlyingErrorCode_HH2:(long long)a38 lastPrimaryClientConnectMessageFailUnderlyingErrorDomain_HH2:(id)a39 primaryResidentElectionPeerDeviceFutureResolvedMS_HH2:(long long)a40 primaryResidentElectionFirstCloudKitImportFutureResolvedMS_HH2:(long long)a41 primaryResidentElectionModernTransportStartedFutureResolvedMS_HH2:(long long)a42 primaryResidentSelectionConnectedToStatusKitFutureResolvedMS_HH2:(long long)a43 primaryResidentElectionJoinMeshMS_HH2:(long long)a44 firstCoreDataContainerSetupDurationMS_HH2:(long long)a45 firstCoreDataContainerSetupErrorCode_HH2:(long long)a46 firstCoreDataContainerSetupErrorDomain_HH2:(id)a47 firstCoreDataContainerSetupUnderlyingErrorCode_HH2:(long long)a48 firstCoreDataContainerSetupUnderlyingErrorDomain_HH2:(id)a49 savedEventState:(unsigned long long)a50;
+
+@end

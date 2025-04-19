@@ -1,0 +1,3 @@
+@interface TRITricounterfactualLoggingRoot : TRIPBRootObject
+
+@end

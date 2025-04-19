@@ -1,0 +1,3 @@
+@interface APOdmlSLPResponseParser : NSObject
+
+@end

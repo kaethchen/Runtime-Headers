@@ -1,0 +1,3 @@
+@interface _TtC20ExtensionKitSettingsP33_832D1947A1916E9EAB8092D5818BC4F331ExtensionPointGroupManagerActor : _TtCs12_SwiftObject
+
+@end

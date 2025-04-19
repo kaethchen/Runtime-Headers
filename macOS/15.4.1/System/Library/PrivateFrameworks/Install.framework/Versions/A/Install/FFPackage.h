@@ -1,0 +1,80 @@
+@class NSLock, NSString, NSArray, NSData, IFArchive, IFCertificateIdentity, IFInstallPlan, IFUpgradeHints;
+
+@interface FFPackage : PFModule {
+    int _formatVersion;
+    IFArchive *_archive;
+    NSString *_subPath;
+    long long _payloadOffset;
+    BOOL _hasPayload;
+    BOOL _hasScripts;
+    BOOL _overwritePermissions;
+    BOOL _hasPatch;
+    NSString *_scriptTmpDir;
+    NSArray *_preinstallScripts;
+    NSArray *_postinstallScripts;
+    IFInstallPlan *_installPlan;
+    NSArray *_searchModules;
+    IFUpgradeHints *_hints;
+    NSArray *_dependencies;
+    NSData *_bomBuffer;
+    struct _BOMStorage { } *_bomStorage;
+    struct _BOMBom { } *_bom;
+    struct _BOMBomEnumerator { } *_bomEnum;
+    NSLock *_fileEnumeratorLock;
+    IFCertificateIdentity *_certificateIdentity;
+}
+
++ (id)moduleName;
++ (id)packageFileTypes;
+
+- (void)dealloc;
+- (id)description;
+- (id)name;
+- (id)identifier;
+- (id)version;
+- (id)initWithURL:(id)a0 error:(id *)a1;
+- (id)groups;
+- (void)skipDescendents;
+- (id)dependencies;
+- (id)title;
+- (int)capabilities;
+- (id)information;
+- (id)_archive;
+- (BOOL)validateContents:(id *)a0;
+- (id)_firstElementWithName:(id)a0 fromNode:(id)a1;
+- (BOOL)_retrieveComponentsFromElement:(id)a0;
+- (void)_closeArchiveFile;
+- (BOOL)_createHintsObjectFromElement:(id)a0;
+- (void)releaseFileData;
+- (id)_elementsWithName:(id)a0 fromNode:(id)a1;
+- (struct _BOMBom { } *)_bom;
+- (id)validatedDigest;
+- (BOOL)_extractScriptsToPath:(id)a0;
+- (BOOL)_findPayloadOffset:(long long *)a0;
+- (id)_generateScriptForScripts:(id)a0 withContext:(id)a1;
+- (id)_installPathForScriptDict:(id)a0 withContext:(id)a1;
+- (BOOL)_loadLocationSearchesFromElement:(id)a0;
+- (id)_numberForAttribute:(id)a0 inElement:(id)a1;
+- (id)_pathForResource:(id)a0;
+- (BOOL)_readPackageInfoWithName:(id)a0;
+- (void)_releaseBOM;
+- (BOOL)_retrieveGroupsFromElement:(id)a0 into:(id)a1;
+- (BOOL)_retrievePayloadInfoFromElement:(id)a0 into:(id)a1;
+- (BOOL)_retrieveScriptsInfoFromElement:(id)a0 into:(id)a1;
+- (BOOL)_retrieveTaintsFromElement:(id)a0 into:(id)a1;
+- (id)_stringForAttribute:(id)a0 inElement:(id)a1;
+- (id)certificateIdentity;
+- (id)digestOfType:(id)a0;
+- (struct _BOMFSObject { } *)fileAtPath:(const char *)a0;
+- (BOOL)hasAction:(id)a0;
+- (BOOL)initFileEnumerator;
+- (id)installPlan;
+- (struct _BOMFSObject { } *)nextFile;
+- (id)objectForKey:(id)a0 localization:(id)a1;
+- (void)resetFileEnumerator;
+- (id)searchDefinitions;
+- (id)taints;
+- (id)taskForAction:(id)a0 withContextDictionary:(id)a1;
+- (id)taskForExtractionWithPlan:(id)a0 toDirectory:(id)a1;
+
+@end

@@ -1,0 +1,3 @@
+@interface ABCDPhoneNumber : CNCDPhoneNumber
+
+@end

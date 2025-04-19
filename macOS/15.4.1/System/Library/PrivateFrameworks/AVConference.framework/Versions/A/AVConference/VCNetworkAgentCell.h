@@ -1,0 +1,3 @@
+@interface VCNetworkAgentCell : VCObject
+
+@end

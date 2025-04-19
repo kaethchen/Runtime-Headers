@@ -1,0 +1,3 @@
+@interface VKBaseTextPosition : NSObject
+
+@end

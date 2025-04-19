@@ -1,0 +1,91 @@
+@class UXView, NSString, NSLayoutGuide, PXStoryRecipeManager, PXUpdater, PXStoryTVInfoPanelButton, UXLabel, UXImageView, NSLayoutConstraint, PXStoryModel, PXStoryViewModel, PXStoryTVInfoPanelViewConfiguration;
+
+@interface PXStoryTVInfoPanelView : UXView <PXChangeObserver, PXGReusableView> {
+    NSLayoutGuide *_focusGuide;
+    UXView *_visualEffectView;
+    PXStoryTVInfoPanelButton *_infoButton;
+    UXView *_assetContainerView;
+    UXLabel *_titleLabel;
+    UXImageView *_musicSymbolView;
+    UXLabel *_musicLabel;
+    UXImageView *_colorGradeSymbolView;
+    UXLabel *_colorGradeLabel;
+    UXLabel *_footerLabel;
+    NSLayoutConstraint *_panelMarginConstraintLeading;
+    NSLayoutConstraint *_panelMarginConstraintTrailing;
+    NSLayoutConstraint *_panelMarginConstraintBottom;
+    NSLayoutConstraint *_panelHeightConstraint;
+    NSLayoutConstraint *_infoButtonLeadingConstraint;
+    NSLayoutConstraint *_infoButtonBottomConstraint;
+    NSLayoutConstraint *_infoButtonHeightConstraint;
+    NSLayoutConstraint *_assetContainerConstraintTop;
+    NSLayoutConstraint *_assetContainerConstraintBottom;
+    NSLayoutConstraint *_assetContainerConstraintLeading;
+    NSLayoutConstraint *_assetContainerConstraintAspectRatio;
+    NSLayoutConstraint *_titleLabelBaselineConstraint;
+    NSLayoutConstraint *_musicSymbolCenterConstraint;
+    NSLayoutConstraint *_colorGradeSymbolCenterConstraint;
+    NSLayoutConstraint *_musicLabelLeadingConstraint;
+    NSLayoutConstraint *_musicLabelTrailingConstraint;
+    NSLayoutConstraint *_titleToMetadataBaselineConstraint;
+    NSLayoutConstraint *_musicToColorGradeBaselineConstraint;
+    NSLayoutConstraint *_colorGradeLabelLeadingConstraint;
+    NSLayoutConstraint *_colorGradeLabelTrailingConstraint;
+    NSLayoutConstraint *_footerLabelBaselineConstraint;
+    NSLayoutConstraint *_titleLabelLeadingConstraint;
+    NSLayoutConstraint *_footerLabelLeadingConstraint;
+    NSLayoutConstraint *_titleLabelTrailingConstraint;
+    NSLayoutConstraint *_footerLabelTrailingConstraint;
+}
+
+@property (readonly, nonatomic) PXUpdater *updater;
+@property (retain, nonatomic) PXStoryViewModel *viewModel;
+@property (retain, nonatomic) PXStoryModel *mainModel;
+@property (retain, nonatomic) PXStoryRecipeManager *recipeManager;
+@property (copy, nonatomic) PXStoryTVInfoPanelViewConfiguration *userData;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } clippingRect;
+@property (readonly, nonatomic) BOOL shouldReuseWhenInvisible;
+@property (readonly, nonatomic) BOOL canUnloadWhenInvisible;
+@property (readonly, nonatomic) BOOL isFloating;
+
++ (struct CGSize { double x0; double x1; })sizeThatFits:(struct CGSize { double x0; double x1; })a0;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)prepareForReuse;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)layoutSubviews;
+- (void)_dismiss;
+- (void)_updateContentAlpha;
+- (void)_setNeedsUpdate;
+- (void)_updateTitleLabel;
+- (void)observable:(id)a0 didChange:(unsigned long long)a1 context:(void *)a2;
+- (void)_updateCompositingFilters;
+- (void)addHostedLayer:(id)a0;
+- (void)addHostedView:(id)a0;
+- (void)becomeReusable;
+- (struct CGPoint { double x0; double x1; })convertHostedChildCenter:(struct CGPoint { double x0; double x1; })a0 fromGlobalLayer:(id)a1;
+- (void)_reuseAssetView;
+- (void)_updateKeyAsset;
+- (void)_invalidateAutolayoutConstraints;
+- (void)_invalidateColorGradeLabel;
+- (void)_invalidateCompositingFilters;
+- (void)_invalidateContentAlpha;
+- (void)_invalidateFooterLabel;
+- (void)_invalidateKeyAsset;
+- (void)_invalidateMainModel;
+- (void)_invalidateMusicLabel;
+- (void)_invalidateRecipeManager;
+- (void)_invalidateTitleLabel;
+- (void)_updateAutolayoutConstraints;
+- (void)_updateColorGradeLabel;
+- (void)_updateFooterLabel;
+- (void)_updateMainModel;
+- (void)_updateMusicLabel;
+- (void)_updateRecipeManager;
+
+@end

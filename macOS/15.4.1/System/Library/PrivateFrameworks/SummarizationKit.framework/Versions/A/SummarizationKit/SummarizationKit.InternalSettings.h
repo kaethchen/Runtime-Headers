@@ -1,0 +1,53 @@
+@interface SummarizationKit.InternalSettings : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ _isVerboseLoggingEnabled;
+    void /* unknown type, empty encoding */ _isSensitiveLoggingEnabled;
+    void /* unknown type, empty encoding */ _minimumInputLength;
+    void /* unknown type, empty encoding */ _minimumTextAssistantInputLength;
+    void /* unknown type, empty encoding */ _minimumBubbleGumInputLength;
+    void /* unknown type, empty encoding */ _supportedLanguageCheckEnabled;
+    void /* unknown type, empty encoding */ _languagesEligibleForSummarizationOverride;
+    void /* unknown type, empty encoding */ _minimumLanguageGatingInputLength;
+    void /* unknown type, empty encoding */ _useFreeTextPathForSingleEmailSynopsis;
+    void /* unknown type, empty encoding */ _useFreeTextPathForEmailThreadSynopsis;
+    void /* unknown type, empty encoding */ _maximumNotificationStackSize;
+    void /* unknown type, empty encoding */ _deduplicateNotificationThreadTitlesAndSubtitlesForLanguageGating;
+    void /* unknown type, empty encoding */ _shouldRetryOnTooManyTokensError;
+    void /* unknown type, empty encoding */ _tooManyTokensRetryPadding;
+    void /* unknown type, empty encoding */ _isUnreadForMailEnabledLocales;
+    void /* unknown type, empty encoding */ _isModelSafetyEnabled;
+    void /* unknown type, empty encoding */ _isFactualConsistencyClassifierEnabledOverride;
+    void /* unknown type, empty encoding */ _maximumTokens;
+    void /* unknown type, empty encoding */ _maximumTokensGlobalOverride;
+    void /* unknown type, empty encoding */ _maximumTokensOverrides;
+    void /* unknown type, empty encoding */ _topK;
+    void /* unknown type, empty encoding */ _languageRecognizerTopK;
+    void /* unknown type, empty encoding */ _nucleusSamplingThreshold;
+    void /* unknown type, empty encoding */ _temperature;
+    void /* unknown type, empty encoding */ _randomSeed;
+    void /* unknown type, empty encoding */ _promptLookupDraftSteps;
+    void /* unknown type, empty encoding */ _timeout;
+    void /* unknown type, empty encoding */ _timeoutGlobalOverride;
+    void /* unknown type, empty encoding */ _timeoutOverrides;
+    void /* unknown type, empty encoding */ _serverTopK;
+    void /* unknown type, empty encoding */ _serverNucleusSamplingThreshold;
+    void /* unknown type, empty encoding */ _serverTemperature;
+    void /* unknown type, empty encoding */ _attachmentDescriptionEnabledLanguages;
+    void /* unknown type, empty encoding */ _skipSenderRecipientsCheck;
+    void /* unknown type, empty encoding */ _notificationStackTopicSummariesEnabled;
+    void /* unknown type, empty encoding */ _maximumServerModelChunkSize;
+    void /* unknown type, empty encoding */ _maximumOnDeviceModelChunkSize;
+    void /* unknown type, empty encoding */ _maximumNumberOfConcurrentChunkSummaryRequests;
+    void /* unknown type, empty encoding */ _shouldPerformSingleChunkSummaryBeforeGoingConcurrent;
+    void /* unknown type, empty encoding */ _shouldFetchModelVersionInfo;
+    void /* unknown type, empty encoding */ _shouldFetchRelatedModelVersionInfo;
+    void /* unknown type, empty encoding */ _modelInfoCacheStalenessInterval;
+    void /* unknown type, empty encoding */ _sessionCacheTTL;
+    void /* unknown type, empty encoding */ _sessionCacheMaximumSessionsPerSessionConfiguration;
+    void /* unknown type, empty encoding */ _isPrivateCloudComputeAvailableOverride;
+    void /* unknown type, empty encoding */ _isExternalIntelligenceAllowedOverride;
+    void /* unknown type, empty encoding */ _shouldUseTwoPassInference;
+    void /* unknown type, empty encoding */ suiteName;
+    void /* unknown type, empty encoding */ userDefaults;
+}
+
+@end

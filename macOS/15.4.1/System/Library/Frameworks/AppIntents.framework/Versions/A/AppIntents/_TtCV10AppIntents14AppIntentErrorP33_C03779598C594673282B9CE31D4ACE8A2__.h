@@ -1,0 +1,3 @@
+@interface _TtCV10AppIntents14AppIntentErrorP33_C03779598C594673282B9CE31D4ACE8A2__ : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCC18PodcastsFoundation17PodcastsURLSchemeP33_A8198395E84B6F2DDADADF43B2890AED7Command : _TtCs12_SwiftObject
+
+@end

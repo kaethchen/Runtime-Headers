@@ -1,0 +1,3 @@
+@interface ABCDURLAddress : CNCDURLAddress
+
+@end

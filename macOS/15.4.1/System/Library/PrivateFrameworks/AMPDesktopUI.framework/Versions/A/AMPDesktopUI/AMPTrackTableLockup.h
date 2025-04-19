@@ -1,0 +1,94 @@
+@class NSArray;
+
+@interface AMPTrackTableLockup : NSTableCellView <AMPRolloverTableViewDelegate, NSTableViewDelegate, NSControlTextEditingDelegate> {
+    void /* unknown type, empty encoding */ addedByCellClass;
+    void /* unknown type, empty encoding */ reactionCellClass;
+    void /* unknown type, empty encoding */ theTable;
+    void /* unknown type, empty encoding */ headerContainer;
+    void /* unknown type, empty encoding */ artworkColumn;
+    void /* unknown type, empty encoding */ twoLineNameColumn;
+    void /* unknown type, empty encoding */ oneLineNameColumn;
+    void /* unknown type, empty encoding */ artistColumn;
+    void /* unknown type, empty encoding */ likedStateColumn;
+    void /* unknown type, empty encoding */ trackNumberColumn;
+    void /* unknown type, empty encoding */ explicitColumn;
+    void /* unknown type, empty encoding */ downloadStateColumn;
+    void /* unknown type, empty encoding */ actionColumn;
+    void /* unknown type, empty encoding */ albumColumn;
+    void /* unknown type, empty encoding */ durationColumn;
+    void /* unknown type, empty encoding */ genreColumn;
+    void /* unknown type, empty encoding */ addedByColumn;
+    void /* unknown type, empty encoding */ reactionsColumn;
+    void /* unknown type, empty encoding */ yearColumn;
+    void /* unknown type, empty encoding */ starRatingColumn;
+    void /* unknown type, empty encoding */ minRequiredWidth;
+    void /* unknown type, empty encoding */ minWidthForAddedBy;
+    void /* unknown type, empty encoding */ minWidthForReactions;
+    void /* unknown type, empty encoding */ minWidthForSeparateArtist;
+    void /* unknown type, empty encoding */ minWidthForSeparateAlbum;
+    void /* unknown type, empty encoding */ minWidthForGenre;
+    void /* unknown type, empty encoding */ minWidthForYear;
+    void /* unknown type, empty encoding */ oneLineNameMinFittingWidth;
+    void /* unknown type, empty encoding */ likedStateColumnWidth;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_diffableDataSource;
+    void /* unknown type, empty encoding */ itemLookup;
+    void /* unknown type, empty encoding */ kRowContentInset;
+    void /* unknown type, empty encoding */ kViewModelDataObservationContext;
+    void /* unknown type, empty encoding */ kViewModelSortKeyObservationContext;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_sectionHeaderHeight;
+    void /* unknown type, empty encoding */ endingScroll;
+}
+
+@property (nonatomic, retain) void /* unknown type, empty encoding */ viewModel;
+@property (nonatomic, retain) void /* unknown type, empty encoding */ durationFormatter;
+@property (nonatomic) Class addedByCellClass;
+@property (nonatomic) Class reactionCellClass;
+@property (nonatomic) void /* unknown type, empty encoding */ showAddedBy;
+@property (nonatomic) void /* unknown type, empty encoding */ showReactions;
+@property (nonatomic) void /* unknown type, empty encoding */ showAlbum;
+@property (nonatomic) void /* unknown type, empty encoding */ showArtwork;
+@property (nonatomic) void /* unknown type, empty encoding */ showArtist;
+@property (nonatomic) void /* unknown type, empty encoding */ showGenre;
+@property (nonatomic) void /* unknown type, empty encoding */ showYear;
+@property (nonatomic) void /* unknown type, empty encoding */ showSeparateContentRatings;
+@property (nonatomic) void /* unknown type, empty encoding */ blockColumnAutosizing;
+@property (nonatomic) double rowHeight;
+@property (nonatomic) void /* unknown type, empty encoding */ use16by9Artwork;
+@property (nonatomic) void /* unknown type, empty encoding */ showColumnHeaders;
+@property (nonatomic) void /* unknown type, empty encoding */ showStarRatings;
+@property (nonatomic, readonly) struct CGSize { double x0; double x1; } intrinsicContentSize;
+@property (nonatomic, copy) NSArray *selectedModels;
+
++ (id)lockup;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)tableView:(id)a0 didAddRowView:(id)a1 forRow:(long long)a2;
+- (id)accessibilityLabel;
+- (BOOL)becomeFirstResponder;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)setAccessibilityLabel:(id)a0;
+- (void)setFrameSize:(struct CGSize { double x0; double x1; })a0;
+- (double)tableView:(id)a0 heightOfRow:(long long)a1;
+- (void)tableViewSelectionDidChange:(id)a0;
+- (void)viewDidChangeEffectiveAppearance;
+- (void)viewWillMoveToWindow:(id)a0;
+- (void)refreshBackgroundOnRow:(long long)a0 animate:(BOOL)a1;
+- (id)ampTableView:(id)a0 menuForRows:(id)a1;
+- (id)backgroundColorForTableRow:(long long)a0 section:(long long)a1 sectionRow:(long long)a2 currentRolloverTableRow:(long long)a3 isDark:(BOOL)a4 isHighContrast:(BOOL)a5;
+- (void)enterScrollingPerformanceMode;
+- (void)exitScrollingPerformanceMode;
+- (id)modelAtTableRow:(long long)a0;
+- (void)prepareNewCellForUse:(id)a0;
+- (Class)primaryCellClassForModel:(id)a0;
+- (id)propertyKeysForViewSpy;
+- (BOOL)shouldCreateCellsForModel:(id)a0;
+- (id)stringValueForViewSpyPropertyKey:(id)a0;
+- (void)tableDoubleClicked:(id)a0;
+- (long long)tableRowForModel:(id)a0;
+- (void)tableView:(id)a0 setRollover:(BOOL)a1 forRow:(long long)a2;
+- (void)updateTableRow:(id)a0 withModel:(id)a1;
+
+@end

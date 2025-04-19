@@ -1,0 +1,3 @@
+@interface Converter : CalculateConverter
+
+@end

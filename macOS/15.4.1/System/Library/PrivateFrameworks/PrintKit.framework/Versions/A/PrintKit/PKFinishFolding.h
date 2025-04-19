@@ -1,0 +1,3 @@
+@interface PKFinishFolding : PKCollectionSpecialization
+
+@end

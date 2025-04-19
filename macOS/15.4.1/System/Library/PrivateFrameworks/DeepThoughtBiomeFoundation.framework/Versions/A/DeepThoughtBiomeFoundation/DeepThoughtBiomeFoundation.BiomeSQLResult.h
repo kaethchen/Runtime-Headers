@@ -1,0 +1,5 @@
+@interface DeepThoughtBiomeFoundation.BiomeSQLResult : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ underlying;
+}
+
+@end

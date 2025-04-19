@@ -1,0 +1,3 @@
+@interface PKODIServiceProviderAssessment : NSObject
+
+@end

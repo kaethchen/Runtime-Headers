@@ -1,0 +1,3 @@
+@interface CNEWSDistributionListMapping : CNEWSItemMapping
+
+@end

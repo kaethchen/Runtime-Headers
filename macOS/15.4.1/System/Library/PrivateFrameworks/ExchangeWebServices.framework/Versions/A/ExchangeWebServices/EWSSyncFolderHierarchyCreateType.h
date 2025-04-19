@@ -1,0 +1,3 @@
+@interface EWSSyncFolderHierarchyCreateType : EWSSyncFolderHierarchyCreateOrUpdateType
+
+@end

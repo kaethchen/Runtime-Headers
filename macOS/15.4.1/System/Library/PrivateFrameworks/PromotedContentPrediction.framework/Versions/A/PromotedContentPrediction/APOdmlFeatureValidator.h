@@ -1,0 +1,3 @@
+@interface APOdmlFeatureValidator : NSObject
+
+@end

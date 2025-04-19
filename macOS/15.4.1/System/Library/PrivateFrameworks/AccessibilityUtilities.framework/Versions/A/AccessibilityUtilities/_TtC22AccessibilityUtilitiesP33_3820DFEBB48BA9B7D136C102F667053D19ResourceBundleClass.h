@@ -1,0 +1,3 @@
+@interface _TtC22AccessibilityUtilitiesP33_3820DFEBB48BA9B7D136C102F667053D19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

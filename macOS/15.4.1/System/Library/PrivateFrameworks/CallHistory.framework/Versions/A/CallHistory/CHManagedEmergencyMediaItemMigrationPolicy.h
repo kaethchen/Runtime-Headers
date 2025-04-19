@@ -1,0 +1,3 @@
+@interface CHManagedEmergencyMediaItemMigrationPolicy : CHEntityMigrationPolicy
+
+@end

@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.InvalidInputForCurrentDeviceStateResponseHandler : HomeAutomationInternal.BaseResponseHandler
+
+@end

@@ -1,0 +1,3 @@
+@interface ABCDOwnedObject : CNCDOwnedObject
+
+@end

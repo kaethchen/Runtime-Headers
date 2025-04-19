@@ -1,0 +1,80 @@
+@class NSString, NSScrollView, NSArray, EKAutocompleteSearchResult, CalUICandidateTouchBar, CalUISuggestionsFieldController, NSLayoutConstraint, CNAutocompleteResultWindowBase;
+@protocol CalUIAutocompleteFieldDelegate, CalUISuggestionsFieldDelegate;
+
+@interface CalUISuggestionsField : CalUIResizingTextField <NSWindowDelegate, CNAutocompleteResultWindowDelegate, NSCandidateListTouchBarItemDelegate> {
+    CNAutocompleteResultWindowBase *_suggestionWindow;
+}
+
+@property (readonly) CNAutocompleteResultWindowBase *suggestionWindow;
+@property double lastSetSuggestionWindowWidth;
+@property BOOL suggestionWindowNeedsInitialFrameUpdate;
+@property (retain) CalUICandidateTouchBar *candidateTouchBar;
+@property BOOL isEditing;
+@property BOOL isDirectRequest;
+@property BOOL suggestionWasChosen;
+@property (retain) NSScrollView *scrollView;
+@property (retain) NSLayoutConstraint *scrollHeight;
+@property (retain) NSLayoutConstraint *maxScrollHeight;
+@property (retain) CalUISuggestionsFieldController *suggestionFieldController;
+@property (weak) id<CalUISuggestionsFieldDelegate> calSuggestionsDelegate;
+@property (weak) id<CalUIAutocompleteFieldDelegate> autoCompleteDelegate;
+@property BOOL suggestionsAreOptional;
+@property BOOL queryInBecomeFirstResponder;
+@property BOOL selectAllInBecomeFirstResponder;
+@property BOOL updateTextWithSelectedSuggestion;
+@property BOOL autocompleteStyle;
+@property unsigned long long minimumQueryLength;
+@property BOOL shouldLogSuggestionAccuracy;
+@property (readonly) NSArray *suggestions;
+@property (readonly) NSString *selectedSuggestion;
+@property (readonly) unsigned long long indexOfSelectedSuggestion;
+@property BOOL suppressTouchBar;
+@property BOOL showStringValueInTouchBar;
+@property (readonly) EKAutocompleteSearchResult *firstEventSuggestion;
+@property (readonly) EKAutocompleteSearchResult *firstReminderSuggestion;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)setStringValue:(id)a0;
+- (BOOL)_window:(id)a0 shouldCloseForClosingParentPopoverWindowWithTransientContext:(BOOL)a1;
+- (id)accessibilitySharedFocusElements;
+- (BOOL)becomeFirstResponder;
+- (void)candidateListTouchBarItem:(id)a0 beginSelectingCandidateAtIndex:(long long)a1;
+- (void)candidateListTouchBarItem:(id)a0 changeSelectionFromCandidateAtIndex:(long long)a1 toIndex:(long long)a2;
+- (void)candidateListTouchBarItem:(id)a0 endSelectingCandidateAtIndex:(long long)a1;
+- (id)makeTouchBar;
+- (void)mouseDown:(id)a0;
+- (void)setFont:(id)a0;
+- (void)textDidBeginEditing:(id)a0;
+- (id)touchBar;
+- (void)clearSuggestions;
+- (void)updateFieldValueWithSuggestion:(id)a0;
+- (void)selectedResult:(id)a0;
+- (void)_selectCandidateAtIndex:(unsigned long long)a0 endSelecting:(BOOL)a1;
+- (BOOL)chooseSelected;
+- (void)createSuggestionController;
+- (id)currentPrefix;
+- (void)hideSuggestionsWindow;
+- (id)initWithResizeEnabled:(BOOL)a0;
+- (void)initiateQuery;
+- (void)initiateQueryIfNeeded;
+- (id)newSuggestionWindow;
+- (void)selectionDidChange:(id)a0;
+- (id)suggestionString:(id)a0 preservingPrefix:(id)a1;
+- (void)updateCandidateTouchBarWithFieldStringValue;
+- (void)updateSuggestionWindow;
+- (void)updateSuggestionWindowWidth;
+- (void)updateSuggestionWindowWithSuggestions:(id)a0;
+- (void)updateSuggestionsTouchBarWithSuggestions:(id)a0;
+- (void)updateWindowFrameOrigin;
+- (void)updateWindowFrameOriginFromNotification:(id)a0;
+- (void)updateWithSuggestions:(id)a0;
+- (id)viewForResult:(id)a0;
+- (BOOL)wantsQuerySuggestions;
+- (BOOL)wantsZKWSuggestions;
+
+@end

@@ -1,0 +1,3 @@
+@interface SVXSiriActivationSupportPredicate : NSObject
+
+@end

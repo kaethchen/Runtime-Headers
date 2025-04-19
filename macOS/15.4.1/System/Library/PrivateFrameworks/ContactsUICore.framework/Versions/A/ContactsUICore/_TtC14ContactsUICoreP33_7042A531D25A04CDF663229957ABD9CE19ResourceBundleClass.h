@@ -1,0 +1,3 @@
+@interface _TtC14ContactsUICoreP33_7042A531D25A04CDF663229957ABD9CE19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

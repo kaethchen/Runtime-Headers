@@ -1,0 +1,3 @@
+@interface VoiceProcessor : NSObject
+
+@end

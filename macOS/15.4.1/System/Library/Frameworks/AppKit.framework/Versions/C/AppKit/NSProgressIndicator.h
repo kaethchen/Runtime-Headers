@@ -1,0 +1,94 @@
+@class NSObject, NSString, NSProgress, NSProgressIndicatorConfiguration, NSFont, NSColor;
+@protocol NSProgressIndicatorVisualProvider, NSObject;
+
+@interface NSProgressIndicator : NSView <NSAccessibilityProgressIndicator> {
+    double _minimum;
+    double _maximum;
+    double _value;
+    double _animationDelay;
+    NSProgress *_observedProgress;
+    NSFont *_font;
+    id<NSObject> _systemColorsChangedNotificationToken;
+    NSObject<NSProgressIndicatorVisualProvider> *_visualProvider;
+    struct { unsigned char isSpinning : 1; unsigned char hideWhenStopped : 1; unsigned char controlTint : 3; unsigned char spinningTint : 2; unsigned char isHidden : 1; unsigned char isBezeled : 1; } _progressIndicatorFlags;
+    NSProgressIndicatorConfiguration *_configuration;
+}
+
+@property (getter=isBezeled) BOOL bezeled;
+@property unsigned long long controlTint;
+@property (readonly, nonatomic, getter=_isAnimating) BOOL _animating;
+@property (readonly, nonatomic, getter=_isEffectivelyHidden) BOOL _effectivelyHidden;
+@property (retain, nonatomic) NSColor *roundDeterminateColor;
+@property (retain) NSFont *font;
+@property long long spinningTint;
+@property (getter=isIndeterminate) BOOL indeterminate;
+@property unsigned long long controlSize;
+@property double doubleValue;
+@property double minValue;
+@property double maxValue;
+@property (retain) NSProgress *observedProgress;
+@property BOOL usesThreadedAnimation;
+@property unsigned long long style;
+@property (getter=isDisplayedWhenStopped) BOOL displayedWhenStopped;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
++ (Class)_visualProviderClass;
++ (id)defaultAnimationForKey:(id)a0;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (id)_visualProvider;
+- (void)startAnimation:(id)a0;
+- (Class)_animatorClass;
+- (struct { double x0; double x1; })_baselineOffsetsAtSize:(struct CGSize { double x0; double x1; })a0;
+- (Class)_classToCheckForWantsUpdateLayer;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedHeight;
+- (BOOL)_contentHuggingDefault_isUsuallyFixedWidth;
+- (void)_setBackgroundStyleForSubtree:(long long)a0;
+- (void)_setVisualProvider:(id)a0;
+- (void)_stopAnimationAndRedisplay:(BOOL)a0;
+- (void)_updateNormalizedValue;
+- (void)_updateStateFromObservedProgress;
+- (int)_vibrancyBlendMode;
+- (void)_windowChangedKeyState;
+- (id)accessibilityAttributeNames;
+- (BOOL)accessibilityIsIgnored;
+- (BOOL)accessibilityIsMaxValueAttributeSettable;
+- (BOOL)accessibilityIsMinValueAttributeSettable;
+- (BOOL)accessibilityIsOrientationAttributeSettable;
+- (BOOL)accessibilityIsValueAttributeSettable;
+- (id)accessibilityMaxValueAttribute;
+- (id)accessibilityMinValueAttribute;
+- (id)accessibilityOrientationAttribute;
+- (id)accessibilityRoleAttribute;
+- (id)accessibilityValue;
+- (id)accessibilityValueAttribute;
+- (struct NSEdgeInsets { double x0; double x1; double x2; double x3; })alignmentRectInsets;
+- (BOOL)allowsVibrancy;
+- (void)animate:(id)a0;
+- (double)animationDelay;
+- (double)baselineOffsetFromBottom;
+- (void)drawRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (double)firstBaselineOffsetFromTop;
+- (void)incrementBy:(double)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct CGSize { double x0; double x1; })intrinsicContentSize;
+- (BOOL)isFlipped;
+- (BOOL)isOpaque;
+- (id)ns_widgetType;
+- (void)setAnimationDelay:(double)a0;
+- (void)sizeToFit;
+- (void)stopAnimation:(id)a0;
+- (void)updateLayer;
+- (void)viewDidMoveToSuperview;
+- (void)viewDidMoveToWindow;
+- (BOOL)wantsUpdateLayer;
+
+@end

@@ -1,0 +1,92 @@
+@class NSArray, NSString, NSDictionary;
+
+@interface LNSystemProtocol : NSObject <NSSecureCoding>
+
+@property (class, readonly, nonatomic) LNSystemProtocol *favoriteProtocol;
+@property (class, readonly, nonatomic) NSArray *allProtocols;
+@property (class, readonly, nonatomic) LNSystemProtocol *audioRecordingProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *audioStartingProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *cancelProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *changeBinarySettingSystemProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *closeEntityProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *conditionallyEnabledProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *controlConfigurationProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *copyEntityProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *copySystemProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *createEntitySystemProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *cutEntityProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *cutSystemProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *deleteEntitySystemProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *duplicateEntitySystemProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *enterMarkupProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *entityUpdatingProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *exitMarkupProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *favoriteEntityProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *focusConfigurationProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *foregroundContinuableProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *moveSpatialProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *navigateSequentiallyProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *openEntitySystemProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *pasteSystemProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *pauseWorkoutProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *previewEntityProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *progressReportingProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *propertyUpdaterProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *pushToTalkTransmissionProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *putEntityInContainerProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *requiresMDMChecksProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *resizeProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *resumeWorkoutProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *saveEntitySystemProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *scrollProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *searchSystemProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *sessionStartingProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *setValueProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *startDiveProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *startWorkoutProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *stingProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *systemFrameworkProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *toggleProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *undoableProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *undoSystemProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *urlRepresentableProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *widgetConfigurationProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *xpcListenerProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *zoomProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *assistantIntentProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *assistantInvocableIntentProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *sendMailProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *setMailMessageIsReadProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *playVideoProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *showSearchResultsInAppProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *showStringSearchResultsInAppProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *showInAppSearchResultsProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *showInAppStringSearchResultsProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *cameraCaptureProtocol;
+@property (class, readonly, nonatomic) LNSystemProtocol *staccatoLongPressProtocol;
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, nonatomic) long long kind;
+@property (readonly, nonatomic) NSString *identifier;
+@property (readonly, nonatomic) NSString *typeName;
+@property (readonly, copy, nonatomic) NSDictionary *parameters;
+@property (readonly, nonatomic) NSString *defaultActionIdentifier;
+
++ (id)protocolOrNilWithIdentifier:(id)a0;
++ (id)ofKind:(long long)a0;
++ (id)systemProtocolKindsByIdentifier;
++ (id)allProtocolsByIdentifier;
++ (id)parametersForProtocolWithIdentifier:(id)a0;
++ (id)protocolWithIdentifier:(id)a0;
++ (id)sendMessageProtocol;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)description;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)initWithIdentifier:(id)a0 parameters:(id)a1;
+
+@end

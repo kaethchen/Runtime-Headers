@@ -1,0 +1,3 @@
+@interface _TtCO3VFX21GraphV1CodeGeneration12ParameterOut : _TtCO3VFX21GraphV1CodeGeneration13ParameterBase
+
+@end

@@ -1,0 +1,3 @@
+@interface OSADirectParameterDefinition : OSADefinition
+
+@end

@@ -1,0 +1,3 @@
+@interface EWSBasePathToElementType : NSObject
+
+@end

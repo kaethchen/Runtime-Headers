@@ -1,0 +1,3 @@
+@interface _TtCV7SwiftUI45LimitedAvailabilityControlWidgetConfiguration11StorageBase : _TtCs12_SwiftObject
+
+@end

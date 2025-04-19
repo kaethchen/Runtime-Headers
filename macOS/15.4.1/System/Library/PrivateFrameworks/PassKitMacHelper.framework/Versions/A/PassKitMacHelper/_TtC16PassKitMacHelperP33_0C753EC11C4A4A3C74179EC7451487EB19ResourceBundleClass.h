@@ -1,0 +1,3 @@
+@interface _TtC16PassKitMacHelperP33_0C753EC11C4A4A3C74179EC7451487EB19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC13UniversalDragP33_7F1B2DFF9BFED73C52757E678C34230433BlockingURLRepresentationReceiver : _TtC13UniversalDragP33_7F1B2DFF9BFED73C52757E678C34230430BlockingRepresentationReceiver
+
+@end

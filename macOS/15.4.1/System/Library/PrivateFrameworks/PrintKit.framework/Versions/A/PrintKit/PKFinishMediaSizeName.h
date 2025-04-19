@@ -1,0 +1,3 @@
+@interface PKFinishMediaSizeName : PKCollectionSpecialization
+
+@end

@@ -1,0 +1,3 @@
+@interface LCFFeatureConverter : NSObject
+
+@end

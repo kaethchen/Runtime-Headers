@@ -1,0 +1,3 @@
+@interface EWSDeclineItemType : EWSWellKnownResponseObjectType
+
+@end

@@ -1,0 +1,83 @@
+@class NSError, NSString, NSDictionary, SUCoreDescriptor, SUMacControllerClientRequest, SUCoreProgress, NSNumber;
+
+@interface SUMacControllerScanEventInfo : NSObject <NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (retain, nonatomic) NSString *persistenceDescription;
+@property (retain, nonatomic) SUMacControllerClientRequest *clientRequest;
+@property (retain, nonatomic) NSString *scanUUID;
+@property (retain, nonatomic) SUCoreProgress *progress;
+@property (retain, nonatomic) NSString *targetRestoreVersion;
+@property (retain, nonatomic) NSString *targetBuildVersion;
+@property (retain, nonatomic) NSString *targetProductVersion;
+@property (retain, nonatomic) SUCoreDescriptor *majorPrimarySU;
+@property (retain, nonatomic) SUCoreDescriptor *majorSecondarySU;
+@property (retain, nonatomic) SUCoreDescriptor *minorPrimarySU;
+@property (retain, nonatomic) SUCoreDescriptor *minorSecondarySU;
+@property (retain, nonatomic) SUCoreDescriptor *primarySFRSU;
+@property (retain, nonatomic) SUCoreDescriptor *secondarySFRSU;
+@property (retain, nonatomic) SUCoreDescriptor *splatUpdate;
+@property (retain, nonatomic) SUCoreDescriptor *majorUpdateBrain;
+@property (retain, nonatomic) SUCoreDescriptor *minorUpdateBrain;
+@property (nonatomic) BOOL performSplatUpdate;
+@property (nonatomic) BOOL performMajorBridgeOSUpdate;
+@property (nonatomic) BOOL performMinorBridgeOSUpdate;
+@property (nonatomic) BOOL performMajorRosettaUpdate;
+@property (nonatomic) BOOL performMinorRosettaUpdate;
+@property (retain, nonatomic) NSString *majorBridgeOSVersionToInstall;
+@property (retain, nonatomic) NSNumber *majorBridgeOSDownloadSizeBytes;
+@property (retain, nonatomic) NSNumber *majorBridgeOSExtractedSizeBytes;
+@property (retain, nonatomic) NSString *minorBridgeOSVersionToInstall;
+@property (retain, nonatomic) NSNumber *minorBridgeOSDownloadSizeBytes;
+@property (retain, nonatomic) NSNumber *minorBridgeOSExtractedSizeBytes;
+@property (retain, nonatomic) NSString *majorRosettaVersionToInstall;
+@property (retain, nonatomic) NSString *minorRosettaVersionToInstall;
+@property (nonatomic) BOOL performMajorRecoveryOSUpdate;
+@property (nonatomic) BOOL performMinorRecoveryOSUpdate;
+@property (nonatomic) BOOL majorRecoveryOSUpdateRequired;
+@property (nonatomic) BOOL minorRecoveryOSUpdateRequired;
+@property (retain, nonatomic) NSDictionary *majorRecoveryOSUpdateInfo;
+@property (retain, nonatomic) NSDictionary *minorRecoveryOSUpdateInfo;
+@property (retain, nonatomic) NSError *majorRecoveryOSUpdateError;
+@property (retain, nonatomic) NSError *minorRecoveryOSUpdateError;
+@property (nonatomic) BOOL scanFailed;
+@property (retain, nonatomic) NSError *majorError;
+@property (retain, nonatomic) NSError *minorError;
+
+- (id)description;
+- (id)init;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)getMinorRosettaVersionToInstall;
+- (id)getMajorRosettaVersionToInstall;
+- (id)getPrimarySFRSU;
+- (id)getMajorBridgeOSDownloadSizeBytes;
+- (id)getMajorBridgeOSExtractedSizeBytes;
+- (id)getMajorBridgeOSVersionToInstall;
+- (id)getMajorError;
+- (id)getMajorPrimarySU;
+- (id)getMajorRecoveryOSUpdateError;
+- (id)getMajorRecoveryOSUpdateInfo;
+- (id)getMajorSecondarySU;
+- (id)getMajorUpdateBrain;
+- (id)getMinorBridgeOSDownloadSizeBytes;
+- (id)getMinorBridgeOSExtractedSizeBytes;
+- (id)getMinorBridgeOSVersionToInstall;
+- (id)getMinorError;
+- (id)getMinorPrimarySU;
+- (id)getMinorRecoveryOSUpdateError;
+- (id)getMinorRecoveryOSUpdateInfo;
+- (id)getMinorSecondarySU;
+- (id)getMinorUpdateBrain;
+- (id)getPersistenceDescription;
+- (id)getProgress;
+- (id)getScanUUID;
+- (id)getSecondarySFRSU;
+- (id)getSplatUpdate;
+- (id)getTargetBuildVersion;
+- (id)getTargetProductVersion;
+- (id)getTargetRestoreVersion;
+
+@end

@@ -1,0 +1,3 @@
+@interface PKFinishPunching : PKCollectionSpecialization
+
+@end

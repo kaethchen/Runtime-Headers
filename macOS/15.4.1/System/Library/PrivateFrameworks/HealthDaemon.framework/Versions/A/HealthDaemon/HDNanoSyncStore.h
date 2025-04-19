@@ -1,0 +1,92 @@
+@class NSMutableDictionary, HDProfile, NSDate, HKNanoSyncPairedDeviceInfo, NSMutableArray, NRDevice, NSString, NSSet, HDNanoPairingEntity, IDSDevice, NSArray, HDNanoSyncRestoreSession, NSError, NSUUID;
+@protocol HDNanoSyncStoreDelegate;
+
+@interface HDNanoSyncStore : NSObject <HDSyncStore> {
+    HDProfile *_profile;
+    NSString *_remoteSystemBuildVersion;
+    NSString *_remoteProductType;
+    HDNanoPairingEntity *_pairingEntity;
+    NSMutableDictionary *_pendingRequestContexts;
+    int _protocolVersion;
+    BOOL _active;
+    BOOL _invalidated;
+    NSMutableArray *_incomingSyncObserverTimers;
+    NSUUID *_lastIncompleteIncomingSyncUUID;
+    NSDate *_lastIncompleteIncomingSyncDate;
+    NSDate *_lastCompleteIncomingSyncDate;
+    NSError *_lastCompleteIncomingSyncError;
+    NSMutableDictionary *_expectedSequenceNumbers;
+    NSArray *_orderedSyncEntities;
+    BOOL _isTinkerPairing;
+    IDSDevice *_identityServicesDevice;
+    NRDevice *_nanoRegistryDevice;
+}
+
+@property (weak, nonatomic) id<HDNanoSyncStoreDelegate> delegate;
+@property (readonly) IDSDevice *device;
+@property (readonly, copy) HKNanoSyncPairedDeviceInfo *deviceInfo;
+@property (copy, nonatomic) NSUUID *persistentUUID;
+@property (copy, nonatomic) NSUUID *healthUUID;
+@property (readonly, nonatomic, getter=isRestoreComplete) BOOL restoreComplete;
+@property (readonly, nonatomic) long long restoreState;
+@property (readonly, nonatomic) HDNanoSyncRestoreSession *restoreSession;
+@property (readonly, copy, nonatomic) NSSet *obliteratedDatabaseUUIDs;
+@property (nonatomic) BOOL needsSyncOnUnlock;
+@property (readonly, getter=isInvalidated) BOOL invalidated;
+@property (readonly, getter=isMaster) BOOL master;
+@property (readonly) NSUUID *nanoRegistryUUID;
+@property (readonly, copy) NSString *remoteSystemBuildVersion;
+@property (readonly, copy) NSString *remoteProductType;
+@property (readonly, copy) NSString *sourceBundleIdentifier;
+@property (readonly) int protocolVersion;
+@property (readonly, getter=isActive) BOOL active;
+@property (readonly, copy) NSString *deviceName;
+@property (readonly) NSDate *lastInactiveDate;
+@property (readonly, getter=isAltAccount) BOOL altAccount;
+@property (readonly) long long syncStoreType;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)nanoSyncStoreWithProfile:(id)a0 device:(id)a1 delegate:(id)a2 tinkerPaired:(BOOL)a3;
++ (id)orderedSyncEntitiesForProfile:(id)a0 protocolVersion:(int)a1 companion:(BOOL)a2;
++ (BOOL)providesSamplePruningRestrictionPredicate;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)invalidate;
+- (id)profile;
+- (id)syncStoreIdentifier;
+- (id)databaseIdentifier;
+- (id)diagnosticDescription;
+- (void)didReceiveRequestWithChangeSet:(id)a0;
+- (void)addIncomingSyncObserverWithTimeout:(double)a0 timeoutHandler:(id /* block */)a1 completion:(id /* block */)a2;
+- (void)addPendingRequestContext:(id)a0 forUUID:(id)a1;
+- (id)beginRestoreSessionWithUUID:(id)a0 timeout:(double)a1 timeoutHandler:(id /* block */)a2;
+- (BOOL)canRecieveSyncObjectsForEntityClass:(Class)a0;
+- (void)configureOutgoingResponse:(id)a0;
+- (id)createRequestWithMessageID:(unsigned short)a0;
+- (BOOL)enforceSyncEntityOrdering;
+- (long long)expectedSequenceNumberForSyncEntityClass:(Class)a0;
+- (void)finishRestoreSessionWithError:(id)a0;
+- (id)nanoSyncStoreForProtocolVersion:(int)a0;
+- (id)orderedSyncEntities;
+- (id)pendingRequestContextForUUID:(id)a0;
+- (void)prepareForObliteration;
+- (BOOL)providesSamplePruningRestrictionPredicate;
+- (void)removeExpiredIncomingSyncObservers;
+- (void)removePendingRequestContextForUUID:(id)a0;
+- (BOOL)resetProvenanceWithError:(id *)a0;
+- (id)samplePruningRestrictionPredicateForSyncEntity:(Class)a0 error:(id *)a1;
+- (void)setExpectedSequenceNumber:(long long)a0 forSyncEntityClass:(Class)a1;
+- (BOOL)shouldContinueAfterAnchorValidationError:(id)a0;
+- (BOOL)shouldEnforceSequenceOrdering;
+- (BOOL)supportsSpeculativeChangesForSyncEntityClass:(Class)a0;
+- (id)syncEntityDependenciesForSyncEntity:(Class)a0;
+- (long long)syncEpoch;
+- (long long)syncProvenance;
+- (id)syncStoreDefaultSourceBundleIdentifier;
+- (BOOL)validatePairingUUIDsWithIncomingMessage:(id)a0;
+
+@end

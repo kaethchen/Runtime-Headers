@@ -1,0 +1,3 @@
+@interface EWSItemAttachmentType : EWSAttachmentType
+
+@end

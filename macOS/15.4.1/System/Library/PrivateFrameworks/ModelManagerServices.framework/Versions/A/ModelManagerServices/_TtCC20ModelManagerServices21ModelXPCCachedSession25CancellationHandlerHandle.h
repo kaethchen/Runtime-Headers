@@ -1,0 +1,3 @@
+@interface _TtCC20ModelManagerServices21ModelXPCCachedSession25CancellationHandlerHandle : _TtCs12_SwiftObject
+
+@end

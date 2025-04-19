@@ -1,0 +1,3 @@
+@interface EWSProposeNewTimeType : EWSResponseObjectCoreType
+
+@end

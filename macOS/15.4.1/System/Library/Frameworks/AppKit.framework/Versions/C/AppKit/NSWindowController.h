@@ -1,0 +1,90 @@
+@class NSDocument, NSString, NSArray, NSViewController, NSWindowControllerMoreIVars, NSWindow;
+
+@interface NSWindowController : NSResponder <NSSeguePerforming> {
+    NSWindow *_window;
+    NSString *_windowNibName;
+    NSDocument *_document;
+    NSArray *_topLevelObjects;
+    id _owner;
+    struct __wcFlags { unsigned char shouldCloseDocument : 1; unsigned char shouldCascade : 1; unsigned char isLoadingNib : 1; unsigned char nibIsLoaded : 1; unsigned char nibNameIsPath : 1; unsigned char settingWindowsContentViewController : 1; unsigned char didInitWithCoder : 1; unsigned char nibIsMakingConnections : 1; unsigned char sentWindowWillLoad : 1; unsigned int RESERVED : 23; } _wcFlags;
+    NSWindowControllerMoreIVars *_moreVars;
+    NSArray *_previewRepresentableActivityItems;
+}
+
+@property (readonly, weak) NSViewController *presentingViewController;
+@property (copy, setter=_setFrameAutosaveName:) NSString *_frameAutosaveName;
+@property (readonly, copy) NSString *windowNibName;
+@property (readonly, copy) NSString *windowNibPath;
+@property (readonly, weak) id owner;
+@property (copy) NSString *windowFrameAutosaveName;
+@property BOOL shouldCascadeWindows;
+@property (copy) NSArray *previewRepresentableActivityItems;
+@property id document;
+@property BOOL shouldCloseDocument;
+@property (retain) NSViewController *contentViewController;
+@property (retain) NSWindow *window;
+@property (readonly, getter=isWindowLoaded) BOOL windowLoaded;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
++ (void)_doneWithLocations;
++ (id)windowControllerWithContentViewController:(id)a0;
+
+- (oneway void)release;
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)close;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)_segueTemplates;
+- (id)initWithWindow:(id)a0;
+- (void)_windowDidClose;
+- (void)_windowWillLoad;
+- (id)_autounbinder;
+- (void)_didRestoreUserActivity:(id)a0;
+- (void)_findWindowLocationsWithRepresentativeWindow:(id)a0 count:(unsigned long long)a1;
+- (void)_finishedMakingConnections;
+- (void)_invalidateDocumentIcon;
+- (id)_persistentUIChildren;
+- (id)_persistentUIIdentifier;
+- (id)_persistentUIWindow;
+- (id)_responderDebugDescription;
+- (void)_setDocumentAutosavingError:(id)a0;
+- (void)_setDocumentEditingState:(long long)a0 animate:(BOOL)a1;
+- (void)_setDocumentShowsPanelOnClose:(BOOL)a0;
+- (void)_setNonModalDocumentError:(id)a0;
+- (void)_setPresentingViewController:(id)a0;
+- (void)_setRetainedSelf:(BOOL)a0;
+- (void)_setSegueTemplates:(id)a0;
+- (void)_setShowAutosaveButton:(BOOL)a0;
+- (void)_unbindAll:(id)a0;
+- (void)_windowDidChangeContentViewController:(id)a0;
+- (void)_windowDidLoad;
+- (void)dismissController:(id)a0;
+- (id)initWithWindowNibName:(id)a0;
+- (id)initWithWindowNibName:(id)a0 owner:(id)a1;
+- (id)initWithWindowNibPath:(id)a0 owner:(id)a1;
+- (void)loadWindow;
+- (void)performSegueWithIdentifier:(id)a0 sender:(id)a1;
+- (void)prepareForSegue:(id)a0 sender:(id)a1;
+- (BOOL)presentError:(id)a0;
+- (void)presentError:(id)a0 modalForWindow:(id)a1 delegate:(id)a2 didPresentSelector:(SEL)a3 contextInfo:(void *)a4;
+- (void)presentViewController:(id)a0 asPopoverRelativeToRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 ofView:(id)a2 preferredEdge:(unsigned long long)a3 behavior:(long long)a4;
+- (void)presentViewController:(id)a0 asPopoverRelativeToRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 ofView:(id)a2 preferredEdge:(unsigned long long)a3 behavior:(long long)a4 hasFullSizeContent:(BOOL)a5;
+- (void)setDocumentEdited:(BOOL)a0;
+- (void)setStoryboard:(id)a0;
+- (BOOL)shouldPerformSegueWithIdentifier:(id)a0 sender:(id)a1;
+- (void)showWindow:(id)a0;
+- (id)storyboard;
+- (id)supplementalTargetForAction:(SEL)a0 sender:(id)a1;
+- (void)synchronizeWindowTitleWithDocumentName;
+- (void)windowDidLoad;
+- (id)windowIfLoaded;
+- (id)windowTitleForDocumentDisplayName:(id)a0;
+- (void)windowWillLoad;
+
+@end

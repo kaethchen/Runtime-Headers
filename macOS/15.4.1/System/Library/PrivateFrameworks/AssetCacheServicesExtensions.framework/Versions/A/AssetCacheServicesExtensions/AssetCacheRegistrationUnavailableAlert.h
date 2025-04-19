@@ -1,0 +1,3 @@
+@interface AssetCacheRegistrationUnavailableAlert : AssetCacheAlert
+
+@end

@@ -1,0 +1,80 @@
+@class NSMutableDictionary, NSMapTable, NSControl, NSBundle, NSMutableIndexSet, NSTableViewRecycledViews, NSMutableArray, NSTableViewDropFeedbackData, NSString, NSTableView, NSTableUpdateData, NSTableSwipeData, NSMutableSet, NSTableBannerRowData, NSView, NSTableRowView;
+
+@interface NSTableRowData : NSObject <NSAnimationDelegate> {
+    NSTableView *_tableView;
+    id *_rowViews;
+    struct _NSRange { unsigned long long location; unsigned long long length; } _visibleRows;
+    NSTableRowView *_firstResponderRowView;
+    long long _firstResponderRow;
+    NSControl *_firstResponder;
+    NSView *_delayedFirstResponder;
+    long long _delayedFirstResponderRow;
+    NSTableViewRecycledViews *_recycledViews;
+    NSBundle *_nibBundle;
+    NSString *_nibPath;
+    NSTableViewDropFeedbackData *_dropFeedbackData;
+    NSMutableIndexSet *_hiddenRowIndexes;
+    NSTableBannerRowData *_groupRowData;
+    NSTableBannerRowData *_footerRowData;
+    NSMutableDictionary *_rowViewsBeingAnimatedOff;
+    NSMutableArray *_viewsBeingAnimatedAway;
+    long long _lastColumnChanged;
+    NSTableUpdateData *_updateData;
+    double _animationCompletionTime;
+    id /* block */ _delayEditBlock;
+    struct CGSize { double width; double height; } _targetTableFrameSize;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _suggestedContentRect;
+    NSTableSwipeData *_swipeData;
+    NSView *_preferredReuseView;
+    id /* block */ _animationCompletionHandler;
+    NSMutableIndexSet *_changedAutomaticRowHeights;
+    NSMapTable *_cachedAutomaticRowHeights;
+    NSMutableSet *_rowViewPurgatory;
+    unsigned char _animateFrames : 1;
+    unsigned char _animateSelection : 1;
+    unsigned char _animateViewWidths : 1;
+    unsigned char _animatingHeaderView : 1;
+    unsigned char _animationGroupBegan : 1;
+    unsigned char _attemptingDrag : 1;
+    unsigned char _callingHeightOfRow : 1;
+    unsigned char _doingMemoryPressureCleanup : 1;
+    unsigned char _hasAnimatingBackground : 1;
+    unsigned char _hasExistingViews : 1;
+    unsigned char _ignoreTrackingAreas : 1;
+    unsigned char _implicitAnimationsWereEnabled : 1;
+    unsigned char _isPurgingRowViewData : 1;
+    unsigned char _keyViewLoopIsDirty : 1;
+    unsigned char _registeredForTextDidEndEditing : 1;
+    unsigned char _purgeHappenedWhileUpdating : 1;
+    unsigned char _reorderingColumns : 1;
+    unsigned char _rowFrameUpdateNeeded : 1;
+    unsigned char _rowViewPurgatoryEnabled : 1;
+    unsigned char _rowViewsBeingAnimatedOffCleanupScheduled : 1;
+    unsigned char _rowViewsBeingAnimatedOffPurgeInProgress : 1;
+    unsigned char _rowViewsDereferenceImminent : 1;
+    unsigned char _scheduledCullOfViews : 1;
+    unsigned char _showFloatingHeaderView : 1;
+    unsigned char _sizeModeUpdateNeeded : 1;
+    unsigned char _updatingColumnWidths : 1;
+    unsigned char _updatingVisibleRows : 1;
+    unsigned char _trackingGestureForSwipe : 1;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)animation:(id)a0 didReachProgressMark:(float)a1;
+- (void)_actionButtonClicked:(id)a0;
+- (void)_animatingCleanup;
+- (void)_delayMakeFirstResponder:(id)a0;
+- (void)_removeRowsBeingAnimatedOff;
+- (void)_removeViewsBeingAnimatedAwayForReuse;
+- (void)_tableTextDidEndEditing:(id)a0;
+- (void)animationDidEnd:(id)a0;
+- (void)animationDidStop:(id)a0;
+
+@end

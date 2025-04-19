@@ -1,0 +1,3 @@
+@interface ABCardViewerController : ABDeprecatedObject
+
+@end

@@ -1,0 +1,3 @@
+@interface HAPPGAccelSample : NSObject
+
+@end

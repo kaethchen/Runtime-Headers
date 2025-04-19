@@ -1,0 +1,3 @@
+@interface ABCDService : CNCDService
+
+@end

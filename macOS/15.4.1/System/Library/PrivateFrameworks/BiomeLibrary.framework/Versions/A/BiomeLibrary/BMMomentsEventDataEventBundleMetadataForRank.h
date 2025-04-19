@@ -1,0 +1,97 @@
+@class NSArray, NSString;
+
+@interface BMMomentsEventDataEventBundleMetadataForRank : BMEventBase <BMStoreData>
+
+@property (class, readonly, nonatomic) unsigned int latestDataVersion;
+
+@property (readonly, nonatomic) double dailyAggregateCallDuration;
+@property (nonatomic) BOOL hasDailyAggregateCallDuration;
+@property (readonly, nonatomic) double callDuration;
+@property (nonatomic) BOOL hasCallDuration;
+@property (readonly, nonatomic) int burstyInteractionCount;
+@property (nonatomic) BOOL hasBurstyInteractionCount;
+@property (readonly, nonatomic) int burstyOutgoingInteractionCount;
+@property (nonatomic) BOOL hasBurstyOutgoingInteractionCount;
+@property (readonly, nonatomic) BOOL multipleInteractionTypes;
+@property (nonatomic) BOOL hasMultipleInteractionTypes;
+@property (readonly, nonatomic) BOOL contactLocationWork;
+@property (nonatomic) BOOL hasContactLocationWork;
+@property (readonly, nonatomic) BOOL isFamilyContact;
+@property (nonatomic) BOOL hasIsFamilyContact;
+@property (readonly, nonatomic) BOOL isCoworkerContact;
+@property (nonatomic) BOOL hasIsCoworkerContact;
+@property (readonly, nonatomic) BOOL isRepetitiveContact;
+@property (nonatomic) BOOL hasIsRepetitiveContact;
+@property (readonly, nonatomic) BOOL isGroupConversation;
+@property (nonatomic) BOOL hasIsGroupConversation;
+@property (readonly, nonatomic) double peopleCountWeightedSum;
+@property (nonatomic) BOOL hasPeopleCountWeightedSum;
+@property (readonly, nonatomic) double peopleCountWeightedAverage;
+@property (nonatomic) BOOL hasPeopleCountWeightedAverage;
+@property (readonly, nonatomic) double peopleCountMax;
+@property (nonatomic) BOOL hasPeopleCountMax;
+@property (readonly, nonatomic) double peopleDensityWeightedSum;
+@property (nonatomic) BOOL hasPeopleDensityWeightedSum;
+@property (readonly, nonatomic) double peopleDensityWeightedAverage;
+@property (nonatomic) BOOL hasPeopleDensityWeightedAverage;
+@property (readonly, nonatomic) double peopleDensityMax;
+@property (nonatomic) BOOL hasPeopleDensityMax;
+@property (readonly, nonatomic) double peopleDensityWeightedConfidenceSum;
+@property (nonatomic) BOOL hasPeopleDensityWeightedConfidenceSum;
+@property (readonly, nonatomic) double peopleDensityWeightedConfidenceAverage;
+@property (nonatomic) BOOL hasPeopleDensityWeightedConfidenceAverage;
+@property (readonly, nonatomic) double mediaTotalPlayTime;
+@property (nonatomic) BOOL hasMediaTotalPlayTime;
+@property (readonly, nonatomic) double mediaLength;
+@property (nonatomic) BOOL hasMediaLength;
+@property (readonly, nonatomic) BOOL mediaActionIsRepeat;
+@property (nonatomic) BOOL hasMediaActionIsRepeat;
+@property (readonly, nonatomic) double timeAtHomeDuration;
+@property (nonatomic) BOOL hasTimeAtHomeDuration;
+@property (readonly, nonatomic) double photosAtHomeCurationScore;
+@property (nonatomic) BOOL hasPhotosAtHomeCurationScore;
+@property (readonly, nonatomic) double workoutDuration;
+@property (nonatomic) BOOL hasWorkoutDuration;
+@property (readonly, nonatomic) double motionActivityWalkSpan;
+@property (nonatomic) BOOL hasMotionActivityWalkSpan;
+@property (readonly, nonatomic) double visitDuration;
+@property (nonatomic) BOOL hasVisitDuration;
+@property (readonly, nonatomic) double poiCategoryInterestingness;
+@property (nonatomic) BOOL hasPoiCategoryInterestingness;
+@property (readonly, nonatomic) double familiarityIndex;
+@property (nonatomic) BOOL hasFamiliarityIndex;
+@property (readonly, nonatomic) NSArray *stateOfMindDomains;
+@property (readonly, nonatomic) NSArray *stateOfMindLabels;
+@property (readonly, nonatomic) NSArray *stateOfMindReflectiveIntervals;
+@property (readonly, nonatomic) NSArray *stateOfMindValenceClassifications;
+@property (readonly, nonatomic) NSArray *stateOfMindValenceValues;
+@property (readonly, nonatomic) BOOL stateOfMindLoggedIn3pApp;
+@property (nonatomic) BOOL hasStateOfMindLoggedIn3pApp;
+@property (readonly, nonatomic) BOOL stateOfMindLoggedInJournalApp;
+@property (nonatomic) BOOL hasStateOfMindLoggedInJournalApp;
+@property (readonly, nonatomic) unsigned int dataVersion;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)eventWithData:(id)a0 dataVersion:(unsigned int)a1;
++ (id)columns;
++ (id)validKeyPaths;
++ (id)protoFields;
+
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)jsonDictionary;
+- (void)writeTo:(id)a0;
+- (id)serialize;
+- (id)initWithJSONDictionary:(id)a0 error:(id *)a1;
+- (id)initByReadFrom:(id)a0;
+- (id)_stateOfMindDomainsJSONArray;
+- (id)_stateOfMindLabelsJSONArray;
+- (id)_stateOfMindReflectiveIntervalsJSONArray;
+- (id)_stateOfMindValenceClassificationsJSONArray;
+- (id)_stateOfMindValenceValuesJSONArray;
+- (id)initWithDailyAggregateCallDuration:(id)a0 callDuration:(id)a1 burstyInteractionCount:(id)a2 burstyOutgoingInteractionCount:(id)a3 multipleInteractionTypes:(id)a4 contactLocationWork:(id)a5 isFamilyContact:(id)a6 isCoworkerContact:(id)a7 isRepetitiveContact:(id)a8 isGroupConversation:(id)a9 peopleCountWeightedSum:(id)a10 peopleCountWeightedAverage:(id)a11 peopleCountMax:(id)a12 peopleDensityWeightedSum:(id)a13 peopleDensityWeightedAverage:(id)a14 peopleDensityMax:(id)a15 peopleDensityWeightedConfidenceSum:(id)a16 peopleDensityWeightedConfidenceAverage:(id)a17 mediaTotalPlayTime:(id)a18 mediaLength:(id)a19 mediaActionIsRepeat:(id)a20 timeAtHomeDuration:(id)a21 photosAtHomeCurationScore:(id)a22 workoutDuration:(id)a23 motionActivityWalkSpan:(id)a24 visitDuration:(id)a25 poiCategoryInterestingness:(id)a26 familiarityIndex:(id)a27 stateOfMindDomains:(id)a28 stateOfMindLabels:(id)a29 stateOfMindReflectiveIntervals:(id)a30 stateOfMindValenceClassifications:(id)a31 stateOfMindValenceValues:(id)a32 stateOfMindLoggedIn3pApp:(id)a33 stateOfMindLoggedInJournalApp:(id)a34;
+
+@end

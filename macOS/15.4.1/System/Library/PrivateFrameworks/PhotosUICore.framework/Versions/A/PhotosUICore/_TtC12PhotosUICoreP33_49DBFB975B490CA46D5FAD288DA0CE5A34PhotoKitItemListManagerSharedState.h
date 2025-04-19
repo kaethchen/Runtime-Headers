@@ -1,0 +1,3 @@
+@interface _TtC12PhotosUICoreP33_49DBFB975B490CA46D5FAD288DA0CE5A34PhotoKitItemListManagerSharedState : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC8MusicKitP33_7A8379CE91190601E4F7B409A9DA2CC319ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

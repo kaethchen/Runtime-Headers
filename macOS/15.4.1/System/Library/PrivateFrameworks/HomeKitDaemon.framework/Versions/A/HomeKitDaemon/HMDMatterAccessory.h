@@ -1,0 +1,83 @@
+@class NSData, NSString, NSArray, HMDBulletinBoard, HMDCHIPAccessoryStorage, HMMTRAccessoryServer, HMDMatterAccessoryAdapter, NSNumber, HMDHome;
+@protocol HMDMessageRouter;
+
+@interface HMDMatterAccessory : HMDAccessory <HMFLogging, HMDMatterAccessoryProtocol>
+
+@property (retain, nonatomic) HMDMatterAccessoryAdapter *matterAdapter;
+@property (retain, nonatomic) HMMTRAccessoryServer *accessoryServer;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (weak, nonatomic) HMDHome *home;
+@property (nonatomic) long long certificationStatus;
+@property (readonly, nonatomic) BOOL supportsCHIP;
+@property (copy, nonatomic) NSNumber *matterNodeID;
+@property (copy, nonatomic) NSNumber *matterVendorID;
+@property (copy, nonatomic) NSNumber *matterProductID;
+@property (retain, nonatomic) NSData *publicKey;
+@property (retain, nonatomic) NSData *setupHash;
+@property (retain, nonatomic) NSString *pairingUsername;
+@property (retain, nonatomic) HMDCHIPAccessoryStorage *chipStorage;
+@property (readonly, nonatomic) BOOL isNativeMatter;
+@property BOOL convertingMatterAccessory;
+@property (readonly, copy, nonatomic) NSNumber *supportsMatterAccessCode;
+@property (readonly, copy, nonatomic) NSNumber *supportsMatterWalletKey;
+@property (copy, nonatomic) NSNumber *matterWEDSupport;
+@property (copy, nonatomic) NSNumber *matterSoftwareVersionNumber;
+@property (copy, nonatomic) NSString *matterExtendedMACAddress;
+@property (retain, nonatomic) NSNumber *supportedLinkLayerTypes;
+@property (readonly) BOOL supportsMatterWeekDaySchedule;
+@property (readonly) BOOL supportsMatterYearDaySchedule;
+@property (readonly) BOOL supportsACWGProvisioning;
+@property (readonly) BOOL supportsACWGUWB;
+@property (readonly) BOOL mfiCertifiedACWG;
+@property (readonly, copy, nonatomic) NSData *readerGroupSubIdentifierACWG;
+@property (readonly, copy, nonatomic) NSData *preexistingReaderGroupIdentifierACWG;
+@property (readonly) BOOL supportsWalletKey;
+@property (retain, nonatomic) HMDBulletinBoard *bulletinBoard;
+@property (nonatomic) long long communicationProtocol;
+@property (retain, nonatomic) id<HMDMessageRouter> primaryResidentMessageRouter;
+@property (readonly, copy) NSString *shortDescription;
+@property (readonly, copy) NSString *privateDescription;
+@property (readonly, copy) NSString *propertyDescription;
+@property (readonly, copy, nonatomic) NSArray *attributeDescriptions;
+
++ (BOOL)supportsSecureCoding;
++ (id)logCategory;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)pairingIdentity;
+- (long long)reachableTransports;
+- (BOOL)supportsIdentify;
+- (void)unconfigure;
+- (void)handleIdentifyAccessoryMessage:(id)a0;
+- (void)populateAccessoryModel:(id)a0 version:(long long)a1;
+- (void)_registerForMessages;
+- (void)addHostedAccessory:(id)a0;
+- (void)configureCHIPAccessory;
+- (void)configureWithHome:(id)a0 msgDispatcher:(id)a1 configurationTracker:(id)a2 initialConfiguration:(BOOL)a3;
+- (void)didFindAccessoryServer:(id)a0;
+- (void)didRemoveAccessoryServer:(id)a0;
+- (void)handleCHIPSendRemoteRequestMessage:(id)a0;
+- (void)handleUpdatedCHIPPropertiesOnAccessoryModel:(id)a0 actions:(id)a1;
+- (id)initWithTransaction:(id)a0 home:(id)a1;
+- (id)modelObjectWithChangeType:(unsigned long long)a0;
+- (id)modelObjectWithChangeType:(unsigned long long)a0 version:(long long)a1;
+- (void)populateModelObject:(id)a0 version:(long long)a1;
+- (void)processUpdatedAccessoryServer:(id)a0;
+- (void)removeAllCHIPPairingsWithCompletion:(id /* block */)a0;
+- (void)removeHostedAccessory:(id)a0;
+- (void)setCHIPReportHandler:(id /* block */)a0;
+- (unsigned long long)supportedTransports;
+- (void)transactionObjectRemoved:(id)a0 message:(id)a1;
+- (void)transactionObjectUpdated:(id)a0 newValues:(id)a1 message:(id)a2;
+- (id)transactionWithObjectChangeType:(unsigned long long)a0;
+- (id)transportReports;
+- (void)unconfigureAccessoryWithServerIdentifier:(id)a0 linkType:(long long)a1 updateReachability:(BOOL)a2;
+- (void)unconfigureMatterAccessoryWithCompletion:(id /* block */)a0;
+
+@end

@@ -1,0 +1,80 @@
+@class NSAffineTransform, QCRegion;
+@protocol QCImageProvider;
+
+@interface QCImage : QCObject <NSCoding> {
+    id<QCImageProvider> _provider;
+    NSAffineTransform *_transformation;
+    QCRegion *_domainOfDefinition;
+    void *_unused2[4];
+}
+
++ (void)initialize;
++ (id)imageFileTypes;
++ (id)createAllImagesFromData:(id)a0 options:(id)a1;
++ (id)createImageWithSource:(id)a0 options:(id)a1;
++ (id)dictionaryForSource:(struct CGImageSource { } *)a0 options:(id)a1 currentIndex:(int)a2;
++ (id)imageExporterClasses;
++ (unsigned long long)imageExporterRegistryTimestamp;
++ (id)imageFileExtensions;
++ (id)imageProviderClasses;
++ (void)registerImageExporterClass:(Class)a0;
++ (void)registerImageProviderClass:(Class)a0;
+
+- (void)dealloc;
+- (id)description;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)provider;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })bounds;
+- (id)initWithImage:(id)a0;
+- (BOOL)isInfinite;
+- (id)initWithData:(id)a0 options:(id)a1;
+- (id)initWithCGImage:(struct CGImage { } *)a0 options:(id)a1;
+- (id)transformation;
+- (id)initWithURL:(id)a0 options:(id)a1;
+- (id)initWithCGLayer:(struct CGLayer { } *)a0 options:(id)a1;
+- (id)initWithCIImage:(id)a0 options:(id)a1;
+- (id)initWithCVImageBuffer:(struct __CVBuffer { } *)a0 options:(id)a1;
+- (struct __C3DImage { } *)C3DImageRepresentation;
+- (id)CALayerRepresentation;
+- (id)CIImageRepresentation;
+- (id)createScaledImageByX:(double)a0 Y:(double)a1 fromX:(double)a2 Y:(double)a3;
+- (id)_createTransformedImage:(struct { double x0; double x1; double x2; double x3; double x4; double x5; } *)a0 definition:(id)a1;
+- (id)QCStreamRepresentation;
+- (id)_initWithNSImageSource:(id)a0 options:(id)a1;
+- (id)createCALayerForManager:(id)a0 withOptions:(id)a1;
+- (struct CGImage { } *)createCGImageForManager:(id)a0 withOptions:(id)a1;
+- (id)createCIImageForManager:(id)a0 withOptions:(id)a1;
+- (struct __CVBuffer { } *)createCVOpenGLBufferForManager:(id)a0 withOptions:(id)a1;
+- (struct __CVBuffer { } *)createCVPixelBufferForManager:(id)a0 withOptions:(id)a1;
+- (id)createCroppedImageWithRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)createImageDataForManager:(id)a0 withOptions:(id)a1;
+- (id)createNSBitmapImageRepForManager:(id)a0 withOptions:(id)a1;
+- (id)createNSImageForManager:(id)a0 withOptions:(id)a1;
+- (id)createPixelBufferForManager:(id)a0 withFormat:(id)a1 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a2 colorSpace:(struct CGColorSpace { } *)a3 options:(id)a4;
+- (id)createQCStreamForManager:(id)a0 withOptions:(id)a1;
+- (id)createRepresentationOfType:(id)a0 forManager:(id)a1 withOptions:(id)a2;
+- (id)createRotatedImageByDegrees:(double)a0;
+- (id)createRotatedImageByDegrees:(double)a0 aroundX:(double)a1 Y:(double)a2;
+- (id)createScaledImageByX:(double)a0 Y:(double)a1;
+- (id)createTextureBufferForManager:(id)a0 withFormat:(id)a1 target:(unsigned int)a2 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a3 colorSpace:(struct CGColorSpace { } *)a4 options:(id)a5;
+- (id)createTransformedImage:(id)a0;
+- (id)createTranslatedImageByX:(double)a0 Y:(double)a1;
+- (id)domainOfDefinition;
+- (id)initWithC3DImage:(struct __C3DImage { } *)a0 options:(id)a1;
+- (id)initWithCALayer:(id)a0 options:(id)a1;
+- (id)initWithCGImageSource:(struct CGImageSource { } *)a0 imageIndex:(unsigned long long)a1 options:(id)a2;
+- (id)initWithCGPath:(struct CGPath { } *)a0 options:(id)a1;
+- (id)initWithFile:(id)a0 options:(id)a1;
+- (id)initWithNSBitmapImageRep:(id)a0 options:(id)a1;
+- (id)initWithNSImage:(id)a0 options:(id)a1;
+- (id)initWithPDFDocument:(struct CGPDFDocument { } *)a0 pageNumber:(unsigned long long)a1 options:(id)a2;
+- (id)initWithProvider:(id)a0 options:(id)a1;
+- (id)initWithQCImageBuffer:(id)a0 options:(id)a1;
+- (id)initWithQCStream:(id)a0 options:(id)a1;
+- (id)initWithString:(id)a0 attributes:(id)a1 layoutSize:(struct CGSize { double x0; double x1; })a2 options:(id)a3;
+- (id)initWithTextRenderer:(id)a0 options:(id)a1;
+- (BOOL)writeToFile:(id)a0 forManager:(id)a1 withOptions:(id)a2;
+- (BOOL)writeToURL:(id)a0 forManager:(id)a1 withOptions:(id)a2;
+
+@end

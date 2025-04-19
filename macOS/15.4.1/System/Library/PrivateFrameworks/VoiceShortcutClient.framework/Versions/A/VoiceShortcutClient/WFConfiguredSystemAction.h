@@ -1,0 +1,3 @@
+@interface WFConfiguredSystemAction : WFConfiguredStaccatoAction
+
+@end

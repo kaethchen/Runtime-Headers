@@ -1,0 +1,3 @@
+@interface _TtC7SwiftUIP33_F3A89CF4357225EF49A7DD673FDFEE0213BoxVTableBase : SwiftUI._UnsafeHeterogeneousBuffer_VTable
+
+@end

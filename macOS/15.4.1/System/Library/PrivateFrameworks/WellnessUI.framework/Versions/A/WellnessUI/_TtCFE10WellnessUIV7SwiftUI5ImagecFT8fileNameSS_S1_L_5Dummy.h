@@ -1,0 +1,3 @@
+@interface _TtCFE10WellnessUIV7SwiftUI5ImagecFT8fileNameSS_S1_L_5Dummy : _TtCs12_SwiftObject
+
+@end

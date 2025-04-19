@@ -1,0 +1,3 @@
+@interface DKLogging : NSObject
+
+@end

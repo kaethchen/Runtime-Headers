@@ -1,0 +1,3 @@
+@interface VSWebAuthenticationAppDocumentController : VSAppDocumentController
+
+@end

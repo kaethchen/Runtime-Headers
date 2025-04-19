@@ -1,0 +1,3 @@
+@interface WKViewData : NSObject
+
+@end

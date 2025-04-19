@@ -1,0 +1,3 @@
+@interface EWSResponseObjectType : EWSResponseObjectCoreType
+
+@end

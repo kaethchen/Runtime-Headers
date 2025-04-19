@@ -1,0 +1,3 @@
+@interface VNE5RTScreenGazeDetectorFunctionDescriptor : VisionCoreE5RTInferenceFunctionDescriptor
+
+@end

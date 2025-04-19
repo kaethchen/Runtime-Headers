@@ -1,0 +1,3 @@
+@interface CBUserStudyDataCollectionManager : NSObject
+
+@end

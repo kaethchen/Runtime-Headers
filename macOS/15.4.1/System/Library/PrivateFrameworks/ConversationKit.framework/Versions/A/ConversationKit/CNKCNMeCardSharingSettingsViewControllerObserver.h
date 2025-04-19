@@ -1,0 +1,3 @@
+@interface CNKCNMeCardSharingSettingsViewControllerObserver : NSObject
+
+@end

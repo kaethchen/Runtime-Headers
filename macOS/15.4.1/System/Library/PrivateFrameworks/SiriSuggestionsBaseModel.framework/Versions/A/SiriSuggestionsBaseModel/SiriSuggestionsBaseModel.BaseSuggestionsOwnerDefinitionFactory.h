@@ -1,0 +1,3 @@
+@interface SiriSuggestionsBaseModel.BaseSuggestionsOwnerDefinitionFactory : _TtCs12_SwiftObject
+
+@end

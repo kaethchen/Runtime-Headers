@@ -1,0 +1,80 @@
+@class NSTextField, NSView, NSSlider, IKCameraDeviceViewHandler, IKPathPopupButton, NSButton, NSPopover, NSSegmentedControl;
+
+@interface IKCameraBackgroundView : NSView {
+    NSSlider *_iconSlider;
+    NSSegmentedControl *_modeSwitch;
+    NSSegmentedControl *_rotateLeftButton;
+    NSSegmentedControl *_deleteButton;
+}
+
+@property IKCameraDeviceViewHandler *cameraViewHandler;
+@property NSView *container;
+@property NSTextField *downloadToLabel;
+@property IKPathPopupButton *downloadToPopupButton;
+@property NSTextField *statusInfo1;
+@property NSTextField *statusInfo2;
+@property NSSlider *xibIconSizeControl;
+@property NSSegmentedControl *xibModeControl;
+@property NSSegmentedControl *xibRotateControl;
+@property NSSegmentedControl *xibDeleteControl;
+@property NSButton *xibDownloadControl;
+@property NSButton *xibDownloadAllControl;
+@property id auxIconSizeControl;
+@property id auxModeControl;
+@property id auxActionControl;
+@property id auxRotateControl;
+@property id auxDeleteControl;
+@property id auxDownloadControl;
+@property id auxDownloadAllControl;
+@property NSSlider *iconSizeControl;
+@property NSSegmentedControl *modeControl;
+@property NSSegmentedControl *actionControl;
+@property NSSegmentedControl *rotateControl;
+@property NSSegmentedControl *deleteControl;
+@property NSButton *downloadControl;
+@property NSButton *downloadAllControl;
+@property (nonatomic) BOOL hideDeleteButton;
+@property BOOL statusAsWindowSubtitle;
+@property BOOL hasBottomFiller;
+@property BOOL hasBottomSeparator;
+@property (nonatomic) double sliderMaxValue;
+@property (nonatomic) double sliderValue;
+@property (nonatomic) BOOL sliderEnabled;
+@property (nonatomic) BOOL sliderHidden;
+@property NSPopover *popover;
+
+- (id)initWithCoder:(id)a0;
+- (void)awakeFromNib;
+- (void)flagsChanged:(id)a0;
+- (void)setup;
+- (void)setupBindings;
+- (void)setupViews;
+- (void)accessoryViewPopover:(id)a0;
+- (void)addDeleteControlBindings;
+- (void)addDownloadAllControlBindings;
+- (void)addDownloadControlBindings;
+- (void)addIconSizeControlBindings;
+- (void)addModeControlBindings;
+- (void)addRotateControlBindings;
+- (void)changeMode:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })defaultRectForIdentifier:(id)a0;
+- (void)doUpdateConstraintsAfterDelay;
+- (void)installView:(id)a0;
+- (BOOL)newLayout;
+- (void)removeDeleteControlBindings;
+- (void)removeDownloadAllControlBindings;
+- (void)removeDownloadControlBindings;
+- (void)removeIconSizeControlBindings;
+- (void)removeModeControlBindings;
+- (void)removeRotateControlBindings;
+- (void)setupActions;
+- (void)updateActionControl:(id)a0;
+- (void)updateConstraintsAfterDelay:(id)a0;
+- (void)updateDeleteControl:(id)a0;
+- (void)updateDownloadAllControl:(id)a0;
+- (void)updateDownloadControl:(id)a0;
+- (void)updateIconSizeControl:(id)a0;
+- (void)updateModeControl:(id)a0;
+- (void)updateRotateControl:(id)a0;
+
+@end

@@ -1,0 +1,3 @@
+@interface IntelligenceFlowPlannerRuntime.ResponseCatalog : IntelligenceFlowPlannerRuntime.ResponseCatalogDatabase
+
+@end

@@ -1,0 +1,3 @@
+@interface SUProductConstants : NSObject
+
+@end

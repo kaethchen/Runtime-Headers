@@ -1,0 +1,3 @@
+@interface CoreAudioOrchestration.CoreAudioOrchestratorLaunchServiceXPC : CoreAudioOrchestration.CoreAudioOrchestratorXPC
+
+@end

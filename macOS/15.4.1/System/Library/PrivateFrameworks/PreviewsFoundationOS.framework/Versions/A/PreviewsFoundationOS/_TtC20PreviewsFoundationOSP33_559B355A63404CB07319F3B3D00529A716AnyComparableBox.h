@@ -1,0 +1,3 @@
+@interface _TtC20PreviewsFoundationOSP33_559B355A63404CB07319F3B3D00529A716AnyComparableBox : _TtCs12_SwiftObject
+
+@end

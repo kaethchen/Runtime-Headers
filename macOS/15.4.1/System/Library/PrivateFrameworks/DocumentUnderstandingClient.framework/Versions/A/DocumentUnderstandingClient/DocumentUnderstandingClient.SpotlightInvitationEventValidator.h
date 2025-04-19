@@ -1,0 +1,3 @@
+@interface DocumentUnderstandingClient.SpotlightInvitationEventValidator : _TtCs12_SwiftObject
+
+@end

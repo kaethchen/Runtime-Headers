@@ -1,0 +1,3 @@
+@interface SVXPowerInstrumentation : NSObject
+
+@end

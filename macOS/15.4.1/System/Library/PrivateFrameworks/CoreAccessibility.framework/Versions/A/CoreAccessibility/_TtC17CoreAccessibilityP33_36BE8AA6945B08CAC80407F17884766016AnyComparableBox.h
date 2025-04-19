@@ -1,0 +1,3 @@
+@interface _TtC17CoreAccessibilityP33_36BE8AA6945B08CAC80407F17884766016AnyComparableBox : _TtCs12_SwiftObject
+
+@end

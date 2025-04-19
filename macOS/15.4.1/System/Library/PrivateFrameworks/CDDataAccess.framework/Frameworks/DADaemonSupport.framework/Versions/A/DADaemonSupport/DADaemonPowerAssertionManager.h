@@ -1,0 +1,3 @@
+@interface DADaemonPowerAssertionManager : DAPowerAssertionManager
+
+@end

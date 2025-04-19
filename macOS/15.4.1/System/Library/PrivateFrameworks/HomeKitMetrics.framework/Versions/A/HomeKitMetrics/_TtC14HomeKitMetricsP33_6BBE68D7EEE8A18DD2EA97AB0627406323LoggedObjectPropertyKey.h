@@ -1,0 +1,3 @@
+@interface _TtC14HomeKitMetricsP33_6BBE68D7EEE8A18DD2EA97AB0627406323LoggedObjectPropertyKey : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface SCIMStrokePreferencesModule : CIMPreferencesModule
+
+@end

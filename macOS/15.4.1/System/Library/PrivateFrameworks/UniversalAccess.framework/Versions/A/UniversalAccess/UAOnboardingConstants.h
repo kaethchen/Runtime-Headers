@@ -1,0 +1,3 @@
+@interface UAOnboardingConstants : NSObject
+
+@end

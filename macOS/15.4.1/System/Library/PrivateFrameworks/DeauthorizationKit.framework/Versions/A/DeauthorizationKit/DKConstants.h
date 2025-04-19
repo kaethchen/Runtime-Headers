@@ -1,0 +1,3 @@
+@interface DKConstants : NSObject
+
+@end

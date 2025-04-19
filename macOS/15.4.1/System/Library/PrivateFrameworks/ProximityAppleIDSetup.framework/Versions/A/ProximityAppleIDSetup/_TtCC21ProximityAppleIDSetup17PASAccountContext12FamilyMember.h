@@ -1,0 +1,3 @@
+@interface _TtCC21ProximityAppleIDSetup17PASAccountContext12FamilyMember : ProximityAppleIDSetup.PASAccountContext
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCV16PassKitMacHelper18PaymentSheetFooterP33_04A47143397D5B4392BCFB91796D716611AudioPlayer : _TtCs12_SwiftObject
+
+@end

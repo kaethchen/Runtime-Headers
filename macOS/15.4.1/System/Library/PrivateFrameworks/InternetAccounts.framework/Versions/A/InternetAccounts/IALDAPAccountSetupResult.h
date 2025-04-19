@@ -1,0 +1,3 @@
+@interface IALDAPAccountSetupResult : IAAccountSetupResult
+
+@end

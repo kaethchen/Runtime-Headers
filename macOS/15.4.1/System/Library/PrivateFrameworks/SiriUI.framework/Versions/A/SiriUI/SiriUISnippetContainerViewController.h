@@ -1,0 +1,84 @@
+@class NSString, SiriUICardHeaderViewController, SiriUISnippetViewController;
+@protocol SiriUISnippetViewControllerDelegate;
+
+@interface SiriUISnippetContainerViewController : SiriUISnippetViewController <SiriUISnippetContainerViewDelegate, SiriUISnippetViewControllerDelegate, SiriSharedUISashItemDelegate> {
+    SiriUICardHeaderViewController *_sashViewController;
+    NSString *_summaryImagePath;
+    NSString *_summaryTitle;
+    BOOL _stoleKeyWindow;
+}
+
+@property (weak) id<SiriUISnippetViewControllerDelegate> snippetDelegate;
+@property (retain, nonatomic) SiriUISnippetViewController *snippetViewController;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)setDelegate:(id)a0;
+- (id)containerView;
+- (id)icon;
+- (BOOL)isNavigating;
+- (void)loadView;
+- (id)pasteboardPropertyListForType:(id)a0;
+- (void)viewWillAppear;
+- (void)viewWillDisappear;
+- (id)writableTypesForPasteboard:(id)a0;
+- (unsigned long long)writingOptionsForType:(id)a0 pasteboard:(id)a1;
+- (BOOL)isLoading;
+- (void)setNavigating:(BOOL)a0;
+- (id)summaryTitle;
+- (id)aceObject;
+- (void)setAceObject:(id)a0;
+- (void)setSnippet:(id)a0;
+- (double)desiredHeightForWidth:(double)a0;
+- (BOOL)hasSash;
+- (id)_dragOutURLName;
+- (void)_addSnippetViewControllerView;
+- (id)_dragOutURL;
+- (void)_setProvisional:(BOOL)a0;
+- (void)_setVirgin:(BOOL)a0;
+- (void)cancelRequestForSiriSnippetViewController:(id)a0;
+- (double)desiredHeightForFooterViewForWidth:(double)a0;
+- (double)desiredHeightForHeaderViewForWidth:(double)a0;
+- (double)desiredHeightForSnippetForWidth:(double)a0;
+- (id)instrumentationTurnIdentifier;
+- (id)persistentDataStoreForSiriViewController:(id)a0;
+- (void)releaseKeyForSiriViewController:(id)a0;
+- (void)sashItemDidUpdateSashImage:(id)a0;
+- (void)setInstrumentationTurnIdentifier:(id)a0;
+- (BOOL)shouldSurpressBackground;
+- (void)siriSnippetViewController:(id)a0 pushSirilandSnippets:(id)a1;
+- (void)siriSnippetViewController:(id)a0 setStatusViewHidden:(BOOL)a1;
+- (void)siriSnippetViewController:(id)a0 shouldPresentPicker:(id)a1 completion:(id /* block */)a2;
+- (void)siriSnippetViewControllerViewDidLoad:(id)a0;
+- (void)siriSnippetViewControllerWillBecomeFirstResponder:(id)a0;
+- (void)siriViewController:(id)a0 addSelectionResponse:(id)a1;
+- (void)siriViewController:(id)a0 didOpenPunchout:(id)a1;
+- (id)siriViewController:(id)a0 disambiguationItemForListItem:(id)a1 disambiguationKey:(id)a2;
+- (id)siriViewController:(id)a0 domainObjectForIdentifier:(id)a1;
+- (id)siriViewController:(id)a0 filteredDisambiguationListItems:(id)a1;
+- (id)siriViewController:(id)a0 listItemToPickInAutodisambiguationForListItems:(id)a1;
+- (void)siriViewController:(id)a0 makeKeyWithCompletion:(id /* block */)a1;
+- (void)siriViewController:(id)a0 openURL:(id)a1 completion:(id /* block */)a2;
+- (void)siriViewController:(id)a0 performAceCommands:(id)a1;
+- (void)siriViewController:(id)a0 setContentOffset:(double)a1;
+- (void)siriViewController:(id)a0 setDomainObject:(id)a1 forIdentifier:(id)a2;
+- (struct NSEdgeInsets { double x0; double x1; double x2; double x3; })siriViewControllerBackgroundInsets:(id)a0;
+- (void)siriViewControllerDidPunchout;
+- (id)siriViewControllerEffectiveBundleForCoreLocation:(id)a0;
+- (double)siriViewControllerExpectedWidth:(id)a0;
+- (void)siriViewControllerHeightDidChange:(id)a0;
+- (void)siriViewControllerHeightDidChange:(id)a0 pinTopOfSnippet:(BOOL)a1;
+- (void)siriViewControllerRequestsBackwardNavigation:(id)a0;
+- (struct NSEdgeInsets { double x0; double x1; double x2; double x3; })siriViewControllerTranscriptInsets:(id)a0;
+- (void)siriViewControllerViewDidAppear:(id)a0;
+- (void)siriViewControllerViewDidDisappear:(id)a0;
+- (struct CGSize { double x0; double x1; })siriViewControllerVisibleContentArea:(id)a0;
+- (id)snippetIdentifierForGroupName:(id)a0;
+- (id)summaryImagePath;
+- (void)wasAddedToTranscript;
+
+@end

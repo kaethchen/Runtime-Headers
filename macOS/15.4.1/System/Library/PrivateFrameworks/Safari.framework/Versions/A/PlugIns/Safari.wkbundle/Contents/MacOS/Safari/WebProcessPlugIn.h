@@ -1,0 +1,3 @@
+@interface WebProcessPlugIn : WBSWebProcessPlugIn
+
+@end

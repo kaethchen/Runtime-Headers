@@ -1,0 +1,3 @@
+@interface CNPhotoLikenessSourceTable : NSOutlineView
+
+@end

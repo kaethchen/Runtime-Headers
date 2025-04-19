@@ -1,0 +1,86 @@
+@class NSString, _UXCollectionViewLayoutProxy, NSArray, UXCollectionView, UXCollectionViewCell, NSGestureRecognizer, UXCollectionViewLayout, NSEvent;
+@protocol UXCollectionViewDelegate_Rearranging, UXCollectionViewDataSource_Rearranging;
+
+@interface _UXCollectionViewRearrangingCoordinator : NSObject <UXCollectionViewLayoutProxyDelegate, NSGestureRecognizerDelegate, NSDraggingSource, NSDraggingDestination> {
+    struct { unsigned char dataSourceImplementsCanMoveItemsAtIndexPaths : 1; unsigned char dataSourceImplementsShouldExchangeItemsAtIndexPathsWithProposedIndexPaths : 1; unsigned char dataSourceImplementsMoveItemsAtIndexPathsToIndexPath : 1; unsigned char dataSourceImplementsExchangeItemsAtIndexPathsWithIndexPaths : 1; unsigned char delegateImplementsShouldBeginDraggingSessionWithClickedItemAtIndexPath : 1; unsigned char delegateImplementsImageForDraggedItemAtIndexPath : 1; unsigned char delegateImplementsPasteboardWriterForItemAtIndexPath : 1; unsigned char delegateImplementsDraggingItemForIndexPathProposedDraggingItem : 1; unsigned char delegateImplementsUpdatesLayoutOnDrag : 1; unsigned char delegateImplementsPreferredDraggingFormation : 1; unsigned char delegateImplementsDragSourceIdentifier : 1; unsigned char delegateImplementsCreatedDraggingSessionForItemsAtIndexPaths : 1; unsigned int delegateImplementsDraggingSessionSourceOperationMaskForDraggingContext; unsigned char delegateImplementsDraggingSessionWillBeginAtPoint : 1; unsigned char delegateImplementsDraggingSessionMovedToPoint : 1; unsigned char delegateImplementsDraggingSessionEndedAtPointDragOperation : 1; unsigned char delegateImplementsPrepareForDragOperation : 1; unsigned char delegateImplementsPerformDragOperation : 1; unsigned char delegateImplementsDraggingEntered : 1; unsigned char delegateImplementsDraggingUpdated : 1; unsigned char delegateImplementsDraggingExited : 1; unsigned char delegateImplementsDraggingEnded : 1; } _collectionViewFlags;
+    NSArray *_initialIndexPaths;
+    NSArray *_targetIndexPaths;
+    NSArray *_movedIndexPaths;
+    NSArray *_exchangedIndexPaths;
+    struct CGPoint { double x; double y; } _screenPoint;
+    BOOL _initialIndexPathsAreContiguous;
+    NSGestureRecognizer *_gestureRecognizer;
+    double _dragStartTime;
+    double _collectionViewReloadLastCallTime;
+    double _dragEnteredTime;
+    BOOL _updatesLayoutOnDrag;
+    BOOL _autoscrolling;
+    unsigned long long _sequenceNumber;
+    NSEvent *_mouseDownEvent;
+}
+
+@property (readonly, nonatomic) _UXCollectionViewLayoutProxy *layoutProxy;
+@property (readonly, nonatomic) id<UXCollectionViewDataSource_Rearranging> dataSource;
+@property (readonly, nonatomic) id<UXCollectionViewDelegate_Rearranging> delegate;
+@property (nonatomic) struct _NSRange { unsigned long long location; unsigned long long length; } initialIndexRange;
+@property (nonatomic) struct _NSRange { unsigned long long location; unsigned long long length; } targetIndexRange;
+@property (nonatomic) struct _NSRange { unsigned long long location; unsigned long long length; } movedIndexRange;
+@property (nonatomic) struct _NSRange { unsigned long long location; unsigned long long length; } exchangedIndexRange;
+@property (nonatomic) BOOL shouldExchange;
+@property (retain, nonatomic) UXCollectionViewCell *dropTargetCell;
+@property (nonatomic) unsigned long long dropOperation;
+@property (readonly, nonatomic) NSString *dragSourceIdentifier;
+@property (readonly, nonatomic) UXCollectionView *collectionView;
+@property (readonly, nonatomic) UXCollectionViewLayout *collectionViewLayout;
+@property (readonly, nonatomic) BOOL isRearranging;
+@property (nonatomic) BOOL enabled;
+@property (nonatomic) long long initiationMode;
+@property (nonatomic) BOOL allowDragOutsideCells;
+@property (nonatomic) BOOL continuouslyUpdateInsideCells;
+@property (nonatomic) BOOL usePileForSingleItem;
+@property (nonatomic) BOOL allowAutoscroll;
+@property (nonatomic) double rearrangingInitialDelay;
+@property (nonatomic) double rearrangingPreviewDelay;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void)draggingExited:(id)a0;
+- (void)concludeDragOperation:(id)a0;
+- (void)draggingEnded:(id)a0;
+- (unsigned long long)draggingEntered:(id)a0;
+- (void)draggingSession:(id)a0 endedAtPoint:(struct CGPoint { double x0; double x1; })a1 operation:(unsigned long long)a2;
+- (void)draggingSession:(id)a0 movedToPoint:(struct CGPoint { double x0; double x1; })a1;
+- (unsigned long long)draggingSession:(id)a0 sourceOperationMaskForDraggingContext:(long long)a1;
+- (void)draggingSession:(id)a0 willBeginAtPoint:(struct CGPoint { double x0; double x1; })a1;
+- (unsigned long long)draggingUpdated:(id)a0;
+- (BOOL)gestureRecognizerShouldBegin:(id)a0;
+- (id)initWithCollectionView:(id)a0;
+- (id)layoutAttributesForElementsInRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)performDragOperation:(id)a0;
+- (BOOL)prepareForDragOperation:(id)a0;
+- (void)updateDraggingItemsForDrag:(id)a0;
+- (BOOL)wantsPeriodicDraggingUpdates;
+- (void)createGestureRecognizer;
+- (void)removeGestureRecognizer;
+- (void)reloadLayout;
+- (BOOL)_allowAutoscrollForDraggingInfo:(id)a0;
+- (BOOL)_allowRearranging;
+- (void)_autoscrollWithWindowLocation:(struct CGPoint { double x0; double x1; })a0;
+- (void)_beginDraggingSessionForIndexPaths:(id)a0;
+- (void)_beginRearrangingItemsWithIndexPaths:(id)a0;
+- (void)_createdDraggingSession:(id)a0 forItemsAtIndexPaths:(id)a1;
+- (void)_finishRearrangingForLocation:(struct CGPoint { double x0; double x1; })a0 shouldComplete:(BOOL)a1;
+- (void)_gestureRecognized:(id)a0;
+- (id)_imageForItemAtIndexPath:(id)a0;
+- (BOOL)_isEquivalentSourceOfDraggingInfo:(id)a0;
+- (BOOL)_isSourceOfDraggingInfo:(id)a0;
+- (void)_moveItemsAtIndexPaths:(id)a0 toIndexPaths:(id)a1;
+- (void)_reloadCollectionViewWithAnimation;
+- (BOOL)_shouldHandleExternalDrop:(id)a0;
+- (void)_updateDragSourceIdentifier;
+- (void)_updateRearrangingStateForLocation:(id)a0;
+
+@end

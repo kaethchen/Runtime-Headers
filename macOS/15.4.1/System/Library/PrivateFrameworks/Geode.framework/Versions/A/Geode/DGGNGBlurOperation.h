@@ -1,0 +1,16 @@
+@class NSNumber;
+
+@interface DGGNGBlurOperation : DGOperation
+
+@property (copy, nonatomic) NSNumber *inputIntensity;
+
++ (id)attributes;
++ (id)inputKeys;
++ (id)outputKeys;
++ (id)_stringsTableName;
+
+- (void)dealloc;
+- (id)init;
+- (id)initWithOperation:(id)a0;
+
+@end

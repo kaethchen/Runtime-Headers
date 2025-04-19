@@ -1,0 +1,3 @@
+@interface _TtC12FeedbackCoreP33_C068D07687CCF182F7EA72D79E12955719ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

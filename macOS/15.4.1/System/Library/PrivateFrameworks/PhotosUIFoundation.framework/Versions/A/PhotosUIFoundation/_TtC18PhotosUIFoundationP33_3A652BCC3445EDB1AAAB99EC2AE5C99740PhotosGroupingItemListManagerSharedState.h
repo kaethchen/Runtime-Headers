@@ -1,0 +1,3 @@
+@interface _TtC18PhotosUIFoundationP33_3A652BCC3445EDB1AAAB99EC2AE5C99740PhotosGroupingItemListManagerSharedState : _TtCs12_SwiftObject
+
+@end

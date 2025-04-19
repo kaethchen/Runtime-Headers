@@ -1,0 +1,3 @@
+@interface PhotosIntelligence.PhotoAnalysisPhotoLibraryService : PhotosIntelligence.PhotoAnalysisService
+
+@end

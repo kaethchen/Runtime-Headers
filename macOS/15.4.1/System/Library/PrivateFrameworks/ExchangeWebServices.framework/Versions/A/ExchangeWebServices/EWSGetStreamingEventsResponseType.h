@@ -1,0 +1,3 @@
+@interface EWSGetStreamingEventsResponseType : EWSBaseMessageResponseType
+
+@end

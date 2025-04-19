@@ -1,0 +1,3 @@
+@interface VUIJSExitUpsellInterface : VUIJSObject
+
+@end

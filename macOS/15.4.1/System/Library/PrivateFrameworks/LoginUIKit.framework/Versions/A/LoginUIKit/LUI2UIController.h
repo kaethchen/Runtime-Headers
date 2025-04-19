@@ -1,0 +1,73 @@
+@class LUI2RecoveryKeyViewController, LUI2UserCollectionViewController, LUI2MessageViewController, LUI2MultiWindowController, LUI2DateViewController, LUI2BackgroundViewController, LUI2PasswordViewController, LUI2GenericMessageViewController, NSString, TRMPortManager, LUI2UserNameViewController, NSLayoutConstraint, NSView, LUI2PasswordHelpViewController, LUI2UserNameLabelController, LUI2PopupButtonViewController, LUI2AuthHintViewController, LUIPopoverController, LUI2StatusViewController, LUI2SpinnerViewController, LUI2BigTimeViewController;
+
+@interface LUI2UIController : NSObject <TRMPortManagerDelegate>
+
+@property (retain) LUIPopoverController *popover;
+@property BOOL hasAuthorizationPluginView;
+@property (retain) NSView *userViewAligner;
+@property (retain) NSView *footer;
+@property (retain) NSLayoutConstraint *spinnerPasswordConstraint;
+@property (retain) NSLayoutConstraint *spinnerUserConstraint;
+@property (retain) NSLayoutConstraint *authMainHintVerticalConstraint;
+@property (retain) NSLayoutConstraint *authSubHintVerticalConstraint;
+@property (retain) NSLayoutConstraint *bigTimeVerticalConstraint;
+@property (retain) NSLayoutConstraint *dateVerticalConstraint;
+@property (retain) NSLayoutConstraint *messageConstraint;
+@property (retain) NSLayoutConstraint *passwordHelpBottomConstraint;
+@property (retain) NSLayoutConstraint *userCollectionViewControllerWidthConstraint;
+@property (retain) NSLayoutConstraint *userCollectionViewControllerHeightConstraint;
+@property (retain) NSLayoutConstraint *userNameLabelOverlapConstraint;
+@property (retain) NSLayoutConstraint *userNameLabelPasswordRequiredConstraint;
+@property (retain) TRMPortManager *trmPortManager;
+@property (readonly) LUI2MultiWindowController *multiWindowController;
+@property (readonly) LUI2AuthHintViewController *authHintViewController;
+@property (readonly) LUI2BackgroundViewController *backgroundViewController;
+@property (readonly) LUI2BigTimeViewController *bigTimeViewController;
+@property (readonly) LUI2DateViewController *dateViewController;
+@property (readonly) LUI2MessageViewController *messageViewController;
+@property (readonly) LUI2PasswordHelpViewController *passwordHelpViewController;
+@property (readonly) LUI2PasswordViewController *passwordViewController;
+@property (readonly) LUI2PopupButtonViewController *popupButtonViewController;
+@property (readonly) LUI2GenericMessageViewController *trmMessageViewController;
+@property (readonly) LUI2RecoveryKeyViewController *recoveryKeyViewController;
+@property (readonly) LUI2SpinnerViewController *spinnerViewController;
+@property (readonly) LUI2StatusViewController *statusViewController;
+@property (readonly) LUI2UserCollectionViewController *userCollectionViewController;
+@property (readonly) LUI2UserNameViewController *userNameViewController;
+@property (readonly) LUI2UserNameLabelController *userNameLabelController;
+@property (getter=isEnabled) BOOL enabled;
+@property (getter=isPasswordRequired) BOOL passwordRequired;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)showPopover:(id)a0;
+- (double)_authMainHintContraintConstant;
+- (double)_authSubHintContraintConstant;
+- (double)_bigTimeConstraintConstant;
+- (double)_dateConstraintConstant;
+- (void)_displaysDidChange:(id)a0;
+- (double)_messageConstraintConstant;
+- (void)_passwordHelpButtonPressed:(id)a0;
+- (void)_setupControllerWithAuthorizationPluginView:(id)a0;
+- (void)_updateControllersWithIncreaseContrast:(BOOL)a0 image:(id)a1 displayID:(unsigned int)a2;
+- (void)_updateKeyViews:(id)a0;
+- (void)_updateUserNameLabelContraint;
+- (id)_viewForPopover:(int)a0;
+- (id)currentPopover;
+- (BOOL)escapePressed:(id)a0;
+- (void)hidePopover;
+- (id)initWithAuthorizationPluginView:(id)a0;
+- (BOOL)isShowingMultiUserLayout;
+- (id)makePasswordHelpBottomConstraint;
+- (void)portManagerPortsUpdated;
+- (void)shakePopover;
+- (void)showMultiUserLayout;
+- (void)showPopover:(id)a0 relativeToView:(id)a1;
+
+@end

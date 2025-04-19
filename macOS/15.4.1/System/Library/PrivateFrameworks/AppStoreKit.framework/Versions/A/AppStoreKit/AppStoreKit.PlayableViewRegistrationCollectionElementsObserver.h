@@ -1,0 +1,3 @@
+@interface AppStoreKit.PlayableViewRegistrationCollectionElementsObserver : _TtCs12_SwiftObject
+
+@end

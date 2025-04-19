@@ -1,0 +1,3 @@
+@interface OSARespondsToDefinition : OSADefinition
+
+@end

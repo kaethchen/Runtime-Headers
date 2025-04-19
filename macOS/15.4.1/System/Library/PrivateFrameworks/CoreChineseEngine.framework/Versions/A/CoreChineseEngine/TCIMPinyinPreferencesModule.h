@@ -1,0 +1,3 @@
+@interface TCIMPinyinPreferencesModule : CIMPinyinPreferencesModule
+
+@end

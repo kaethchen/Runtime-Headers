@@ -1,0 +1,3 @@
+@interface ITLibModelPlaylistKind : ITLibModelKind
+
+@end

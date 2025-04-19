@@ -1,0 +1,3 @@
+@interface WFConfiguredStaccatoWorkflowAction : WFConfiguredSystemWorkflowAction
+
+@end

@@ -1,0 +1,28 @@
+@class NSError, NSString, NSObject;
+@protocol OS_xpc_object;
+
+@interface GEOXPCReply : NSObject <GEOXPCSerializable> {
+    unsigned long long _signpostId;
+    NSString *_peerBundleId;
+    NSString *_serviceName;
+    NSString *_methodName;
+}
+
+@property (retain, nonatomic) NSObject<OS_xpc_object> *object;
+@property (readonly, nonatomic) NSObject<OS_xpc_object> *replyDictionary;
+@property (readonly, nonatomic) unsigned char flags;
+@property (retain, nonatomic) NSError *error;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)send;
+- (id)initWithRequest:(id)a0;
+- (void)encodeToXPCDictionary:(id)a0;
+- (id)initWithReplyObject:(id)a0;
+- (id)initWithXPCDictionary:(id)a0 error:(id *)a1;
+
+@end

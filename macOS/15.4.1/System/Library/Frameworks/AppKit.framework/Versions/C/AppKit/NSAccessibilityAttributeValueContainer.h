@@ -1,0 +1,3 @@
+@interface NSAccessibilityAttributeValueContainer : NSObject
+
+@end

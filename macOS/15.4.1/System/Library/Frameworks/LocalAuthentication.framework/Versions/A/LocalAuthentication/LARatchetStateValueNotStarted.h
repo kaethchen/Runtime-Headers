@@ -1,0 +1,3 @@
+@interface LARatchetStateValueNotStarted : LARatchetStateValue
+
+@end

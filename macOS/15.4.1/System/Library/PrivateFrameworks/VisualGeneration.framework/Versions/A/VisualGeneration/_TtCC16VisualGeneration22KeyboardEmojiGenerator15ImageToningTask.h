@@ -1,0 +1,3 @@
+@interface _TtCC16VisualGeneration22KeyboardEmojiGenerator15ImageToningTask : _TtCs12_SwiftObject
+
+@end

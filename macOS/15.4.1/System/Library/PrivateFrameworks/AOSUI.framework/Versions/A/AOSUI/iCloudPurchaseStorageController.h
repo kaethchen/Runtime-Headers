@@ -1,0 +1,3 @@
+@interface iCloudPurchaseStorageController : ICQiCloudPurchaseStorageController
+
+@end

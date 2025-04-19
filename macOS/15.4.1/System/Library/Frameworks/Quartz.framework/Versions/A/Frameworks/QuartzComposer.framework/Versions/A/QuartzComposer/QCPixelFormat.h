@@ -1,0 +1,78 @@
+@interface QCPixelFormat : NSObject {
+    void *_unused[4];
+}
+
++ (id)allocWithZone:(struct _NSZone { } *)a0;
++ (void)initialize;
++ (id)pixelFormatM_I8;
++ (id)pixelFormatM_Ih;
++ (id)pixelFormatRGBf;
++ (id)pixelFormatYUVS;
++ (id)allPixelFormats;
++ (id)pixelFormatM_If;
++ (id)pixelFormatRGB8;
++ (id)pixelFormatRGBh;
++ (id)defaultClosestPixelFormat:(id)a0 withColorSpace:(struct CGColorSpace { } *)a1;
++ (id)findPixelFormat:(id)a0 withColorSpace:(struct CGColorSpace { } *)a1 closestToFormats:(id)a2;
++ (id)pixelFormat422YpCbCr8_601;
++ (id)pixelFormat422YpCbCr8_709;
++ (id)pixelFormatARGB8;
++ (id)pixelFormatBGRA8;
++ (id)pixelFormatBGRX8;
++ (id)pixelFormatCMYK16;
++ (id)pixelFormatCMYK8;
++ (id)pixelFormatCMYKf;
++ (id)pixelFormatI16;
++ (id)pixelFormatI8;
++ (id)pixelFormatIf;
++ (id)pixelFormatIh;
++ (id)pixelFormatKYMC8;
++ (id)pixelFormatM_I16;
++ (id)pixelFormatRGB16;
++ (id)pixelFormatRGBA16;
++ (id)pixelFormatRGBA8;
++ (id)pixelFormatRGBAf;
++ (id)pixelFormatRGBAh;
++ (id)pixelFormatRGBX8;
++ (id)pixelFormatWithName:(id)a0;
++ (id)pixelFormatXRGB8;
++ (id)pixelFormatsForElementSize:(unsigned long long)a0 type:(int)a1;
++ (id)pixelFormatsWithCompatibilities:(unsigned long long)a0 pixelColorModel:(int)a1 pixelAlpha:(int)a2 pixelType:(int)a3;
++ (id)pixelFormatsWithCompatibility:(unsigned long long)a0;
++ (void)registerPixelFormat:(id)a0;
+
+- (id)description;
+- (id)name;
+- (int)type;
+- (struct CGColorSpace { } *)defaultColorSpace;
+- (unsigned long long)elementSize;
+- (int)pixelType;
+- (unsigned long long)CGBitsPerComponent;
+- (unsigned int)QTPixelFormat;
+- (unsigned long long)compatibilities;
+- (unsigned long long)pixelBlockWidth;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })validateBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (unsigned int)CGBitmapInfo;
+- (unsigned long long)CGBitsPerPixel;
+- (int)CIFormat;
+- (struct _cl_image_format { unsigned int x0; unsigned int x1; })CLFormat;
+- (BOOL)areValidBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (unsigned int)openGLPixelType;
+- (int)pixelColorModel;
+- (unsigned long long)bitsPerBlock;
+- (id)closestPixelFormat:(id)a0 outDifference:(double *)a1;
+- (double)compareWithPixelFormat:(id)a0;
+- (BOOL)hasCompatibility:(unsigned long long)a0;
+- (BOOL)isSupportedOnContext:(id)a0;
+- (BOOL)isValidColorSpace:(struct CGColorSpace { } *)a0;
+- (BOOL)isValidHeight:(unsigned long long)a0;
+- (BOOL)isValidWidth:(unsigned long long)a0;
+- (unsigned int)openGLInternalFormat;
+- (unsigned int)openGLPixelFormat;
+- (unsigned long long)optimalBytesPerRowForWidth:(unsigned long long)a0;
+- (unsigned long long)packedBytesPerRowForWidth:(unsigned long long)a0;
+- (int)pixelAlpha;
+- (unsigned long long)pixelBlockHeight;
+- (unsigned long long)pixelSamples;
+
+@end

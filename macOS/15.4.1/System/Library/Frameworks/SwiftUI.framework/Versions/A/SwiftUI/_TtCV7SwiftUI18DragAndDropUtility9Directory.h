@@ -1,0 +1,3 @@
+@interface _TtCV7SwiftUI18DragAndDropUtility9Directory : _TtCV7SwiftUI18DragAndDropUtility4File
+
+@end

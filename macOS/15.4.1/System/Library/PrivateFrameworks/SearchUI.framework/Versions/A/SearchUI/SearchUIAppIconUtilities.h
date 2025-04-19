@@ -1,0 +1,3 @@
+@interface SearchUIAppIconUtilities : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCO24IntelligencePlatformCore10ViewUpdate37ViewInProcessGenerationRunnerProvider : _TtCs12_SwiftObject
+
+@end

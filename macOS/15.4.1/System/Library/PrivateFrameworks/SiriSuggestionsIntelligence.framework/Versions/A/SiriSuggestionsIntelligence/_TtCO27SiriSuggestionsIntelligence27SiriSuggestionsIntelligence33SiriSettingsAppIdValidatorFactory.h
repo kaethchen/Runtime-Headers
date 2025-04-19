@@ -1,0 +1,3 @@
+@interface _TtCO27SiriSuggestionsIntelligence27SiriSuggestionsIntelligence33SiriSettingsAppIdValidatorFactory : _TtCs12_SwiftObject
+
+@end

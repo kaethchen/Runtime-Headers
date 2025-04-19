@@ -1,0 +1,3 @@
+@interface _TtC20ExtensionKitSettingsP33_97885CF84201726CF92E6A46DF89902E31EnablementExtensionProcessActor : _TtCs12_SwiftObject
+
+@end

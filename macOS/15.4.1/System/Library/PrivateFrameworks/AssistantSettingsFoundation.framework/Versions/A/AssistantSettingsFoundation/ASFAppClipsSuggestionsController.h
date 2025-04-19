@@ -1,0 +1,3 @@
+@interface ASFAppClipsSuggestionsController : NSObject
+
+@end

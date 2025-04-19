@@ -1,0 +1,3 @@
+@interface _TtCCOE7SwiftUIVS_4Text6Effect16AttributeTracker8AnyValue : _TtCs12_SwiftObject
+
+@end

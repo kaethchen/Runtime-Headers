@@ -1,0 +1,3 @@
+@interface MDSPathFilterGenerator : MDPathFilterGenerator
+
+@end

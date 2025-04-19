@@ -1,0 +1,3 @@
+@interface ICCalculateGraphExpressionTextAttachment : ICInlineTextAttachment
+
+@end

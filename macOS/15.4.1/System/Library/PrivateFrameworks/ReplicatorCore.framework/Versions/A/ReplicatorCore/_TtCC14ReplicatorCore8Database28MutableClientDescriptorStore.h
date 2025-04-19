@@ -1,0 +1,3 @@
+@interface _TtCC14ReplicatorCore8Database28MutableClientDescriptorStore : _TtCC14ReplicatorCore8Database21ClientDescriptorStore
+
+@end

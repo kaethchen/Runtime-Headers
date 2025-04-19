@@ -1,0 +1,3 @@
+@interface AMPopUpButton : NSPopUpButton
+
+@end

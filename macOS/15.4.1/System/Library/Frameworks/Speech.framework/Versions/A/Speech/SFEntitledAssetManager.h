@@ -1,0 +1,83 @@
+@class NSMutableDictionary, NSObject;
+@protocol OS_dispatch_queue, OS_dispatch_source;
+
+@interface SFEntitledAssetManager : NSObject {
+    NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_subscriptionQueue;
+    NSObject<OS_dispatch_source> *_cleanupTimer;
+    unsigned long long _cleanupDuration;
+    NSMutableDictionary *_assetSetDict;
+    NSMutableDictionary *_observers;
+    NSMutableDictionary *_delegates;
+}
+
++ (void)initialize;
++ (id)sharedInstance;
++ (id)_overrideModelQualityForConfig:(id)a0;
++ (id)statusForAsset:(id)a0;
++ (id)supportedLanguagesForAssetType:(unsigned long long)a0;
++ (id)_assetSetSubscriptionWithConfig:(id)a0 regionId:(id)a1 expiration:(id)a2;
++ (id)_assetSetSubscriptionsWithAssetType:(unsigned long long)a0 exceptLanguages:(id)a1 subscriberId:(id)a2;
++ (unsigned long long)_assetTypeForSubscriptionName:(id)a0;
++ (id)_overridePathForConfig:(id)a0;
++ (id)_overrideStatusForConfig:(id)a0;
++ (id)assetNameForAssetType:(unsigned long long)a0;
++ (id)assetPathFromStatus:(id)a0;
++ (id)assetSetNameForAssetType:(unsigned long long)a0;
++ (id)assetSetUsageForConfig:(id)a0 regionId:(id)a1;
++ (id)assetSetUsagesForAssetType:(unsigned long long)a0;
++ (id)assetUsageTypeForAssetType:(unsigned long long)a0;
++ (id)installationStateForDownloadStatus:(unsigned long long)a0;
++ (BOOL)isOverrideSupportedForAssetType:(unsigned long long)a0;
++ (BOOL)isSubscribedToAssetWithConfig:(id)a0 regionId:(id)a1 subscriberId:(id)a2;
++ (id)jsonFilenameForAssetType:(unsigned long long)a0;
++ (id)modelAttributesForAsset:(id)a0;
++ (id)modelTasksForLocaleWithInstallationStatus:(id)a0;
++ (id)offlineDictationLocales;
++ (id)onDeviceDictationLocales;
++ (void)setPurgeabilityForAssetWithConfig:(id)a0 purgeable:(BOOL)a1 completionHandler:(id /* block */)a2;
++ (void)subscribeToAssetWithConfig:(id)a0 regionId:(id)a1 subscriberId:(id)a2 expiration:(id)a3;
++ (void)subscribeToAssetWithConfig:(id)a0 regionId:(id)a1 subscriberId:(id)a2 expiration:(id)a3 completionHandler:(id /* block */)a4;
++ (id)subscriberIdForDictationAssets;
++ (id)subscriptionNameForConfig:(id)a0 regionId:(id)a1;
++ (id)subscriptionNamePrefixForAssetType:(unsigned long long)a0;
++ (id)subscriptionsForSubscriberId:(id)a0;
++ (id)systemSubscriberId;
++ (void)unsubscribeFromAssetWithConfig:(id)a0 regionId:(id)a1 subscriberId:(id)a2;
++ (id)unsubscribeFromAssetsWithAssetType:(unsigned long long)a0 exceptLanguages:(id)a1 subscriberId:(id)a2;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)wait;
+- (id)installedAssetWithConfig:(id)a0;
+- (void)switchToNewAssetsForAssetType:(unsigned long long)a0;
+- (id)installationStatusForLanguagesWithAssetType:(unsigned long long)a0;
+- (id)_assetWithAssetConfig:(id)a0 regionId:(id)a1;
+- (id)installedLanguagesForAssetType:(unsigned long long)a0;
+- (id)_assetSetWithName:(id)a0 usage:(id)a1;
+- (id)_assetSetsWithAssetType:(unsigned long long)a0;
+- (id)_assetsWithAssetType:(unsigned long long)a0;
+- (void)_cancelCleanupTimer;
+- (void)_cleanupTimerFired;
+- (id)_installationStatusForLanguagesWithAssetType:(unsigned long long)a0 includeDetailedStatus:(BOOL)a1 subscriberId:(id)a2;
+- (id)_installedAssetWithConfig:(id)a0 regionId:(id)a1 shouldSubscribe:(BOOL)a2 subscriberId:(id)a3 expiration:(id)a4;
+- (void)_refreshAssetSetsWithName:(id)a0;
+- (void)_scheduleCleanupTimer;
+- (id)assetSetDict;
+- (id)assetStatusForConfig:(id)a0;
+- (id)detailedInstallationStatusForLanguagesWithAssetType:(unsigned long long)a0 subscriberId:(id)a1;
+- (void)downloadStatusWithConfig:(id)a0 regionId:(id)a1 subscriberId:(id)a2 progressHandler:(id /* block */)a3 completionHandler:(id /* block */)a4;
+- (id)initWithAssetSetDict:(id)a0 cleanupDuration:(unsigned long long)a1;
+- (id)installedAssetWithConfig:(id)a0 regionId:(id)a1;
+- (id)installedAssetWithConfig:(id)a0 regionId:(id)a1 shouldSubscribe:(BOOL)a2 subscriberId:(id)a3 expiration:(id)a4;
+- (id)installedAudioSamplingConfigWithAssetName:(id)a0;
+- (id)modelQualityTypeStatusStringWithConfig:(id)a0;
+- (void)promoteAssetsForAssetType:(unsigned long long)a0;
+- (void)refreshAssetSetWithConfig:(id)a0 regionId:(id)a1;
+- (void)registerAssetDelegate:(id)a0 assetType:(unsigned long long)a1;
+- (void)releaseAssetSets;
+- (void)releaseAssetSetsWithAssetType:(unsigned long long)a0;
+- (void)setAssetsProvisionalForAssetType:(unsigned long long)a0;
+
+@end

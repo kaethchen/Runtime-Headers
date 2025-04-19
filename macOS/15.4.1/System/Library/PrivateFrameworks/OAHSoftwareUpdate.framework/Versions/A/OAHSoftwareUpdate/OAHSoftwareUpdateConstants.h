@@ -1,0 +1,3 @@
+@interface OAHSoftwareUpdateConstants : NSObject
+
+@end

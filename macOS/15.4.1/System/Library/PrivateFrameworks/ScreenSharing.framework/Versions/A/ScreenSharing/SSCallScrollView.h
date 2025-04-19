@@ -1,0 +1,73 @@
+@class NSString, NSArray, NSTrackingArea, NSDraggingSession, SSCursorView, SSEventSession, NSImage, NSPasteboard, SSCallTrackingWindow;
+@protocol SSInputEventConsumer;
+
+@interface SSCallScrollView : NSScrollView <NSFilePromiseProviderDelegate, SSDragDelegate>
+
+@property (nonatomic) BOOL cursorInside;
+@property (nonatomic) BOOL cursorAlwaysVisible;
+@property (retain) NSPasteboard *remotePasteboard;
+@property (retain) NSImage *remoteDragImage;
+@property (copy) NSArray *remoteFilePaths;
+@property (copy) NSArray *uniqueRemoteFilePaths;
+@property (retain) NSDraggingSession *dragSession;
+@property (retain) NSArray *savedRegisteredDraggedTypes;
+@property (retain) NSTrackingArea *trackingArea;
+@property (retain, nonatomic) SSCursorView *cursorView;
+@property (nonatomic) BOOL modifiedSystemCursor;
+@property (nonatomic) BOOL drawCursorInLayer;
+@property SSCallTrackingWindow *delegate;
+@property (retain) id<SSInputEventConsumer> inputEventConsumer;
+@property (nonatomic) BOOL allowsDragAndDropFileCopyToRemote;
+@property (nonatomic) BOOL allowsDragAndDropFileCopyFromRemote;
+@property (nonatomic) SSEventSession *eventSession;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void)otherMouseDown:(id)a0;
+- (void)rightMouseDown:(id)a0;
+- (void)swipeWithEvent:(id)a0;
+- (void)beginGestureWithEvent:(id)a0;
+- (void)cursorUpdate:(id)a0;
+- (void)endGestureWithEvent:(id)a0;
+- (id)filePromiseProvider:(id)a0 fileNameForType:(id)a1;
+- (void)filePromiseProvider:(id)a0 writePromiseToURL:(id)a1 completionHandler:(id /* block */)a2;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)keyDown:(id)a0;
+- (void)keyUp:(id)a0;
+- (void)magnifyWithEvent:(id)a0;
+- (void)mouseDown:(id)a0;
+- (void)mouseDragged:(id)a0;
+- (void)mouseEntered:(id)a0;
+- (void)mouseExited:(id)a0;
+- (void)mouseMoved:(id)a0;
+- (void)mouseUp:(id)a0;
+- (void)otherMouseDragged:(id)a0;
+- (void)otherMouseUp:(id)a0;
+- (void)quickLookWithEvent:(id)a0;
+- (void)rightMouseDragged:(id)a0;
+- (void)rightMouseUp:(id)a0;
+- (void)rotateWithEvent:(id)a0;
+- (void)scrollWheel:(id)a0;
+- (void)smartMagnifyWithEvent:(id)a0;
+- (void)createCursorLayerIfNecessary;
+- (void)cursorImageChanged:(id)a0 hotSpot:(struct SSPoint { long long x0; long long x1; })a1;
+- (void)cursorPositionChanged:(struct SSPoint { long long x0; long long x1; })a0;
+- (void)cursorUpdateCore;
+- (void)cursorVisibilityChanged:(BOOL)a0;
+- (void)drawLocalCursorInLayer:(BOOL)a0;
+- (void)ensureUniqueDragNames;
+- (struct SSPoint { long long x0; long long x1; })frameBufferCoordinatesFromNSEvent:(id)a0;
+- (struct SSPoint { long long x0; long long x1; })frameBufferCoordinatesFromWindowCoordinates:(struct CGPoint { double x0; double x1; })a0;
+- (void)gestureScrollWithEvent:(id)a0;
+- (void)localCursorPositionChanged:(struct SSPoint { long long x0; long long x1; })a0;
+- (void)sendMouseButtonEvent:(id)a0 withButton:(unsigned long long)a1 withState:(int)a2;
+- (void)sendMouseButtonEventWithWindowCoordinates:(struct CGPoint { double x0; double x1; })a0 withButton:(unsigned long long)a1 withState:(int)a2 withClickCount:(long long)a3;
+- (void)sendMouseEventWithWindowCoordinates:(struct CGPoint { double x0; double x1; })a0;
+- (void)sendMouseMovedEvent:(id)a0;
+- (void)ssDragImage:(id)a0 at:(struct CGPoint { double x0; double x1; })a1 offset:(struct CGSize { double x0; double x1; })a2 event:(id)a3 pasteboard:(id)a4 source:(id)a5 slideBack:(BOOL)a6;
+- (void)updateObserveFlagIfNecessary:(BOOL)a0;
+
+@end

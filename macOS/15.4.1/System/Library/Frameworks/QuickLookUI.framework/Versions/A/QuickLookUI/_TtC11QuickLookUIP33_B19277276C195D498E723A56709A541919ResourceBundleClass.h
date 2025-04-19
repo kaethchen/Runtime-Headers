@@ -1,0 +1,3 @@
+@interface _TtC11QuickLookUIP33_B19277276C195D498E723A56709A541919ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

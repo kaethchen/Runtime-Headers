@@ -1,0 +1,3 @@
+@interface ABCDMessagingAddress : CNCDMessagingAddress
+
+@end

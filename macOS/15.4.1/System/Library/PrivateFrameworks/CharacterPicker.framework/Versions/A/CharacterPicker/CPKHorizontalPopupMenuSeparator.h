@@ -1,0 +1,3 @@
+@interface CPKHorizontalPopupMenuSeparator : NSVisualEffectView
+
+@end

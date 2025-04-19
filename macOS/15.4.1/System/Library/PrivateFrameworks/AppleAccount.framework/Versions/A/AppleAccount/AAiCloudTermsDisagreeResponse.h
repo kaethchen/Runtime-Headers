@@ -1,0 +1,3 @@
+@interface AAiCloudTermsDisagreeResponse : AAResponse
+
+@end

@@ -1,0 +1,3 @@
+@interface SKSpecifierWithSubtitleCell : NSObject
+
+@end

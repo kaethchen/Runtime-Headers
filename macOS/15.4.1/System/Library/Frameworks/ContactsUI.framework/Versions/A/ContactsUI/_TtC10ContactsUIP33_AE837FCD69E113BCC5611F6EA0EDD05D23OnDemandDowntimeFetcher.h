@@ -1,0 +1,3 @@
+@interface _TtC10ContactsUIP33_AE837FCD69E113BCC5611F6EA0EDD05D23OnDemandDowntimeFetcher : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC12ScreenTimeUIP33_2D50CF979FE9C4D2970E23C8D49C434319ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

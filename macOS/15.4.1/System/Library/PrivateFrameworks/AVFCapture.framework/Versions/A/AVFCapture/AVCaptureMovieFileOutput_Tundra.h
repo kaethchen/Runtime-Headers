@@ -1,0 +1,92 @@
+@class NSArray, AVCaptureMovieFileOutputInternal_Tundra;
+
+@interface AVCaptureMovieFileOutput_Tundra : AVCaptureFileOutput_Tundra {
+    AVCaptureMovieFileOutputInternal_Tundra *_internal;
+}
+
+@property (nonatomic) struct { long long x0; int x1; unsigned int x2; long long x3; } movieFragmentInterval;
+@property (copy, nonatomic) NSArray *metadata;
+@property (readonly, nonatomic) NSArray *availableVideoCodecTypes;
+@property (nonatomic, getter=isPrimaryConstituentDeviceSwitchingBehaviorForRecordingEnabled) BOOL primaryConstituentDeviceSwitchingBehaviorForRecordingEnabled;
+@property (readonly, nonatomic) long long primaryConstituentDeviceSwitchingBehaviorForRecording;
+@property (readonly, nonatomic) unsigned long long primaryConstituentDeviceRestrictedSwitchingBehaviorConditionsForRecording;
+@property (readonly, nonatomic, getter=isSpatialVideoCaptureSupported) BOOL spatialVideoCaptureSupported;
+@property (nonatomic, getter=isSpatialVideoCaptureEnabled) BOOL spatialVideoCaptureEnabled;
+
++ (id)new;
++ (void)initialize;
++ (id)commonMetadataForAVMetadataItemArray:(id)a0;
++ (BOOL)updateMovieMetadataInFile:(id)a0 withMetadata:(id)a1 error:(id *)a2;
+
+- (void)dealloc;
+- (id)init;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (id)_activeConnections;
+- (void)removeConnection:(id)a0;
+- (BOOL)isRecording;
+- (void)stopRecording;
+- (void)resumeRecording;
+- (void)_addActiveConnection:(id)a0;
+- (void)_addFileWriterUnitElement:(unsigned int)a0 forConnection:(id)a1;
+- (void)_cancelAllOperations;
+- (void)_cancelFileControlCallbackTimeoutTimer;
+- (int)_compressorDidRenderConnection:(id)a0 busNumber:(unsigned int)a1 processHints:(unsigned int *)a2 sampleBuffer:(struct opaqueCMSampleBuffer **)a3;
+- (void)_controlFileWritingForConnection:(id)a0 busNumber:(unsigned int)a1 fileControlToken:(struct OpaqueFileWritingControlToken { } *)a2;
+- (void)_fileControlCallbackTimeout:(id)a0;
+- (unsigned int)_fileWriterUnitElementForConnection:(id)a0;
+- (void)_filesCompleted:(id)a0;
+- (void)_forciblyStopFileWritingForRunningRecordingOperation;
+- (void)_handleCanceledOperations:(id)a0;
+- (id)_noDataConnections;
+- (void)_operationFailed:(id)a0;
+- (void)_refreshRecordingState;
+- (void)_removeActiveConnection:(id)a0;
+- (void)_removeFileWriterUnitElementForConnection:(id)a0;
+- (BOOL)_removeRunningRecordingOperationDescriptorEqualTo:(id)a0;
+- (id)_runningRecordingOperationDescriptor;
+- (void)_setNoDataConnections:(id)a0;
+- (void)_setPaused:(BOOL)a0;
+- (void)_setRunningRecordingOperationDescriptor:(id)a0;
+- (void)_setStopError:(id)a0;
+- (void)_startFileControlCallbackTimeoutTimer;
+- (void)_startFileWritingForConnection:(id)a0 fileControlToken:(struct OpaqueFileWritingControlToken { } *)a1 runningRecordingOperationDescriptor:(id)a2;
+- (id)_stopError;
+- (void)_stopFileWritingForConnection:(id)a0 fileControlToken:(struct OpaqueFileWritingControlToken { } *)a1 runningRecordingOperationDescriptor:(id)a2 stopWritingFlags:(unsigned int)a3 stopError:(id)a4;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })_syncTime;
+- (void)_updateCompressorNodesForConnection:(id)a0;
+- (void)_updateVideoDecompressorNodeForConnection:(id)a0;
+- (void)_updateVideoFrameRateGovernorNodeForConnection:(id)a0;
+- (id)addConnection:(id)a0 error:(id *)a1;
+- (BOOL)addOutputUnitsForConnection:(id)a0 toGraph:(struct OpaqueCMIOGraph { } *)a1 ofCaptureSession:(id)a2 error:(id *)a3;
+- (id)applicationAnalytics;
+- (BOOL)canAddConnectionForMediaType:(id)a0;
+- (int)connectionGraphNodeForConnection:(id)a0;
+- (id)connectionMediaTypes;
+- (unsigned int)connectionUnitInputNumberForConnection:(id)a0;
+- (BOOL)getAudioSplitterNode:(int *)a0 andAudioMixerNode:(int *)a1 forConnection:(id)a2;
+- (void)graphWillStartForSession:(id)a0;
+- (void)graphWillStopForSession:(id)a0 error:(id)a1;
+- (BOOL)isRecordingPaused;
+- (BOOL)isStereoVideoCaptureEnabled;
+- (BOOL)isStereoVideoCaptureSupported;
+- (id)outputFileURL;
+- (id)outputSettingsForConnection:(id)a0;
+- (void)pauseRecording;
+- (struct { long long x0; int x1; unsigned int x2; long long x3; })recordedDuration;
+- (long long)recordedFileSize;
+- (BOOL)recordsVideoOrientationAndMirroringChangesAsMetadataTrackForConnection:(id)a0;
+- (void)removeOutputUnitsForConnection:(id)a0 fromGraph:(struct OpaqueCMIOGraph { } *)a1 ofCaptureSession:(id)a2;
+- (BOOL)setEnabled:(BOOL)a0 forConnection:(id)a1;
+- (void)setOutputSettings:(id)a0 forConnection:(id)a1;
+- (void)setPrimaryConstituentDeviceSwitchingBehaviorForRecording:(long long)a0 restrictedSwitchingBehaviorConditions:(unsigned long long)a1;
+- (void)setRecordsVideoOrientationAndMirroringChanges:(BOOL)a0 asMetadataTrackForConnection:(id)a1;
+- (void)setStereoVideoCaptureEnabled:(BOOL)a0;
+- (void)startRecordingToOutputFileURL:(id)a0 recordingDelegate:(id)a1;
+- (id)supportedOutputSettingsKeysForConnection:(id)a0;
+- (BOOL)supportsVideoFieldModeForConnection:(id)a0;
+- (BOOL)supportsVideoMaxFrameDurationForConnection:(id)a0;
+- (BOOL)supportsVideoMinFrameDurationForConnection:(id)a0;
+- (BOOL)supportsVideoMirroringForConnection:(id)a0;
+- (BOOL)supportsVideoOrientationForConnection:(id)a0;
+
+@end

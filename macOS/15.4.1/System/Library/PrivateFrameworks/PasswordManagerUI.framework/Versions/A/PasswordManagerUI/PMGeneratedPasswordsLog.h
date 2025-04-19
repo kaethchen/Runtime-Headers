@@ -1,0 +1,3 @@
+@interface PMGeneratedPasswordsLog : NSObject
+
+@end

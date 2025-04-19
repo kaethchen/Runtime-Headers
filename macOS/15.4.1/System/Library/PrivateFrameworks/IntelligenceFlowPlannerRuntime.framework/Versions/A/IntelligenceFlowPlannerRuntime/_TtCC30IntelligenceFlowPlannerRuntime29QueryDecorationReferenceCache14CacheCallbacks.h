@@ -1,0 +1,3 @@
+@interface _TtCC30IntelligenceFlowPlannerRuntime29QueryDecorationReferenceCache14CacheCallbacks : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCC20PreviewsFoundationOS17DelayedInvocationP33_8DF91A2F7CC86A0C40F908873489F2AC24BaseDelayedInvocationBox : _TtCs12_SwiftObject
+
+@end

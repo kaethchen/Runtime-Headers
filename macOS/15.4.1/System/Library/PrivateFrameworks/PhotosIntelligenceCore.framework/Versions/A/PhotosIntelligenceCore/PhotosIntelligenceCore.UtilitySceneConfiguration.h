@@ -1,0 +1,3 @@
+@interface PhotosIntelligenceCore.UtilitySceneConfiguration : PhotosIntelligenceCore.SceneConfiguration
+
+@end

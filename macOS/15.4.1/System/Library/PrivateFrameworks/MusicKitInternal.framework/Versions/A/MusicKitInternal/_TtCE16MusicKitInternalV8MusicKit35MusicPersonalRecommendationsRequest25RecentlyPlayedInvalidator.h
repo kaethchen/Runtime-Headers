@@ -1,0 +1,3 @@
+@interface _TtCE16MusicKitInternalV8MusicKit35MusicPersonalRecommendationsRequest25RecentlyPlayedInvalidator : _TtCs12_SwiftObject
+
+@end

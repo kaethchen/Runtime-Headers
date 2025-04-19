@@ -1,0 +1,3 @@
+@interface EWSYearlyRegeneratingPatternType : EWSRegeneratingPatternBaseType
+
+@end

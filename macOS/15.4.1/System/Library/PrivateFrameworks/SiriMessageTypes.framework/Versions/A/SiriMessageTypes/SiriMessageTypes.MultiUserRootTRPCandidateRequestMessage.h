@@ -1,0 +1,3 @@
+@interface SiriMessageTypes.MultiUserRootTRPCandidateRequestMessage : SiriMessageTypes.MultiUserTRPCandidateRequestMessageBase
+
+@end

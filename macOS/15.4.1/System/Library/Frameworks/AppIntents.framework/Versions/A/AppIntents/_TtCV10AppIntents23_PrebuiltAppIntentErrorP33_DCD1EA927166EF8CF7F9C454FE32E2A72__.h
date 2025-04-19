@@ -1,0 +1,3 @@
+@interface _TtCV10AppIntents23_PrebuiltAppIntentErrorP33_DCD1EA927166EF8CF7F9C454FE32E2A72__ : _TtCs12_SwiftObject
+
+@end

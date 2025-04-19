@@ -1,0 +1,83 @@
+@class ISDDataClass, NSString, NSArray, NSDictionary, NSMutableArray, ISDFileReference;
+
+@interface ISDEntity : ISDDataObject <NSCoding> {
+    NSString *_name;
+    NSString *_parentName;
+    ISDDataClass *_dataClass;
+    ISDFileReference *_bundleRef;
+    NSArray *_attributes;
+    NSArray *_relationships;
+    NSMutableArray *_propertyDependencies;
+    NSString *_uiHelperClassName;
+    BOOL _excludeFromAirbagCount;
+    int _idNumber;
+    NSDictionary *_propertiesByName;
+    int _hasPropertiesWithLastModifiedResolutionPolicy;
+    NSMutableArray *_versionInfo;
+}
+
++ (void)initialize;
++ (void)_cleanUp:(id)a0;
++ (void)cleanupCyclicReferences:(id)a0;
+
+- (void)dealloc;
+- (id)description;
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (id)name;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)initWithName:(id)a0;
+- (id)bundle;
+- (id)displayName;
+- (void)setAttributes:(id)a0;
+- (id)attributes;
+- (id)replacementObjectForPortCoder:(id)a0;
+- (id)propertyWithName:(id)a0;
+- (id)versionInfo;
+- (id)relationships;
+- (id)dataClass;
+- (void)setRelationships:(id)a0;
+- (id)parentName;
+- (void)setParentName:(id)a0;
+- (void)setDataClass:(id)a0;
+- (id)propertyNames;
+- (void)setVersionInfo:(id)a0;
+- (void)_buildPropertyNameCache;
+- (void)_createEntityNamePropertyIfNeeded;
+- (id)_identityKeys:(int *)a0;
+- (void)_setIdNumber:(int)a0;
+- (void)_updatePropertiesFromEntity:(id)a0 forKey:(id)a1 didChange:(BOOL *)a2;
+- (void)addPropertyDependencySet:(id)a0;
+- (id)anchorChildren;
+- (id)attributeWithName:(id)a0;
+- (id)bundleRef;
+- (id)conflictUIHelperClassName;
+- (BOOL)excludeFromAirbagCount;
+- (id)fastDataclass;
+- (id)fastName;
+- (BOOL)hasPropertiesWithLastModifiedResolutionPolicy;
+- (id)hashValueOfIdentityKeyValuesForRecord:(id)a0;
+- (int)idNumber;
+- (id)identityKeys;
+- (id)identityKeys:(BOOL *)a0;
+- (id)identityKeysForDictionary:(id)a0;
+- (id)identityKeysForDictionary:(id)a0 minimumAlternate:(int)a1;
+- (id)identityKeysForRecord:(id)a0;
+- (id)identityKeysForRecord:(id)a0 identityComponent:(int *)a1 minimumAlternate:(int)a2;
+- (id)identityKeysForRecord:(id)a0 minimumAlternate:(int)a1;
+- (BOOL)morphInToObject:(id)a0;
+- (BOOL)morphInToObjectExceptingProperties:(id)a0;
+- (id)newListOfRequiredRelationshipNames;
+- (id)primaryRelationships;
+- (id)propertyDependencies;
+- (id)propertyDependenciesForPropertyName:(id)a0;
+- (id)relationshipWithName:(id)a0;
+- (id)requiredPropertyNames;
+- (void)setBundleRef:(id)a0;
+- (void)setExcludeFromAirbagCount:(BOOL)a0;
+- (void)setUIHelperClassName:(id)a0;
+- (Class)uiHelperClass;
+- (id)uiHelperClassName;
+
+@end

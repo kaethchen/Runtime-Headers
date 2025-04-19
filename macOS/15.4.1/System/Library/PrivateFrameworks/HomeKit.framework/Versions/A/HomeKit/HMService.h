@@ -1,0 +1,106 @@
+@class NSUUID, NSString, NSURL, HMAccessory, NSArray, HMBulletinBoardNotification, NSDictionary, HMMutableArray, _HMContext, HMApplicationData, NSNumber;
+
+@interface HMService : NSObject <HMFLogging, HMFObject, NSSecureCoding, HMObjectMerge, HMMutableApplicationData> {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (readonly, copy) NSDictionary *serializedDictionaryRepresentation;
+@property (readonly, copy) NSUUID *accessoryUniqueIdentifier;
+@property (retain, nonatomic) _HMContext *context;
+@property (readonly, nonatomic) NSNumber *instanceID;
+@property (weak, nonatomic) HMAccessory *accessory;
+@property (copy, nonatomic) NSString *serviceType;
+@property (retain, nonatomic) NSString *defaultName;
+@property (copy, nonatomic) NSString *associatedServiceType;
+@property (copy, nonatomic) NSString *serviceSubtype;
+@property (nonatomic) long long configurationState;
+@property (readonly, nonatomic) HMBulletinBoardNotification *bulletinBoardNotificationInternal;
+@property (readonly, nonatomic) NSURL *homeObjectURLInternal;
+@property (readonly, copy, nonatomic) HMMutableArray *currentCharacteristics;
+@property (copy, nonatomic) NSNumber *lastKnownOperatingStateValue;
+@property (copy, nonatomic) NSNumber *lastKnownOperatingStateAbnormalReasonsValue;
+@property (retain, nonatomic) NSNumber *mediaSourceIdentifier;
+@property (readonly, getter=isNameModifiable) BOOL nameModifiable;
+@property (nonatomic, getter=isUserInteractive) BOOL userInteractive;
+@property (copy, nonatomic) NSString *assistantIdentifier;
+@property (readonly, copy, nonatomic) NSUUID *uuid;
+@property (readonly, copy, nonatomic) NSArray *linkedServiceInstanceIDs;
+@property (copy, nonatomic) NSString *name;
+@property (readonly, copy, nonatomic) NSUUID *targetAccessoryUUID;
+@property (copy, nonatomic) NSString *configuredName;
+@property (retain, nonatomic) NSArray *mediaSourceDisplayOrder;
+@property (nonatomic) BOOL mediaSourceDisplayOrderModifiable;
+@property (readonly, copy, nonatomic) NSString *localizedDescription;
+@property (readonly, copy, nonatomic) NSArray *characteristics;
+@property (readonly, copy, nonatomic) NSUUID *uniqueIdentifier;
+@property (readonly, nonatomic, getter=isPrimaryService) BOOL primaryService;
+@property (readonly, copy, nonatomic) NSArray *linkedServices;
+@property (readonly, copy, nonatomic) NSNumber *matterEndpointID;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) NSString *shortDescription;
+@property (readonly, copy) NSString *privateDescription;
+@property (readonly, copy) NSString *propertyDescription;
+@property (readonly, copy, nonatomic) NSArray *attributeDescriptions;
+@property (readonly, copy) NSUUID *applicationDataIdentifier;
+@property (retain, nonatomic) HMApplicationData *applicationData;
+
++ (id)shortDescription;
++ (id)logCategory;
++ (id)__localizedDescriptionForServiceType:(id)a0;
++ (id)_mapToIsConfiguredValueFromServiceConfigurationState:(long long)a0;
++ (long long)_mapToServiceConfigurationStateFromIsConfiguredValue:(id)a0;
++ (id)defaultCharacteristicByServiceDictionary;
++ (void)initializeCharacteristicDictionaries;
++ (id)localizedDescriptionForServiceType:(id)a0;
++ (id)serviceWithSerializedDictionaryRepresentation:(id)a0 home:(id)a1;
++ (id)serviceWithServiceReference:(id)a0 home:(id)a1;
++ (id)unsupportedCharacteristicsForShortcutConditions;
+
+- (id)init;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)logIdentifier;
+- (void)__configureWithContext:(id)a0 accessory:(id)a1;
+- (void)_addCharacteristic:(id)a0;
+- (id)_findCharacteristic:(id)a0;
+- (id)_findCharacteristicWithUniqueIdentifier:(id)a0;
+- (void)_handleMediaSourceIdentifierUpdated:(id)a0;
+- (void)_handleUpdateAssociatedServiceType:(id)a0;
+- (void)_handleUpdateConfigurationState:(long long)a0;
+- (void)_handleUpdateDefaultName:(id)a0;
+- (void)_handleUpdateName:(id)a0;
+- (void)_handleUpdateServiceSubtype:(id)a0;
+- (BOOL)_hasCharacteristic:(id)a0;
+- (void)_recomputeAssistantIdentifier;
+- (void)_removeCharacteristic:(id)a0;
+- (void)_unconfigure;
+- (void)_updateAssociatedServiceType:(id)a0 completionHandler:(id /* block */)a1;
+- (void)_updateConfigurationState:(long long)a0 completionHandler:(id /* block */)a1;
+- (void)_updateName:(id)a0 completionHandler:(id /* block */)a1;
+- (id)bulletinBoardNotification;
+- (id)characteristicsSupportedForShortcutConditions;
+- (id)defaultCharacteristic;
+- (BOOL)hasOperatingState;
+- (BOOL)hasOperatingStateAbnormalReasons;
+- (BOOL)hasSleepDiscoveryMode;
+- (id)homeObjectURL;
+- (id)initWithUUID:(id)a0 accessory:(id)a1 serviceType:(id)a2;
+- (long long)lastKnownOperatingState;
+- (unsigned long long)lastKnownOperatingStateAbnormalReasons;
+- (long long)lastKnownSleepDiscoveryMode;
+- (BOOL)mergeFromNewObject:(id)a0;
+- (void)recomputeAssistantIdentifier;
+- (void)setMatterEndpointID:(id)a0;
+- (void)updateApplicationData:(id)a0 completionHandler:(id /* block */)a1;
+- (void)updateAssociatedServiceType:(id)a0 completionHandler:(id /* block */)a1;
+- (void)updateConfigurationState:(long long)a0 completionHandler:(id /* block */)a1;
+- (void)updateName:(id)a0 completionHandler:(id /* block */)a1;
+
+@end

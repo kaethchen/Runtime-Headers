@@ -1,0 +1,3 @@
+@interface _TtC14SiriNotebookUIP33_7650D09A58F230393AB086D980073CCA19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

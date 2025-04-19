@@ -1,0 +1,85 @@
+@class NSString, LSApplicationWorkspace, FBSApplicationLibraryConfiguration, NSMutableDictionary, NSMutableSet, NSObject, NSMutableArray, NSMapTable;
+@protocol OS_dispatch_queue, BSInvalidatable;
+
+@interface FBSApplicationLibrary : NSObject <LSApplicationWorkspaceObserverProtocol, BSInvalidatable, FBSApplicationInfoProvider> {
+    FBSApplicationLibraryConfiguration *_configuration;
+    LSApplicationWorkspace *_applicationWorkspace;
+    NSObject<OS_dispatch_queue> *_observerQueue;
+    NSMapTable *_observerQueue_tokensToBlocks;
+    NSObject<OS_dispatch_queue> *_workQueue;
+    BOOL _workQueue_usingNetwork;
+    NSMutableDictionary *_workQueue_identitiesByBundleID;
+    NSMutableDictionary *_workQueue_installedApplicationsByIdentity;
+    NSMutableDictionary *_workQueue_placeholdersByIdentity;
+    NSMutableSet *_workQueue_injectedAppIdentifiers;
+    unsigned long long _workQueue_synchronizationActionCount;
+    NSMutableArray *_workQueue_pendingSynchronizationExecutionBlocks;
+    NSObject<OS_dispatch_queue> *_callOutQueue;
+    NSObject<OS_dispatch_queue> *_completionQueue;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lock;
+    id<BSInvalidatable> _stateCaptureAssertion;
+    BOOL _lock_invalidated;
+}
+
+@property (readonly, nonatomic, getter=isUsingNetwork) BOOL usingNetwork;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)invalidate;
+- (void)applicationsDidFailToUninstall:(id)a0;
+- (id)allInstalledApplications;
+- (void)applicationInstallsArePrioritized:(id)a0 arePaused:(id)a1;
+- (void)applicationInstallsDidCancel:(id)a0;
+- (void)applicationInstallsDidChange:(id)a0;
+- (void)applicationInstallsDidPause:(id)a0;
+- (void)applicationInstallsDidPrioritize:(id)a0;
+- (void)applicationInstallsDidResume:(id)a0;
+- (void)applicationInstallsDidStart:(id)a0;
+- (void)applicationInstallsDidUpdateIcon:(id)a0;
+- (void)applicationStateDidChange:(id)a0;
+- (void)applicationsDidChangePersonas:(id)a0;
+- (void)applicationsDidFailToInstall:(id)a0;
+- (void)applicationsDidInstall:(id)a0;
+- (void)applicationsDidUninstall:(id)a0;
+- (void)applicationsWillInstall:(id)a0;
+- (void)applicationsWillUninstall:(id)a0;
+- (void)deviceManagementPolicyDidChange:(id)a0;
+- (void)networkUsageChanged:(BOOL)a0;
+- (id)initWithConfiguration:(id)a0;
+- (id)allPlaceholders;
+- (id)_initWithApplicationWorkspace:(id)a0 configuration:(id)a1;
+- (void)_reloadPlaceholdersNotificationFired;
+- (id)_synchronizationQueue;
+- (void)addApplicationProxy:(id)a0 withOverrideURL:(id)a1;
+- (void)addApplicationRecord:(id)a0;
+- (id)applicationInfoForAuditToken:(id)a0;
+- (id)applicationInfoForBundleIdentifier:(id)a0;
+- (id)installedApplicationForIdentity:(id)a0;
+- (id)installedApplicationForIdentityString:(id)a0;
+- (id)installedApplicationWithBundleIdentifier:(id)a0;
+- (void)installedApplicationWithBundleIdentifier:(id)a0 completionHandler:(id /* block */)a1;
+- (id)installedApplicationsForBundleIdentifier:(id)a0;
+- (id)observeDidAddApplicationsWithBlock:(id /* block */)a0;
+- (id)observeDidAddPlaceholdersWithBlock:(id /* block */)a0;
+- (id)observeDidCancelPlaceholdersWithBlock:(id /* block */)a0;
+- (id)observeDidChangeNetworkUsageWithBlock:(id /* block */)a0;
+- (id)observeDidDemoteApplicationsWithBlock:(id /* block */)a0;
+- (id)observeDidRemoveApplicationsWithBlock:(id /* block */)a0;
+- (id)observeDidReplaceApplicationsWithBlock:(id /* block */)a0;
+- (id)observeDidUpdateApplicationsWithBlock:(id /* block */)a0;
+- (id)placeholderForIdentity:(id)a0;
+- (id)placeholderForIdentityString:(id)a0;
+- (id)placeholderWithBundleIdentifier:(id)a0;
+- (id)placeholdersForBundleIdentifier:(id)a0;
+- (void)removeObserverForToken:(id)a0;
+- (void)synchronize:(id /* block */)a0;
+- (void)uninstallApplication:(id)a0 completion:(id /* block */)a1;
+- (void)uninstallApplication:(id)a0 withOptions:(id)a1 completion:(id /* block */)a2;
+- (void)uninstallApplicationIdentity:(id)a0 withOptions:(id)a1 completion:(id /* block */)a2;
+
+@end

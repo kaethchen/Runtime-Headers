@@ -1,0 +1,70 @@
+@class NSMutableDictionary;
+
+@interface ICDBaseObjectImp : NSObject {
+    unsigned int _ICAObject;
+    unsigned int _parentICAObject;
+    void *_objectInfo;
+    int _objectInfoSize;
+    NSMutableDictionary *_objectDict;
+    BOOL _cleanUpCalled;
+    BOOL _gotMetadata;
+    NSMutableDictionary *_metadata;
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _lockObject;
+}
+
+- (void)dealloc;
+- (id)description;
+- (unsigned long long)unsignedIntegerValue;
+- (id)parent;
+- (void)dump;
+- (id)metadata;
+- (void)setMetadata:(id)a0;
+- (id)readData;
+- (void)createChildren:(int)a0;
+- (unsigned int)parentICAObject;
+- (short)writeData:(id)a0 data:(id)a1;
+- (void)addNewIndexedObject:(id)a0;
+- (void)addObjectInfoForData:(id)a0;
+- (void)addObjectInfoForTree:(id)a0;
+- (void)addObjectInfoToDict:(id)a0;
+- (void)addObjectNameExtension:(id)a0;
+- (void)adjustCreationDate:(id)a0 optionsDictionary:(id)a1;
+- (void)buildStandardProperties:(struct ICD_BulkNewPropertyPB { struct ICDHeader { short x0; unsigned long long x1; } x0; unsigned int x1; struct BulkNewPropertyData { unsigned int x0; struct ICAPropertyInfo { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; } x1; unsigned int x2; } x2[1]; } *)a0 index:(unsigned int *)a1;
+- (void)callBulkNewObject;
+- (void)callCleanup;
+- (long long)compareObjectHandle:(id)a0;
+- (id)copyMetadataFromDataProvider:(struct CGDataProvider { } *)a0 fileExtension:(id)a1 final:(BOOL)a2;
+- (void)countItems:(unsigned int *)a0;
+- (id)createUniqueFileName:(id)a0 useTimeDelta:(BOOL)a1 exists:(BOOL *)a2;
+- (id)deviceObject;
+- (short)downloadFile:(id)a0;
+- (id)findICAObject:(unsigned int)a0;
+- (id)findObject:(unsigned int)a0;
+- (void)getFileDate:(id)a0 creationDate:(char[20])a1;
+- (short)getItemData:(struct ICD_GetPropertyDataPB { struct ICDHeader { short x0; unsigned long long x1; } x0; unsigned int x1; struct ICAObjectInfo { unsigned int x0; unsigned int x1; } x2; unsigned int x3; unsigned int x4; struct ICAPropertyInfo { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; } x5; unsigned int x6; unsigned int x7; void *x8; unsigned int x9; unsigned int x10; } *)a0;
+- (id)getObjectPropertyDictionary:(id)a0;
+- (short)getPropertyData:(struct ICD_GetPropertyDataPB { struct ICDHeader { short x0; unsigned long long x1; } x0; unsigned int x1; struct ICAObjectInfo { unsigned int x0; unsigned int x1; } x2; unsigned int x3; unsigned int x4; struct ICAPropertyInfo { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; } x5; unsigned int x6; unsigned int x7; void *x8; unsigned int x9; unsigned int x10; } *)a0;
+- (short)getPropertyDataFromDictionary:(struct ICD_GetPropertyDataPB { struct ICDHeader { short x0; unsigned long long x1; } x0; unsigned int x1; struct ICAObjectInfo { unsigned int x0; unsigned int x1; } x2; unsigned int x3; unsigned int x4; struct ICAPropertyInfo { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; } x5; unsigned int x6; unsigned int x7; void *x8; unsigned int x9; unsigned int x10; } *)a0 propertyType:(unsigned int)a1;
+- (short)getStandardPropertyData:(struct ICD_GetPropertyDataPB { struct ICDHeader { short x0; unsigned long long x1; } x0; unsigned int x1; struct ICAObjectInfo { unsigned int x0; unsigned int x1; } x2; unsigned int x3; unsigned int x4; struct ICAPropertyInfo { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; } x5; unsigned int x6; unsigned int x7; void *x8; unsigned int x9; unsigned int x10; } *)a0;
+- (short)getThumbnailData:(struct ICD_GetPropertyDataPB { struct ICDHeader { short x0; unsigned long long x1; } x0; unsigned int x1; struct ICAObjectInfo { unsigned int x0; unsigned int x1; } x2; unsigned int x3; unsigned int x4; struct ICAPropertyInfo { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; } x5; unsigned int x6; unsigned int x7; void *x8; unsigned int x9; unsigned int x10; } *)a0;
+- (short)getThumbnailIconBuffer:(char *)a0 withOrientation:(int)a1 width:(int)a2 height:(int)a3 bitsPerComponent:(int)a4 andNumComponents:(int)a5;
+- (void)handleStoreAdded;
+- (unsigned int)icaObject;
+- (id)initWithObjectInformation:(void *)a0;
+- (void)invalidateMetaData;
+- (void)lockObject;
+- (short)newObjectCreated:(void *)a0 completion:(void /* function */ *)a1 index:(unsigned int)a2 icaObject:(unsigned int *)a3;
+- (void *)objectInfo;
+- (void)removeFromTree;
+- (BOOL)sameDateTime:(char *)a0 useTimeDelta:(BOOL)a1;
+- (BOOL)sameSize:(long long)a0;
+- (short)saveSource:(id)a0 toFileAtPath:(id)a1;
+- (short)saveSource:(id)a0 toFileAtPath:(id)a1 commandParamDict:(id)a2;
+- (short)saveSource:(id)a0 toFileAtPath:(id)a1 optionsDictionary:(id)a2;
+- (void)setICAObject:(unsigned int)a0;
+- (void)setParentICAObject:(unsigned int)a0;
+- (void)unlockObject;
+- (short)updateSavedFileAt:(id)a0 optionsDictionary:(id)a1;
+- (short)uploadFile:(id)a0;
+
+@end

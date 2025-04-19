@@ -1,0 +1,3 @@
+@interface USSEnableApplicationAccessibilityRequest : NSObject
+
+@end

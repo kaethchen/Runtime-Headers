@@ -1,0 +1,3 @@
+@interface IntelligenceFlowPlannerRuntime.QueryDecorationCoreAnalyticsEvents : _TtCs12_SwiftObject
+
+@end

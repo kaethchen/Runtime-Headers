@@ -1,0 +1,3 @@
+@interface _TtCO28GenerativeExperiencesRuntime27AvailabilityBackgroundTasks17PostInstallClassC : _TtCs12_SwiftObject
+
+@end

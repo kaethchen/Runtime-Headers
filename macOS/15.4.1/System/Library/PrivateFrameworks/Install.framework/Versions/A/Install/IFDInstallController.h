@@ -1,0 +1,88 @@
+@class IFSession;
+
+@interface IFDInstallController : NSObject
+
+@property struct IFDInstallController_Private { id x0; id x1; id x2; int x3; id x4; id x5; id x6; id x7; id x8; BOOL x9; id x10; id x11; int x12; int x13; id x14; id x15; id x16; id x17; BOOL x18; id x19; BOOL x20; double x21; id x22; id x23; id x24; id x25; } *privateController;
+@property (retain) IFSession *session;
+@property BOOL userConsentedInstall;
+
++ (void)initialize;
++ (id)timeRemainingStringWithEstimate:(double)a0;
+
+- (void)dealloc;
+- (void)setDelegate:(id)a0;
+- (void)setTarget:(id)a0;
+- (id)target;
+- (int)installState;
+- (void)setInstallState:(int)a0;
+- (void)cancel;
+- (id)distribution;
+- (id)targetController;
+- (struct AuthorizationOpaqueRef { } *)authorizationRef;
+- (id)customization;
+- (void)setCustomization:(id)a0;
+- (void)_install;
+- (BOOL)ejectMedia:(id)a0;
+- (id)_addInstallOptionsForActions:(id)a0;
+- (BOOL)_authorizedForInstallWithType:(int)a0 runLoop:(struct __CFRunLoop { } *)a1 completion:(id /* block */)a2;
+- (id)findMediaNamed:(id)a0;
+- (id)_buildPackageListAndRequestMedia:(id)a0;
+- (void)_diskEjected:(id)a0;
+- (id)_estimateTimeRemainingWithProgress:(double)a0;
+- (void)_mediaAppeared:(id)a0;
+- (void)_authorizedInstallPackages:(id)a0 withOptions:(id)a1;
+- (id)_buildInstallPlanReturningError:(id *)a0;
+- (double)_calculateTotalInstalledSize;
+- (void)installDidFail:(id)a0;
+- (BOOL)_cancelRequested;
+- (void)messageDelegateInstallProgress:(id)a0;
+- (id)_createFinalPackageUsingLocalURL:(id)a0 returningError:(id *)a1;
+- (void)_deregisterForSleepNotifications;
+- (void)_embedValidatedDigestsForPackages:(id)a0;
+- (void)_finishUpCurrentMedia;
+- (void)_installNextPackage;
+- (void)_locateSoftwareWithLocator;
+- (void)_registerForSleepNotifications;
+- (void)_resolveAllComponentsForPackages:(id)a0 setResultInPackage:(BOOL)a1;
+- (BOOL)canPerformOSInstallOperations;
+- (id)customizationControllerForTarget:(id)a0;
+- (id)customizationControllerForTarget:(id)a0 ignoringContents:(BOOL)a1;
+- (id)downloadProgressController;
+- (BOOL)ejectAllEjectableMedia;
+- (void)endJobsDidEnd:(id)a0;
+- (void)endJobsWillBegin:(id)a0;
+- (void)handlePackageStartedMessage:(id)a0;
+- (void)handlePhaseMessage:(id)a0;
+- (void)handleProgressMessage:(id)a0;
+- (void)handleStatusMessage:(id)a0;
+- (BOOL)hasCachedCustomizationControllerForTarget:(id)a0;
+- (BOOL)hasSuccessfullyAuthorized:(int)a0 withCompletion:(id /* block */)a1 onRunLoop:(struct __CFRunLoop { } *)a2;
+- (id)initWithDistribution:(id)a0;
+- (void)installDidSucceed:(id)a0;
+- (void)installDidWarn:(id)a0 shouldFail:(BOOL *)a1;
+- (void)installJobDidStart:(id)a0;
+- (void)installJobDidSucceed:(id)a0;
+- (void)installPackages:(id)a0 withOptions:(id)a1;
+- (void)messageDelegateInstallError:(id)a0;
+- (void)messageDelegateInstallFinished;
+- (void)messageDelegateInstallPhase:(id)a0;
+- (void)messageDelegateInstallStarted;
+- (void)messageDelegateInstallStatus:(id)a0;
+- (void)messageDelegateInstallTimeRemaining:(id)a0;
+- (void)messageDelegateJobStarted:(id)a0;
+- (void)messageDelegatePackageStarted:(id)a0;
+- (void)messageDelegateRequestLocatorDecision:(id)a0;
+- (void)messageDelegateRequestMedia:(id)a0;
+- (void)messageDelegateRequestedMediaAccepted:(id)a0;
+- (void)packageInstallDidSucceed:(id)a0;
+- (id)postinstallActions;
+- (id)preinstallActions;
+- (BOOL)requestMedia:(id)a0;
+- (id)resolvePackageRequestingMedia:(id)a0;
+- (void)setForceNoAuthInstall:(BOOL)a0;
+- (void)skipCurrentPhase;
+- (BOOL)startInstall;
+- (void)usePostinstallActions:(id)a0;
+- (void)usePreinstallActions:(id)a0;
+
+@end

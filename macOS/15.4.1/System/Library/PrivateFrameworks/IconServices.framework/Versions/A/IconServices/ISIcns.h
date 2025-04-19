@@ -1,0 +1,82 @@
+@class NSString, NSDictionary, NSURL, NSData, NSArray;
+
+@interface ISIcns : NSObject <ISScalableCompositorResource, NSCopying, NSMutableCopying>
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property unsigned int type;
+@property (retain) NSString *name;
+@property BOOL dirty;
+@property (readonly) id elements;
+@property (retain) ISIcns *selectedVariant;
+@property (retain) ISIcns *templateVariant;
+@property (retain) NSDictionary *userInfo;
+@property (retain) NSURL *url;
+@property (readonly) BOOL containsTemplateVariant;
+@property (readonly) NSData *data;
+@property (readonly) NSArray *variants;
+
++ (id)icnsWithIcon:(id)a0 imageDescriptors:(id)a1;
++ (id)icnsWithIcon:(id)a0 imageDescriptors:(id)a1 error:(id *)a2;
++ (BOOL)createEmptyIconsetFolderWithURL:(id)a0 error:(id *)a1;
++ (id)genericAppIconResource;
++ (id)genericDocumentIconResource;
++ (id)genericFolderIconResource;
++ (id)icnsWithContentsOfURL:(id)a0;
++ (id)icnsWithIconFamilyHandle:(struct IconFamilyResource **)a0;
++ (id)icnsWithResourceFile:(id)a0;
++ (id)icnsWithType:(unsigned int)a0 images:(id)a1;
++ (id)notLoadedIconResource;
++ (id)placeholderIconResource;
++ (BOOL)removeCustomIconFromURL:(id)a0 error:(id *)a1;
++ (id)systemIconNamed:(id)a0;
++ (BOOL)writeCustomIcon:(id)a0 toURL:(id)a1 error:(id *)a2;
++ (BOOL)writeCustomVolumeIcon:(id)a0 toURL:(id)a1 error:(id *)a2;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)init;
+- (void)load;
+- (id)mutableCopyWithZone:(struct _NSZone { } *)a0;
+- (id)name;
+- (void).cxx_destruct;
+- (id)initWithData:(id)a0;
+- (void)setName:(id)a0;
+- (id)userInfo;
+- (id)selectedVariant;
+- (id)templateVariant;
+- (void)setUserInfo:(id)a0;
+- (id)initWithType:(unsigned int)a0;
+- (void)setVariant:(id)a0 named:(id)a1;
+- (void)enumerateElementsUsingBlock:(id /* block */)a0;
+- (id)dataAtIndex:(int)a0;
+- (id)imageForSize:(struct CGSize { double x0; double x1; })a0 scale:(double)a1;
+- (void)setSelectedVariant:(id)a0;
+- (id)variants;
+- (struct CGImage { } *)CGImageWithData:(id)a0 iconIndexInfo:(const struct { int x0; unsigned int x1; double x2; unsigned int x3; unsigned long long x4; unsigned int x5; unsigned int x6; BOOL x7; unsigned int x8; int x9; int x10; int x11; } *)a1;
+- (id)assetCatalogFilePath;
+- (id)assetCatalogIconName;
+- (id)assetCatalogResource;
+- (unsigned int)colorDepthAtIndex:(int)a0;
+- (struct CGImage { } *)copyCGImageForSize:(struct CGSize { double x0; double x1; })a0 scale:(unsigned int)a1;
+- (struct CGImage { } *)copyCGImageWithIndex:(int)a0;
+- (short)copyTypeData:(unsigned int)a0 toHandle:(char **)a1;
+- (unsigned int)elementTypeAtIndex:(int)a0;
+- (int)findMaskIndex:(int)a0;
+- (int)iconIndexForSize:(struct CGSize { double x0; double x1; })a0 scale:(unsigned int)a1;
+- (id)initWithIcns:(id)a0;
+- (id)initWithType:(unsigned int)a0 data:(id)a1 elements:(id)a2 dirty:(BOOL)a3;
+- (BOOL)isMaskAtIndex:(int)a0;
+- (BOOL)isVariantElementType:(unsigned int)a0;
+- (void)removeValueAtIndex:(int)a0;
+- (unsigned int)scaleAtIndex:(int)a0;
+- (void)setData:(id)a0 atIndex:(int)a1;
+- (void)setTemplateVariant:(id)a0;
+- (struct CGSize { double x0; double x1; })sizeAtIndex:(int)a0;
+- (unsigned int)typeForVariantName:(id)a0;
+- (id)variantNamed:(id)a0;
+- (BOOL)writeAsIconsetToURL:(id)a0;
+- (BOOL)writeIconsetImagesToURL:(id)a0 variantName:(id)a1 selected:(BOOL)a2;
+
+@end

@@ -1,0 +1,78 @@
+@class MAUSBPacketDumper, MAUSBHostCapabilities, MAUSBDeviceVirtual20RootHub, MAUSBManagementPacketResponseCache, NSObject, NSMutableArray, MAUSBManagementPacketRequestTransmitter, MAUSBProtocolConfiguration;
+@protocol OS_dispatch_queue, MAUSBDevicePAL, MAUSBDeviceDeviceManagerDelegate;
+
+@interface MAUSBDeviceDeviceManager : MAUSBObject <MAUSBManagementPacketRequestTransmitterDelegate, MAUSBDeviceUSBDeviceDelegate> {
+    id<MAUSBDeviceDeviceManagerDelegate> _delegate;
+    id<MAUSBDevicePAL> _pal;
+    MAUSBDeviceVirtual20RootHub *_rootHub;
+    unsigned long long _sessionState;
+    MAUSBPacketDumper *_dumper;
+    MAUSBProtocolConfiguration *_protocolConfig;
+    NSObject<OS_dispatch_queue> *_queue;
+    unsigned char _ssid;
+    unsigned char _deviceAddress;
+    MAUSBHostCapabilities *_hostCapabilities;
+    NSMutableArray *_usbDevices;
+    unsigned long long _deviceState;
+    MAUSBManagementPacketResponseCache *_managementPacketResponseCache;
+    unsigned short _nextRequestDialogToken;
+    MAUSBManagementPacketRequestTransmitter *_requestTransmitter;
+}
+
+- (void).cxx_destruct;
+- (void)setSessionState:(unsigned long long)a0;
+- (void)setDeviceState:(unsigned long long)a0;
+- (void)inputEndpointInactivateRequest:(id)a0;
+- (BOOL)acceptDataPacket:(id)a0;
+- (BOOL)acceptManagementPacket:(id)a0;
+- (BOOL)allowReset;
+- (id)descriptionWithTabDepth:(unsigned int)a0;
+- (void)incrementNextExpectedRequestDialogToken;
+- (BOOL)initRootHubForLocationIDs:(id)a0 virtualDevices:(id)a1;
+- (id)initWithDelegate:(id)a0 mediaType:(unsigned long long)a1 queue:(id)a2 locationIDs:(id)a3 virtualDevices:(id)a4 captureFileLocation:(id)a5;
+- (void)inputCapabilityRequest:(id)a0;
+- (void)inputClearTransfersRequest:(id)a0;
+- (void)inputDataPacket:(id)a0 withSubtype:(unsigned char)a1;
+- (void)inputDeviceHandleRequest:(id)a0;
+- (void)inputDeviceResetRequest:(id)a0;
+- (void)inputEndpointActivateRequest:(id)a0;
+- (void)inputEndpointHandleDeleteRequest:(id)a0;
+- (void)inputEndpointHandleRequest:(id)a0;
+- (void)inputEndpointResetRequest:(id)a0;
+- (void)inputManagementPacket:(id)a0 withSubtype:(unsigned char)a1;
+- (void)inputManagementPacketRequest:(id)a0;
+- (void)inputManagementPacketResponse:(id)a0;
+- (void)inputModifyEP0Request:(id)a0;
+- (void)inputPacket:(id)a0;
+- (void)inputSetUSBDeviceAddressRequest:(id)a0;
+- (void)inputUSBDeviceDisconnectRequest:(id)a0;
+- (void)inputUSBDeviceResetRequest:(id)a0;
+- (void)inputUpdateDeviceRequest:(id)a0;
+- (void)managementPacketRequestTransmitter:(id)a0 transmitPacket:(id)a1;
+- (void)managementPacketRequestTransmitterTimedOut:(id)a0;
+- (void)sendClearTransfersErrorResponseForRequest:(id)a0 statusCode:(unsigned char)a1;
+- (void)sendEndpointActivateResponseForRequest:(id)a0 statusCode:(unsigned char)a1 respHandleList:(id)a2;
+- (void)sendEndpointHandleDeleteResponseForRequest:(id)a0 statusCode:(unsigned char)a1 endpointHandleList:(id)a2;
+- (void)sendEndpointHandleResponseForRequest:(id)a0 statusCode:(unsigned char)a1 descriptors:(id)a2;
+- (void)sendEndpointInactivateResponseForRequest:(id)a0 statusCode:(unsigned char)a1 respHandleList:(id)a2;
+- (void)sendEndpointResetResponseForRequest:(id)a0 statusCode:(unsigned char)a1 errorEndpointBlocks:(id)a2;
+- (void)sendModifyEP0ResponseForRequest:(id)a0 statusCode:(unsigned char)a1 endpointHandle:(unsigned short)a2;
+- (void)sendSetUSBDeviceAddressResponseForRequest:(id)a0 statusCode:(unsigned char)a1 usbDeviceAddress:(unsigned char)a2;
+- (void)sendUSBDeviceDisconnectResponseForRequest:(id)a0 statusCode:(unsigned char)a1;
+- (void)sendUSBDeviceResetResponseForRequest:(id)a0 statusCode:(unsigned char)a1;
+- (void)sendUpdateDeviceResponseForRequest:(id)a0 statusCode:(unsigned char)a1;
+- (void)transmitDataPacket:(id)a0;
+- (void)transmitManagementPacket:(id)a0;
+- (void)transmitManagementResponse:(id)a0;
+- (BOOL)usbDevice:(id)a0 clearTransfersForEndpointAddress:(unsigned char)a1;
+- (void)usbDevice:(id)a0 clearTransfersRequestComplete:(id)a1 status:(unsigned char)a2 cancelTransfersStatusBlocks:(id)a3;
+- (void)usbDevice:(id)a0 controlRequestWithSetupPacket:(id)a1 completion:(id /* block */)a2;
+- (void)usbDevice:(id)a0 controlRequestWithSetupPacket:(id)a1 data:(id)a2 completion:(id /* block */)a3;
+- (void)usbDevice:(id)a0 deliverData:(id)a1 endpointAddress:(unsigned char)a2 completion:(id /* block */)a3;
+- (void)usbDevice:(id)a0 readDataLength:(unsigned int)a1 endpointAddress:(unsigned char)a2 completion:(id /* block */)a3;
+- (void)usbDevice:(id)a0 transmitPacket:(id)a1;
+- (id)usbDeviceForDeviceHandle:(unsigned short)a0;
+- (id)usbDeviceForEndpointHandle:(unsigned short)a0;
+- (void)usbDeviceTransferTimedOut:(id)a0;
+
+@end

@@ -1,0 +1,86 @@
+@class NSMapTable, NSPopUpButton, NSToolbarItemGroup, NSSegmentedControl, UXNavigationItem, UXTransitionController, _UXViewControllerTransitionContext, NSString, UXTabBarItemSegment, NSSet, NSLayoutConstraint, UXViewController, NSArray;
+
+@interface UXTabBarController : UXViewController <NSMenuItemValidation> {
+    _UXViewControllerTransitionContext *_transitionCtx;
+    UXTransitionController *_transitionController;
+    UXViewController *_installedViewController;
+    BOOL _needsTransition;
+}
+
+@property (readonly, nonatomic) NSSegmentedControl *segmentedControl;
+@property (readonly, nonatomic) NSPopUpButton *popUpButton;
+@property (readonly, nonatomic) NSLayoutConstraint *popUpButtonWidthConstraint;
+@property (readonly, nonatomic) NSToolbarItemGroup *toolbarItemGroup;
+@property (retain, nonatomic) NSArray *centerToolbarItemGroupTitles;
+@property (retain, nonatomic) NSMapTable *representedSegmentsToViewControllers;
+@property (retain, nonatomic) NSArray *representedSegments;
+@property (retain, nonatomic) NSSet *observedItemSegments;
+@property (retain, nonatomic) NSSet *observedTabBarItems;
+@property (retain, nonatomic) UXNavigationItem *observedNavigationItem;
+@property (retain, nonatomic) UXViewController *observedViewController;
+@property (retain, nonatomic) NSArray *shortcutMenuItems;
+@property (readonly, nonatomic) NSMapTable *transitionControllerClassByToViewControllerClass;
+@property (nonatomic) BOOL segmentTransitionInProgress;
+@property (nonatomic) BOOL viewControllerTransitionInProgress;
+@property (retain, nonatomic) UXTabBarItemSegment *selectedItemSegment;
+@property (retain, nonatomic) UXViewController *transientViewController;
+@property (copy, nonatomic) NSArray *viewControllers;
+@property (weak, nonatomic) UXViewController *selectedViewController;
+@property (nonatomic) unsigned long long selectedIndex;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)_setSelectedIndex:(unsigned long long)a0;
+- (void)keyDown:(id)a0;
+- (BOOL)validateMenuItem:(id)a0;
+- (void)viewDidLayout;
+- (void)viewDidLoad;
+- (void)viewWillDisappear;
+- (id)navigationDestination;
+- (id)transitionCoordinator;
+- (id)_targetViewController;
+- (void)setTransientViewController:(id)a0 animated:(BOOL)a1;
+- (void)segmentChanged:(id)a0;
+- (void)_updateControls;
+- (void)invalidateIntrinsicLayoutInsets;
+- (void)_beginTransitionWithContext:(id)a0 operation:(long long)a1 completion:(id /* block */)a2;
+- (BOOL)_canPerformTransition;
+- (id)_childViewControllerAbleToNavigateToDestination:(id)a0;
+- (id)_contextForTransitionOperation:(long long)a0 fromViewController:(id)a1 toViewController:(id)a2 transition:(unsigned long long)a3;
+- (unsigned long long)_firstItemSegmentIndexForViewController:(id)a0;
+- (void)_invalidateIntrinsicLayoutInsetsForViewController:(id)a0;
+- (void)_performTransitionIfNeeded;
+- (void)_prepareForAnimationInContext:(id)a0 completion:(id /* block */)a1;
+- (void)_prepareViewController:(id)a0 forTransitionInContext:(id)a1 completion:(id /* block */)a2;
+- (void)_recalculateSegmentedControlWidth;
+- (void)_removePopulatedMenuItems;
+- (BOOL)_requiresWindowForTransitionPreparation;
+- (void)_setNeedsTransition;
+- (void)_setObservedNavigationItem:(id)a0 updateBarButtonItems:(BOOL)a1;
+- (void)_transitionToTargetViewControllerWithCompletion:(id /* block */)a0;
+- (void)_transitionToViewController:(id)a0 animated:(BOOL)a1 completion:(id /* block */)a2;
+- (void)_updateControlsProperties;
+- (void)_updateControlsSelection;
+- (void)_updateLeftBarButtonItems;
+- (void)_updateRightBarButtonItems;
+- (void)_updateToolbarProperties;
+- (BOOL)canProvideViewControllersForNavigationDestination:(id)a0;
+- (id)contentRepresentingViewController;
+- (void)popUpChanged:(id)a0;
+- (void)populateShortcutMenuItemsStartingAtIndex:(unsigned long long)a0 ofMenu:(id)a1 useSeparators:(BOOL)a2;
+- (id)preferredFirstResponder;
+- (void)registerTransitionControllerClass:(Class)a0 forViewControllerClass:(Class)a1;
+- (void)requestViewControllersForNavigationDestination:(id)a0 completion:(id /* block */)a1;
+- (void)selectSegmentFromMenu:(id)a0;
+- (void)setSelectedIndex:(unsigned long long)a0 allowsCurrentTabReselectionCallback:(BOOL)a1;
+- (void)toolbarItemGroupSelectionDidChange:(id)a0;
+- (void)unregisterTransitionControllerForTransitionToViewControllerClass:(Class)a0;
+- (void)updateForEqualNavigationDestination:(id)a0;
+
+@end

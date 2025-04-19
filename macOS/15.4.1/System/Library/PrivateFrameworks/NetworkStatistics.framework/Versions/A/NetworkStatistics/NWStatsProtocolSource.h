@@ -1,0 +1,3 @@
+@interface NWStatsProtocolSource : NWStatsSource
+
+@end

@@ -1,0 +1,89 @@
+@class NSData, NSString;
+
+@interface _CPMailRankingSignalsForFeedback : PBCodable <_CPMailRankingSignalsForFeedback, NSSecureCoding>
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (nonatomic) BOOL wasReorderedByRecency;
+@property (nonatomic) unsigned long long numEngagements;
+@property (nonatomic) unsigned long long numDaysEngagedLast30Days;
+@property (nonatomic) int averageEngagementAgeLast7Days;
+@property (nonatomic) int averageEngagementAgeLast14Days;
+@property (nonatomic) int averageEngagementAgeLast21Days;
+@property (nonatomic) int averageEngagementAgeLast30Days;
+@property (nonatomic) unsigned long long daysSinceReceipt;
+@property (nonatomic) float l1Score;
+@property (nonatomic) float l2Score;
+@property (nonatomic) BOOL isFlagged;
+@property (nonatomic) BOOL isRepliedTo;
+@property (nonatomic) BOOL isSemanticMatch;
+@property (nonatomic) BOOL isSyntacticMatch;
+@property (nonatomic) float semanticScore;
+@property (nonatomic) float syntacticScore;
+@property (nonatomic) unsigned int countUnigramMatchInAuthors;
+@property (nonatomic) unsigned int countBigramMatchInAuthors;
+@property (nonatomic) unsigned int countNgramMatchInAuthors;
+@property (nonatomic) unsigned int countUnigramPrefixMatchInAuthors;
+@property (nonatomic) unsigned int countBigramPrefixMatchInAuthors;
+@property (nonatomic) unsigned int countNgramPrefixMatchInAuthors;
+@property (nonatomic) unsigned int countUnigramMatchInAuthorEmailAddresses;
+@property (nonatomic) unsigned int countBigramMatchInAuthorEmailAddresses;
+@property (nonatomic) unsigned int countNgramMatchInAuthorEmailAddresses;
+@property (nonatomic) unsigned int countUnigramPrefixMatchInAuthorEmailAddresses;
+@property (nonatomic) unsigned int countBigramPrefixMatchInAuthorEmailAddresses;
+@property (nonatomic) unsigned int countNgramPrefixMatchInAuthorEmailAddresses;
+@property (nonatomic) unsigned int countUnigramMatchInSubject;
+@property (nonatomic) unsigned int countBigramMatchInSubject;
+@property (nonatomic) unsigned int countNgramMatchInSubject;
+@property (nonatomic) unsigned int countUnigramPrefixMatchInSubject;
+@property (nonatomic) unsigned int countBigramPrefixMatchInSubject;
+@property (nonatomic) unsigned int countNgramPrefixMatchInSubject;
+@property (nonatomic) unsigned int countUnigramMatchInTextContent;
+@property (nonatomic) unsigned int countBigramMatchInTextContent;
+@property (nonatomic) unsigned int countNgramMatchInTextContent;
+@property (nonatomic) unsigned int countUnigramPrefixMatchInTextContent;
+@property (nonatomic) unsigned int countBigramPrefixMatchInTextContent;
+@property (nonatomic) unsigned int countNgramPrefixMatchInTextContent;
+@property (nonatomic) unsigned int countUnigramMatchInRecipients;
+@property (nonatomic) unsigned int countBigramMatchInRecipients;
+@property (nonatomic) unsigned int countNgramMatchInRecipients;
+@property (nonatomic) unsigned int countUnigramPrefixMatchInRecipients;
+@property (nonatomic) unsigned int countBigramPrefixMatchInRecipients;
+@property (nonatomic) unsigned int countNgramPrefixMatchInRecipients;
+@property (nonatomic) unsigned int countUnigramMatchInRecipientEmailAddresses;
+@property (nonatomic) unsigned int countBigramMatchInRecipientEmailAddresses;
+@property (nonatomic) unsigned int countNgramMatchInRecipientEmailAddresses;
+@property (nonatomic) unsigned int countUnigramPrefixMatchInRecipientEmailAddresses;
+@property (nonatomic) unsigned int countBigramPrefixMatchInRecipientEmailAddresses;
+@property (nonatomic) unsigned int countNgramPrefixMatchInRecipientEmailAddresses;
+@property (nonatomic) unsigned int countUnigramMatchInEmailAddresses;
+@property (nonatomic) unsigned int countBigramMatchInEmailAddresses;
+@property (nonatomic) unsigned int countNgramMatchInEmailAddresses;
+@property (nonatomic) unsigned int countUnigramPrefixMatchInEmailAddresses;
+@property (nonatomic) unsigned int countBigramPrefixMatchInEmailAddresses;
+@property (nonatomic) unsigned int countNgramPrefixMatchInEmailAddresses;
+@property (nonatomic) unsigned int countUnigramMatchInAttachmentTypes;
+@property (nonatomic) unsigned int countBigramMatchInAttachmentTypes;
+@property (nonatomic) unsigned int countNgramMatchInAttachmentTypes;
+@property (nonatomic) unsigned int countUnigramPrefixMatchInAttachmentTypes;
+@property (nonatomic) unsigned int countBigramPrefixMatchInAttachmentTypes;
+@property (nonatomic) unsigned int countNgramPrefixMatchInAttachmentTypes;
+@property (nonatomic) unsigned int countUnigramMatchInAttachmentNames;
+@property (nonatomic) unsigned int countBigramMatchInAttachmentNames;
+@property (nonatomic) unsigned int countNgramMatchInAttachmentNames;
+@property (nonatomic) unsigned int countUnigramPrefixMatchInAttachmentNames;
+@property (nonatomic) unsigned int countBigramPrefixMatchInAttachmentNames;
+@property (nonatomic) unsigned int countNgramPrefixMatchInAttachmentNames;
+@property (readonly, nonatomic) NSData *jsonData;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+
+- (BOOL)isEqual:(id)a0;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)initWithFacade:(id)a0;
+
+@end

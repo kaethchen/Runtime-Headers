@@ -1,0 +1,3 @@
+@interface HMDDeviceAccountResolvedLogEvent : HMMLogEvent
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCC14ReplicatorCore8Database26MutableClientSettingsStore : _TtCC14ReplicatorCore8Database19ClientSettingsStore
+
+@end

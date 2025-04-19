@@ -1,0 +1,3 @@
+@interface EWSDeleteItemResponseType : EWSBaseMessageResponseType
+
+@end

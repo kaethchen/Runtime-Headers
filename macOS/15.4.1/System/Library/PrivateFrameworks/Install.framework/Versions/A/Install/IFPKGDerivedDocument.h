@@ -1,0 +1,72 @@
+@class PFPackage, NSString, NSError, NSLock, NSArray, NSMutableDictionary, NSDictionary, NSMutableArray;
+
+@interface IFPKGDerivedDocument : IFDocument {
+    NSString *title;
+    PFPackage *basePackage;
+    NSLock *lock;
+    BOOL allowsBackRev;
+    BOOL rootVolumeOnly;
+    BOOL legacyPackage;
+    BOOL failedArchitectureCheck;
+    NSMutableDictionary *uiSelectionCache;
+    BOOL _documentReadAndValidationHaveBeenPerformed;
+    BOOL _validationResult;
+    NSError *_validationError;
+    NSMutableArray *_searchModules;
+    NSDictionary *installableCheckResults;
+    NSArray *_preferredLocs;
+    NSArray *_otherLocs;
+    NSMutableDictionary *pfPackages;
+    int _minTrustLevel;
+    int _evaluatedTrustLevel;
+    NSArray *_certificateChain;
+    struct __SecTrust { } *_trustRef;
+    NSString *_path;
+}
+
+- (void)dealloc;
+- (id)initWithPath:(id)a0;
+- (id)title;
+- (id)package;
+- (void)setMinimumRequiredTrustLevel:(int)a0;
+- (int)trustLevelReturningCertificateChain:(id *)a0;
+- (int)trustLevelReturningTrustRef:(struct __SecTrust **)a0;
+- (BOOL)getData:(id *)a0 andMIMEType:(id *)a1 forResourceNamed:(id)a2 forLanguage:(id)a3 error:(id *)a4;
+- (id)_PFPackageForPackage:(id)a0;
+- (id)_buildPackageCacheObjectForPackage:(id)a0 atPath:(id)a1 withParentSelection:(id)a2;
+- (void)_buildScriptsForPackage:(id)a0 partOfChoice:(id)a1 intoString:(id)a2;
+- (void)_addSelectedMetapackages:(id)a0 fromPackage:(id)a1;
+- (void)_buildPackageCacheObjects;
+- (id)_findResourceForName:(id)a0 requestedLoc:(id)a1 fallback:(BOOL)a2;
+- (id)_hackForBundleSoftwareRequirementsWithPackage:(id)a0 withCurrentError:(id)a1 onTarget:(id)a2;
+- (void)_iLife04HackToQuitiTunesHelperIfiTunesIsntRunning;
+- (BOOL)_iTunesPackage:(id)a0 shouldBeDisabledOnTarget:(id)a1;
+- (id)_packageForPFPackage:(id)a0;
+- (void)_packagesForLocation:(id)a0 fromSet:(id)a1 withPackage:(id)a2 intoList:(id)a3;
+- (void)_pfTranslationForIFKey:(id)a0 outType:(id *)a1 outPFName:(id *)a2;
+- (id)_postRequirementRunCompatibilityHacksForPackage:(id)a0 onTarget:(id)a1 withCurrentError:(id)a2;
+- (void)_preRequirementRunCompatibilityHacksForPackage:(id)a0 onTarget:(id)a1;
+- (id)_receiptVersionCheckOnTarget:(id)a0;
+- (void)addChoiceChildrenForPackage:(id)a0 toChoiceNode:(id)a1 onTarget:(id)a2 withScriptString:(id)a3;
+- (void)addPackage:(id)a0;
+- (const char *)authorizationStringForLevel:(int)a0;
+- (id)certificateIdentity;
+- (id)choiceForPackage:(id)a0 onTarget:(id)a1 withScriptString:(id)a2;
+- (void)clearInstallationCheckResults;
+- (void)clearPackages:(id)a0;
+- (id)copyChoiceTreeWithScripts:(id *)a0 andChoiceList:(id *)a1 forTarget:(id)a2;
+- (id)errorForPackage:(id)a0 onTarget:(id)a1 withCustomizationController:(id)a2;
+- (BOOL)evaluateTrust;
+- (BOOL)getData:(id *)a0 andMIMEType:(id *)a1 forResourceNamed:(id)a2 forLanguage:(id)a3;
+- (BOOL)hasInsecureChecks;
+- (id)installableCheckResults;
+- (id)languagesAvailableForResource:(id)a0;
+- (BOOL)legacyDocument;
+- (int)minimumRequiredTrustLevel;
+- (id)objectForOptionNamed:(id)a0;
+- (id)packagesForLocation:(id)a0 fromSet:(id)a1;
+- (BOOL)readAndValidateDocumentReturningError:(id *)a0;
+- (id)searchDefinitions;
+- (id)sortedPackageLocations;
+
+@end

@@ -1,0 +1,3 @@
+@interface EWSCreatedEventType : EWSBaseObjectChangedEventType
+
+@end

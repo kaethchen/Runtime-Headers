@@ -1,0 +1,82 @@
+@class PXGLayout, NSString, NSNumber, PXGScrollViewModel;
+@protocol PXGScrollLayoutDelegate;
+
+@interface PXGScrollLayout : PXGLayout <PXGAnchorDelegate, PXGViewSource, PXGScrollViewContainerDelegate, PXChangeObserver, PXGDataSourceDrivenLayout> {
+    struct { unsigned long long needsUpdate; unsigned long long updated; BOOL isPerformingUpdate; BOOL willPerformUpdate; } _updateFlags;
+    unsigned int _scrollViewSpriteIndex;
+    unsigned short _scrollViewMediaVersion;
+    BOOL _isUpdatingContentLayout;
+    struct { BOOL willBeginScrolling; BOOL didScroll; BOOL willEndScrollingWithVelocityTargetContentOffsetCurrentContentOffset; BOOL didEndScrolling; } _delegateRespondsTo;
+}
+
+@property (readonly, nonatomic) PXGScrollViewModel *scrollViewModel;
+@property (nonatomic) BOOL wantsScrollView;
+@property (readonly, nonatomic) BOOL isScrolling;
+@property (retain, nonatomic) PXGLayout *contentLayout;
+@property (weak, nonatomic) id<PXGScrollLayoutDelegate> delegate;
+@property (retain, nonatomic) NSNumber *fixedWidth;
+@property (retain, nonatomic) NSNumber *fixedHeight;
+@property (nonatomic) float scrollViewSpriteZPosition;
+@property (nonatomic) long long scrollDecelerationRate;
+@property (nonatomic) BOOL clipsToBounds;
+@property (nonatomic) BOOL showsHorizontalScrollIndicator;
+@property (nonatomic) BOOL showsVerticalScrollIndicator;
+@property (nonatomic) BOOL alwaysBounceHorizontal;
+@property (nonatomic) BOOL alwaysBounceVertical;
+@property (nonatomic) struct NSEdgeInsets { double top; double left; double bottom; double right; } horizontalScrollIndicatorInsets;
+@property (nonatomic) struct NSEdgeInsets { double top; double left; double bottom; double right; } verticalScrollIndicatorInsets;
+@property (nonatomic) struct NSEdgeInsets { double top; double left; double bottom; double right; } hitTestContentInsets;
+@property (nonatomic) BOOL draggingPerformsScroll;
+@property (nonatomic) BOOL transfersScrollToContainer;
+@property (nonatomic) double horizontalInterPageSpacing;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)update;
+- (void)contentSizeDidChange;
+- (void)setIsScrolling:(BOOL)a0;
+- (void)didUpdate;
+- (void)safeAreaInsetsDidChange;
+- (void)observable:(id)a0 didChange:(unsigned long long)a1 context:(void *)a2;
+- (id)axSpriteIndexes;
+- (void)userInterfaceDirectionDidChange;
+- (void)_invalidateContentLayout;
+- (void)_invalidateLocalContent;
+- (void)_invalidateScrollView;
+- (void)_updateContentLayout;
+- (void)_updateLocalContent;
+- (void)alphaDidChange;
+- (struct CGPoint { double x0; double x1; })anchor:(id)a0 visibleRectOriginForProposedVisibleRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 forLayout:(id)a2;
+- (id)axContainingScrollViewForAXGroup:(id)a0;
+- (BOOL)axShouldBeConsideredAsSubgroup;
+- (void)contentLayoutDidChange;
+- (id)createAnchorForVisibleAreaIgnoringEdges:(unsigned long long)a0;
+- (void)displayScaleDidChange;
+- (id)initWithContentLayout:(id)a0;
+- (void)insertSublayout:(id)a0 atIndex:(long long)a1;
+- (long long)intrinsicScrollRegime;
+- (void)isScrollingDidChange;
+- (void)lastScrollDirectionDidChange;
+- (id)layoutForItemChanges;
+- (id)px_assetsSectionLayout;
+- (void)px_modifyAssetsSectionLayoutGeometry:(id /* block */)a0;
+- (void)referenceSizeDidChange;
+- (void)scrollViewContainerDidEndScrolling:(id)a0;
+- (void)scrollViewContainerDidScroll:(id)a0;
+- (void)scrollViewContainerWillBeginScrolling:(id)a0;
+- (void)scrollViewContainerWillEndScrolling:(id)a0 withVelocity:(struct CGPoint { double x0; double x1; })a1 targetContentOffset:(inout struct CGPoint { double x0; double x1; } *)a2 currentContentOffset:(struct CGPoint { double x0; double x1; })a3;
+- (long long)scrollableAxis;
+- (void)stopScrolling;
+- (long long)sublayoutIndexForObjectReference:(id)a0 options:(unsigned long long)a1 updatedObjectReference:(out id *)a2;
+- (void)sublayoutNeedsUpdate:(id)a0;
+- (Class)viewClassForSpriteAtIndex:(unsigned int)a0 inLayout:(id)a1;
+- (void)viewEnvironmentDidChange;
+- (id)viewUserDataForSpriteAtIndex:(unsigned int)a0 inLayout:(id)a1;
+- (void)visibleRectDidChange;
+- (void)willUpdate;
+
+@end

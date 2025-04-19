@@ -1,0 +1,94 @@
+@class NSMutableArray, NSTextFieldCell;
+
+@interface NSNextStepFrame : NSView {
+    NSTextFieldCell *titleCell;
+    NSMutableArray *edgeResizingTrackingAreas;
+    id nsfReserved;
+    unsigned long long styleMask;
+    struct _frFlags { unsigned char defeatTitleWrap : 1; unsigned char resizeByIncrement : 1; unsigned int RESERVED : 30; } fvFlags;
+    struct CGSize { double width; double height; } sizingParams;
+}
+
+@property unsigned long long styleMask;
+
++ (void)load;
++ (unsigned long long)_validateStyleMask:(unsigned long long)a0;
++ (BOOL)clipsToBounds;
++ (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })contentRectForFrameRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 styleMask:(unsigned long long)a1;
++ (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameRectForContentRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 styleMask:(unsigned long long)a1;
++ (struct CGSize { double x0; double x1; })minContentSizeForMinFrameSize:(struct CGSize { double x0; double x1; })a0 styleMask:(unsigned long long)a1;
++ (struct CGSize { double x0; double x1; })minFrameSizeForMinContentSize:(struct CGSize { double x0; double x1; })a0 styleMask:(unsigned long long)a1;
++ (double)minFrameWidthWithTitle:(id)a0 styleMask:(unsigned long long)a1;
+
+- (void)dealloc;
+- (void)setTitle:(id)a0;
+- (id)title;
+- (id)setCloseTarget:(id)a0;
+- (BOOL)_canHaveToolbar;
+- (BOOL)_toolbarIsShown;
+- (void)rightMouseDown:(id)a0;
+- (void)setAspectRatio:(struct CGSize { double x0; double x1; })a0;
+- (id)setCloseAction:(SEL)a0;
+- (void)setFrameOrigin:(struct CGPoint { double x0; double x1; })a0;
+- (void)_calcTextRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a0;
+- (Class)_classToCheckForWantsUpdateLayer;
+- (void)_clearPressedButtons;
+- (double)_distanceFromToolbarBaseToTitlebar;
+- (id)_edgeResizingTrackingAreas;
+- (void)_hideToolbarWithAnimation:(BOOL)a0;
+- (BOOL)_isHUDWindow;
+- (id)_resize:(id)a0;
+- (void)_setCloseEnabled:(BOOL)a0;
+- (void)_setFrameNeedsDisplay:(BOOL)a0;
+- (void)_setNonactivatingPanel:(BOOL)a0;
+- (void)_setUtilityWindow:(BOOL)a0;
+- (void)_showToolbarWithAnimation:(BOOL)a0;
+- (BOOL)_toolbarIsHidden;
+- (BOOL)_toolbarIsInTransition;
+- (BOOL)_toolbarIsManagedByExternalWindow;
+- (void)_updateButtons;
+- (void)_updateTitleProperties:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_windowOpaqueRect;
+- (void)_windowTitlePropertiesChanged:(id)a0;
+- (BOOL)acceptsFirstMouse:(id)a0;
+- (struct CGSize { double x0; double x1; })aspectRatio;
+- (void)backgroundColorChanged:(id)a0;
+- (id)closeButton;
+- (double)contentAlpha;
+- (id)contentFill;
+- (id)contentLayoutGuide;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })contentRectForFrameRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 styleMask:(unsigned long long)a1;
+- (id)doClose:(id)a0;
+- (id)doIconify:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })dragRectForFrameRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)drawRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })frameRectForContentRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 styleMask:(unsigned long long)a1;
+- (void)helpRequested:(id)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 styleMask:(unsigned long long)a1 owner:(id)a2;
+- (BOOL)isOpaque;
+- (struct CGSize { double x0; double x1; })minFrameSizeForMinContentSize:(struct CGSize { double x0; double x1; })a0 styleMask:(unsigned long long)a1;
+- (id)minimizeButton;
+- (void)mouseDown:(id)a0;
+- (void)mouseEntered:(id)a0;
+- (void)mouseExited:(id)a0;
+- (void)mouseUp:(id)a0;
+- (BOOL)needsFill;
+- (id)opaqueAncestor;
+- (struct CGSize { double x0; double x1; })resizeIncrements;
+- (void)rightMouseUp:(id)a0;
+- (void)setFrameSize:(struct CGSize { double x0; double x1; })a0;
+- (void)setRepresentedFilename:(id)a0;
+- (void)setResizeIncrements:(struct CGSize { double x0; double x1; })a0;
+- (void)setTitle:(id)a0 andDefeatWrap:(BOOL)a1;
+- (void)shapeWindow;
+- (void)tile;
+- (id)titleFont;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })titleRect;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })titlebarRect;
+- (void)updateLayer;
+- (void)updateTrackingAreas;
+- (void)viewDidEndLiveResize;
+- (BOOL)worksWhenModal;
+- (id)zoomButton;
+
+@end

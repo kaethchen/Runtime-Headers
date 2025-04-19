@@ -1,0 +1,3 @@
+@interface SORecordingWaveformContainerView : SOAbstractWaveFormView
+
+@end

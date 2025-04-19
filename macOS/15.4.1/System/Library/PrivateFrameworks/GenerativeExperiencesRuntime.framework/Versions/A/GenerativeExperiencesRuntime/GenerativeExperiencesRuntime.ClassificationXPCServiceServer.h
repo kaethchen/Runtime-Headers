@@ -1,0 +1,3 @@
+@interface GenerativeExperiencesRuntime.ClassificationXPCServiceServer : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,49 @@
+@interface MTRClusterEnergyEVSE : MTRGenericCluster
+
+- (void)clearTargetsWithExpectedValues:(id)a0 expectedValueInterval:(id)a1 completion:(id /* block */)a2;
+- (void)clearTargetsWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)disableWithExpectedValues:(id)a0 expectedValueInterval:(id)a1 completion:(id /* block */)a2;
+- (void)disableWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)enableChargingWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)enableDischargingWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)getTargetsWithExpectedValues:(id)a0 expectedValueInterval:(id)a1 completion:(id /* block */)a2;
+- (void)getTargetsWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (id)readAttributeAcceptedCommandListWithParams:(id)a0;
+- (id)readAttributeApproximateEVEfficiencyWithParams:(id)a0;
+- (id)readAttributeAttributeListWithParams:(id)a0;
+- (id)readAttributeBatteryCapacityWithParams:(id)a0;
+- (id)readAttributeChargingEnabledUntilWithParams:(id)a0;
+- (id)readAttributeCircuitCapacityWithParams:(id)a0;
+- (id)readAttributeClusterRevisionWithParams:(id)a0;
+- (id)readAttributeDischargingEnabledUntilWithParams:(id)a0;
+- (id)readAttributeFaultStateWithParams:(id)a0;
+- (id)readAttributeFeatureMapWithParams:(id)a0;
+- (id)readAttributeGeneratedCommandListWithParams:(id)a0;
+- (id)readAttributeMaximumChargeCurrentWithParams:(id)a0;
+- (id)readAttributeMaximumDischargeCurrentWithParams:(id)a0;
+- (id)readAttributeMinimumChargeCurrentWithParams:(id)a0;
+- (id)readAttributeNextChargeRequiredEnergyWithParams:(id)a0;
+- (id)readAttributeNextChargeStartTimeWithParams:(id)a0;
+- (id)readAttributeNextChargeTargetSoCWithParams:(id)a0;
+- (id)readAttributeNextChargeTargetTimeWithParams:(id)a0;
+- (id)readAttributeRandomizationDelayWindowWithParams:(id)a0;
+- (id)readAttributeSessionDurationWithParams:(id)a0;
+- (id)readAttributeSessionEnergyChargedWithParams:(id)a0;
+- (id)readAttributeSessionEnergyDischargedWithParams:(id)a0;
+- (id)readAttributeSessionIDWithParams:(id)a0;
+- (id)readAttributeStateOfChargeWithParams:(id)a0;
+- (id)readAttributeStateWithParams:(id)a0;
+- (id)readAttributeSupplyStateWithParams:(id)a0;
+- (id)readAttributeUserMaximumChargeCurrentWithParams:(id)a0;
+- (id)readAttributeVehicleIDWithParams:(id)a0;
+- (void)setTargetsWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)startDiagnosticsWithExpectedValues:(id)a0 expectedValueInterval:(id)a1 completion:(id /* block */)a2;
+- (void)startDiagnosticsWithParams:(id)a0 expectedValues:(id)a1 expectedValueInterval:(id)a2 completion:(id /* block */)a3;
+- (void)writeAttributeApproximateEVEfficiencyWithValue:(id)a0 expectedValueInterval:(id)a1;
+- (void)writeAttributeApproximateEVEfficiencyWithValue:(id)a0 expectedValueInterval:(id)a1 params:(id)a2;
+- (void)writeAttributeRandomizationDelayWindowWithValue:(id)a0 expectedValueInterval:(id)a1;
+- (void)writeAttributeRandomizationDelayWindowWithValue:(id)a0 expectedValueInterval:(id)a1 params:(id)a2;
+- (void)writeAttributeUserMaximumChargeCurrentWithValue:(id)a0 expectedValueInterval:(id)a1;
+- (void)writeAttributeUserMaximumChargeCurrentWithValue:(id)a0 expectedValueInterval:(id)a1 params:(id)a2;
+
+@end

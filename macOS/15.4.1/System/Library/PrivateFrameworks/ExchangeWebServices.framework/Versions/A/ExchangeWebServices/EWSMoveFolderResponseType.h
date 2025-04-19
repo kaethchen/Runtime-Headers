@@ -1,0 +1,3 @@
+@interface EWSMoveFolderResponseType : EWSBaseMessageResponseType
+
+@end

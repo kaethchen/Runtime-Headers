@@ -1,0 +1,3 @@
+@interface WKCNContactPickerMultiSelectDelegate : WKCNContactPickerDelegate
+
+@end

@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.GetBrightnessHandleDelegate : HomeAutomationInternal.AppIntentHandleDelegate
+
+@end

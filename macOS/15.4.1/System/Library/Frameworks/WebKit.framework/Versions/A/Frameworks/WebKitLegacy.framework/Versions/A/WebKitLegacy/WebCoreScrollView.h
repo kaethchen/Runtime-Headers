@@ -1,0 +1,3 @@
+@interface WebCoreScrollView : NSScrollView
+
+@end

@@ -1,0 +1,6 @@
+@interface PreviewsInjection.UVJITAgent : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ executorBox;
+    void /* unknown type, empty encoding */ entryPointConfigBox;
+}
+
+@end

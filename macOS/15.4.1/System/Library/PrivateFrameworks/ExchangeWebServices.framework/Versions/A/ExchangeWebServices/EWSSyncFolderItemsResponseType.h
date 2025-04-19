@@ -1,0 +1,3 @@
+@interface EWSSyncFolderItemsResponseType : EWSBaseMessageResponseType
+
+@end

@@ -1,0 +1,3 @@
+@interface CurrencyCache : CalculateCurrencyCache
+
+@end

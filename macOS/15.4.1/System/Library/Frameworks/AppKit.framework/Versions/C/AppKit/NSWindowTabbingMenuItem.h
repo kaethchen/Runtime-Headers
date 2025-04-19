@@ -1,0 +1,3 @@
+@interface NSWindowTabbingMenuItem : NSMenuItem
+
+@end

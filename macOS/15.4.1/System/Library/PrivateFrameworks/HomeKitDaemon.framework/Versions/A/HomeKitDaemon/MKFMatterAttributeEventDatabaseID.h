@@ -1,0 +1,3 @@
+@interface MKFMatterAttributeEventDatabaseID : MKFEventDatabaseID
+
+@end

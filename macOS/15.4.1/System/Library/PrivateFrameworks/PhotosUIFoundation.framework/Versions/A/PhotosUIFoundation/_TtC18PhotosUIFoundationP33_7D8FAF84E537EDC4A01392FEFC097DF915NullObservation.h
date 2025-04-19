@@ -1,0 +1,3 @@
+@interface _TtC18PhotosUIFoundationP33_7D8FAF84E537EDC4A01392FEFC097DF915NullObservation : _TtCs12_SwiftObject
+
+@end

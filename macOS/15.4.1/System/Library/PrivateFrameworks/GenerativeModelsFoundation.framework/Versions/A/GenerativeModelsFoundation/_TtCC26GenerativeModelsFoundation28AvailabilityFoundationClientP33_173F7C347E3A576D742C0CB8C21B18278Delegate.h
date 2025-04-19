@@ -1,0 +1,3 @@
+@interface _TtCC26GenerativeModelsFoundation28AvailabilityFoundationClientP33_173F7C347E3A576D742C0CB8C21B18278Delegate : _TtCs12_SwiftObject
+
+@end

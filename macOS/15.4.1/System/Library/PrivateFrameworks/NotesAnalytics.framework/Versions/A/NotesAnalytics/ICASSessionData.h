@@ -1,0 +1,24 @@
+@class NSString, ICASCellularRadioAccessTechnology, NSArray, ICASSessionType, NSNumber;
+
+@interface ICASSessionData : NSObject <AADataEventType>
+
+@property (class, readonly, copy, nonatomic) NSString *dataName;
+@property (class, readonly, nonatomic) BOOL requiresDiagnosticsConsent;
+
+@property (readonly, nonatomic) NSNumber *utcOffset;
+@property (readonly, nonatomic) NSString *countryCode;
+@property (readonly, nonatomic) NSString *languageCode;
+@property (readonly, nonatomic) NSString *productType;
+@property (readonly, nonatomic) ICASCellularRadioAccessTechnology *cellularRadioAccessTechnology;
+@property (readonly, nonatomic) NSNumber *bioAuthEnabled;
+@property (readonly, nonatomic) NSNumber *localNotesEnabled;
+@property (readonly, nonatomic) NSArray *accountTypeSummary;
+@property (readonly, nonatomic) ICASSessionType *sessionType;
+@property (readonly, nonatomic) NSNumber *isSaltRegenerated;
+@property (readonly, nonatomic) NSNumber *isGlobalSession;
+
+- (void).cxx_destruct;
+- (id)toDict;
+- (id)initWithUtcOffset:(id)a0 countryCode:(id)a1 languageCode:(id)a2 productType:(id)a3 cellularRadioAccessTechnology:(id)a4 bioAuthEnabled:(id)a5 localNotesEnabled:(id)a6 accountTypeSummary:(id)a7 sessionType:(id)a8 isSaltRegenerated:(id)a9 isGlobalSession:(id)a10;
+
+@end

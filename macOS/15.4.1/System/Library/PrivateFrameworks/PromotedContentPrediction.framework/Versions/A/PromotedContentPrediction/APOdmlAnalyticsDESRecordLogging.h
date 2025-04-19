@@ -1,0 +1,3 @@
+@interface APOdmlAnalyticsDESRecordLogging : APOdmlAnalytics
+
+@end

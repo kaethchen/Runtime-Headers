@@ -1,0 +1,5 @@
+@interface _PXPhotoKitAssetCollectionFavoriteActionPerformer : _PXPhotoKitAssetCollectionAbstractFavoriteActionPerformer
+
++ (BOOL)_targetFavoriteStateForAssetCollectionReference:(id)a0;
+
+@end

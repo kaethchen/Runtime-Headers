@@ -1,0 +1,3 @@
+@interface _TtC22NewDeviceOutreachMacUIP33_5A491E98C2208E72A0FF6F298686179D19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

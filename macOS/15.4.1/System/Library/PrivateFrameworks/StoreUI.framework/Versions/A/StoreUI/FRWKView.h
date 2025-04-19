@@ -1,0 +1,71 @@
+@class CKStoreClient, FRJSRootObject, NSURL, NSDate, NSLock, NSString, NSMutableArray, WKWebView;
+@protocol FRWKViewDelegate;
+
+@interface FRWKView : NSView <FRJSMessagingDelegate, WKNavigationDelegate, WKUIDelegate, WKURLSchemeHandler>
+
+@property (nonatomic) BOOL initialLoadCommitted;
+@property (retain, nonatomic) NSMutableArray *messageQueue;
+@property (retain, nonatomic) NSLock *messageQueueLock;
+@property (nonatomic, getter=isLoading) BOOL loading;
+@property (nonatomic) BOOL shouldClearHistoryOnNextLoad;
+@property (nonatomic) BOOL shouldKeepCurrentHistoryItem;
+@property (retain, nonatomic) NSURL *loadingURL;
+@property (retain) NSDate *loadStartTime;
+@property (retain) WKWebView *webView;
+@property (weak, nonatomic) id<FRWKViewDelegate> delegate;
+@property (readonly, nonatomic) CKStoreClient *storeClient;
+@property (readonly, nonatomic) FRJSRootObject *rootObject;
+@property BOOL disableScrolling;
+@property double topContentInset;
+@property (nonatomic) BOOL navigationEnabled;
+@property (readonly, nonatomic) NSURL *activeURL;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)layout;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)viewDidUnhide;
+- (void)reload;
+- (BOOL)loadRequest:(id)a0;
+- (void)webView:(id)a0 decidePolicyForNavigationResponse:(id)a1 decisionHandler:(id /* block */)a2;
+- (void)webView:(id)a0 didFailNavigation:(id)a1 withError:(id)a2;
+- (void)webView:(id)a0 didFinishNavigation:(id)a1;
+- (BOOL)canGoBack;
+- (BOOL)canGoForward;
+- (void)goBack;
+- (void)goForward;
+- (id)webView:(id)a0 createWebViewWithConfiguration:(id)a1 forNavigationAction:(id)a2 windowFeatures:(id)a3;
+- (void)webView:(id)a0 runJavaScriptAlertPanelWithMessage:(id)a1 initiatedByFrame:(id)a2 completionHandler:(id /* block */)a3;
+- (void)webView:(id)a0 runJavaScriptConfirmPanelWithMessage:(id)a1 initiatedByFrame:(id)a2 completionHandler:(id /* block */)a3;
+- (void)webView:(id)a0 runJavaScriptTextInputPanelWithPrompt:(id)a1 defaultText:(id)a2 initiatedByFrame:(id)a3 completionHandler:(id /* block */)a4;
+- (void)webView:(id)a0 startURLSchemeTask:(id)a1;
+- (void)webView:(id)a0 stopURLSchemeTask:(id)a1;
+- (void)clearHistory;
+- (BOOL)loadURL:(id)a0;
+- (void)cancelLoad;
+- (void)_doAction:(id)a0;
+- (void)sendMessage:(id)a0 messageBody:(id)a1;
+- (id)sendSynchronousMessage:(id)a0 messageBody:(id)a1;
+- (BOOL)_dismissIfSheet;
+- (struct WKContextInjectedBundleClientV1 { struct WKContextInjectedBundleClientBase { int x0; void *x1; } x0; void /* function */ *x1; void /* function */ *x2; void /* function */ *x3; })_bundleClient;
+- (void)_buttonClicked:(char)a0 forDialog:(id)a1;
+- (BOOL)_canGoBackToURL:(id)a0;
+- (BOOL)_canGoForwardToURL:(id)a0;
+- (struct WKPageContextMenuClientV3 { struct WKPageContextMenuClientBase { int x0; void *x1; } x0; void /* function */ *x1; void /* function */ *x2; void /* function */ *x3; void /* function */ *x4; void /* function */ *x5; void /* function */ *x6; })_contextMenuClient;
+- (void)_isAccountCreationURL:(id)a0 withCompletionHandler:(id /* block */)a1;
+- (void)_loadAccountCreationRequest:(id)a0;
+- (BOOL)_url:(id)a0 isEqualToBackForwardListItem:(id)a1;
+- (void)goToHistoryIndex:(long long)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 storeClient:(id)a1;
+- (void)loadHTML:(id)a0;
+- (void)processStorePlistResponse:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })rectForDOMElement:(id)a0;
+- (void)removeCurrentPage;
+- (void)viewWillHide;
+
+@end

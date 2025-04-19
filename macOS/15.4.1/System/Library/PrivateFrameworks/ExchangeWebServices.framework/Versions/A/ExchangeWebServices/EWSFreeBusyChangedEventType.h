@@ -1,0 +1,3 @@
+@interface EWSFreeBusyChangedEventType : EWSBaseObjectChangedEventType
+
+@end

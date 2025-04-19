@@ -1,0 +1,3 @@
+@interface NFSecureElementManagerSessionInterface : NSObject
+
+@end

@@ -1,0 +1,82 @@
+@class PXGViewMouseSession, NSEvent, NSView, NSSet, NSString, NSTrackingArea;
+@protocol PXPhotosViewUXInteractionResponderDelegate, PXPhotosDraggingUXController;
+
+@interface PXPhotosViewUXInteractionResponder : NSView <PXGViewMouseSessionDelegate, NSMenuDelegate, NSStandardKeyBindingResponding> {
+    NSTrackingArea *_trackingArea;
+    NSView *_contextualAnchorView;
+}
+
+@property (readonly, weak, nonatomic) id<PXPhotosViewUXInteractionResponderDelegate> delegate;
+@property (retain, nonatomic) id<PXPhotosDraggingUXController> draggingController;
+@property (retain, nonatomic) PXGViewMouseSession *mouseSession;
+@property (retain, nonatomic) NSEvent *lastEventForRolloverDecorationView;
+@property (retain, nonatomic) NSView *rolloverDecorationView;
+@property (readonly, nonatomic) NSSet *controlHitTestResultIdentifiers;
+@property (readonly, nonatomic) NSSet *allHitTestResultIdentifiers;
+@property (weak, nonatomic) id sourceForDraggingSession;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (void)pageUp:(id)a0;
+- (void)moveUp:(id)a0;
+- (void)rightMouseDown:(id)a0;
+- (BOOL)acceptsFirstMouse:(id)a0;
+- (BOOL)acceptsFirstResponder;
+- (id)accessibilityHitTest:(struct CGPoint { double x0; double x1; })a0;
+- (id)contentController;
+- (unsigned long long)draggingSession:(id)a0 sourceOperationMaskForDraggingContext:(long long)a1;
+- (id)hitTest:(struct CGPoint { double x0; double x1; })a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)keyDown:(id)a0;
+- (void)magnifyWithEvent:(id)a0;
+- (void)menuDidClose:(id)a0;
+- (void)mouseDown:(id)a0;
+- (void)mouseDragged:(id)a0;
+- (void)mouseEntered:(id)a0;
+- (void)mouseExited:(id)a0;
+- (void)mouseMoved:(id)a0;
+- (void)mouseUp:(id)a0;
+- (void)moveDown:(id)a0;
+- (void)moveDownAndModifySelection:(id)a0;
+- (void)moveLeft:(id)a0;
+- (void)moveLeftAndModifySelection:(id)a0;
+- (void)moveRight:(id)a0;
+- (void)moveRightAndModifySelection:(id)a0;
+- (void)moveUpAndModifySelection:(id)a0;
+- (void)pageDown:(id)a0;
+- (void)scrollToBeginningOfDocument:(id)a0;
+- (void)scrollToEndOfDocument:(id)a0;
+- (BOOL)shouldDelayWindowOrderingForEvent:(id)a0;
+- (void)showContextMenuForSelection:(id)a0;
+- (void)viewWillMoveToWindow:(id)a0;
+- (id)initWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 delegate:(id)a1;
+- (void)_createMouseSession;
+- (struct PXSimpleIndexPath { long long x0; long long x1; long long x2; long long x3; })_selectionIndexPathForHitTestResult:(id)a0;
+- (unsigned long long)_targetDirectionForMove:(SEL)a0;
+- (id)_topHitTestResultFromResults:(id)a0;
+- (void)createDraggingController;
+- (BOOL)itemWasDoubleClickedWithHitTestResult:(id)a0;
+- (BOOL)itemWasRightClickedWithHitTestResult:(id)a0 event:(id)a1;
+- (BOOL)itemWasSingleClickedWithHitTestResult:(id)a0;
+- (void)mouseSession:(id)a0 backgroundWasRightClickedWithEvent:(id)a1;
+- (void)mouseSession:(id)a0 createdDraggingSession:(id)a1 forSelectionSnapshot:(id)a2;
+- (id)mouseSession:(id)a0 draggingItemsForSelectionSnapshot:(id)a1;
+- (id)mouseSession:(id)a0 hitTestResultAtPoint:(struct CGPoint { double x0; double x1; })a1;
+- (struct PXSimpleIndexPath { long long x0; long long x1; long long x2; long long x3; })mouseSession:(id)a0 indexPathAtPoint:(struct CGPoint { double x0; double x1; })a1;
+- (id)mouseSession:(id)a0 indexPathsFromIndexPath:(struct PXSimpleIndexPath { long long x0; long long x1; long long x2; long long x3; })a1 toIndexPath:(struct PXSimpleIndexPath { long long x0; long long x1; long long x2; long long x3; })a2 inDataSource:(id)a3;
+- (id)mouseSession:(id)a0 indexPathsInRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)mouseSession:(id)a0 itemForHitTestResult:(id)a1 wasClickedWithEvent:(id)a2;
+- (void)mouseSession:(id)a0 itemForHitTestResult:(id)a1 wasDoubleClickedWithEvent:(id)a2;
+- (void)mouseSession:(id)a0 itemForHitTestResult:(id)a1 wasRightClickedWithEvent:(id)a2;
+- (BOOL)mouseSession:(id)a0 itemIsControlForHitTestResult:(id)a1;
+- (struct CGPoint { double x0; double x1; })mouseSession:(id)a0 pointForPointReference:(id)a1;
+- (id)mouseSession:(id)a0 pointReferenceAtPoint:(struct CGPoint { double x0; double x1; })a1;
+- (void)mouseSessionDidFinishInteractiveSelection:(id)a0;
+- (void)mouseSessionWillStartInteractiveSelection:(id)a0;
+- (void)updateRolloverDecorationViewWithEvent:(id)a0;
+
+@end

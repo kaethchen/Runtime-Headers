@@ -1,0 +1,3 @@
+@interface SoundAnalysis.SNLanguageAlignedAudioEmbeddingFeatureExtractor : _TtCs12_SwiftObject
+
+@end

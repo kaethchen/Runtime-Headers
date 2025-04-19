@@ -1,0 +1,24 @@
+@class NSArray;
+
+@interface VZMacGraphicsDeviceConfiguration : VZGraphicsDeviceConfiguration {
+    BOOL _prefersLowPower;
+    BOOL _enableProcessIsolation;
+    long long _deviceFeatureLevel;
+    BOOL _implicitlyAddsVideoToolboxDevice;
+}
+
+@property (setter=_setPrefersLowPower:) BOOL _prefersLowPower;
+@property (setter=_setEnableProcessIsolation:) BOOL _enableProcessIsolation;
+@property (setter=_setDeviceFeatureLevel:) long long _deviceFeatureLevel;
+@property (setter=_setImplicitlyAddsVideoToolboxDevice:) BOOL _implicitlyAddsVideoToolboxDevice;
+@property (copy) NSArray *displays;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (BOOL)validateWithError:(id *)a0;
+- (struct optional<std::variant<VzCore::VirtualMachineConfiguration::GraphicsDevices::ParavirtualizedGraphics, VzCore::VirtualMachineConfiguration::GraphicsDevices::LinearFramebuffer, VzCore::VirtualMachineConfiguration::GraphicsDevices::Virtio>> { union { char x0; struct variant<VzCore::VirtualMachineConfiguration::GraphicsDevices::ParavirtualizedGraphics, VzCore::VirtualMachineConfiguration::GraphicsDevices::LinearFramebuffer, VzCore::VirtualMachineConfiguration::GraphicsDevices::Virtio> { struct __impl<VzCore::VirtualMachineConfiguration::GraphicsDevices::ParavirtualizedGraphics, VzCore::VirtualMachineConfiguration::GraphicsDevices::LinearFramebuffer, VzCore::VirtualMachineConfiguration::GraphicsDevices::Virtio> { union __union<std::__variant_detail::_Trait::_Available, 0UL, VzCore::VirtualMachineConfiguration::GraphicsDevices::ParavirtualizedGraphics, VzCore::VirtualMachineConfiguration::GraphicsDevices::LinearFramebuffer, VzCore::VirtualMachineConfiguration::GraphicsDevices::Virtio> { char x0; struct __alt<0UL, VzCore::VirtualMachineConfiguration::GraphicsDevices::ParavirtualizedGraphics> { struct ParavirtualizedGraphics { BOOL x0; BOOL x1; BOOL x2; struct vector<VzCore::VirtualMachineConfiguration::GraphicsDevices::ParavirtualizedGraphics::Display, std::allocator<VzCore::VirtualMachineConfiguration::GraphicsDevices::ParavirtualizedGraphics::Display>> { struct Display *x0; struct Display *x1; struct __compressed_pair<VzCore::VirtualMachineConfiguration::GraphicsDevices::ParavirtualizedGraphics::Display *, std::allocator<VzCore::VirtualMachineConfiguration::GraphicsDevices::ParavirtualizedGraphics::Display>> { struct Display *x0; } x2; } x3; int x4; } x0; } x1; union __union<std::__variant_detail::_Trait::_Available, 1UL, VzCore::VirtualMachineConfiguration::GraphicsDevices::LinearFramebuffer, VzCore::VirtualMachineConfiguration::GraphicsDevices::Virtio> { char x0; struct __alt<1UL, VzCore::VirtualMachineConfiguration::GraphicsDevices::LinearFramebuffer> { struct LinearFramebuffer { struct Size<unsigned int> { unsigned int x0; unsigned int x1; } x0; unsigned int x1; struct Handle { struct MmapedMemory { char *x0; unsigned long long x1; } x0; char *x1; unsigned long long x2; } x2; } x0; } x1; union __union<std::__variant_detail::_Trait::_Available, 2UL, VzCore::VirtualMachineConfiguration::GraphicsDevices::Virtio> { char x0; struct __alt<2UL, VzCore::VirtualMachineConfiguration::GraphicsDevices::Virtio> { struct Virtio { struct vector<VzCore::VirtualMachineConfiguration::GraphicsDevices::Virtio::Scanout, std::allocator<VzCore::VirtualMachineConfiguration::GraphicsDevices::Virtio::Scanout>> { struct Scanout *x0; struct Scanout *x1; struct __compressed_pair<VzCore::VirtualMachineConfiguration::GraphicsDevices::Virtio::Scanout *, std::allocator<VzCore::VirtualMachineConfiguration::GraphicsDevices::Virtio::Scanout>> { struct Scanout *x0; } x2; } x0; int x1; } x0; } x1; union __union<std::__variant_detail::_Trait::_Available, 3UL> { } x2; } x2; } x2; } x0; unsigned int x1; } x0; } x1; } x0; BOOL x1; })_graphicsDevice;
+- (struct Expected<NSDictionary *, NSError *> { union storage<NSDictionary *, NSError *> { char x0; id x1; id x2; } x0; BOOL x1; })encodeWithEncoder:(id)a0;
+- (id)makeGraphicsDeviceForVirtualMachine:(id)a0 graphicsDeviceIndex:(unsigned long long)a1;
+
+@end

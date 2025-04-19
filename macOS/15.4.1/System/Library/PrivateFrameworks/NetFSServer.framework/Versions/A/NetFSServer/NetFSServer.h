@@ -1,0 +1,3 @@
+@interface NetFSServer : NSObject
+
+@end

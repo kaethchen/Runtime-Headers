@@ -1,0 +1,3 @@
+@interface _TtCO3VFX21GraphV1CodeGeneration12ContextEntry : _TtCO3VFX21GraphV1CodeGeneration10BaseObject
+
+@end

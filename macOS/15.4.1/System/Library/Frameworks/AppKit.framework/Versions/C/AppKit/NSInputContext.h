@@ -1,0 +1,3 @@
+@interface NSInputContext : NSTextInputContext
+
+@end

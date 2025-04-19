@@ -1,0 +1,3 @@
+@interface _TtC25LocalAuthenticationCoreUIP33_6C8EB7CA691E7F44EB7354EE544B476519ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

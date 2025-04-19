@@ -1,0 +1,52 @@
+@interface PLFileUtilities : NSObject
+
++ (BOOL)copyItemAtURL:(id)a0 toURL:(id)a1 error:(id *)a2;
++ (BOOL)removeItemAtPath:(id)a0 error:(id *)a1;
++ (BOOL)removeItemAtURL:(id)a0 error:(id *)a1;
++ (id)fileManager;
++ (BOOL)cloneFileAtPath:(id)a0 toPath:(id)a1 error:(id *)a2;
++ (BOOL)createDirectoryAtPath:(id)a0 error:(id *)a1;
++ (BOOL)filePath:(id)a0 hasPrefix:(id)a1;
++ (BOOL)fileURL:(id)a0 isEqualToFileURL:(id)a1;
++ (id)hasDiskSpaceToCopyFileAtURL:(id)a0 toVolumeAtURL:(id)a1 error:(id *)a2;
++ (BOOL)ingestItemAtURL:(id)a0 toURL:(id)a1 type:(long long)a2 options:(unsigned long long)a3 capabilities:(id)a4 error:(id *)a5;
++ (BOOL)isFileExistsError:(id)a0;
++ (id)realPathForPath:(id)a0 error:(id *)a1;
++ (id)redactedDescriptionForFileURL:(id)a0;
++ (id)redactedDescriptionForPath:(id)a0;
++ (BOOL)secureMoveItemAtURL:(id)a0 toURL:(id)a1 capabilities:(id)a2 error:(id *)a3;
++ (BOOL)setFileCreationDate:(id)a0 forFileURL:(id)a1 error:(id *)a2;
++ (BOOL)stripExtendedAttributesFromFileAtURL:(id)a0 inDomain:(id)a1 error:(id *)a2;
++ (id)systemLibraryURL;
++ (BOOL)URLIsInHomeDirectory:(id)a0;
++ (void)calculateTotalSizeOfFilesAtPath:(id)a0 calculatePurgeable:(BOOL)a1 allocatedSize:(BOOL)a2 result:(id /* block */)a3;
++ (BOOL)changeFileOwnerToMobileAtPath:(id)a0 error:(id *)a1;
++ (BOOL)changeFileOwnerToMobileAtPath:(id)a0 error:(id *)a1 usingFileManager:(id)a2;
++ (BOOL)createDirectoryAtPath:(id)a0 error:(id *)a1 usingFileManager:(id)a2;
++ (long long)fileLengthForFilePath:(id)a0;
++ (BOOL)filePath:(id)a0 isEqualToFilePath:(id)a1;
++ (void)logDiagnosticInfoForURL:(id)a0;
++ (id)proxyLockFilePathForDatabasePath:(id)a0;
++ (id)defaultSystemPhotoDataDirectory;
++ (long long)directoryEntryCountAtURL:(id)a0 error:(id *)a1;
++ (id)defaultSystemPhotoDCIMDirectory;
++ (id)proxyLockCoordinatingFilePathForDatabaseDirectory:(id)a0 databaseName:(id)a1;
++ (id)_attributeDetailsForPath:(id)a0 ofFileSystem:(BOOL)a1 error:(id *)a2;
++ (id)_defaultSystemLibraryPath;
++ (id)_diagnosticInfoForPath:(id)a0 includeFileSystemAttributes:(BOOL)a1 resolvedFileSystemAttributes:(BOOL *)a2;
++ (id)_fileListingDetailsForPath:(id)a0 error:(id *)a1;
++ (id)_mobileOwnerAttributes;
++ (id)accessibleURLOrParentForFileURL:(id)a0;
++ (id)defaultSystemLibraryURL;
++ (id)defaultSystemPhotoDataCPLDirectory;
++ (id)defaultSystemPhotoDataMiscDirectory;
++ (id)descriptionForFileIngestionType:(long long)a0;
++ (BOOL)filePathIsSubpathOfSyncRoot:(id)a0;
++ (void)gatherDiagnosticInfoForURL:(id)a0 handler:(id /* block */)a1;
++ (id)realURLForURL:(id)a0 error:(id *)a1;
++ (BOOL)removeDisconnectedSQLiteDatabaseFileWithPath:(id)a0 error:(id *)a1;
++ (BOOL)removeFilesInDirectoryAtURL:(id)a0 withPrefix:(id)a1 error:(id *)a2 progress:(id /* block */)a3;
++ (id)standardOutputStringForExecutablePath:(id)a0 arguments:(id)a1 environment:(id)a2 standardErrorOut:(id *)a3 error:(id *)a4;
++ (BOOL)stripImmutableFlagIfNecessaryFromFileAtPath:(id)a0;
+
+@end

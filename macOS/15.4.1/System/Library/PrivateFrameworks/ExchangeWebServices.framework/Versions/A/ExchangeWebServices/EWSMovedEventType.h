@@ -1,0 +1,3 @@
+@interface EWSMovedEventType : EWSMovedCopiedEventType
+
+@end

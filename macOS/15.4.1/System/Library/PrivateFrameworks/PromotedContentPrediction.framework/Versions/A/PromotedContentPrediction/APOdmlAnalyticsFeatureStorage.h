@@ -1,0 +1,3 @@
+@interface APOdmlAnalyticsFeatureStorage : APOdmlAnalytics
+
+@end

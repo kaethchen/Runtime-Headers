@@ -1,0 +1,3 @@
+@interface PegasusKit.PegasusProxyForEncryptedPQAGeo : PegasusKit.PegasusProxyForEncryptedVisualSearch
+
+@end

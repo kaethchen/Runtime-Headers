@@ -1,0 +1,3 @@
+@interface MGFeatureStatus : NSObject
+
+@end

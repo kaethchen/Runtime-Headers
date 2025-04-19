@@ -1,0 +1,3 @@
+@interface AXMGeometryUtilities : NSObject
+
+@end

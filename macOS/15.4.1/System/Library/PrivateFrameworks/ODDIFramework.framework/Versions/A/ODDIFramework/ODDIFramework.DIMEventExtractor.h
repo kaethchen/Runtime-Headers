@@ -1,0 +1,5 @@
+@interface ODDIFramework.DIMEventExtractor : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ strategies;
+}
+
+@end

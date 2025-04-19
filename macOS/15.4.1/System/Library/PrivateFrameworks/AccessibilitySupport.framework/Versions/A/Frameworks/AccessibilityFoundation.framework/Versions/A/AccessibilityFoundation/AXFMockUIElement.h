@@ -1,0 +1,73 @@
+@class NSMutableDictionary;
+
+@interface AXFMockUIElement : AXFUIElement
+
+@property (retain, nonatomic, setter=_setAttributes:) NSMutableDictionary *_attributes;
+@property (retain, nonatomic, setter=_setWritableAttributes:) NSMutableDictionary *_writableAttributes;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)init;
+- (BOOL)isEqual:(id)a0;
+- (BOOL)isValid;
+- (void).cxx_destruct;
+- (id)accessibilityCellForColumn:(long long)a0 row:(long long)a1;
+- (void)setAccessibilityTitleUIElement:(id)a0;
+- (void)setAccessibilityChildren:(id)a0;
+- (void)setAccessibilityEnabled:(BOOL)a0;
+- (void)setAccessibilityFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)setAccessibilityHelp:(id)a0;
+- (void)setAccessibilityLabel:(id)a0;
+- (void)setAccessibilityMaxValue:(id)a0;
+- (void)setAccessibilityMinValue:(id)a0;
+- (void)setAccessibilityParent:(id)a0;
+- (void)setAccessibilityPlaceholderValue:(id)a0;
+- (void)setAccessibilityRole:(id)a0;
+- (void)setAccessibilityRoleDescription:(id)a0;
+- (void)setAccessibilitySelected:(BOOL)a0;
+- (void)setAccessibilitySubrole:(id)a0;
+- (void)setAccessibilityTitle:(id)a0;
+- (void)setAccessibilityValue:(id)a0;
+- (void)setAccessibilityValueDescription:(id)a0;
+- (id)_valueForAttribute:(struct __CFString { } *)a0;
+- (void)disableCache;
+- (void)fillStaticCache;
+- (id)objectForAXAttribute:(struct __CFString { } *)a0 parameter:(void *)a1;
+- (id)accessibilityBundleIdentifier;
+- (id)applicationElement;
+- (unsigned long long)arrayCountForAXAttribute:(struct __CFString { } *)a0;
+- (id)arrayForAXAttribute:(struct __CFString { } *)a0;
+- (BOOL)boolForAXAttribute:(struct __CFString { } *)a0;
+- (BOOL)canSetAXAttribute:(struct __CFString { } *)a0;
+- (double)doubleForAXAttribute:(struct __CFString { } *)a0;
+- (void)enableCache;
+- (float)floatForAXAttribute:(struct __CFString { } *)a0;
+- (BOOL)isArrayEmptyForAXAttribute:(struct __CFString { } *)a0;
+- (BOOL)isImitationUIElement;
+- (BOOL)isLifespanCacheEnabled;
+- (BOOL)isPromotable;
+- (long long)longForAXAttribute:(struct __CFString { } *)a0;
+- (id)numberForAXAttribute:(struct __CFString { } *)a0;
+- (id)objectForAXAttribute:(struct __CFString { } *)a0;
+- (id)objectForAXAttribute:(struct __CFString { } *)a0 expectedType:(unsigned long long)a1;
+- (id)objectForAXAttribute:(struct __CFString { } *)a0 parameter:(void *)a1 expectedType:(unsigned long long)a2;
+- (unsigned long long)permutatedHashCode;
+- (struct CGPoint { double x0; double x1; })pointForAXAttribute:(struct __CFString { } *)a0;
+- (struct _NSRange { unsigned long long x0; unsigned long long x1; })rangeForAXAttribute:(struct __CFString { } *)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })rectForAXAttribute:(struct __CFString { } *)a0;
+- (void)setAXAttribute:(struct __CFString { } *)a0 withBool:(BOOL)a1;
+- (void)setAXAttribute:(struct __CFString { } *)a0 withObject:(id)a1;
+- (void)setAXAttribute:(struct __CFString { } *)a0 withUIElement:(id)a1;
+- (void)setAXAttribute:(struct __CFString { } *)a0 withUIElementArray:(id)a1;
+- (void)setValue:(id)a0 forAXAttribute:(struct __CFString { } *)a1;
+- (void)setWritable:(BOOL)a0 forAXAttribute:(struct __CFString { } *)a1;
+- (struct CGSize { double x0; double x1; })sizeForAXAttribute:(struct __CFString { } *)a0;
+- (id)stringForAXAttribute:(struct __CFString { } *)a0;
+- (BOOL)supportsAXAttribute:(struct __CFString { } *)a0;
+- (BOOL)supportsAXParameterizedAttribute:(struct __CFString { } *)a0;
+- (id)uiElementArrayForAXAttribute:(struct __CFString { } *)a0;
+- (id)uiElementArrayForAXAttribute:(struct __CFString { } *)a0 atIndex:(unsigned long long)a1 length:(unsigned long long)a2;
+- (id)uiElementForAXAttribute:(struct __CFString { } *)a0;
+- (id)urlForAXAttribute:(struct __CFString { } *)a0;
+- (id)valueArrayForAXAttributes:(id)a0;
+
+@end

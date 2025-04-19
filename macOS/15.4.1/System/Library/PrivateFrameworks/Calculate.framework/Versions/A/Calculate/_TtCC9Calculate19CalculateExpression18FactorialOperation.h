@@ -1,0 +1,3 @@
+@interface _TtCC9Calculate19CalculateExpression18FactorialOperation : _TtCC9Calculate19CalculateExpression9Operation
+
+@end

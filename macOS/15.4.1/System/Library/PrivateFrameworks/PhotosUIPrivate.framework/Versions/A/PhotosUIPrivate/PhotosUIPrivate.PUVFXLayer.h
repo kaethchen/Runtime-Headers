@@ -1,0 +1,9 @@
+@interface PhotosUIPrivate.PUVFXLayer : CALayer
+
+- (id)init;
+- (id)initWithCoder:(id)a0;
+- (void)layoutSublayers;
+- (id)actionForKey:(id)a0;
+- (id)initWithLayer:(id)a0;
+
+@end

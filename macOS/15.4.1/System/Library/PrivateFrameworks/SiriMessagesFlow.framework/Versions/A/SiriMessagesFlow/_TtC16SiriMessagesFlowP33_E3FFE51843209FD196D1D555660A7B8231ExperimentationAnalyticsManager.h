@@ -1,0 +1,3 @@
+@interface _TtC16SiriMessagesFlowP33_E3FFE51843209FD196D1D555660A7B8231ExperimentationAnalyticsManager : _TtCs12_SwiftObject
+
+@end

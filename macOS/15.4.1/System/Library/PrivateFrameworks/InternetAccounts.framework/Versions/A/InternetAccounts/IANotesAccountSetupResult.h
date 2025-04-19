@@ -1,0 +1,3 @@
+@interface IANotesAccountSetupResult : IAMailAccountSetupResult
+
+@end

@@ -1,0 +1,3 @@
+@interface RTNetworkOfInterestManager : RTService
+
+@end

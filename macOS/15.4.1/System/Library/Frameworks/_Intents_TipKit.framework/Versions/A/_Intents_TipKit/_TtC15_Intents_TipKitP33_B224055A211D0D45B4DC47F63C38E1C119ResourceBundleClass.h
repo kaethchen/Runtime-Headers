@@ -1,0 +1,3 @@
+@interface _TtC15_Intents_TipKitP33_B224055A211D0D45B4DC47F63C38E1C119ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

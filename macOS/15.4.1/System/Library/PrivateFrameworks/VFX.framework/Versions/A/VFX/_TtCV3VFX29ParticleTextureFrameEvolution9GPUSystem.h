@@ -1,0 +1,3 @@
+@interface _TtCV3VFX29ParticleTextureFrameEvolution9GPUSystem : _TtCs12_SwiftObject
+
+@end

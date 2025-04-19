@@ -1,0 +1,3 @@
+@interface IKNAnnotation : IKNSelection
+
+@end

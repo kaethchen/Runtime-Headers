@@ -1,0 +1,3 @@
+@interface _TtC6AppKitP33_F9854B4E11B00A1DEA3F31635E145D1719ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

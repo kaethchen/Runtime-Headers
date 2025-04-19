@@ -1,0 +1,3 @@
+@interface ToolbarButtonPlus : ButtonPlus
+
+@end

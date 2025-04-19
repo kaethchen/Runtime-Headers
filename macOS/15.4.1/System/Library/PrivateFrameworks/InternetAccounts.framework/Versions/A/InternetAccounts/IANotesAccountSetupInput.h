@@ -1,0 +1,3 @@
+@interface IANotesAccountSetupInput : IAMailAccountSetupInput
+
+@end

@@ -1,0 +1,86 @@
+@class CAShapeLayer, IKNImageView, NSMutableArray, IKNKnobsLayer;
+
+@interface IKNImageViewHandler : NSObject {
+    BOOL _mouseDownInLayer;
+    BOOL _delegateRespondsToSelectionChange;
+    BOOL _delegateRespondsToRotationAngleChange;
+    CAShapeLayer *_trackingLayer;
+    long long _mode;
+    struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *_templateRects;
+    long long _templateRectsCount;
+}
+
+@property IKNImageView *imageView;
+@property BOOL autoResize;
+@property BOOL autoResizeMax100;
+@property (nonatomic) BOOL singleSelection;
+@property BOOL showAllSelectionsWithOrientation;
+@property BOOL selectionsCanRotate;
+@property BOOL selectionsCanBeModified;
+@property BOOL forceSelectionInsideView;
+@property BOOL selectionsAreHidden;
+@property (nonatomic) double zoomFactor;
+@property double rotationAngle;
+@property struct CGPoint { double x; double y; } mouseDownLoc;
+@property (nonatomic) long long resolution;
+@property (retain) NSMutableArray *selections;
+@property (retain) NSMutableArray *annotations;
+@property (retain) NSMutableArray *autoDetectedItems;
+@property (readonly) IKNKnobsLayer *knobsLayer;
+
+- (void)dealloc;
+- (void)drawLayer:(id)a0 inContext:(struct CGContext { } *)a1;
+- (void)flagsChanged:(id)a0;
+- (BOOL)keyDown:(id)a0;
+- (void)mouseDown:(id)a0;
+- (void)mouseDragged:(id)a0;
+- (void)mouseMoved:(id)a0;
+- (void)mouseUp:(id)a0;
+- (void)addSelection:(id)a0;
+- (void)deselectAll;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })selectionRect;
+- (void)addAutoDetectedItem:(id)a0;
+- (void)addScanArea:(id)a0 withOverlay:(BOOL)a1;
+- (void)addSelectionFromAutodetectedItem:(id)a0;
+- (void)adjustAnnotationScaling;
+- (void)adjustSelectionScaling;
+- (void)adjustToViewFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)autodetectedItemForSelection:(id)a0;
+- (void)deleteAllSelectionsInternal;
+- (void)deleteIntersectingSelections:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)deleteSelectedItems:(id)a0;
+- (void)deleteSelection:(id)a0;
+- (struct CGPoint { double x0; double x1; })displayPointToImagePoint:(struct CGPoint { double x0; double x1; })a0 convertToInches:(BOOL)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })displayRectToImageRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 convertToInches:(BOOL)a1;
+- (struct CGSize { double x0; double x1; })displaySizeToImageSize:(struct CGSize { double x0; double x1; })a0 convertToInches:(BOOL)a1;
+- (void)doubleClick:(id)a0;
+- (void)drawOrientationUI:(short)a0;
+- (void)drawTemplate:(id)a0 inContext:(struct CGContext { } *)a1;
+- (void)dumpSelections;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)getTemplateRects:(long long *)a0;
+- (void)gotoNextSelection:(BOOL)a0;
+- (void)hideAllSelections;
+- (void)hiliteSelection:(id)a0;
+- (struct CGPoint { double x0; double x1; })imagePointToDisplayPoint:(struct CGPoint { double x0; double x1; })a0 convertFromInches:(BOOL)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })imageRectToDisplayRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 convertFromInches:(BOOL)a1;
+- (struct CGSize { double x0; double x1; })imageSizeToDisplaySize:(struct CGSize { double x0; double x1; })a0 convertFromInches:(BOOL)a1;
+- (id)initWithImageView:(id)a0;
+- (void)installKnobsLayer:(id)a0;
+- (id)layerArray;
+- (void)postRotationAngleIsChanging:(double)a0;
+- (void)postSelectionRectIsChanging:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)removeAllAutoDetectedItems;
+- (void)removeTemplateRects;
+- (void)resetSelectionWithOrientation;
+- (void)rotateSelectionsLeft;
+- (void)rotateSelectionsRight;
+- (id)scanAreaFromSelection:(id)a0;
+- (id)selectionForAutodetectedItem:(id)a0;
+- (id)selectionFromScanArea:(id)a0;
+- (void)setSelectionRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)setTemplateRects:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a0 count:(long long)a1;
+- (void)showAllSelections;
+- (void)showSelectionWithOrientation:(long long)a0;
+- (void)unhiliteSelections;
+
+@end

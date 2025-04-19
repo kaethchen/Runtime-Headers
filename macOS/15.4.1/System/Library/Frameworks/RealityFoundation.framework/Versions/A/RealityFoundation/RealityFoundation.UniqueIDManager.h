@@ -1,0 +1,7 @@
+@interface RealityFoundation.UniqueIDManager : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ lock;
+    void /* unknown type, empty encoding */ assigned;
+    void /* unknown type, empty encoding */ candidateNextID;
+}
+
+@end

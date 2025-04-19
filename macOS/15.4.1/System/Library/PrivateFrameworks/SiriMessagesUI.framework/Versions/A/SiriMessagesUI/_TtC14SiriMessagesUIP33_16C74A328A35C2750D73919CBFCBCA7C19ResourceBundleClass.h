@@ -1,0 +1,3 @@
+@interface _TtC14SiriMessagesUIP33_16C74A328A35C2750D73919CBFCBCA7C19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

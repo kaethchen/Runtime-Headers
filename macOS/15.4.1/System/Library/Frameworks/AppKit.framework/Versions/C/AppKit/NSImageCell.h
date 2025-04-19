@@ -1,0 +1,94 @@
+@class NSImage, NSImageSymbolConfiguration, NSFont, NSColor;
+@protocol NSObject;
+
+@interface NSImageCell : NSCell <NSCopying, NSCoding> {
+    struct _NSImageCellAnimationState { id x0; double x1; long long x2; long long x3; long long x4; long long x5; } *_animationState;
+    struct { unsigned int  : 18; unsigned char _symbolScale : 3; unsigned char _animates : 1; unsigned char _align : 4; unsigned char _scale : 3; unsigned char _style : 3; } _icFlags;
+    NSFont *_symbolFont;
+    NSImageSymbolConfiguration *_symbolConfiguration;
+    NSImage *_specializedImage;
+    NSColor *_contentTintColor;
+    id _scaledImage;
+}
+
+@property (setter=_setImageAnimation:) long long _imageAnimation;
+@property (setter=_setImageAnimationUserOverride:) long long _imageAnimationUserOverride;
+@property (weak) id<NSObject> animatedImagesEnabledDidChangeNotificationObserver;
+@property (weak) id<NSObject> userOverrideImageAnimationInWindowNotificationObserver;
+@property unsigned long long imageAlignment;
+@property unsigned long long imageScaling;
+@property unsigned long long imageFrameStyle;
+
++ (void)initialize;
++ (BOOL)_copiesContents;
++ (struct CGSize { double x0; double x1; })_cellSizeAccountingForImageOfSize:(struct CGSize { double x0; double x1; })a0 frameStyle:(unsigned long long)a1 flipped:(BOOL)a2;
++ (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_drawingRectForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 frameStyle:(unsigned long long)a1 flipped:(BOOL)a2;
++ (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_imageRectForDrawingImageOfSize:(struct CGSize { double x0; double x1; })a0 inFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 scaling:(unsigned long long)a2 alignment:(unsigned long long)a3 flipped:(BOOL)a4;
++ (void)_setImageAnimationUserOverride:(long long)a0 forAllImageCellsInWindow:(id)a1;
++ (BOOL)_shouldClearIvarOnCopy:(struct objc_ivar { } *)a0;
+
+- (void)dealloc;
+- (id)copy;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void)setImage:(id)a0;
+- (id)image;
+- (void)setObjectValue:(id)a0;
+- (void)setFormatter:(id)a0;
+- (long long)_contentBacking;
+- (void)_setSymbolFont:(id)a0;
+- (BOOL)_animates;
+- (void)_animationTimerCallback:(id)a0;
+- (void)_autoflipUnarchivedProperties;
+- (struct CGSize { double x0; double x1; })_cellSizeAccountingForImage:(id)a0 inControl:(id)a1;
+- (id)_contentTintColor;
+- (unsigned long long)_currentImageStateForView:(id)a0;
+- (void)_drawBorderStyleWithRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inView:(id)a1;
+- (BOOL)_hasAccessibilityTitle;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_imageRectForDrawing:(id)a0 inFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 inView:(id)a2;
+- (long long)_interiorContentPresentationStateInView:(id)a0;
+- (long long)_interiorContentStateInView:(id)a0;
+- (long long)_interiorContentValueInView:(id)a0;
+- (BOOL)_needRedrawOnWindowChangedKeyState;
+- (struct __CFDictionary { } *)_newCUIGrayBezelDrawOptionsInView:(id)a0;
+- (void)_setAnimates:(BOOL)a0;
+- (void)_setContentTintColor:(id)a0;
+- (void)_setContents:(id)a0;
+- (void)_setSymbolConfiguration:(id)a0;
+- (void)_setSymbolScale:(long long)a0;
+- (BOOL)_shouldClip;
+- (BOOL)_shouldDrawWithContentTintColorInView:(id)a0;
+- (id)_specializedImage;
+- (id)_specializedImageForImage:(id)a0;
+- (id)_symbolConfiguration;
+- (id)_symbolFont;
+- (long long)_symbolScale;
+- (int)_vibrancyBlendModeForControlView:(id)a0;
+- (id)_vibrancyFilterForControlView:(id)a0;
+- (BOOL)_wantsFocusRingForControlView:(id)a0;
+- (id)accessibilityAttributeNames;
+- (id)accessibilityAuditLabel;
+- (id)accessibilityDescriptionAttribute;
+- (id)accessibilityEmbeddedImageDescriptionAttribute;
+- (BOOL)accessibilityIsDescriptionAttributeSettable;
+- (id)accessibilityRoleAttribute;
+- (struct CGSize { double x0; double x1; })cellSizeForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)drawFocusRingMaskWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inView:(id)a1;
+- (void)drawInteriorWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inView:(id)a1;
+- (void)drawWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inView:(id)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })drawingRectForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })focusRingMaskBoundsForFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 inView:(id)a1;
+- (void)highlight:(BOOL)a0 withFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 inView:(id)a2;
+- (unsigned long long)hitTestForEvent:(id)a0 inRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 ofView:(id)a2;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })imageRectForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)initImageCell:(id)a0;
+- (long long)interiorBackgroundStyle;
+- (BOOL)isOpaque;
+- (void)setEditable:(BOOL)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })titleRectForBounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (BOOL)trackMouse:(id)a0 inRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 ofView:(id)a2 untilMouseUp:(BOOL)a3;
+
+@end

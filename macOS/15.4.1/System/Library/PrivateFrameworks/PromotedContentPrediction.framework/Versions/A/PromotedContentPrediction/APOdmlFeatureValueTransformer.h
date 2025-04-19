@@ -1,0 +1,3 @@
+@interface APOdmlFeatureValueTransformer : NSSecureUnarchiveFromDataTransformer
+
+@end

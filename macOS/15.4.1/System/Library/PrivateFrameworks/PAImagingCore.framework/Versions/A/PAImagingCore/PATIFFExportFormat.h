@@ -1,0 +1,3 @@
+@interface PATIFFExportFormat : PAExportImageFormat
+
+@end

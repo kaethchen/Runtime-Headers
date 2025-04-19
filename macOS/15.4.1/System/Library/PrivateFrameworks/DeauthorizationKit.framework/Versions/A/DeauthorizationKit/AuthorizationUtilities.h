@@ -1,0 +1,3 @@
+@interface AuthorizationUtilities : NSObject
+
+@end

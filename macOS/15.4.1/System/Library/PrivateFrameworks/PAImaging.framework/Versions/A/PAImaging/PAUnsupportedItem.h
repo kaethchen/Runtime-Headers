@@ -1,0 +1,3 @@
+@interface PAUnsupportedItem : PAImageItem
+
+@end

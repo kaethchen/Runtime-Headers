@@ -1,0 +1,3 @@
+@interface _TtC12PhotosUICoreP33_7E3A0A3CB43BC4704786F321AE6E650727PlaceholderPlaybackDelegate : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,95 @@
+@class SGTQueryGeniusReserved, NSString, NSArray, NSDictionary, NSDate, NSHashTable, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface SGTQueryGenius : NSObject {
+    NSDictionary *shortNameToAttributes;
+    NSHashTable *registeredSuggesters;
+    NSObject<OS_dispatch_queue> *q;
+    SGTQueryGeniusReserved *_reserved;
+}
+
+@property (readonly) BOOL usesSimpleTokens;
+@property (readonly, nonatomic) BOOL offerDidYouMeanSuggestion;
+@property (readonly) NSString *identifier;
+@property (readonly) NSArray *allAttributeNames;
+@property (copy) NSArray *scopeOrder;
+@property (retain, setter=_setOverrideDate:) NSDate *overrideDate;
+
++ (id)_tokenImageForScope:(long long)a0 suggestion:(id)a1;
++ (id)_attributeToScope;
++ (id)_propertyListFromSuggestion:(id)a0 identifier:(id)a1 representedObjectAsPlist:(id)a2;
++ (long long)_scopeFromAttributeName:(id)a0;
++ (id)geniusForFiles;
++ (id)geniusForMails;
++ (id)scopeOrderForRegularMailbox;
++ (id)scopeOrderForSentMailbox;
++ (void)setUniquifierString:(id)a0 forSuggestion:(id)a1;
++ (id)tokenImageForScope:(long long)a0 suggestion:(id)a1;
++ (id)tokenTitleForScope:(long long)a0 suggestion:(id)a1;
++ (id)uniquifierStringForSuggestion:(id)a0;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (id)displayNameForSuggestionInMenu:(id)a0;
+- (id)allAttributeNamesForSuggestion:(id)a0;
+- (long long)_fallbackScope;
+- (id)_invalidScopeDisplayNameForScope:(long long)a0;
+- (long long)_nextScopeForSuggestion:(id)a0;
+- (void)_parseInputString:(id)a0 withGroup:(id)a1;
+- (id)_parseResultForGroup:(id)a0 queryCanceled:(BOOL *)a1;
+- (void)_registerSuggester:(id)a0;
+- (id)_registeredSuggesters;
+- (id)_searchPaths;
+- (id)_shorterDisplayNameForSuggestion:(id)a0;
+- (id)_shorterDisplayNameForSuggestionWithCache:(id)a0;
+- (id)_staticSuggestionDisplayNames;
+- (void)_unregisterSuggester:(id)a0;
+- (void)_waitForAttributeMappingToBeReady;
+- (BOOL)attributeName:(id)a0 isValidForScope:(long long)a1;
+- (id)attributesForShortName:(id)a0;
+- (id)colorForTokenizedSuggestion:(id)a0 component:(long long)a1 state:(long long)a2;
+- (void)commonInitWithAttributeNames:(id)a0 canUseSimpleTokens:(BOOL)a1;
+- (long long)defaultScopeForAttributeNames:(id)a0;
+- (id)displayNameForScope:(long long)a0;
+- (long long)fallbackScope;
+- (id)filterQueryStringForSuggestions:(id)a0;
+- (BOOL)hasMenuForSuggestion:(id)a0;
+- (BOOL)hasScopeMenuForSuggestion:(id)a0;
+- (id)imageForSuggestion:(id)a0;
+- (id)initWithAttributeNames:(id)a0;
+- (id)menuForSuggestion:(id)a0;
+- (id)overridenAttributes;
+- (void)postProcessSuggestions:(id)a0 inCategory:(id)a1;
+- (id)propertyListForRepresentedObject:(id)a0;
+- (id)propertyListFromSuggestion:(id)a0;
+- (id)queryDisplayCriteriaForSuggestions:(id)a0;
+- (id)queryScopesForSuggestions:(id)a0;
+- (id)queryStringForSuggestions:(id)a0;
+- (id)rawQueryStringFromInputString:(id)a0;
+- (id)representedObjectFromPropertyList:(id)a0;
+- (long long)scopeForAttributeName:(id)a0;
+- (id)scopeMenuForSuggestion:(id)a0;
+- (id)scopesForAttributeNames:(id)a0;
+- (id)searchPhraseForSuggestions:(id)a0;
+- (id)searchStringForSuggestion:(id)a0;
+- (void)setScopeOrderWithScopes:(long long)a0;
+- (id)suggester:(id)a0 additionalSuggestionsForInput:(id)a1;
+- (id)suggester:(id)a0 additionalSuggestionsForInput:(id)a1;
+- (void)suggester:(id)a0 didFinishProcessingResultsForInput:(id)a1;
+- (void)suggester:(id)a0 didFinishProcessingResultsForInput:(id)a1;
+- (id)suggester:(id)a0 filterSuggestion:(id)a1 fromItem:(id)a2 forInput:(id)a3;
+- (id)suggester:(id)a0 filterSuggestion:(id)a1 fromItem:(id)a2 forInput:(id)a3;
+- (id)suggester:(id)a0 filterSuggestions:(id)a1 forInput:(id)a2;
+- (id)suggester:(id)a0 filterSuggestions:(id)a1 forInput:(id)a2;
+- (void)suggester:(id)a0 willStartProcessingResultsForInput:(id)a1;
+- (void)suggester:(id)a0 willStartProcessingResultsForInput:(id)a1;
+- (void)suggester:(id)a0 willStartSearchingSuggestionsForInput:(id)a1;
+- (void)suggester:(id)a0 willStartSearchingSuggestionsForInput:(id)a1;
+- (void)suggesterBecomesIdle:(id)a0;
+- (void)suggesterBecomesIdle:(id)a0;
+- (id)suggestionForString:(id)a0;
+- (id)suggestionFromPropertyList:(id)a0;
+- (id)uniquifierStringForSuggestion:(id)a0 inCategory:(id)a1;
+
+@end

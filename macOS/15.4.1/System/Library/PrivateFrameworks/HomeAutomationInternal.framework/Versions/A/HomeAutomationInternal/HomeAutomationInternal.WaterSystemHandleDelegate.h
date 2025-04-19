@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.WaterSystemHandleDelegate : HomeAutomationInternal.AppIntentHandleDelegate
+
+@end

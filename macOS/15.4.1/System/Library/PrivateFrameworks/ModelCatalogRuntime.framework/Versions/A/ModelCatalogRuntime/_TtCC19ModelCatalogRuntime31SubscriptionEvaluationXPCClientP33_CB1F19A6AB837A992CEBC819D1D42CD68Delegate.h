@@ -1,0 +1,3 @@
+@interface _TtCC19ModelCatalogRuntime31SubscriptionEvaluationXPCClientP33_CB1F19A6AB837A992CEBC819D1D42CD68Delegate : _TtCs12_SwiftObject
+
+@end

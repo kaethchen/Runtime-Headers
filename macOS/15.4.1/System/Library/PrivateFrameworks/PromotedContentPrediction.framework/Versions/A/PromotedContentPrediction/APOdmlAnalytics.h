@@ -1,0 +1,3 @@
+@interface APOdmlAnalytics : NSObject
+
+@end

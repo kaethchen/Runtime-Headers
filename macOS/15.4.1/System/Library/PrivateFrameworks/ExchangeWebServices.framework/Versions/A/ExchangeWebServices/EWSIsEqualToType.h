@@ -1,0 +1,3 @@
+@interface EWSIsEqualToType : EWSTwoOperandExpressionType
+
+@end

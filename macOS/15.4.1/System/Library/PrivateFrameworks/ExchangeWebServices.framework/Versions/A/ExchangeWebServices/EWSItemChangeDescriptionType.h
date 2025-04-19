@@ -1,0 +1,3 @@
+@interface EWSItemChangeDescriptionType : EWSChangeDescriptionType
+
+@end

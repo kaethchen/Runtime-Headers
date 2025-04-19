@@ -1,0 +1,88 @@
+@class NSString, PGMapping, _PGDevice, PGPageTableIterator;
+@protocol MTLCommandQueue, MTLDevice, MTLComputePipelineState, PGDeserializer;
+
+@interface PGLocalTask : PGBaseTask <PGKernelTask, PGUserTask, PGTask_Resource> {
+    BOOL _usingMemoryMap;
+    _PGDevice *_device;
+    unsigned long long _length;
+    unsigned int _taskID;
+    PGMapping *_taskRootMapping;
+    struct { unsigned int x0; unsigned int x1; unsigned long long x2; unsigned int x3; unsigned long long x4; unsigned long long x5; unsigned int x6; } *_taskRoot;
+    PGPageTableIterator *_pageTableIterator;
+    BOOL _backingsFromMapperAllowed;
+    BOOL _dualPlaneAllowed;
+    BOOL _ioSurfaceBuffersAllowed;
+    id<MTLComputePipelineState> _blitIn2pXR10State;
+    id<MTLComputePipelineState> _blitOut2pXR10State;
+    struct mutex { struct _opaque_pthread_mutex_t { long long __sig; char __opaque[56]; } __m_; } _prepareMutex;
+    struct PGTaskInfo_s { struct PGTask_s *task; void *baseAddress; } _taskInfo;
+    struct PGMappedRangeTracker { struct shared_mutex { struct __shared_mutex_base { struct mutex { struct _opaque_pthread_mutex_t { long long __sig; char __opaque[56]; } __m_; } __mut_; struct condition_variable { struct _opaque_pthread_cond_t { long long __sig; char __opaque[40]; } __cv_; } __gate1_; struct condition_variable { struct _opaque_pthread_cond_t { long long __sig; char __opaque[40]; } __cv_; } __gate2_; unsigned int __state_; } __base_; } fMutex; unsigned int fRunBlockCount; struct RunBlock *fRunBlocks[128]; unsigned int fReadersActive; unsigned int fWritersWaiting; unsigned int fWriterActive; } _mappedRange;
+    unsigned long long _objectListCount;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, copy) id<PGDeserializer> deserializer;
+@property (readonly) id<MTLDevice> mtlDevice;
+@property (readonly) const struct APVFeatures { BOOL x0; BOOL x1; BOOL x2; BOOL x3; BOOL x4; BOOL x5; BOOL x6; BOOL x7; BOOL x8; BOOL x9; BOOL x10; BOOL x11; BOOL x12; BOOL x13; BOOL x14; BOOL x15; BOOL x16; unsigned int x17; unsigned int x18; BOOL x19; BOOL x20; BOOL x21; BOOL x22; BOOL x23; BOOL x24; BOOL x25; BOOL x26; BOOL x27; BOOL x28; BOOL x29; BOOL x30; BOOL x31; BOOL x32; BOOL x33; BOOL x34; BOOL x35; BOOL x36; BOOL x37; BOOL x38; BOOL x39; BOOL x40; BOOL x41; BOOL x42; } *features;
+@property (readonly) id<MTLComputePipelineState> blitInRGB_2P_XR10_A8_pipeline;
+@property (readonly) id<MTLComputePipelineState> blitOutRGB_2P_XR10_A8_pipeline;
+@property (readonly) BOOL supportsBufferWithAddressRanges;
+@property (readonly) BOOL supportsHeapWithAddressRanges;
+@property (readonly) BOOL supportsResourceDetachBacking;
+@property (readonly) id<MTLCommandQueue> pagingQueue;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id).cxx_construct;
+- (id)device;
+- (id)newBufferForVirtualPage:(unsigned int)a0 length:(unsigned long long)a1;
+- (struct shared_ptr<PGVirtualMemoryCursor> { struct PGVirtualMemoryCursor *x0; struct __shared_weak_count *x1; })cursorFromVirtualOffset:(unsigned long long)a0 length:(unsigned long long)a1;
+- (unsigned long long)objectListCount;
+- (void *)addressForOffset:(unsigned long long)a0 length:(unsigned long long)a1;
+- (BOOL)argumentBuffersAllowed;
+- (id)backingForID:(unsigned int)a0;
+- (void)completeResources:(struct PGResourceList { void /* function */ **x0; unsigned long long x1; } *)a0 sync:(struct PGTaskCompleteSync_s { BOOL x0; id x1; unsigned long long x2; })a1 completionHandler:(id /* block */)a2;
+- (void)copyFromVirtualOffset:(unsigned long long)a0 length:(unsigned long long)a1 dst:(void *)a2;
+- (struct shared_ptr<PGVirtualMemoryCursor> { struct PGVirtualMemoryCursor *x0; struct __shared_weak_count *x1; })cursorFromVirtualOffsetInternal:(unsigned long long)a0 length:(unsigned long long)a1 needWritable:(BOOL)a2;
+- (void)deleteBacking:(unsigned int)a0 completionHandler:(id /* block */)a1;
+- (void)deleteObjectWithSerializedData:(const void *)a0 serializedDataSize:(unsigned long long)a1 completionHandler:(id /* block */)a2;
+- (void)deleteResource:(unsigned int)a0 completionHandler:(id /* block */)a1;
+- (void)discardResources:(const struct { unsigned int x0; } *)a0 count:(unsigned int)a1 completionHandler:(id /* block */)a2;
+- (void)doExecIndirect:(unsigned int)a0 cmdBuffers:(struct { unsigned long long x0; unsigned long long x1; } *)a1 resourceList:(struct PGResourceList { void /* function */ **x0; unsigned long long x1; } *)a2 fifoEvent:(id)a3 fifoEventValue:(unsigned long long *)a4 completionHandler:(id /* block */)a5;
+- (void)execIndirect2WithCmdBufCount:(unsigned int)a0 cmdBuffers:(struct { unsigned long long x0; unsigned long long x1; } *)a1 resourceCount:(unsigned int)a2 resources:(struct { unsigned int x0; unsigned char x1; unsigned char x2; unsigned char x3; unsigned char x4; unsigned long long x5; unsigned long long x6; } *)a3 stampIndex:(unsigned int)a4 fifoEvent:(id)a5 fifoEventValue:(unsigned long long *)a6 completionHandler:(id /* block */)a7;
+- (void)execIndirect3WithCmdBufCount:(unsigned int)a0 cmdBuffers:(struct { unsigned long long x0; unsigned long long x1; } *)a1 resourceCount:(unsigned int)a2 resources:(struct { unsigned int x0; union { struct { unsigned char x0 : 1; unsigned char x1 : 1; unsigned char x2 : 1; } x0; unsigned int x1; } x1; } *)a3 stampIndex:(unsigned int)a4 fifoEvent:(id)a5 fifoEventValue:(unsigned long long *)a6 completionHandler:(id /* block */)a7;
+- (void)fifoDeleted:(unsigned int)a0 completionHandler:(id /* block */)a1;
+- (void)getComputeInfo:(unsigned int)a0 maxKey:(unsigned int)a1 count:(unsigned int)a2 offset:(unsigned long long)a3 completionHandler:(id /* block */)a4;
+- (void)heapTextureSizeAndAlign:(void *)a0 serializerPayloadLength:(unsigned int)a1 replyVirtualOffset:(unsigned long long)a2 replyLength:(unsigned long long)a3 completionHandler:(id /* block */)a4;
+- (id)initWithDevice:(id)a0 taskRoot:(unsigned int)a1 length:(unsigned long long)a2 taskID:(unsigned int)a3;
+- (void)invalidateGuestForSharedTextureBacking:(unsigned int *)a0 sharedTextureBackingCount:(unsigned int)a1;
+- (void)invalidateResources:(const struct { unsigned int x0; unsigned char x1; unsigned char x2; unsigned char x3; unsigned char x4; } *)a0 count:(unsigned int)a1 completionHandler:(id /* block */)a2;
+- (BOOL)ioSurfaceBuffersAllowed;
+- (void *)legacyMappedAddressForOffset:(unsigned long long)a0 length:(unsigned long long)a1;
+- (void)mapMemoryAtOffset:(unsigned long long)a0 length:(unsigned long long)a1 completionHandler:(id /* block */)a2;
+- (void)mapMemoryInternalAtOffset:(unsigned long long)a0 length:(unsigned long long)a1;
+- (void *)mappedAddressForOffset:(unsigned long long)a0 length:(unsigned long long)a1 needWritable:(BOOL)a2;
+- (void *)mappedAddressForPageNumber:(unsigned int)a0 length:(unsigned long long)a1;
+- (void *)memoryMapMappedAddressForOffset:(unsigned long long)a0 length:(unsigned long long)a1 needWritable:(BOOL)a2;
+- (id)newLegacyBufferForVirtualPage:(unsigned int)a0 length:(unsigned long long)a1;
+- (id)newMemoryMapBufferForVirtualPage:(unsigned int)a0 length:(unsigned long long)a1;
+- (id)newSharedTextureHandleForID:(unsigned int)a0;
+- (id)newVirtualMapping:(unsigned long long)a0 length:(unsigned long long)a1 needWritable:(BOOL)a2;
+- (unsigned long long)nextTraceID;
+- (void)prepareBacking:(id)a0 inEncoder:(id)a1;
+- (struct PGTaskPrepareSync_s { BOOL x0; BOOL x1; id x2; unsigned long long x3; })prepareResources:(struct PGResourceList { void /* function */ **x0; unsigned long long x1; } *)a0 event:(id)a1 value:(unsigned long long)a2;
+- (id)preparedBackingForID:(unsigned int)a0;
+- (void)releaseIOSurfaceWithMappingID:(unsigned long long)a0 surface:(id)a1;
+- (void)replacePhysical:(unsigned int)a0 completionHandler:(id /* block */)a1;
+- (void)resetRasterizationRateMap:(unsigned int)a0 completionHandler:(id /* block */)a1;
+- (id)retainIOSurfaceWithMappingID:(unsigned long long)a0;
+- (void)setObjectListOffset:(unsigned long long)a0 objectListLength:(unsigned int)a1 placementListOffset:(unsigned long long)a2 placementListLength:(unsigned int)a3 completionHandler:(id /* block */)a4;
+- (BOOL)setupTaskRoot:(unsigned int)a0;
+- (void)synchronizeBacking:(id)a0 inEncoder:(id)a1;
+- (void)unmapMemoryAtOffset:(unsigned long long)a0 length:(unsigned long long)a1 completionHandler:(id /* block */)a2;
+- (BOOL)validateRangeMapped:(unsigned int)a0 length:(unsigned long long)a1;
+
+@end

@@ -1,0 +1,3 @@
+@interface ImagePlaygroundInternal.FacePickerEffectViewModel : ImagePlaygroundInternal.AbstractEffectViewModel
+
+@end

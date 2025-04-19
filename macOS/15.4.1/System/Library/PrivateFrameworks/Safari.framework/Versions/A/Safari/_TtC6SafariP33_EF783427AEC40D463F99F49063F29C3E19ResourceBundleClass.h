@@ -1,0 +1,3 @@
+@interface _TtC6SafariP33_EF783427AEC40D463F99F49063F29C3E19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

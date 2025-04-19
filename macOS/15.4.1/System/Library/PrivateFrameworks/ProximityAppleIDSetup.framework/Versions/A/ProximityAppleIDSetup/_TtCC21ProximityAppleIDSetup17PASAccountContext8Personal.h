@@ -1,0 +1,3 @@
+@interface _TtCC21ProximityAppleIDSetup17PASAccountContext8Personal : ProximityAppleIDSetup.PASAccountContext
+
+@end

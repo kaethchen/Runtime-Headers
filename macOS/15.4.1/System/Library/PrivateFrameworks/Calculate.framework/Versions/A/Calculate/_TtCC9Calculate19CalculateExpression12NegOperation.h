@@ -1,0 +1,3 @@
+@interface _TtCC9Calculate19CalculateExpression12NegOperation : _TtCC9Calculate19CalculateExpression9Operation
+
+@end

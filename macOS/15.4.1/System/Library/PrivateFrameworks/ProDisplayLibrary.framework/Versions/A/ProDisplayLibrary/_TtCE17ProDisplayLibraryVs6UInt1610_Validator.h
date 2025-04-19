@@ -1,0 +1,3 @@
+@interface _TtCE17ProDisplayLibraryVs6UInt1610_Validator : ProDisplayLibrary._SmallFixedWidthValidatorBase
+
+@end

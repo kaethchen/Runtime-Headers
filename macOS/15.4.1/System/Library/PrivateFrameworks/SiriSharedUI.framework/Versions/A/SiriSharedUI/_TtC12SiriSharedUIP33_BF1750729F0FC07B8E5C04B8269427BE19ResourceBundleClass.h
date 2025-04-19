@@ -1,0 +1,3 @@
+@interface _TtC12SiriSharedUIP33_BF1750729F0FC07B8E5C04B8269427BE19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

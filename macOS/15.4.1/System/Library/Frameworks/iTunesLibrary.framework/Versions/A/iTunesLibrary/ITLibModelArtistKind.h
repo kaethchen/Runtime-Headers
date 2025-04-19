@@ -1,0 +1,3 @@
+@interface ITLibModelArtistKind : ITLibModelKind
+
+@end

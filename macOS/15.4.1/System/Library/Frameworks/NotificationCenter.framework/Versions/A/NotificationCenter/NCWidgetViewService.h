@@ -1,0 +1,3 @@
+@interface NCWidgetViewService : NCRemoteViewService
+
+@end

@@ -1,0 +1,3 @@
+@interface APOdmlFeatureStorage : APOdmlCoreDataStorage
+
+@end

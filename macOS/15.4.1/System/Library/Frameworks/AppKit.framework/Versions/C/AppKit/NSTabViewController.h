@@ -1,0 +1,92 @@
+@class NSArray, NSString, NSTabView;
+
+@interface NSTabViewController : NSViewController <NSTabViewDelegate, NSToolbarDelegate> {
+    id _tabViewControllerPrivateData;
+    struct { unsigned char _changingSelection : 1; unsigned char _addingInitialTabViewItems : 1; unsigned char _tabBarIsDrivingTabMove : 1; unsigned int __extra : 29; } _tabViewControllerFlags;
+}
+
+@property long long tabStyle;
+@property (retain) NSTabView *tabView;
+@property unsigned long long transitionOptions;
+@property BOOL canPropagateSelectedChildViewControllerTitle;
+@property (copy) NSArray *tabViewItems;
+@property long long selectedTabViewItemIndex;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (Class)_classToCheckForRequiresConstraintBasedLayout;
++ (id)_findWindowTabViewControllerInWindow:(id)a0;
++ (id)_recursiveFindWindowTabViewController:(id)a0;
++ (BOOL)automaticallyNotifiesObserversOfSelectedTabViewItemIndex;
++ (unsigned long long)defaultTransitionOptions;
+
+- (void)dealloc;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)title;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)setView:(id)a0;
+- (id)_implicitUIProviderForTabStyle:(long long)a0;
+- (void)addTabViewItem:(id)a0;
+- (id)UIProvider;
+- (void)_addAllTabs;
+- (long long)_associatedTabStyleForUIProvider:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_defaultFrame;
+- (struct CGSize { double x0; double x1; })_goodTabViewContentSize;
+- (BOOL)_hasPropagatedTitle;
+- (BOOL)_hasTabs;
+- (long long)_indexOfTabViewItem:(id)a0;
+- (void)_makeTabBar;
+- (id)_makeTabViewWithFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)_removeAllTabs;
+- (void)_removeTabBar;
+- (void)_setTabBarAccessoryViewController:(id)a0;
+- (id)_tabBarAccessoryViewController;
+- (id)_tabViewItemForViewControllerAtIndex:(unsigned long long)a0;
+- (id)_tabViewItemWithIdentifier:(id)a0;
+- (void)_updateSelectedTabViewItemIndexInUI;
+- (BOOL)_viewControllerSupports10_10Features;
+- (void)_viewDidMoveToWindow:(id)a0 fromWindow:(id)a1;
+- (void)_viewWillMoveToWindow:(id)a0 hiding:(BOOL)a1 unhiding:(BOOL)a2;
+- (void)createNewTabInTabBar:(id)a0;
+- (void)insertChildViewController:(id)a0 atIndex:(long long)a1;
+- (void)insertTabViewItem:(id)a0 atIndex:(long long)a1;
+- (void)loadView;
+- (void)moveTabViewItem:(id)a0 toIndex:(long long)a1;
+- (void)removeChildViewControllerAtIndex:(long long)a0;
+- (void)removeTabViewItem:(id)a0;
+- (id)selectedTabBarViewItemAfterClosingCurrentTabInTabBar:(id)a0;
+- (void)setChildViewControllers:(id)a0;
+- (void)setTabBar:(id)a0;
+- (void)setUIProvider:(id)a0;
+- (void)setWindowTabsDelegate:(id)a0;
+- (id)tabBar;
+- (BOOL)tabBar:(id)a0 acceptDrop:(id)a1 index:(unsigned long long)a2;
+- (BOOL)tabBar:(id)a0 acceptTabDrop:(id)a1 index:(unsigned long long)a2;
+- (void)tabBar:(id)a0 closeTabBarViewItem:(id)a1;
+- (id)tabBar:(id)a0 destinationWindowForDetachedTabBarViewItem:(id)a1;
+- (id)tabBar:(id)a0 detachedWindowImageForDraggedTabBarViewItem:(id)a1;
+- (void)tabBar:(id)a0 didFinishTransitionAnimationForWindow:(id)a1;
+- (void)tabBar:(id)a0 didMoveTabBarViewItem:(id)a1 fromIndex:(unsigned long long)a2 toIndex:(unsigned long long)a3 isChangingPinnedness:(BOOL)a4;
+- (id)tabBar:(id)a0 menuForTabBarViewItem:(id)a1 event:(id)a2;
+- (void)tabBar:(id)a0 selectTabBarViewItem:(id)a1;
+- (unsigned long long)tabBar:(id)a0 validateDrop:(id)a1;
+- (unsigned long long)tabBar:(id)a0 validateTabDrop:(id)a1;
+- (void)tabView:(id)a0 didSelectTabViewItem:(id)a1;
+- (BOOL)tabView:(id)a0 shouldSelectTabViewItem:(id)a1;
+- (void)tabView:(id)a0 willSelectTabViewItem:(id)a1;
+- (void)tabViewDidChangeNumberOfTabViewItems:(id)a0;
+- (id)tabViewItemForViewController:(id)a0;
+- (id)toolbar:(id)a0 itemForItemIdentifier:(id)a1 willBeInsertedIntoToolbar:(BOOL)a2;
+- (id)toolbarAllowedItemIdentifiers:(id)a0;
+- (id)toolbarDefaultItemIdentifiers:(id)a0;
+- (void)toolbarDidRemoveItem:(id)a0;
+- (id)toolbarSelectableItemIdentifiers:(id)a0;
+- (void)toolbarWillAddItem:(id)a0;
+- (void)updateViewConstraints;
+- (void)viewDidLoad;
+- (id)windowTabsDelegate;
+
+@end

@@ -1,0 +1,3 @@
+@interface NSScrubberSelectionView : NSScrubberArrangedView
+
+@end

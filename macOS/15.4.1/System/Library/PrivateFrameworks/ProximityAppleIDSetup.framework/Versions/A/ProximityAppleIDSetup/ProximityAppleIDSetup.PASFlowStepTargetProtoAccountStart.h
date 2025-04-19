@@ -1,0 +1,3 @@
+@interface ProximityAppleIDSetup.PASFlowStepTargetProtoAccountStart : ProximityAppleIDSetup.PASTargetFlowStepBase
+
+@end

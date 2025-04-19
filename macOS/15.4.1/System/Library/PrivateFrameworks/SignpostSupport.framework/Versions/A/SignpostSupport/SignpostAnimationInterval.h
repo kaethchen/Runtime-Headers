@@ -1,0 +1,94 @@
+@class NSArray, NSIndexSet, SignpostSupportAnimationGraceTime;
+
+@interface SignpostAnimationInterval : SignpostInterval
+
+@property (class) unsigned long long forcedGlitchTimeRatioAdjustedVersion;
+@property (class, readonly) unsigned long long effectiveGlitchTimeRatioAdjustedVersion;
+
+@property (readonly) SignpostSupportAnimationGraceTime *firstFrameGraceTime;
+@property (readonly, nonatomic) unsigned long long firstFrameGraceTimeMCT;
+@property (retain, nonatomic) NSArray *compositeIntervals;
+@property (readonly, nonatomic) NSArray *firstFrameLifetimes;
+@property (readonly, nonatomic) unsigned long long firstFrameGraceTimeMs;
+@property (readonly, nonatomic) unsigned long long animationType;
+@property (readonly, nonatomic) NSArray *allCommits;
+@property (readonly, nonatomic) NSArray *longCommits;
+@property (readonly, nonatomic) NSArray *allSystemwideCommits;
+@property (readonly, nonatomic) NSArray *longSystemwideCommits;
+@property (readonly, nonatomic) NSArray *allClientDrawables;
+@property (readonly, nonatomic) NSArray *longClientDrawables;
+@property (readonly, nonatomic) NSArray *allSystemwideClientDrawables;
+@property (readonly, nonatomic) NSArray *longSystemwideClientDrawables;
+@property (readonly, nonatomic) float frameRate;
+@property (readonly, nonatomic) unsigned long long frameCount;
+@property (readonly, nonatomic) NSArray *allTransactionLifetimes;
+@property (readonly, nonatomic) NSArray *longTransactionLifetimes;
+@property (readonly, nonatomic) NSArray *allFrameLatencies;
+@property (readonly, nonatomic) NSArray *allContributedFrameLatencies;
+@property (readonly, nonatomic) NSArray *longFrameLatencies;
+@property (readonly, nonatomic) NSArray *contributedLongFrameLatencies;
+@property (readonly, nonatomic) NSArray *allFrameLifetimes;
+@property (readonly, nonatomic) NSArray *allContributedFrameLifetimes;
+@property (readonly, nonatomic) NSArray *longFrameLifetimes;
+@property (readonly, nonatomic) NSArray *longContributedFrameLifetimes;
+@property (readonly, nonatomic) NSArray *allHIDLatencies;
+@property (readonly, nonatomic) NSArray *longHIDLatencies;
+@property (readonly, nonatomic) NSArray *allRenderServerRenders;
+@property (readonly, nonatomic) NSArray *longRenderServerRenders;
+@property (readonly, nonatomic) NSIndexSet *allDisplayIDs;
+@property (readonly, nonatomic) NSArray *glitches;
+@property (readonly, nonatomic) NSArray *contributedGlitches;
+@property (readonly, nonatomic) double glitchTimeRatio;
+@property (readonly, nonatomic) double glitchTimeRatioMsPerS;
+@property (readonly, nonatomic) double glitchTimeRatioAdjusted;
+@property (readonly, nonatomic) double glitchTimeRatioAdjustedMsPerS;
+@property (readonly, nonatomic) NSArray *firstFrameGlitches;
+@property (readonly, nonatomic) NSArray *contributedFirstFrameGlitches;
+@property (readonly, nonatomic) double firstFrameGlitchTimeRatio;
+@property (readonly, nonatomic) double firstFrameGlitchTimeRatioMsPerS;
+@property (readonly, nonatomic) NSArray *nonFirstFrameGlitches;
+@property (readonly, nonatomic) NSArray *contributedNonFirstFrameGlitches;
+@property (readonly, nonatomic) double nonFirstFrameGlitchTimeRatio;
+@property (readonly, nonatomic) double nonFirstFrameGlitchTimeRatioMsPerS;
+@property (readonly, nonatomic) double nonFirstFrameGlitchTimeRatioAdjusted;
+@property (readonly, nonatomic) double nonFirstFrameGlitchTimeRatioAdjustedMsPerS;
+@property (readonly, nonatomic) double nonFirstFrameContributedGlitchTimeRatioAdjustedMsPerS;
+
++ (id)_unionRangesForAnimations:(id)a0;
++ (id)overrunIntervalForOverrunQuery:(id)a0 frameLifetimes:(id)a1;
++ (id)serializationTypeNumber;
++ (double)timeRatioMSPerSForOverrunQuery:(id)a0 frameLifetimes:(id)a1 applyPerceptionAdjustments:(unsigned long long)a2;
++ (id)unionOfAnimationIntervals:(id)a0;
+
+- (id)debugDescription;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0;
+- (id)contributingPidsForProcessName:(id)a0;
+- (id)_animationStatsDescription;
+- (id)_descriptionStringForColumn:(unsigned long long)a0 timeFormat:(unsigned long long)a1 asBegin:(BOOL)a2;
+- (id)_detailedFrameDescription;
+- (id)_dictionaryRepresentationWithIsHumanReadable:(BOOL)a0 shouldRedact:(BOOL)a1;
+- (float)_durationInSecondsFromDurationInMCT:(unsigned long long)a0 timebaseRatio:(double)a1;
+- (id)_frameDescription;
+- (id)_intervalTypeString;
+- (id)_poorPerfFrameDescription;
+- (id)_statsStringForTimeIntervals:(id)a0 label:(id)a1;
+- (double)_timeRatioForTimeIntervalArray:(id)a0 applyPerceptionAdjustments:(unsigned long long)a1;
+- (unsigned long long)durationToFirstBeginMachContinuousTime:(id)a0;
+- (double)durationToFirstBeginSeconds:(id)a0;
+- (unsigned long long)durationToFirstEndMachContinuousTime:(id)a0;
+- (double)durationToFirstEndSeconds:(id)a0;
+- (id)firstFrameLifetimesWithGraceTimeMCT:(unsigned long long)a0;
+- (id)humanReadableType;
+- (id)initWithBeginEvent:(id)a0 endEvent:(id)a1 accumulatedState:(id)a2 firstFrameGraceTimeController:(id)a3;
+- (id)initWithFirstAnimatonInterval:(id)a0 secondAnimationInterval:(id)a1;
+- (id)initWithFrameLifetimes:(id)a0;
+- (BOOL)isFramePossibleFirstFrameForAnimation:(id)a0;
+- (BOOL)isFramePossibleFirstFrameForAnimation:(id)a0 withGraceTime:(unsigned long long)a1;
+- (id)overrunIntervals:(id)a0;
+- (id)overrunIntervalsOfType:(unsigned long long)a0 class:(unsigned long long)a1 contributingPID:(id)a2;
+- (double)timeRatioMSPerSForOverrunIntervals:(id)a0 applyPerceptionAdjustments:(unsigned long long)a1;
+- (double)timeRatioMSPerSForOverrunIntervalsOfType:(unsigned long long)a0 class:(unsigned long long)a1 contributingPID:(id)a2 applyPerceptionAdjustments:(unsigned long long)a3;
+
+@end

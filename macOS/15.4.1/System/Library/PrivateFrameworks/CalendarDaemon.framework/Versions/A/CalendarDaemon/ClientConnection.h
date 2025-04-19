@@ -1,0 +1,91 @@
+@class CADPooledDatabaseConfiguration, CADAccountAccessHandler, NSString, CADDatabaseInitializationOptions, NSMutableArray, NSObject, CADOperationProxy, ClientIdentity;
+@protocol OS_dispatch_queue, CADDatabaseConnectionProvider, CADXPCConnection, CDBAccountInfo, CADPermissionValidator, CADTCCPermissionChecker, CADACAccountsProvider;
+
+@interface ClientConnection : NSObject <CADDatabaseConnectionProviderDelegate, CDBAccountInfo> {
+    id<CADPermissionValidator> _permissionValidator;
+    id<CADTCCPermissionChecker> _tccPermissionChecker;
+    CADAccountAccessHandler *_accountAccessHandler;
+    CADAccountAccessHandler *_strictAccountAccessHandler;
+    id<CADACAccountsProvider> _accountsProvider;
+    NSObject<OS_dispatch_queue> *_dbQueue;
+    NSMutableArray *_operations;
+    NSObject<OS_dispatch_queue> *_asynchronousOperationQueue;
+    BOOL _initializationOptionsSet;
+    int _databaseRestoreGeneration;
+    int _auxDatabaseSequence;
+    id<CADDatabaseConnectionProvider> _databaseProvider;
+    CADPooledDatabaseConfiguration *_configuration;
+}
+
+@property (retain, nonatomic) id<CADXPCConnection> xpcConnection;
+@property (readonly, nonatomic) CADAccountAccessHandler *accountAccessHandler;
+@property (retain) CADOperationProxy *cadOperationProxy;
+@property (retain, nonatomic) id<CDBAccountInfo> localAccountInfo;
+@property (readonly, nonatomic) ClientIdentity *identity;
+@property (readonly, nonatomic) id<CADPermissionValidator> permissionValidator;
+@property (readonly, nonatomic) id<CADTCCPermissionChecker> tccPermissionChecker;
+@property (readonly, nonatomic) NSString *changeTrackingID;
+@property (readonly, nonatomic) CADDatabaseInitializationOptions *databaseInitializationOptions;
+@property (readonly) BOOL initializationOptionsSet;
+@property (readonly) int databaseRestoreGeneration;
+@property (readonly, nonatomic) NSString *effectiveApplicationIdentifier;
+@property (readonly, nonatomic) NSString *effectiveTeamIdentifier;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)poolManager;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)addOperation:(id)a0;
+- (id)remoteObjectProxy;
+- (id)remoteObjectProxyWithErrorHandler:(id /* block */)a0;
+- (id)operations;
+- (void)invalidateConnection;
+- (int)eventAccessLevel;
+- (id)initWithXPCConnection:(id)a0 tccPermissionChecker:(id)a1;
+- (void)releaseProxy;
+- (BOOL)addressIsAccountOwner:(id)a0;
+- (void)closeDatabases;
+- (void)_closeDatabases;
+- (void)dumpState;
+- (unsigned long long)_currentPriority;
+- (id)accountsProvider;
+- (BOOL)isStoreManaged:(void *)a0;
+- (BOOL)isCalendarRestricted:(void *)a0 forAction:(unsigned long long)a1;
+- (BOOL)withDatabaseForObjects:(id)a0 perform:(id /* block */)a1;
+- (id)_accountsProvider;
+- (id)_createManagedConfigAccountAccessHandlerWithValidator:(id)a0;
+- (id)_databaseProvider;
+- (void)_initAccountAccessHandler;
+- (id)_permissionValidator;
+- (void)addCreatedAuxDatabase:(struct CalDatabase { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; int x1; struct CPRecordStore *x2; struct CalEventOccurrenceCache *x3; struct CalScheduledTaskCache *x4; void *x5; void *x6; struct __CFDictionary *x7; struct __CFDictionary *x8; struct os_unfair_lock_s { unsigned int x0; } x9; unsigned int x10; unsigned int x11; struct __CFArray *x12; struct __CFString *x13; struct __CFArray *x14; int x15; int x16; struct __CFString *x17; struct __CFURL *x18; struct __CFString *x19; struct __CFString *x20; unsigned long long x21; int x22; int x23; int x24; id /* block */ x25; struct _opaque_pthread_mutex_t { long long x0; char x1[56]; } x26; BOOL x27; struct __CFArray *x28; BOOL x29; struct __CFSet *x30; id x31; id x32; id x33; int x34; id x35; id x36; id x37; char *x38; unsigned int x39; unsigned int x40; int x41; unsigned long long x42; BOOL x43; BOOL x44; BOOL x45; BOOL x46; BOOL x47; BOOL x48; BOOL x49; } *)a0;
+- (BOOL)addressURLIsAccountOwner:(id)a0;
+- (void)clearCachedAuthorizationStatus;
+- (void)handleDatabaseChanged;
+- (BOOL)isAlarmRestricted:(void *)a0 forAction:(unsigned long long)a1;
+- (BOOL)isCalendarItemManaged:(void *)a0;
+- (BOOL)isCalendarItemRestricted:(void *)a0 forAction:(unsigned long long)a1;
+- (BOOL)isCalendarManaged:(void *)a0;
+- (BOOL)isNotificationRestricted:(void *)a0 forAction:(unsigned long long)a1;
+- (BOOL)isStoreRestricted:(void *)a0 forAction:(unsigned long long)a1;
+- (BOOL)isStoreRestricted:(void *)a0 forAction:(unsigned long long)a1 strict:(BOOL)a2;
+- (void)logAccessToEntities:(id)a0;
+- (void)logAccessToObject:(id)a0;
+- (void)logAccessToObjects:(id)a0;
+- (int)managedConfigurationAccountAccessForStore:(void *)a0;
+- (BOOL)reminderAccessGranted;
+- (void)reportIntegrityErrors:(id)a0;
+- (void)restoreGenerationChangedExternally;
+- (id)restrictedCalendarRowIDsForAction:(unsigned long long)a0 inDatabase:(struct CalDatabase { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; int x1; struct CPRecordStore *x2; struct CalEventOccurrenceCache *x3; struct CalScheduledTaskCache *x4; void *x5; void *x6; struct __CFDictionary *x7; struct __CFDictionary *x8; struct os_unfair_lock_s { unsigned int x0; } x9; unsigned int x10; unsigned int x11; struct __CFArray *x12; struct __CFString *x13; struct __CFArray *x14; int x15; int x16; struct __CFString *x17; struct __CFURL *x18; struct __CFString *x19; struct __CFString *x20; unsigned long long x21; int x22; int x23; int x24; id /* block */ x25; struct _opaque_pthread_mutex_t { long long x0; char x1[56]; } x26; BOOL x27; struct __CFArray *x28; BOOL x29; struct __CFSet *x30; id x31; id x32; id x33; int x34; id x35; id x36; id x37; char *x38; unsigned int x39; unsigned int x40; int x41; unsigned long long x42; BOOL x43; BOOL x44; BOOL x45; BOOL x46; BOOL x47; BOOL x48; BOOL x49; } *)a1;
+- (id)restrictedStoreRowIDsForAction:(unsigned long long)a0 inDatabase:(struct CalDatabase { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; int x1; struct CPRecordStore *x2; struct CalEventOccurrenceCache *x3; struct CalScheduledTaskCache *x4; void *x5; void *x6; struct __CFDictionary *x7; struct __CFDictionary *x8; struct os_unfair_lock_s { unsigned int x0; } x9; unsigned int x10; unsigned int x11; struct __CFArray *x12; struct __CFString *x13; struct __CFArray *x14; int x15; int x16; struct __CFString *x17; struct __CFURL *x18; struct __CFString *x19; struct __CFString *x20; unsigned long long x21; int x22; int x23; int x24; id /* block */ x25; struct _opaque_pthread_mutex_t { long long x0; char x1[56]; } x26; BOOL x27; struct __CFArray *x28; BOOL x29; struct __CFSet *x30; id x31; id x32; id x33; int x34; id x35; id x36; id x37; char *x38; unsigned int x39; unsigned int x40; int x41; unsigned long long x42; BOOL x43; BOOL x44; BOOL x45; BOOL x46; BOOL x47; BOOL x48; BOOL x49; } *)a1;
+- (id)strictAccountAccessHandler;
+- (BOOL)trySetDatabaseInitializationOptions:(id)a0;
+- (void)withAllDatabasesPerform:(id /* block */)a0;
+- (BOOL)withDatabaseForObject:(id)a0 perform:(id /* block */)a1;
+- (BOOL)withDatabaseForObjects:(id)a0 options:(unsigned long long)a1 perform:(id /* block */)a2;
+- (BOOL)withDatabaseID:(int)a0 perform:(id /* block */)a1;
+
+@end

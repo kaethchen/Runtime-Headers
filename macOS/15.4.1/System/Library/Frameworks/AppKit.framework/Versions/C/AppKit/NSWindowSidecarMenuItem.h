@@ -1,0 +1,3 @@
+@interface NSWindowSidecarMenuItem : NSMenuItem
+
+@end

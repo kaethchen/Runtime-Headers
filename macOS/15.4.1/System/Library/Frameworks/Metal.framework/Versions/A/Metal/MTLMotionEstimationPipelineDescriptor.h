@@ -1,0 +1,11 @@
+@interface MTLMotionEstimationPipelineDescriptor : NSObject <NSCopying>
+
+@property (nonatomic) unsigned long long textureWidth;
+@property (nonatomic) unsigned long long textureHeight;
+
++ (id)alloc;
++ (id)allocWithZone:(struct _NSZone { } *)a0;
+
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+
+@end

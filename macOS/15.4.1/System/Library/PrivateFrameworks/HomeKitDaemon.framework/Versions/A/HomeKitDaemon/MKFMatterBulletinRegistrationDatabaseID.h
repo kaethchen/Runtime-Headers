@@ -1,0 +1,3 @@
+@interface MKFMatterBulletinRegistrationDatabaseID : MKFBulletinRegistrationDatabaseID
+
+@end

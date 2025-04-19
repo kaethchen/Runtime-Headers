@@ -1,0 +1,96 @@
+@class NSError, AMAction, NSArray, NSString, AMWorkflow, NSMutableDictionary, NSOperationQueue, NSMutableArray, NSProgress, NSObject, NSMapTable, AMFFeedController;
+@protocol AMWorkflowRunnerDelegate;
+
+@interface AMWorkflowRunner : NSObject <AMRunnerControl, NSProgressReporting, AMActionRunnerProtocol>
+
+@property (class, readonly, nonatomic) NSArray *_operationKeysToObserve;
+
+@property (retain) NSMutableArray *runningActions;
+@property (retain) NSError *currentError;
+@property (retain, nonatomic) id currentData;
+@property (weak) AMAction *lastRunAction;
+@property (retain) NSArray *loopData;
+@property (retain) NSArray *loopActions;
+@property (retain) NSMutableDictionary *loopOutput;
+@property BOOL isLooping;
+@property unsigned long long loopIndex;
+@property unsigned long long numberOfTimesToLoop;
+@property unsigned long long state;
+@property BOOL shouldPauseBeforeNextAction;
+@property (retain) NSOperationQueue *operationQueue;
+@property (retain) NSMutableArray *progressValueObservedList;
+@property (retain) NSMutableArray *actionOperationObservedList;
+@property unsigned long long runNumber;
+@property double startTime;
+@property double endTime;
+@property (retain) NSProgress *workflowProgress;
+@property (retain) NSProgress *actionProgress;
+@property (retain) NSMapTable *childProgressesByAction;
+@property (retain, nonatomic) AMFFeedController *feedController;
+@property (copy, nonatomic) NSString *workflowID;
+@property (copy, nonatomic) NSString *currentRunUUID;
+@property (retain, nonatomic) AMWorkflow *workflow;
+@property (retain, nonatomic) NSObject<AMWorkflowRunnerDelegate> *delegate;
+@property (weak, nonatomic) NSObject<AMWorkflowRunnerDelegate> *owner;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly) NSProgress *progress;
+@property (readonly) double totalRunTime;
+@property (readonly, getter=isIdle) BOOL idle;
+@property (readonly, getter=isRunning) BOOL running;
+@property (readonly, getter=isPaused) BOOL paused;
+@property (readonly, getter=isStopping) BOOL stopping;
+
++ (id)progressForWorkflow:(id)a0;
+
+- (void)dealloc;
+- (id)init;
+- (void)run;
+- (void).cxx_destruct;
+- (void)finish;
+- (void)pause;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)step;
+- (void)cleanUp;
+- (void)runAction:(id)a0;
+- (void)stopWithError:(id)a0;
+- (void)reportErrors;
+- (void)runAction:(id)a0 withInput:(id)a1 loopParent:(id)a2;
+- (void)workflowStopped;
+- (void)_addProgressObservingForActionIfNeeded:(id)a0;
+- (void)_clearAllActionOperationObserving;
+- (void)_clearAllProgressObserving;
+- (void)_observeActionOperation:(id)a0;
+- (void)_observeValueOnMainThreadWithDictionary:(id)a0;
+- (void)_removeProgressObservingForActionIfNeeded:(id)a0;
+- (void)_unobserveActionOperation:(id)a0;
+- (void)_workflowRunner_actionErrorOnMainThreadWithDictionary:(id)a0;
+- (void)_workflowRunner_didResumeWithActionOnMainThread:(id)a0;
+- (void)_workflowRunner_didRunActionOnMainThread:(id)a0;
+- (void)_workflowRunner_didRunConversionOnMainThread:(id)a0;
+- (void)_workflowRunner_logMessageOnMainThread:(id)a0;
+- (void)_workflowRunner_reportErrorOnMainThread:(id)a0;
+- (void)_workflowRunner_willRunActionOnMainThread:(id)a0;
+- (void)_workflowRunner_willRunConversionOnMainThread:(id)a0;
+- (void)actionDidRun:(id)a0 error:(id)a1;
+- (void)actionWillRun:(id)a0;
+- (void)clearWorkflowProgress;
+- (void)completeProgressForAction:(id)a0;
+- (void)completeWorkflowProgress;
+- (void)enqueueAction:(id)a0;
+- (id)errorWithError:(id)a0 fromAction:(id)a1;
+- (void)logMessage:(id)a0 withLevel:(unsigned long long)a1 fromAction:(id)a2;
+- (id)loopActionsStartingWithAction:(id)a0;
+- (void)loopWorkflowFromAction:(id)a0 withInput:(id)a1;
+- (id)preflightWorkflow;
+- (void)runChildrenOfAction:(id)a0;
+- (void)runNextActionAndConvertDataFromAction:(id)a0;
+- (void)saveLoopOutputAndReset;
+- (void)startProgressForAction:(id)a0;
+- (id)temporaryItemsPath;
+- (void)updateProgressForAction:(id)a0;
+- (void)workflowCompleted;
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC14iCloudSettingsP33_CD5715C16E7F4EE7FF145EDB6E96BAEA19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

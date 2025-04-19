@@ -1,0 +1,3 @@
+@interface RemindersUICore.TTRMRemindersListCellNoOpFirstResponderChangeFilter : _TtCs12_SwiftObject
+
+@end

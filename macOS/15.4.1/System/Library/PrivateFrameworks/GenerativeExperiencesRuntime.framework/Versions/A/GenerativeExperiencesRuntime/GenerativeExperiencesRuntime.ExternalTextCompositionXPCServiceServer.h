@@ -1,0 +1,3 @@
+@interface GenerativeExperiencesRuntime.ExternalTextCompositionXPCServiceServer : _TtCs12_SwiftObject
+
+@end

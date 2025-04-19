@@ -1,0 +1,3 @@
+@interface _TtC6PDFKitP33_92DE75AC7A13714BF383CEB737D314A519ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

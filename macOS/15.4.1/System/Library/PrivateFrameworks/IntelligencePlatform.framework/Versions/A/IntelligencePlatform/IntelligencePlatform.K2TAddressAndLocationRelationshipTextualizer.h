@@ -1,0 +1,3 @@
+@interface IntelligencePlatform.K2TAddressAndLocationRelationshipTextualizer : IntelligencePlatform.K2TSubEntityTextualizer
+
+@end

@@ -1,0 +1,97 @@
+@class BRCAppLibrary, NSURL, NSObject, BRCAccountSession, BRFileObjectID, BRCItemID, NSString, CKRecordID, CKShareMetadata, BRCAcceptShareOperation, BRCXPCClient, NSArray, BRCClientZone, NSError;
+@protocol OS_dispatch_group, BRCUserNotifier, BRCUserNavigationActions, OS_dispatch_queue;
+
+@interface BRCSharingAcceptFlowOperation : _BRCOperation <LSOpenResourceOperationDelegate, BRCForegroundClient, BRCOperationSubclass> {
+    id<BRCUserNotifier> _userNotification;
+    id<BRCUserNavigationActions> _userActionsNavigator;
+    BRCAccountSession *_session;
+    NSArray *_acceptationFlow;
+    unsigned long long _stepIndex;
+    NSURL *_shareURL;
+    CKRecordID *_shareID;
+    CKShareMetadata *_shareMetadata;
+    CKRecordID *_linkItemRecordID;
+    BRCItemID *_linkItemID;
+    BRCItemID *_rootItemID;
+    BRFileObjectID *_linkFileObjectID;
+    NSString *_unsaltedBookmarkData;
+    BRCClientZone *_clientZone;
+    BRCAppLibrary *_appLibrary;
+    BOOL _needsZoneAndAppLibraryActivation;
+    BRCAcceptShareOperation *_acceptOperation;
+    BOOL _allowsDirectoryFaults;
+    NSURL *_liveFileURL;
+    BOOL _accessedSecurityScope;
+    NSObject<OS_dispatch_group> *_shareAcceptGroup;
+    NSString *_rootFilename;
+    NSString *_linkFilename;
+    NSURL *_appBundleURL;
+    BOOL _hasAlreadyDocumentOpened;
+    BRCXPCClient *_xpcClient;
+    NSObject<OS_dispatch_queue> *_queue;
+    NSError *_shareAcceptationError;
+    BOOL _hadProcessedCompletionError;
+}
+
+@property (nonatomic) BOOL skipOpenInApp;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) NSString *identifier;
+
++ (id)_runningShareIDs;
+
+- (void).cxx_destruct;
+- (void)main;
+- (void)finishWithResult:(id)a0 error:(id)a1;
+- (void)_completeWithError:(id)a0;
+- (BOOL)shouldRetryForError:(id)a0;
+- (void)_performNextStep;
+- (void)openResourceOperation:(id)a0 didFailWithError:(id)a1;
+- (void)openResourceOperationDidComplete:(id)a0;
+- (id)createActivity;
+- (void)_activateSharedZoneIfNeeded;
+- (void)_checkIfShouldWaitUntilDownloadCompletion_step;
+- (void)_createServerFaultIfPossibleWithCompletion:(id /* block */)a0;
+- (void)_createSideFaultOnDisk_step;
+- (void)_endAcceptationFlow_step;
+- (void)_fetchOpenInfoOnFileObjectID:(id)a0 completion:(id /* block */)a1;
+- (void)_finishShareAccept_step;
+- (void)_isAccountRestricted_step;
+- (void)_isAppInstalled_step;
+- (BOOL)_isDirectoryLinkInsideFolderShare;
+- (BOOL)_isDocumentLinkInsideFolderShare;
+- (BOOL)_isFolderShare;
+- (void)_isFolderSharingSupported_step;
+- (BOOL)_isLinkInsideFolderShare;
+- (BOOL)_isOwner;
+- (BOOL)_isOwnerOrShareAlreadyAccepted;
+- (void)_isUserSignedInToiCloudDrive_step;
+- (BOOL)_isiWorkLinkInsideFolderShare;
+- (BOOL)_isiWorkShare;
+- (void)_jumpToSelector:(SEL)a0;
+- (void)_jumpToSelectorInQueue:(SEL)a0;
+- (void)_locateSharedItemOnDisk_step;
+- (void)_locateSharedItemOnOwner_step;
+- (void)_locateSharedItemOnRecipient_step;
+- (BOOL)_openSharedItemAtURL:(id)a0 error:(id *)a1;
+- (void)_openSharedItemIfStillNeeded_step;
+- (void)_openSharedSideFaultFile_step;
+- (void)_openiWorkAppPreemptively_step;
+- (void)_parseShareMetadata_step;
+- (void)_performNextStepInQueue;
+- (void)_prepareToDownloadSharedDocument_step;
+- (void)_setSpotlightAttribute_step;
+- (void)_showSharingJoinDialog_step;
+- (void)_startShareAccept_step;
+- (id)_stepNameAtIndex:(unsigned long long)a0 withPrefix:(id)a1;
+- (void)_waitForSharedItemToBeOnDiskOnOwner_step;
+- (void)_waitForSharedItemToBeOnDiskOnRecipient_step;
+- (void)_waitForSharedItemToSyncDownOnOwner_step;
+- (void)_waitForSharedItemToSyncDownOnRecipient_step;
+- (id)initWithShareMetadata:(id)a0 client:(id)a1 session:(id)a2 userNotifier:(id)a3 userActionsNavigator:(id)a4;
+- (void)moveDialogToFront;
+- (id)subclassableDescriptionWithContext:(id)a0;
+
+@end

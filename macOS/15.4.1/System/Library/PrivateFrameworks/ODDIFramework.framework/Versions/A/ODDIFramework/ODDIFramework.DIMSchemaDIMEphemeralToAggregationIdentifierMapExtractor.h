@@ -1,0 +1,3 @@
+@interface ODDIFramework.DIMSchemaDIMEphemeralToAggregationIdentifierMapExtractor : _TtCs12_SwiftObject
+
+@end

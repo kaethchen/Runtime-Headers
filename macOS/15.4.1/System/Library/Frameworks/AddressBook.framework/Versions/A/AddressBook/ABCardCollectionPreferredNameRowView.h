@@ -1,0 +1,3 @@
+@interface ABCardCollectionPreferredNameRowView : ABCardCollectionRowView
+
+@end

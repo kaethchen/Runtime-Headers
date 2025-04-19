@@ -1,0 +1,3 @@
+@interface _TtCC30IntelligenceFlowPlannerRuntime29QueryDecorationNullSignposterP33_F96CF7C2E9F3A9F34A91CA78F1C7733233QueryDecorationNullActiveSignpost : _TtCs12_SwiftObject
+
+@end

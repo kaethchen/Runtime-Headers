@@ -1,0 +1,3 @@
+@interface WFConfiguredActionButtonIntentAction : WFConfiguredStaccatoIntentAction
+
+@end

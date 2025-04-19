@@ -1,0 +1,82 @@
+@class NSColor, NSImage, NSFont;
+
+@interface CalUIMiniMonthViewFormatter : NSObject
+
+@property BOOL showsNeighboringDays;
+@property BOOL showsNavigation;
+@property BOOL showsMonthName;
+@property BOOL showsWeekdayNames;
+@property BOOL showsActiveDateHighlighted;
+@property BOOL showsTodayHighlighted;
+@property BOOL showsTodayBackground;
+@property BOOL showsWeekendBackground;
+@property BOOL showsWeekNumbers;
+@property BOOL dayBackgroundSizeIsStatic;
+@property (retain) NSFont *monthNameFont;
+@property (retain) NSColor *monthNameColor;
+@property double monthNameHeight;
+@property long long monthNameTextAlignment;
+@property (retain) NSFont *todayHighlightFont;
+@property (retain) NSColor *todayHighlightColor;
+@property (retain) NSColor *todayBackgroundColor;
+@property (retain) NSFont *activeDateHighlightFont;
+@property (retain) NSColor *activeDateHighlightColor;
+@property (retain) NSColor *activeDateBackgroundColor;
+@property (retain) NSColor *todayAndActiveHighlightColor;
+@property (retain) NSColor *todayAndActiveBackgroundColor;
+@property (retain) NSColor *weekendBackgroundColor;
+@property (retain) NSFont *weekdayTextFont;
+@property (retain) NSColor *weekdayTextColor;
+@property double weekdayHeight;
+@property long long weekdayTextAlignment;
+@property BOOL useExtraShortWeekdaySymbols;
+@property BOOL drawWeekdayNameSeparator;
+@property (retain) NSColor *weekdayNameSeparatorColor;
+@property double heightBetweenWeekdaysAndDayNumbers;
+@property double heightBetweenMonthAndDayNumbers;
+@property (retain) NSFont *dayNumberTextFont;
+@property (retain) NSColor *dayNumberTextColor;
+@property long long dayNumberTextAlignment;
+@property (retain) NSFont *previousAndNextMonthDayNumberFont;
+@property (retain) NSColor *previousAndNextMonthDayNumberColor;
+@property (retain) NSColor *weekendDayNumberColor;
+@property (retain) NSImage *previousMonthNavigationImage;
+@property (retain) NSImage *previousMonthNavigationAlternateImage;
+@property double previousMonthNavigationXOffset;
+@property double previousMonthNavigationYOffset;
+@property double previousMonthNavigationBorder;
+@property (retain) NSImage *nextMonthNavigationImage;
+@property (retain) NSImage *nextMonthNavigationAlternateImage;
+@property double nextMonthNavigationXOffset;
+@property double nextMonthNavigationYOffset;
+@property double nextMonthNavigationBorder;
+@property double leftInteriorPadding;
+@property double rightInteriorPadding;
+@property double weekNumbersWidth;
+@property double weekNumbersHeight;
+@property (retain) NSFont *weekNumbersFont;
+@property (retain) NSColor *weekNumbersColor;
+@property long long weekNumbersHorizontalAlignment;
+@property double weekNumbersXOffset;
+@property double weekNumbersYOffset;
+@property BOOL drawWeekNumbersSeparator;
+@property (retain) NSColor *weekNumberSeparatorColor;
+@property double weekNumberSeparatorTopInset;
+@property double weekNumberSeparatorBottomInset;
+@property (retain) NSColor *dayNumberBackgroundHoverColor;
+@property double dayNumberBackgroundXOffset;
+@property double dayNumberBackgroundYOffset;
+@property BOOL dayBackgroundHasRoundedCorners;
+@property BOOL dayBackgroundIsCircle;
+@property struct CGSize { double width; double height; } dayBackgroundRectSize;
+@property struct CGSize { double width; double height; } dayCellSpacing;
+@property long long minimumNumberOfRows;
+
++ (id)formatter;
++ (id)colorWithsRGBRed:(unsigned long long)a0 green:(unsigned long long)a1 blue:(unsigned long long)a2;
++ (id)fontWithFontSize:(double)a0 bold:(BOOL)a1;
+
+- (id)init;
+- (void).cxx_destruct;
+
+@end

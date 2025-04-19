@@ -1,0 +1,3 @@
+@interface ImagePlaygroundInternal.RandomWebImagePopulationSource : ImagePlaygroundInternal.PhotoLibraryPopulationSource
+
+@end

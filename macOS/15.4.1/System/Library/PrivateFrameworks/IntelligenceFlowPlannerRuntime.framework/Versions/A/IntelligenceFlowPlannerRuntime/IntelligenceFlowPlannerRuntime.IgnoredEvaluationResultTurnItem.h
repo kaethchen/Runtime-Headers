@@ -1,0 +1,3 @@
+@interface IntelligenceFlowPlannerRuntime.IgnoredEvaluationResultTurnItem : IntelligenceFlowPlannerRuntime.ResultTurnItem
+
+@end

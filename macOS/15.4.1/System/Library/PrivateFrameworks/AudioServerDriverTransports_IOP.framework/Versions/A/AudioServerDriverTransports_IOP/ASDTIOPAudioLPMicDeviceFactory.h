@@ -1,0 +1,3 @@
+@interface ASDTIOPAudioLPMicDeviceFactory : ASDTAudioDeviceFactory
+
+@end

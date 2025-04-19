@@ -1,0 +1,3 @@
+@interface VFXModelSource : VFXMeshSource
+
+@end

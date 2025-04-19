@@ -1,0 +1,61 @@
+@interface MTRBaseClusterValveConfigurationAndControl : MTRGenericBaseCluster
+
++ (void)readAttributeAcceptedCommandListWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeAttributeListWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeAutoCloseTimeWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeClusterRevisionWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeCurrentLevelWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeCurrentStateWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeDefaultOpenDurationWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeDefaultOpenLevelWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeFeatureMapWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeGeneratedCommandListWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeLevelStepWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeOpenDurationWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeRemainingDurationWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeTargetLevelWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeTargetStateWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeValveFaultWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
+
+- (void)closeWithCompletion:(id /* block */)a0;
+- (void)openWithCompletion:(id /* block */)a0;
+- (void)closeWithParams:(id)a0 completion:(id /* block */)a1;
+- (void)openWithParams:(id)a0 completion:(id /* block */)a1;
+- (void)readAttributeAcceptedCommandListWithCompletion:(id /* block */)a0;
+- (void)readAttributeAttributeListWithCompletion:(id /* block */)a0;
+- (void)readAttributeAutoCloseTimeWithCompletion:(id /* block */)a0;
+- (void)readAttributeClusterRevisionWithCompletion:(id /* block */)a0;
+- (void)readAttributeCurrentLevelWithCompletion:(id /* block */)a0;
+- (void)readAttributeCurrentStateWithCompletion:(id /* block */)a0;
+- (void)readAttributeDefaultOpenDurationWithCompletion:(id /* block */)a0;
+- (void)readAttributeDefaultOpenLevelWithCompletion:(id /* block */)a0;
+- (void)readAttributeFeatureMapWithCompletion:(id /* block */)a0;
+- (void)readAttributeGeneratedCommandListWithCompletion:(id /* block */)a0;
+- (void)readAttributeLevelStepWithCompletion:(id /* block */)a0;
+- (void)readAttributeOpenDurationWithCompletion:(id /* block */)a0;
+- (void)readAttributeRemainingDurationWithCompletion:(id /* block */)a0;
+- (void)readAttributeTargetLevelWithCompletion:(id /* block */)a0;
+- (void)readAttributeTargetStateWithCompletion:(id /* block */)a0;
+- (void)readAttributeValveFaultWithCompletion:(id /* block */)a0;
+- (void)subscribeAttributeAcceptedCommandListWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeAttributeListWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeAutoCloseTimeWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeClusterRevisionWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeCurrentLevelWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeCurrentStateWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeDefaultOpenDurationWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeDefaultOpenLevelWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeFeatureMapWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeGeneratedCommandListWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeLevelStepWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeOpenDurationWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeRemainingDurationWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeTargetLevelWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeTargetStateWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeValveFaultWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)writeAttributeDefaultOpenDurationWithValue:(id)a0 completion:(id /* block */)a1;
+- (void)writeAttributeDefaultOpenDurationWithValue:(id)a0 params:(id)a1 completion:(id /* block */)a2;
+- (void)writeAttributeDefaultOpenLevelWithValue:(id)a0 completion:(id /* block */)a1;
+- (void)writeAttributeDefaultOpenLevelWithValue:(id)a0 params:(id)a1 completion:(id /* block */)a2;
+
+@end

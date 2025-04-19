@@ -1,0 +1,77 @@
+@class NSString;
+
+@interface IMDDatabaseClient : IMDDatabaseLegacyXPCBridge <IMDRemoteDatabaseProtocol>
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)deleteDatabase;
+- (void)fetchGroupPhotoPathsForChatsWithGroupIDs:(id)a0 completionHandler:(id /* block */)a1;
+- (id)chatRecordsFilteredByPredicate:(id)a0;
+- (void)fetchLastMessageRecordForChatRecordWithRowID:(long long)a0 completionHandler:(id /* block */)a1;
+- (void)moveMessageRecordsToRecoveryForChatRecordsWithGUIDs:(id)a0 deleteDate:(id)a1;
+- (id)recoverableMessagesMetadataPendingCloudKitSaveWithLimit:(long long)a0 filter:(unsigned long long)a1;
+- (void)_fetchMessageRecordsForChatRecordWithGUID:(id)a0 filteredUsingPredicate:(id)a1 sortedUsingDescriptors:(id)a2 parentedOnly:(BOOL)a3 limit:(unsigned long long)a4 completionHandler:(id /* block */)a5;
+- (void)_sendAsyncXPCMessage:(id)a0 action:(long long)a1 responseHandler:(id /* block */)a2;
+- (void)_sendSyncXPCMessage:(id)a0 action:(long long)a1 responseHandler:(id /* block */)a2;
+- (void)addScheduledMessageGUIDandCKRecordToDeleteFromCloudKit:(id)a0 recordID:(id)a1;
+- (id)chatRecordsWithHandles:(id)a0 serviceName:(id)a1 displayName:(id)a2 groupID:(id)a3 style:(unsigned char)a4;
+- (id)chatRecordsWithHandles:(id)a0 serviceName:(id)a1 displayName:(id)a2 groupID:(id)a3 style:(unsigned char)a4 useOriginalGroupID:(BOOL)a5;
+- (id)chatRecordsWithIdentifier:(id)a0;
+- (void)clearRecoverableMessageTombStones;
+- (id)copyDuplicateGroupChatRecordsWithLimit:(long long)a0;
+- (void)coreSpotlightDeleteAttachmentGUIDs:(id)a0 reason:(long long)a1;
+- (void)deleteAllDonationsForAppDeletionWithCompletion:(id /* block */)a0;
+- (void)deleteAttachmentsDirectWithPredicate:(id)a0;
+- (void)deleteJunkMessagesOlderThanDays:(long long)a0;
+- (void)deleteRecoverableMessagesOlderThanDays:(long long)a0;
+- (void)deleteTombstonedScheduledMessagesWithRecordIDs:(id)a0;
+- (void)fetchAttachmentRecordsFilteredUsingPredicate:(id)a0 limit:(unsigned long long)a1 completionHandler:(id /* block */)a2;
+- (void)fetchAttachmentRecordsFilteredUsingPredicate:(id)a0 sortedUsingDescriptors:(id)a1 limit:(unsigned long long)a2 completionHandler:(id /* block */)a3;
+- (void)fetchChatRecordsFilteredUsingPredicate:(id)a0 sortedUsingDescriptors:(id)a1 limit:(unsigned long long)a2 completionHandler:(id /* block */)a3;
+- (void)fetchChatRecordsFilteredUsingPredicate:(id)a0 sortedUsingLastMessageDateAscending:(BOOL)a1 limit:(unsigned long long)a2 completionHandler:(id /* block */)a3;
+- (void)fetchChatRecordsFilteredUsingPredicate:(id)a0 sortedUsingLastMessageDateAscending:(BOOL)a1 olderThan:(id)a2 limit:(unsigned long long)a3 completionHandler:(id /* block */)a4;
+- (void)fetchChatRecordsWithAtLeastHandles:(id)a0 serviceName:(id)a1 style:(unsigned char)a2 completionHandler:(id /* block */)a3;
+- (void)fetchChatRecordsWithPinningIdentifier:(id)a0 completionHandler:(id /* block */)a1;
+- (void)fetchContactsForIdentifiers:(id)a0 completionHandler:(id /* block */)a1;
+- (void)fetchCountOfRecordType:(unsigned long long)a0 completionHandler:(id /* block */)a1;
+- (void)fetchDataForKey:(id)a0 completionHandler:(id /* block */)a1;
+- (void)fetchHandleRecordsFilteredUsingPredicate:(id)a0 sortedUsingDescriptors:(id)a1 limit:(unsigned long long)a2 completionHandler:(id /* block */)a3;
+- (void)fetchInteger64ForKey:(id)a0 completionHandler:(id /* block */)a1;
+- (void)fetchMessageRecordWithGUID:(id)a0 excludeRecoverableMessages:(BOOL)a1 completionHandler:(id /* block */)a2;
+- (void)fetchMessageRecordsFilteredUsingPredicate:(id)a0 sortedUsingDescriptors:(id)a1 limit:(unsigned long long)a2 completionHandler:(id /* block */)a3;
+- (void)fetchMessageRecordsFilteredUsingPredicate:(id)a0 sortedUsingDescriptors:(id)a1 parentedOnly:(BOOL)a2 limit:(unsigned long long)a3 completionHandler:(id /* block */)a4;
+- (void)fetchMessageRecordsForChatRecordWithGUID:(id)a0 filteredUsingPredicate:(id)a1 sortedUsingDescriptors:(id)a2 limit:(unsigned long long)a3 completionHandler:(id /* block */)a4;
+- (void)fetchMessagesWithoutChatsCountWithCompletionHandler:(id /* block */)a0;
+- (void)fetchScheduledMessageRecordsForChatRecordWithGUID:(id)a0 limit:(unsigned long long)a1 completionHandler:(id /* block */)a2;
+- (void)fetchSpotlightClientStateWithCompletion:(id /* block */)a0;
+- (void)fetchTotalMessageCountWithCompletionHandler:(id /* block */)a0;
+- (void)fetchUnreadMessageRecordsForChatsFilteredUsingPredicate:(id)a0 limit:(unsigned long long)a1 completionHandler:(id /* block */)a2;
+- (id)handleRecordsFilteredByPredicate:(id)a0;
+- (void)invalidateSpotlightClientStateVersioningWithCompletion:(id /* block */)a0;
+- (id)loadRecoverableMessagesMetadataGroupedByChatGUID;
+- (void)markMessageRecordsAsReadWithGUIDs:(id)a0;
+- (void)moveMessageRecordsToRecoveryForMessageGUIDs:(id)a0 deleteDate:(id)a1;
+- (void)notifyFirstUnlockComplete;
+- (void)permanentlyDeleteRecoverableMessagesInChatsWithGUIDs:(id)a0 completionHandler:(id /* block */)a1;
+- (void)postSharePlayNotificationForChatGUID:(id)a0 faceTimeConversationUUID:(id)a1 handleIdentifier:(id)a2 localizedApplicationName:(id)a3;
+- (void)recoverMessageRecordsForChatRecordsWithGUIDs:(id)a0;
+- (id)recoverableMessagesMetadataPendingCloudKitDeleteWithLimit:(long long)a0;
+- (void)resolveInconsistentGUIDForChatRecordWithGUID:(id)a0 newGUID:(id)a1 completionHandler:(id /* block */)a2;
+- (id)scheduledMessagesMetadataPendingCloudKitDeleteWithLimit:(long long)a0;
+- (void)sendLegacyXPCCommandWithObject:(id)a0 reply:(id /* block */)a1;
+- (void)storeData:(id)a0 forKey:(id)a1;
+- (void)storeRecoverableMessagePartWithBody:(id)a0 forMessageWithGUID:(id)a1 deleteDate:(id)a2;
+- (void)updateAttachmentSyndicationRanges:(id)a0 shouldHideFromSyndication:(BOOL)a1;
+- (void)updateAttachmentsSyncStatusTo:(long long)a0 forGUIDs:(id)a1;
+- (void)updateChatsSyncStatusTo:(long long)a0 forGUIDs:(id)a1;
+- (void)updateMessageSyndicationRanges:(id)a0 shouldHideFromSyndication:(BOOL)a1;
+- (void)updateMessagesSyncStatusTo:(long long)a0 forGUIDs:(id)a1;
+- (void)updateMessagesSyncedSyndicationRangesForGUIDs:(id)a0 toStatus:(long long)a1;
+- (void)updateRecoverableMessageSyncState:(long long)a0 forMessageGUIDs:(id)a1;
+- (void)updateRecoverableMessageSyncState:(long long)a0 forMessageRowID:(long long)a1 onPartIndex:(long long)a2;
+- (void)validateSpotlightClientStateWithCompletion:(id /* block */)a0;
+
+@end

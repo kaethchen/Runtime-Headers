@@ -1,0 +1,70 @@
+@class NSString, NSMutableDictionary;
+
+@interface AEScriptableEntity : NSObject
+
+@property (retain) NSString *name;
+@property (retain) NSString *bundleID;
+@property (retain) NSString *path;
+@property BOOL hasProcessedSDEF;
+@property (retain) NSMutableDictionary *classesForNames;
+@property (retain) NSMutableDictionary *classNamesForCodes;
+@property (retain) NSMutableDictionary *enumerationsForNames;
+@property (retain) NSMutableDictionary *commandDetailsForNames;
+@property (retain) NSMutableDictionary *typeDictionary;
+@property (retain) NSMutableDictionary *pluralDictionary;
+@property BOOL includeStandardAdditions;
+@property BOOL strictPropertyScope;
+@property BOOL strictCommandScope;
+@property BOOL strictParameterType;
+
+- (void).cxx_destruct;
+- (id)initWithPath:(id)a0;
+- (id)classNames;
+- (id)element:(id)a0;
+- (id)propertiesForClass:(id)a0;
+- (id)propertyNameForCode:(unsigned int)a0;
+- (id)property:(id)a0;
+- (id)parameterTypeForName:(id)a0 inCommand:(id)a1;
+- (void)processCommand:(id)a0;
+- (void)buildTypeDictionary:(id)a0;
+- (unsigned int)classCodeForName:(id)a0;
+- (id)classNameForCode:(unsigned int)a0;
+- (id)commandDetailsAndNames;
+- (id)commandDetailsForEventClass:(unsigned int)a0 andEventID:(unsigned int)a1;
+- (id)commandDetailsForName:(id)a0;
+- (id)commandNames;
+- (id)contentsInClass:(id)a0;
+- (id)element:(id)a0 inClass:(id)a1;
+- (id)elementNameForCode:(unsigned int)a0;
+- (id)elementNameForCode:(unsigned int)a0 inClass:(id)a1;
+- (id)elementsForClass:(id)a0;
+- (id)emptyAppleEventWithEventClass:(unsigned int)a0 eventID:(unsigned int)a1;
+- (id)enumerationForCode:(unsigned int)a0;
+- (unsigned int)enumeratorCodeForName:(id)a0;
+- (id)enumeratorNameForCode:(unsigned int)a0;
+- (id)enumeratorsForEnumeration:(id)a0;
+- (void)getAndProcessSDEFIfNeeded;
+- (BOOL)handlerIsStandardAddition:(id)a0;
+- (id)inheritsForClassName:(id)a0;
+- (id)initCurrentApplication;
+- (id)initRemoteApplicationWithPath:(id)a0;
+- (BOOL)isRemoteApplication;
+- (id)parameterNamesForCommand:(id)a0;
+- (id)pluralNameForClass:(id)a0;
+- (void)processClass:(id)a0;
+- (void)processClassExtension:(id)a0;
+- (void)processEnumeration:(id)a0;
+- (void)processRecordType:(id)a0;
+- (void)processSdef:(id)a0;
+- (void)processValueType:(id)a0;
+- (id)property:(id)a0 inClass:(id)a1;
+- (id)propertyNameForCode:(unsigned int)a0 inClass:(id)a1;
+- (id)respondsToForClass:(id)a0;
+- (id)sendAppleEvent:(id)a0 modifiers:(id)a1 withContext:(id)a2 waitForReply:(BOOL)a3 error:(id *)a4;
+- (id)sendAppleEvent:(id)a0 timeout:(long long)a1 withContext:(id)a2 waitForReply:(BOOL)a3 error:(id *)a4;
+- (id)sendAppleEvent:(id)a0 withContext:(id)a1 waitForReply:(BOOL)a2 error:(id *)a3;
+- (void)setupInstanceVariables;
+- (unsigned int)typeCodeForName:(id)a0;
+- (id)typeNameForCode:(unsigned int)a0;
+
+@end

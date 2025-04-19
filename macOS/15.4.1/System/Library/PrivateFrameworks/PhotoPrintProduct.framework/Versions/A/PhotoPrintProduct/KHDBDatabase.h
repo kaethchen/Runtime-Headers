@@ -1,0 +1,96 @@
+@class NSString, KHDBAdminDataEntity, KHDBLockedDictionary, KHDBDispatchQueue, NSMutableArray, NSObject;
+@protocol OS_dispatch_queue;
+
+@interface KHDBDatabase : NSObject {
+    int m_spinlock;
+    NSString *m_uuid;
+    NSString *m_databaseDirectoryPath;
+    KHDBLockedDictionary *m_entitiesByClass;
+    KHDBLockedDictionary *m_entitiesByTable;
+    KHDBLockedDictionary *m_databaseMgrsByName;
+    KHDBLockedDictionary *m_databaseMgrsByTableName;
+    NSMutableArray *m_reservations;
+    KHDBDispatchQueue *m_backgroundActionQueue;
+    NSObject<OS_dispatch_queue> *m_commitQueue;
+}
+
+@property (nonatomic) BOOL isOpen;
+@property (nonatomic) unsigned int openState;
+@property (readonly, nonatomic) BOOL readOnly;
+@property (nonatomic) BOOL isVault;
+@property (nonatomic) BOOL useSetForColumnMethod;
+@property (nonatomic) long long schemaMajorVersion;
+@property (nonatomic) long long schemaMinorVersion;
+@property (retain, nonatomic) KHDBAdminDataEntity *adminDataEntity;
+@property (nonatomic) BOOL useOverreleaseChecking;
+
++ (void)initialize;
++ (unsigned long long)entityCount;
++ (id)defaultDatabase;
++ (void)setDefaultDatabase:(id)a0;
++ (id)entityForClass:(Class)a0;
++ (id)entityForTable:(id)a0;
++ (void)addEntity:(id)a0 forClass:(Class)a1;
++ (void)addEntity:(id)a0 forTable:(id)a1;
++ (id)databaseForUuid:(id)a0;
++ (id)defaultDatabaseForModelClass:(Class)a0;
++ (id)noDatabase;
++ (void)setDatabaseUuidLookup:(id)a0;
++ (void)setDefaultDatabase:(id)a0 forModelClass:(Class)a1 overwriteExisting:(BOOL)a2;
+
+- (void)dealloc;
+- (id)description;
+- (void)setUuid:(id)a0;
+- (id)uuid;
+- (void)commit;
+- (void)beginTransaction;
+- (BOOL)hasChanges;
+- (void)analyze;
+- (void)vacuum;
+- (void)closeDatabase;
+- (unsigned long long)entityCount;
+- (void)didSaveDatabase;
+- (id)initWithDatabasePath:(id)a0;
+- (id)databaseDirectoryPath;
+- (void)didOpenDatabase;
+- (id)entityForClass:(Class)a0;
+- (id)entityForTable:(id)a0;
+- (void)addBackgroundBlock:(id /* block */)a0;
+- (void)addBackgroundOperation:(id)a0;
+- (void)addDatabaseManager:(id)a0 forName:(id)a1;
+- (void)addEntity:(id)a0 forClass:(Class)a1;
+- (void)addEntity:(id)a0 forTable:(id)a1;
+- (void)assertMainThreadPriority:(id)a0;
+- (id)backgroundActionQueue;
+- (BOOL)checkForModelOverreleases;
+- (void)closeDatabaseForQuit:(BOOL)a0;
+- (void)commitAndBeginNewTransaction;
+- (BOOL)createSchemaIfMissing;
+- (id)databaseManagerForName:(id)a0;
+- (id)databaseManagerForTableName:(id)a0;
+- (void)flushCachedModels;
+- (id)initAsClosedDatabase;
+- (void)insertIntoRidList:(id)a0 fromDatabaseMgr:(id)a1 canceler:(id)a2 idsForQuery:(id)a3;
+- (void)insertIntoRidList:(id)a0 fromDatabaseMgr:(id)a1 canceler:(id)a2 idsForQuery:(id)a3 withArgs:(id)a4;
+- (void)insertIntoRidList:(id)a0 fromDatabaseMgr:(id)a1 idsForQuery:(id)a2;
+- (void)insertIntoRidList:(id)a0 fromDatabaseMgr:(id)a1 idsForQuery:(id)a2 withArgs:(id)a3;
+- (void)insertIntoRidList:(id)a0 fromDatabaseMgr:(id)a1 limitedTo:(id)a2 canceler:(id)a3 idsForQuery:(id)a4;
+- (void)insertIntoRidList:(id)a0 fromDatabaseMgr:(id)a1 limitedTo:(id)a2 canceler:(id)a3 idsForQuery:(id)a4 withArgs:(id)a5;
+- (void)invalidateNextModelIds;
+- (BOOL)openDatabaseWithOptions:(unsigned int)a0;
+- (void)processShortDelayTasks;
+- (void)rebuildIndexes;
+- (void)recomputeNextModelIds;
+- (void)recomputeNextModelIds:(id /* block */)a0;
+- (void)recomputeNextModelIdsForEntity:(id)a0 withProgressBlock:(id /* block */)a1;
+- (void)repairIndexes;
+- (void)saveDatabase;
+- (void)saveNextModelIds;
+- (void)setBackgroundWritingEnabled:(BOOL)a0;
+- (void)setDatabaseManager:(id)a0 forTableName:(id)a1;
+- (void)setLockingModeToExclusive:(BOOL)a0;
+- (void)setSynchronicity:(long long)a0;
+- (void)waitForOutstandingWrites;
+- (void)willSaveDatabase;
+
+@end

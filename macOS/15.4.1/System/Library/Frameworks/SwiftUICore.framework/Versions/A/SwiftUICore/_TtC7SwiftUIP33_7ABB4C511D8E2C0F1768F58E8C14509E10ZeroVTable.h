@@ -1,0 +1,3 @@
+@interface _TtC7SwiftUIP33_7ABB4C511D8E2C0F1768F58E8C14509E10ZeroVTable : SwiftUI._AnyAnimatableDataVTable
+
+@end

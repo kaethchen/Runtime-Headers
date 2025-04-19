@@ -1,0 +1,3 @@
+@interface CNUIDeprecatedIKImageBrowserView : IKImageBrowserView
+
+@end

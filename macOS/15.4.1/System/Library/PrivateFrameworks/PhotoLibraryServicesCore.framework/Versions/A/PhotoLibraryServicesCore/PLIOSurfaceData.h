@@ -1,0 +1,3 @@
+@interface PLIOSurfaceData : NSData
+
+@end

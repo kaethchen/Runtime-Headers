@@ -1,0 +1,3 @@
+@interface EWSSmartResponseBaseType : EWSResponseObjectType
+
+@end

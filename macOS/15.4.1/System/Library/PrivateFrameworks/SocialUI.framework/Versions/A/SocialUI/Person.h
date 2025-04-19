@@ -1,0 +1,3 @@
+@interface Person : Presentity
+
+@end

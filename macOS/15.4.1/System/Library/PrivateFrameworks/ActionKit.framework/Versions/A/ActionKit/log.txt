@@ -1,0 +1,1 @@
+Assertion failed: (platformBinary), function +[WFActionKitStaticInitializer load], file ActionKit.m, line 49.

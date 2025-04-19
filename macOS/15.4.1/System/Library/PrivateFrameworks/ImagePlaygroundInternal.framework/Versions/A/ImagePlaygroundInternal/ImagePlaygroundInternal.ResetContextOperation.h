@@ -1,0 +1,8 @@
+@interface ImagePlaygroundInternal.ResetContextOperation : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ actionItem;
+    void /* unknown type, empty encoding */ undoActionItem;
+    void /* unknown type, empty encoding */ undoRecipe;
+    void /* unknown type, empty encoding */ supportsUndoing;
+}
+
+@end

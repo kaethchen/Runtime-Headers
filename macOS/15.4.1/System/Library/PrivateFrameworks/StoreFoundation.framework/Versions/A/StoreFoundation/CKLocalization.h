@@ -1,0 +1,3 @@
+@interface CKLocalization : NSObject
+
+@end

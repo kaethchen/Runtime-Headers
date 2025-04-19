@@ -1,0 +1,3 @@
+@interface _TtCC21GenerativeExperiences20SysdiagnoseXPCClientP33_E0BCE70616751BE34AAD37A852A8CE768Delegate : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface EWSNoEndRecurrenceRangeType : EWSRecurrenceRangeBaseType
+
+@end

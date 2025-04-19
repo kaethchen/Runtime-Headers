@@ -1,0 +1,85 @@
+@class NSURL, NSMutableDictionary, OSLogEventSource, NSDate, OSLogEventStreamPosition, NSDictionary, NSObject, NSTimeZone, CSKLoadRange, CSKStreamArchiveStatistics, NSMutableArray, OSLogEventStore, NSString, OSLogEventStream, CSKDatabaseHandle, NSArray;
+@protocol OS_dispatch_queue, OS_dispatch_group;
+
+@interface CSKStreamSQLSource : CSKStreamSource <CSKStreamSourceTiming> {
+    NSObject<OS_dispatch_queue> *_sql_dispatchQueue;
+    NSObject<OS_dispatch_queue> *_osLogFetch_dispatchQueue;
+    NSObject<OS_dispatch_queue> *_store_dispatchQueue;
+    NSObject<OS_dispatch_group> *_group;
+    struct sqlite3_stmt { } *_insertMessageStament_Cache;
+    struct sqlite3_stmt { } *_insertActivityStament_Cache;
+    struct sqlite3_stmt { } *_insertChildrenActivityStament_Cache;
+    struct sqlite3_stmt { } *_insertProcessStament_Cache;
+    struct sqlite3_stmt { } *_insertLibraryStament_Cache;
+    struct sqlite3_stmt { } *_insertTitleStament_Cache;
+    struct sqlite3_stmt { } *_insertCategoryStament_Cache;
+    NSMutableDictionary *_pidSet;
+    NSMutableDictionary *_libraryIDSet;
+    NSMutableDictionary *_titleIDSet;
+    NSMutableDictionary *_categoryIDSet;
+    NSString *_tzName;
+    BOOL _skipUIUpdatesForEvents;
+}
+
+@property (retain, nonatomic) NSTimeZone *streamStartTimeZone;
+@property (retain, nonatomic) NSTimeZone *streamEndTimeZone;
+@property (retain, nonatomic) NSTimeZone *streamTimeZone;
+@property (retain, nonatomic) NSDate *streamStartDate;
+@property (retain, nonatomic) NSDate *streamEndDate;
+@property (nonatomic) BOOL wantsToStop;
+@property (retain, nonatomic) NSDate *startDate;
+@property (retain, nonatomic) NSDate *endDate;
+@property (retain, nonatomic) NSDate *previousEndDate;
+@property (retain, nonatomic) OSLogEventStreamPosition *previousStreamPosition;
+@property (nonatomic) unsigned long long previousTotal;
+@property (nonatomic) double timeChunk;
+@property (nonatomic) BOOL useBigTimeChunk;
+@property (retain, nonatomic) NSMutableArray *orderedEvents;
+@property (retain, nonatomic) CSKStreamArchiveStatistics *processStatistics;
+@property (retain, nonatomic) OSLogEventStore *eventStore;
+@property (retain, nonatomic) OSLogEventSource *eventSource;
+@property (retain, nonatomic) OSLogEventStream *stream;
+@property (retain, nonatomic) OSLogEventStreamPosition *position;
+@property (retain, nonatomic) CSKDatabaseHandle *logArchive_DB;
+@property (retain, nonatomic) CSKLoadRange *previousLoadRange;
+@property (readonly, nonatomic) CSKDatabaseHandle *messagesReadonlyDBHandle;
+@property (readonly, nonatomic) CSKDatabaseHandle *searchMessagesDBHandle;
+@property (readonly, nonatomic) CSKDatabaseHandle *activitiesReadonlyDBHandle;
+@property (readonly, nonatomic) CSKDatabaseHandle *searchActivitiesDBHandle;
+@property (readonly, nonatomic) CSKDatabaseHandle *sortDBHandle;
+@property (readonly, nonatomic) NSURL *archiveURL;
+@property (readonly, nonatomic) NSMutableDictionary *streamTimeZones;
+@property (nonatomic) BOOL ignoresStatistics;
+@property (retain, nonatomic) NSDictionary *loadInfo;
+@property (copy) CSKLoadRange *loadRange;
+@property (copy) CSKLoadRange *maxLoadRange;
+@property (copy) CSKLoadRange *currentLoadRange;
+@property (readonly) NSArray *availableLoadRanges;
+@property unsigned long long loadingStatus;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)resume;
+- (void)finish;
+- (void)stop;
+- (id)initWithArchiveURL:(id)a0;
+- (void)_startEventStreamWithLoadRange:(id)a0;
+- (BOOL)_canReadLogsInReverse;
+- (void)_createDatabaseForArchiveURL:(id)a0 inMemory:(BOOL)a1 backgroundCopy:(BOOL)a2;
+- (id)_cskEventFromLogEventProxy:(id)a0;
+- (id)_rangeToLoadFromCustomRange:(id)a0;
+- (void)_resetAllCachedObjects;
+- (void)_updateDBWithStreamEvents:(id)a0 withCompletionHandler:(id /* block */)a1;
+- (void)_updateEndDateAndTimezone;
+- (void)_updateStartDateAndTimezone;
+- (id)initWithArchiveURL:(id)a0 loadInfo:(id)a1;
+- (id)initWithArchiveURL:(id)a0 loadInfo:(id)a1 inMemory:(BOOL)a2 backgroundCopy:(BOOL)a3;
+- (void)loadMoreWithCompletionHandler:(id /* block */)a0;
+- (id)loadRangeValue;
+
+@end

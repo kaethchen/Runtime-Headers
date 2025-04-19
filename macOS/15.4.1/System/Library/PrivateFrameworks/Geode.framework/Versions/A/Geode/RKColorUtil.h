@@ -1,0 +1,75 @@
+@interface RKColorUtil : NSObject {
+    double m_gamma;
+    double m_one_div_gamma;
+    double m_xr;
+    double m_yr;
+    double m_zr;
+    double m_xg;
+    double m_yg;
+    double m_zg;
+    double m_xb;
+    double m_yb;
+    double m_zb;
+    double m_xw;
+    double m_yw;
+    double m_zw;
+    double m_Xr;
+    double m_Yr;
+    double m_Zr;
+    double m_Xg;
+    double m_Yg;
+    double m_Zg;
+    double m_Xb;
+    double m_Yb;
+    double m_Zb;
+    double m_Xw;
+    double m_Yw;
+    double m_Zw;
+    struct Mat3f { struct Vec3f { float x0[3]; } x0[3]; } *m_M;
+    struct Mat3f { struct Vec3f { float x0[3]; } x0[3]; } *m_invM;
+    double[64][64] *m_maxSatArray;
+}
+
++ (void)initialize;
++ (void)computeChromacitiesParam_xr:(double)a0 yr:(double)a1 xg:(double)a2 yg:(double)a3 xb:(double)a4 yb:(double)a5 xw:(double)a6 yw:(double)a7 Xw:(double *)a8 Yw:(double *)a9 Zw:(double *)a10 M:(struct Mat3f { struct Vec3f { float x0[3]; } x0[3]; } *)a11;
+
+- (void)dealloc;
+- (double)Lab2Hue:(const struct Vec3f { float x0[3]; } *)a0;
+- (double)RGB2Hue:(const struct Vec3f { float x0[3]; } *)a0;
+- (double)IPT2Hue:(const struct Vec3f { float x0[3]; } *)a0;
+- (double)XYZ2Hue:(const struct Vec3f { float x0[3]; } *)a0;
+- (void)convertHue:(double)a0 andSat:(double)a1 toCx:(double *)a2 andCy:(double *)a3;
+- (void)convertIPT:(const struct Vec3f { float x0[3]; } *)a0 toLHS:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertIPT:(const struct Vec3f { float x0[3]; } *)a0 toRGB:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertIPT:(const struct Vec3f { float x0[3]; } *)a0 toXYZ:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertIPT:(const struct Vec3f { float x0[3]; } *)a0 torgb:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertLHS:(const struct Vec3f { float x0[3]; } *)a0 toIPT:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertLHS:(const struct Vec3f { float x0[3]; } *)a0 toLab:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertLHS:(const struct Vec3f { float x0[3]; } *)a0 toRGB:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertLHS:(const struct Vec3f { float x0[3]; } *)a0 toYCbCr:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertLHS:(const struct Vec3f { float x0[3]; } *)a0 torgb:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertLab:(const struct Vec3f { float x0[3]; } *)a0 toLHS:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertLab:(const struct Vec3f { float x0[3]; } *)a0 toRGB:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertLab:(const struct Vec3f { float x0[3]; } *)a0 toXYZ:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertLab:(const struct Vec3f { float x0[3]; } *)a0 torgb:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertRGB:(const struct Vec3f { float x0[3]; } *)a0 toIPT:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertRGB:(const struct Vec3f { float x0[3]; } *)a0 toLHS:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertRGB:(const struct Vec3f { float x0[3]; } *)a0 toLab:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertRGB:(const struct Vec3f { float x0[3]; } *)a0 toXYZ:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertXYZ:(const struct Vec3f { float x0[3]; } *)a0 toIPT:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertXYZ:(const struct Vec3f { float x0[3]; } *)a0 toLab:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertXYZ:(const struct Vec3f { float x0[3]; } *)a0 toRGB:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertXYZ:(const struct Vec3f { float x0[3]; } *)a0 toYCbCr:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertXYZ:(const struct Vec3f { float x0[3]; } *)a0 torgb:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertYCbCr:(const struct Vec3f { float x0[3]; } *)a0 toLHS:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertYCbCr:(const struct Vec3f { float x0[3]; } *)a0 toXYZ:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertrgb:(const struct Vec3f { float x0[3]; } *)a0 toIPT:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertrgb:(const struct Vec3f { float x0[3]; } *)a0 toLHS:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertrgb:(const struct Vec3f { float x0[3]; } *)a0 toLab:(struct Vec3f { float x0[3]; } *)a1;
+- (void)convertrgb:(const struct Vec3f { float x0[3]; } *)a0 toXYZ:(struct Vec3f { float x0[3]; } *)a1;
+- (id)initAdobeRGB;
+- (id)initGenericRGB;
+- (double)rgb2Hue:(const struct Vec3f { float x0[3]; } *)a0;
+- (void)saturationRenderingIntent:(struct Vec3f { float x0[3]; } *)a0;
+
+@end

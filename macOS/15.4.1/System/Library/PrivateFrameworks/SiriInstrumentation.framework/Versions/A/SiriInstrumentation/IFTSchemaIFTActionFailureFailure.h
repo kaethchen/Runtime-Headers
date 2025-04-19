@@ -1,0 +1,73 @@
+@class NSData, IFTSchemaIFTActionFailureDeveloperDefinedError;
+
+@interface IFTSchemaIFTActionFailureFailure : SISchemaInstrumentationMessage
+
+@property (nonatomic) BOOL preflightCheckFailure;
+@property (nonatomic) BOOL hasPreflightCheckFailure;
+@property (nonatomic) BOOL preciseLocationDisabled;
+@property (nonatomic) BOOL hasPreciseLocationDisabled;
+@property (nonatomic) BOOL locationDisabled;
+@property (nonatomic) BOOL hasLocationDisabled;
+@property (nonatomic) BOOL wifiDisabled;
+@property (nonatomic) BOOL hasWifiDisabled;
+@property (nonatomic) BOOL bluetoothDisabled;
+@property (nonatomic) BOOL hasBluetoothDisabled;
+@property (nonatomic) BOOL networkFailure;
+@property (nonatomic) BOOL hasNetworkFailure;
+@property (nonatomic) BOOL partialFailure;
+@property (nonatomic) BOOL hasPartialFailure;
+@property (nonatomic) BOOL unsupportedOnDevice;
+@property (nonatomic) BOOL hasUnsupportedOnDevice;
+@property (nonatomic) BOOL featureCurrentlyRestricted;
+@property (nonatomic) BOOL hasFeatureCurrentlyRestricted;
+@property (nonatomic) BOOL entityNotFound;
+@property (nonatomic) BOOL hasEntityNotFound;
+@property (nonatomic) BOOL actionNotAllowed;
+@property (nonatomic) BOOL hasActionNotAllowed;
+@property (nonatomic) BOOL unableToUndo;
+@property (nonatomic) BOOL hasUnableToUndo;
+@property (nonatomic) BOOL actionCanceled;
+@property (nonatomic) BOOL hasActionCanceled;
+@property (nonatomic) BOOL valueDisambiguationRejected;
+@property (nonatomic) BOOL hasValueDisambiguationRejected;
+@property (nonatomic) BOOL noMatchingTool;
+@property (nonatomic) BOOL hasNoMatchingTool;
+@property (nonatomic) BOOL developerDefinedError;
+@property (nonatomic) BOOL hasDeveloperDefinedError;
+@property (retain, nonatomic) IFTSchemaIFTActionFailureDeveloperDefinedError *actionFailureDeveloperDefinedError;
+@property (nonatomic) BOOL hasActionFailureDeveloperDefinedError;
+@property (nonatomic) BOOL unableToCancel;
+@property (nonatomic) BOOL hasUnableToCancel;
+@property (readonly, nonatomic) NSData *jsonData;
+@property (readonly, nonatomic) unsigned long long whichOneof_Actionfailurefailure;
+
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0;
+- (id)dictionaryRepresentation;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)initWithJSON:(id)a0;
+- (id)applySensitiveConditionsPolicy:(id)a0;
+- (void)deleteActionCanceled;
+- (void)deleteActionFailureDeveloperDefinedError;
+- (void)deleteActionNotAllowed;
+- (void)deleteBluetoothDisabled;
+- (void)deleteDeveloperDefinedError;
+- (void)deleteEntityNotFound;
+- (void)deleteFeatureCurrentlyRestricted;
+- (void)deleteLocationDisabled;
+- (void)deleteNetworkFailure;
+- (void)deleteNoMatchingTool;
+- (void)deletePartialFailure;
+- (void)deletePreciseLocationDisabled;
+- (void)deletePreflightCheckFailure;
+- (void)deleteUnableToCancel;
+- (void)deleteUnableToUndo;
+- (void)deleteUnsupportedOnDevice;
+- (void)deleteValueDisambiguationRejected;
+- (void)deleteWifiDisabled;
+- (id)suppressMessageUnderConditions;
+
+@end

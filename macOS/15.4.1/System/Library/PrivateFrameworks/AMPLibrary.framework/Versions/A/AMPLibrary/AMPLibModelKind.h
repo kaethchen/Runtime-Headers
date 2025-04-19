@@ -1,0 +1,3 @@
+@interface AMPLibModelKind : NSObject
+
+@end

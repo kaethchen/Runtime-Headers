@@ -1,0 +1,3 @@
+@interface RSValidation : NSObject
+
+@end

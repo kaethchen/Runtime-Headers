@@ -1,0 +1,80 @@
+@class NSLock, NSMutableDictionary, NSMutableArray;
+
+@interface MPEffectManager : NSObject {
+    NSMutableDictionary *mEffects;
+    NSMutableDictionary *mCategories;
+    NSMutableDictionary *mCachedAspectRatios;
+    NSMutableDictionary *mCachedBreakInfo;
+    NSLock *mLock;
+    NSMutableArray *mRegisteredFonts;
+}
+
++ (void)initialize;
++ (id)sharedManager;
++ (void)loadEffectManagerWithPaths:(id)a0;
++ (void)releaseSharedManager;
+
+- (void)dealloc;
+- (id)initWithPaths:(id)a0;
+- (double)defaultFullDurationForEffectID:(id)a0;
+- (id)localizedEffectNameForEffectID:(id)a0;
+- (double)defaultMainDurationForEffectID:(id)a0;
+- (double)panoramaScaleOffsetForEffectID:(id)a0;
+- (void)_loadFontsFromPath:(id)a0 requiredFonts:(id)a1;
+- (id)allCategoryIDs;
+- (id)allEffectIDs;
+- (BOOL)allowTextCustomizationForEffectID:(id)a0 presetID:(id)a1 forTextAtIndex:(long long)a2;
+- (id)aspectRatioForEffectID:(id)a0;
+- (id)attributesForEffectID:(id)a0 andPresetID:(id)a1;
+- (id)categoryIDsForEffectID:(id)a0;
+- (id)controlForAttribute:(id)a0 forEffectID:(id)a1;
+- (void)defaultDurationsForEffectID:(id)a0 phaseInDuration:(double *)a1 mainDuration:(double *)a2 phaseOutDuration:(double *)a3;
+- (double)defaultPhaseInDurationForEffectID:(id)a0;
+- (double)defaultPhaseOutDurationForEffectID:(id)a0;
+- (double)defaultPosterFrameTimeForEffect:(id)a0;
+- (double)defaultPosterFrameTimeForEffectID:(id)a0 andPresetID:(id)a1;
+- (id)defaultStringForTextInEffectID:(id)a0 presetID:(id)a1 atIndex:(long long)a2;
+- (id)defaultStringForTextInEffectID:(id)a0 presetID:(id)a1 atIndex:(long long)a2 needsNSConversion:(BOOL)a3;
+- (id)descriptionForEffectID:(id)a0;
+- (double)durationPaddingForEffectID:(id)a0;
+- (BOOL)effectDoesAccumulate:(id)a0;
+- (id)effectIDsForCategoryID:(id)a0;
+- (BOOL)effectNeedsPanoInformation:(id)a0;
+- (BOOL)effectNeedsRandomSeedInformation:(id)a0;
+- (id)effectsWithNumOfImages:(unsigned long long)a0;
+- (id)imageInputInfoForEffectID:(id)a0;
+- (id)imageResourceForEffectID:(id)a0 withFileName:(id)a1;
+- (id)localizedCategoryNameFromCategoryID:(id)a0;
+- (id)localizedFontsForEffectID:(id)a0;
+- (id)localizedSettingsUITitleForTitleKey:(id)a0 inEffect:(id)a1;
+- (id)localizedString:(id)a0 forEffectID:(id)a1;
+- (double)maxFontSizeInEffectID:(id)a0 presetID:(id)a1 atIndex:(long long)a2;
+- (unsigned long long)maxNumOfImagesPerEffectInList:(id)a0;
+- (double)mediaAspectRatioForEffectID:(id)a0 usingAttributes:(id)a1 atIndex:(long long)a2 defaultAspectRatio:(double)a3;
+- (double)mediaAspectRatioForEffectID:(id)a0 usingAttributes:(id)a1 atIndex:(long long)a2 defaultAspectRatio:(double)a3 imageAspectRatio:(double)a4;
+- (double)mediaAspectRatioForEffectID:(id)a0 usingPresetID:(id)a1 atIndex:(long long)a2;
+- (double)mediaAspectRatioForEffectID:(id)a0 usingPresetID:(id)a1 atIndex:(long long)a2 defaultAspectRatio:(double)a3;
+- (double)mediaAspectRatioHintForEffectID:(id)a0 usingAttributes:(id)a1 atIndex:(long long)a2 defaultAspectRatio:(double)a3;
+- (id)mediaAspectRatioHintsForEffectID:(id)a0 usingPresetID:(id)a1 defaultAspectRatio:(double)a2;
+- (id)mediaAspectRatiosForEffectID:(id)a0 usingPresetID:(id)a1;
+- (id)mediaAspectRatiosForEffectID:(id)a0 usingPresetID:(id)a1 defaultAspectRatio:(double)a2;
+- (unsigned long long)minNumOfImagesPerEffectInList:(id)a0;
+- (double)minimumEffectDurationForEffectID:(id)a0;
+- (unsigned long long)numOfImagesForEffectID:(id)a0;
+- (unsigned long long)numOfImagesForEffectPresetID:(id)a0;
+- (unsigned long long)numOfTextsForEffectID:(id)a0;
+- (long long)numberOfSecondarySlidesForEffectID:(id)a0;
+- (long long)numberOfSlidesForEffectID:(id)a0;
+- (id)orientationForEffectID:(id)a0;
+- (long long)panoTypeForSlideAtIndex:(long long)a0 inEffect:(id)a1 forPresetID:(id)a2;
+- (BOOL)posterTimeIsStaticForEffectID:(id)a0 andPresetID:(id)a1;
+- (id)presetIDsForEffectID:(id)a0;
+- (id)settingsUIControlDescriptionsForEffect:(id)a0;
+- (id)showTimeScriptForEffectID:(id)a0 atSlideIndex:(long long)a1;
+- (id)sizeScriptForEffectID:(id)a0 atIndex:(long long)a1;
+- (BOOL)skipPanoramaScaleForEffectID:(id)a0;
+- (id)thumbnailForEffectID:(id)a0;
+- (BOOL)useUppercaseForEffectID:(id)a0 presetID:(id)a1 forTextAtIndex:(long long)a2;
+- (id)versionOfEffectID:(id)a0;
+
+@end

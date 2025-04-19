@@ -1,0 +1,3 @@
+@interface APOdmlStoreServerPolicy : NSXPCStoreServerRequestHandlingPolicy
+
+@end

@@ -1,0 +1,3 @@
+@interface EWSBaseEmailAddressType : NSObject
+
+@end

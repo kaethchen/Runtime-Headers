@@ -1,0 +1,3 @@
+@interface PDFAnnotationPopupPrivateVars : NSObject
+
+@end

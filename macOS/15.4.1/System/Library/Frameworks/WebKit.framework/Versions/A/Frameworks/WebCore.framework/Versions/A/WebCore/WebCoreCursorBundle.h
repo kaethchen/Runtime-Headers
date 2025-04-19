@@ -1,0 +1,3 @@
+@interface WebCoreCursorBundle : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface PKFinishCovering : PKCollectionSpecialization
+
+@end

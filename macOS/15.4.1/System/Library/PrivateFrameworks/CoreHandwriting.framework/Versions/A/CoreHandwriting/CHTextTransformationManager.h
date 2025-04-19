@@ -1,0 +1,92 @@
+@class NSArray, NSSet, CHTransformationParameters, CHStrokeGroupingResult, CHStrokeClassificationResult, NSMutableArray;
+@protocol CHStrokeProvider;
+
+@interface CHTextTransformationManager : NSObject {
+    BOOL _shouldExtractFromRefinablePath;
+}
+
+@property (retain) NSArray *contextStrokes;
+@property (retain) CHTransformationParameters *transformationParameters;
+@property (retain) NSArray *contextResults;
+@property (retain) NSSet *excludedStrokeTypes;
+@property (retain) id<CHStrokeProvider> strokeProvider;
+@property (retain) CHStrokeGroupingResult *strokeGroupingResult;
+@property (retain) CHStrokeClassificationResult *strokeClassificationResult;
+@property (retain) NSMutableArray *correctionAngles;
+@property (retain) NSArray *relatedNonTextStrokes;
+@property (nonatomic) BOOL usingInsertionPoint;
+@property (retain) NSArray *initialStrokes;
+
++ (id)drawingForTransformedTextLines:(id)a0;
++ (struct PrincipalLines { struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x0; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x1; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x2; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x3; })fixPrincipalLinesPosition:(id)a0 useAltString:(BOOL)a1 skipAmbiguousCharacters:(BOOL)a2;
++ (id)stringForRendering:(id)a0 useAltChars:(BOOL)a1;
++ (id)_nontextGroupStrokes:(id)a0 remainingStrokes:(id)a1 strokeProvider:(id)a2;
++ (id)adjustLeadingForReflowableLines:(id)a0;
++ (void)adjustLineSpacingWithBaselines:(id)a0 lineSpace:(unsigned long long)a1;
++ (void)adjustLineSpacingWithBounds:(id)a0 lineSpace:(unsigned long long)a1;
++ (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })adjustTransformForAnchorPoint:(struct CGPoint { double x0; double x1; })a0 transform:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a1;
++ (void)applyAlignmentToTextLines:(id)a0 alignmentBehavior:(unsigned long long)a1 leftMargin:(unsigned long long)a2 rightMargin:(unsigned long long)a3 alignFirstLine:(BOOL)a4;
++ (void)applyLineSpacingToTextLines:(id)a0 lineSpaceBehavior:(unsigned long long)a1 lineSpaceTarget:(unsigned long long)a2 linesAreParallel:(BOOL)a3;
++ (id)applyMergeToTextLines:(id)a0 alignmentBehavior:(unsigned long long)a1 leftMargin:(unsigned long long)a2 rightMargin:(unsigned long long)a3 insertionPoint:(struct CGPoint { double x0; double x1; })a4;
++ (void)applyOrientationToTextLines:(id)a0 orientationBehavior:(unsigned long long)a1 orientationTarget:(double)a2;
++ (void)applyResizeToTextLines:(id)a0 resizeBehavior:(unsigned long long)a1 resizeTarget:(unsigned long long)a2 resizeModifier:(double)a3;
++ (id)applyWrapToTextLines:(id)a0 lineSpaceBehavior:(unsigned long long)a1 alignmentBehavior:(unsigned long long)a2 leftMargin:(unsigned long long)a3 rightMargin:(unsigned long long)a4 insertionPoint:(struct CGPoint { double x0; double x1; })a5;
++ (double)blindAscenderDeformValue:(id)a0;
++ (double)blindDescenderDeformValue:(id)a0;
++ (id)changeTokensToVisualOrder:(id)a0;
++ (id)charactersForRendering;
++ (id)checkAvailableInterceptsForString:(id)a0 skipAmbiguousCharacters:(BOOL)a1;
++ (struct PrincipalLines { struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x0; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x1; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x2; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x3; })convertFromCHPrincipalLines:(struct { struct { struct CGPoint { double x0; double x1; } x0; struct CGPoint { double x0; double x1; } x1; } x0; struct { struct CGPoint { double x0; double x1; } x0; struct CGPoint { double x0; double x1; } x1; } x1; struct { struct CGPoint { double x0; double x1; } x0; struct CGPoint { double x0; double x1; } x1; } x2; struct { struct CGPoint { double x0; double x1; } x0; struct CGPoint { double x0; double x1; } x1; } x3; })a0;
++ (struct { struct { struct CGPoint { double x0; double x1; } x0; struct CGPoint { double x0; double x1; } x1; } x0; struct { struct CGPoint { double x0; double x1; } x0; struct CGPoint { double x0; double x1; } x1; } x1; struct { struct CGPoint { double x0; double x1; } x0; struct CGPoint { double x0; double x1; } x1; } x2; struct { struct CGPoint { double x0; double x1; } x0; struct CGPoint { double x0; double x1; } x1; } x3; })convertToCHPrincipalLines:(const void *)a0;
++ (double)estimatedLeadingForPrincipalLines:(const void *)a0 transcription:(id)a1;
++ (struct CGSize { double x0; double x1; })estimatedRenderedTextSize:(id)a0 fullDeformValue:(double)a1 ascenderDeformValue:(double)a2 descenderDeformValue:(double)a3;
++ (struct PrincipalLines { struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x0; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x1; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x2; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x3; })fixPrincipalLinesOrientation:(id)a0 useAltString:(BOOL)a1 skipAmbiguousCharacters:(BOOL)a2;
++ (struct PrincipalLines { struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x0; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x1; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x2; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x3; })flipPrincipalLine:(struct PrincipalLines { struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x0; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x1; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x2; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x3; })a0 points:(const void *)a1 string:(id)a2 outWasFlipped:(BOOL *)a3;
++ (void)getDeformValuesForTextLine:(id)a0 useAltString:(BOOL)a1 outfullDeform:(double *)a2 outAscenderDeform:(double *)a3 outDescenderDeform:(double *)a4;
++ (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })getInsertSpaceTransform:(id)a0 spaceSize:(double)a1;
++ (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })getItalicsTransformForTextLine:(id)a0 skew:(double)a1;
++ (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })getResizeTransformForTextLine:(id)a0 targetSize:(double)a1;
++ (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })getTranslateTransformForAnchorPoint:(struct CGPoint { double x0; double x1; })a0 targetPoint:(struct CGPoint { double x0; double x1; })a1;
++ (id)principalLineInterceptsForString:(id)a0 skipAmbiguousCharacters:(BOOL)a1 strokes:(id)a2 strokePoints:(const void *)a3 orientation:(double)a4 medianFallbackThreshold:(double)a5;
++ (id)principalLinePointsForString:(id)a0 skipAmbiguousCharacters:(BOOL)a1 strokes:(id)a2 strokePoints:(const void *)a3 orientation:(double)a4 medianFallbackThreshold:(double)a5;
++ (double)principalLinesFitScore:(const void *)a0 points:(const void *)a1 transcription:(id)a2;
++ (struct PrincipalLines { struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x0; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x1; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x2; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x3; })principalLinesForPoints:(const void *)a0 writtenAlphaShape:(const void *)a1 imgPointsAndPrincipalLines:(const void *)a2 shouldCancel:(id /* block */)a3;
++ (struct PrincipalLines { struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x0; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x1; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x2; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x3; })principalLinesFromToken:(id)a0 strokes:(id)a1;
++ (struct PrincipalLines { struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x0; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x1; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x2; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x3; })principalLinesFromTokens:(id)a0 strokes:(id)a1 strokePoints:(const void *)a2 orientation:(double)a3 useAltString:(BOOL)a4;
++ (struct PrincipalLines { struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x0; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x1; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x2; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x3; })refinedPrincipalLinesForTextLine:(id)a0 points:(const void *)a1 alphaShape:(const void *)a2 renderedTextPointsAndLines:(struct PointsAndPrincipalLines { struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x0; struct PrincipalLines { struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x0; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x1; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x2; struct vector<CGPoint, std::allocator<CGPoint>> { struct CGPoint *x0; struct CGPoint *x1; struct __compressed_pair<CGPoint *, std::allocator<CGPoint>> { struct CGPoint *x0; } x2; } x3; } x1; })a3 useAltString:(BOOL)a4 shouldCancel:(id /* block */)a5;
++ (id)reflowableTextLinesFromTransformedTextLines:(id)a0 mergeUnacceptableLines:(BOOL)a1 progress:(id)a2;
++ (id)reflowableTextTokensFromTransformedTextLines:(id)a0;
++ (id)reflowableTokensFromSynthesisResult:(id)a0 shouldCancel:(id /* block */)a1;
++ (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })rotationTransformForTextLine:(id)a0 targetAngle:(double)a1;
++ (BOOL)shouldAdjustRenderString:(id)a0;
++ (BOOL)shouldDeformAscendersDescenders:(id)a0;
++ (id)splitTextLine:(id)a0 maxLength:(double)a1;
++ (id)textLineCandidate:(id)a0 tokens:(id)a1 locale:(id)a2 strokeClassification:(long long)a3 string:(id)a4 points:(const void *)a5 strokePoints:(const void *)a6 alphaShape:(const void *)a7 initialOrientationEstimate:(double)a8 useAltString:(BOOL)a9 outFitScore:(double *)a10 shouldCancel:(id /* block */)a11;
++ (double)textLineFitScore:(id)a0 useAltString:(BOOL)a1;
++ (id)textLineForDrawing:(id)a0 transcriptions:(id)a1 strokeIndexes:(id)a2 fullText:(id)a3 locale:(id)a4 strokeClassification:(long long)a5 shouldCancel:(id /* block */)a6;
++ (id)textLineForStrokes:(id)a0 tokens:(id)a1 locale:(id)a2 strokeClassification:(long long)a3 initialOrientationEstimate:(double)a4 shouldCancel:(id /* block */)a5;
++ (id)textLineForTokensWithPrincipalLines:(id)a0 strokes:(id)a1 locale:(id)a2 strokeClassification:(long long)a3;
++ (id)textLineFromCachedResults:(id)a0 tokens:(id)a1 strokes:(id)a2 estimatedOrientation:(double)a3 locale:(id)a4 strokeClassification:(long long)a5;
++ (id /* block */)textStrokePointTransformationFromAffineTransformation:(struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })a0;
++ (struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; })transformForInsertingToken:(id)a0 inLineWithTokens:(id)a1;
++ (void)transformTextLines:(id)a0 withParameters:(id)a1;
+
+- (void).cxx_destruct;
+- (id)_transformedTextLinesWithCancel:(id /* block */)a0 skipLineOrientationEstimate:(BOOL)a1 useCache:(BOOL)a2 progress:(id)a3;
+- (id)addNonTextSegmentsAndLines:(id)a0 remainingStrokes:(id)a1 outNonTextStrokes:(id *)a2;
+- (void)assignRemainingStrokes:(id)a0 toTextLines:(id)a1;
+- (id)createTelemetryDictionary:(double)a0 nonTextRatio:(double)a1;
+- (id)initWithContextStrokes:(id)a0 relatedNonTextStrokes:(id)a1 contextResults:(id)a2 strokeGroupingResult:(id)a3 strokeClassificationResult:(id)a4 strokeProvider:(id)a5 excludedStrokeTypes:(id)a6 extractFromRefinablePath:(BOOL)a7;
+- (id)initWithContextStrokes:(id)a0 relatedNonTextStrokes:(id)a1 parameters:(id)a2 contextResults:(id)a3 strokeGroupingResult:(id)a4 strokeClassificationResult:(id)a5 strokeProvider:(id)a6 excludedStrokeTypes:(id)a7 extractFromRefinablePath:(BOOL)a8;
+- (id)initWithContextStrokes:(id)a0 relatedNonTextStrokes:(id)a1 parameters:(id)a2 contextResults:(id)a3 strokeGroupingResult:(id)a4 strokeClassificationResult:(id)a5 strokeProvider:(id)a6 excludedStrokeTypes:(id)a7 extractFromRefinablePath:(BOOL)a8 initialStrokes:(id)a9;
+- (id)majorityScriptId;
+- (id)meanRotationCorrectionAngle;
+- (id)numCharacters;
+- (id)reflowableTextLinesWithProgress:(id)a0 mergeUnacceptableLines:(BOOL)a1 shouldCancel:(id /* block */)a2;
+- (id)reflowableTokensSkipLineOrientationEstimate:(BOOL)a0 useCache:(BOOL)a1 preserveTokenOrder:(BOOL)a2 shouldCancel:(id /* block */)a3;
+- (id)revertTokenOrder:(id)a0 textResult:(id)a1;
+- (id)tokenSupportRangesForNonTextStrokes;
+- (id)tokensAlignedWithInitialStrokesForTextResult:(id)a0;
+- (struct CHTextTransformationResult { id x0; id x1; id x2; })transformWithProgress:(id)a0 shouldCancel:(id /* block */)a1;
+
+@end

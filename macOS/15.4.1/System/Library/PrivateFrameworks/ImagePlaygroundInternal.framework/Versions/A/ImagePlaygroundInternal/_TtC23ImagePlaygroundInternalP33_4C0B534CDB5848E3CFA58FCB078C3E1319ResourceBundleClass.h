@@ -1,0 +1,3 @@
+@interface _TtC23ImagePlaygroundInternalP33_4C0B534CDB5848E3CFA58FCB078C3E1319ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

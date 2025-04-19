@@ -1,0 +1,3 @@
+@interface _TtC9WidgetKitP33_8B0BBCAFB83B55F7C3723771696C2C7028TestingNilDescriptorQuerying : _TtCs12_SwiftObject
+
+@end

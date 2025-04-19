@@ -1,0 +1,3 @@
+@interface SiriAnalytics.DeviceLockStateNotificationObserver : SiriAnalytics.DarwinNotificationObserver
+
+@end

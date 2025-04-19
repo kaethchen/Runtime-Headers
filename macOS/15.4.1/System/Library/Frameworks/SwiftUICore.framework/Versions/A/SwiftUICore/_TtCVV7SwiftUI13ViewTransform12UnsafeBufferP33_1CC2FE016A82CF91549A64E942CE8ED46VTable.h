@@ -1,0 +1,3 @@
+@interface _TtCVV7SwiftUI13ViewTransform12UnsafeBufferP33_1CC2FE016A82CF91549A64E942CE8ED46VTable : SwiftUI._UnsafeHeterogeneousBuffer_VTable
+
+@end

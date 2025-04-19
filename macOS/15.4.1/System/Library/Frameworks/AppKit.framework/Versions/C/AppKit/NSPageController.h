@@ -1,0 +1,91 @@
+@class NSMutableDictionary, NSString, NSView, NSViewController, NSArray, NSDictionary, NSMutableArray;
+@protocol NSPageControllerDelegate;
+
+@interface NSPageController : NSViewController <NSAnimatablePropertyContainer, NSCoding> {
+    id<NSPageControllerDelegate> _delegate;
+    long long _selectedIndex;
+    NSMutableArray *_arrangedObjects;
+    NSMutableArray *_snapshots;
+    struct __pcDelegateFlags { unsigned char delegateRespondsToIdentifierForRepresentedObject : 1; unsigned char delegateRespondsToViewControllerForIdentifier : 1; unsigned char delegateRespondsToFrameForRepresentedObject : 1; unsigned char delegateRespondsToPrepareView : 1; unsigned char delegateRespondsToDidTransition : 1; unsigned char delegateRespondsToWillLiveTransition : 1; unsigned char delegateRespondsToDidLiveTransition : 1; unsigned char delegateRespondsToReserved1 : 1; unsigned int reserved : 24; } _pcDelegateFlags;
+    struct __pcFlags { unsigned char templateCacheIsInvalid : 1; unsigned char private1 : 1; unsigned char private2 : 1; unsigned char inSwipeGesture : 1; unsigned int reserved : 28; } _pcFlags;
+    BOOL *_cancelAnimation;
+    NSMutableDictionary *_reuseQueue;
+    NSMutableDictionary *_templateCache;
+    NSView *_transitionView;
+    id _animator;
+    NSDictionary *_animationsDictionary;
+    id _private;
+}
+
+@property (retain) NSString *currentIdentifier;
+@property NSView *contentView;
+@property (retain) NSViewController *selectedViewController;
+@property (weak) id<NSPageControllerDelegate> delegate;
+@property long long transitionStyle;
+@property (copy) NSArray *arrangedObjects;
+@property long long selectedIndex;
+@property (copy) NSDictionary *animations;
+
++ (void)_performWithoutAnimation:(id /* block */)a0;
++ (id)defaultAnimationForKey:(id)a0;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)setView:(id)a0;
+- (void)_animateImage:(id)a0 frame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 toImage:(id)a2 frame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a3 direction:(long long)a4;
+- (void)_animateView:(id)a0 frame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 toView:(id)a2 frame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a3 direction:(long long)a4;
+- (Class)_animatorClass;
+- (void)_cachePotentialViewControllers;
+- (void)_cacheReusableViewController:(id)a0 identifier:(id)a1;
+- (void)_cacheViewController:(id)a0 withSize:(struct CGSize { double x0; double x1; })a1 toCompletionHandler:(id /* block */)a2;
+- (BOOL)_cacheViewControllerForRepresentedObjectIfNeeded:(id)a0;
+- (id)_cgSnapshotOfView:(id)a0;
+- (double)_destinationAlphaOfDestinationTransitionViewForDirection:(long long)a0;
+- (double)_destinationAlphaOfFilterTansitionViewForDirection:(long long)a0 destinationValid:(BOOL)a1;
+- (double)_destinationAlphaOfSourceTansitionViewForDirection:(long long)a0 destinationValid:(BOOL)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_destinationFrameOfSourceTansitionViewForDirection:(long long)a0 destinationValid:(BOOL)a1;
+- (id)_destinationTransitionView;
+- (id)_effectiveContentView;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_frameOfRepresentedObjectFromDelegate:(id)a0 defaultFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)_initializeTransitionViewHierarchy;
+- (BOOL)_isInSwipeGesture;
+- (id)_makeViewControllerWithIdentifier:(id)a0;
+- (void)_navigateToIndex:(long long)a0 animated:(BOOL)a1;
+- (void)_performAnimationWithDirection:(long long)a0 destinationFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)_prepareViewController:(id)a0 withObject:(id)a1;
+- (void)_removeFromResponderChainOfView:(id)a0;
+- (void)_setShouldDrawEdgeShadow:(BOOL)a0;
+- (void)_setupTransitionHierarchyWithSourceView:(id)a0 frame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1 destinationView:(id)a2 frame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a3 forDirection:(long long)a4 destinationValid:(BOOL)a5;
+- (BOOL)_shouldDrawEdgeShadow;
+- (id)_snapshotOfView:(id)a0;
+- (id)_snapshotOfViewController:(id)a0 withSize:(struct CGSize { double x0; double x1; })a1;
+- (id)_sourceTransitionView;
+- (void)_startObservingView:(id)a0;
+- (void)_stopObservingView:(id)a0;
+- (void)_teardownTransitionHierarchy;
+- (BOOL)_terminateCurrentAnimation;
+- (void)_updateContentView;
+- (void)_updateTemplateImageCache;
+- (BOOL)_useCachedImageViewsForTransition;
+- (void)_viewFrameChanged:(id)a0;
+- (id)animationForKey:(id)a0;
+- (id)animator;
+- (void)completeTransition;
+- (BOOL)dontCacheViewControllers;
+- (void)hideTransitionView;
+- (void)navigateBack:(id)a0;
+- (void)navigateForward:(id)a0;
+- (void)navigateForwardToObject:(id)a0;
+- (void)removeForwardNavigableObjects;
+- (void)scrollWheel:(id)a0;
+- (void)setDontCacheViewControllers:(BOOL)a0;
+- (void)takeSelectedIndexFrom:(id)a0;
+- (BOOL)validateUserInterfaceItem:(id)a0;
+- (BOOL)wantsScrollEventsForSwipeTrackingOnAxis:(long long)a0;
+
+@end

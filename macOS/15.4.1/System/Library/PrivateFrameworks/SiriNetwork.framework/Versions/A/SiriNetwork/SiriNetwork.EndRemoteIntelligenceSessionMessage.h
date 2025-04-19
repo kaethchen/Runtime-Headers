@@ -1,0 +1,3 @@
+@interface SiriNetwork.EndRemoteIntelligenceSessionMessage : SiriNetwork.RemoteIntelligenceSessionMessage
+
+@end

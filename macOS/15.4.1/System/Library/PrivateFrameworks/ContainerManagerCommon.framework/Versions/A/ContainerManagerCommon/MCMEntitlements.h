@@ -1,0 +1,91 @@
+@class NSDictionary, NSString, NSSet;
+@protocol MCMContainerClassIterator;
+
+@interface MCMEntitlements : NSObject <MCMEntitlements> {
+    NSDictionary *_sanitizedLookup;
+    NSSet *_sanitizedWipe;
+    BOOL _isSimulatorTestClient;
+}
+
+@property (retain, nonatomic) NSDictionary *rawEntitlements;
+@property (readonly, nonatomic) NSString *identifier;
+@property (readonly, nonatomic) NSDictionary *lookup;
+@property (readonly, nonatomic) id<MCMContainerClassIterator> classIterator;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) BOOL privileged;
+@property (readonly, nonatomic) BOOL proxyAllowed;
+@property (readonly, nonatomic) BOOL testabilityAllowed;
+@property (readonly, nonatomic) BOOL hasSystemContainer;
+@property (readonly, nonatomic) BOOL allowed;
+@property (readonly, nonatomic) BOOL otherIDLookup;
+@property (readonly, nonatomic) BOOL canDelete;
+@property (readonly, nonatomic) BOOL canManageUserManagedAssets;
+@property (readonly, nonatomic) BOOL canControlCaches;
+@property (readonly, nonatomic) BOOL canRepair;
+@property (readonly, nonatomic) BOOL canStageSharedContent;
+@property (readonly, nonatomic) BOOL canPerformDataMigration;
+@property (readonly, nonatomic) BOOL canDeleteContainerContent;
+@property (readonly, nonatomic) BOOL requestsNoContainer;
+@property (readonly, nonatomic) BOOL canReadReferences;
+@property (readonly, nonatomic) BOOL canReadWriteReferences;
+@property (readonly, nonatomic) BOOL hasDaemonContainer;
+
++ (id)appGroupIdentifiersForIdentifier:(id)a0 entitlements:(id)a1;
++ (id)copyGroupEntitlementForIdentifier:(id)a0 entitlements:(id)a1 groupKey:(id)a2;
++ (id)noReferenceAppGroupIdentifiersForIdentifier:(id)a0 entitlements:(id)a1;
++ (id)protectedAppGroupIdentifiersForIdentifier:(id)a0 entitlements:(id)a1;
++ (id)publicAppGroupIdentifiersForIdentifier:(id)a0 entitlements:(id)a1;
++ (id)publicEntitlementForGroupContainerClass:(unsigned long long)a0;
++ (id)systemGroupIdentifiersForIdentifier:(id)a0 entitlements:(id)a1;
+
+- (void).cxx_destruct;
+- (void)prune;
+- (BOOL)isAllowedToWipeAnyDataContainer;
+- (int)_dataProtectionClassFromString:(id)a0;
+- (BOOL)isAllowedToTest;
+- (id)_arrayOfStringsFromArray:(id)a0;
+- (id)_setOfStringsFromArray:(id)a0;
+- (id)appGroupIdentifiers;
+- (id)containerRequiredIdentifier;
+- (id)copyEntitlementsDictionaryByAddingGroupContainerOfClass:(unsigned long long)a0 groupIdentifier:(id)a1;
+- (id)copyEntitlementsDictionaryByRemovingAppGroupContainerWithIdentifier:(id)a0;
+- (id)copyEntitlementsDictionaryByRemovingGroupContainerOfClass:(unsigned long long)a0 groupIdentifier:(id)a1;
+- (id)copyEntitlementsDictionaryByRemovingSystemGroupContainerWithIdentifier:(id)a0;
+- (int)dataProtectionClassIfAvailable;
+- (id)initForPrivilegedAnonymous;
+- (id)initWithEntitlements:(id)a0 clientIdentifier:(id)a1 classIterator:(id)a2;
+- (int)intendedDataProtectionClass;
+- (BOOL)isAllowedToAccessCodesignMapping;
+- (BOOL)isAllowedToAccessInfoMetadata;
+- (BOOL)isAllowedToAccessUserAssets;
+- (BOOL)isAllowedToChangeReferences;
+- (BOOL)isAllowedToControlCaches;
+- (BOOL)isAllowedToDelete;
+- (BOOL)isAllowedToLookupAllContainersOfClass:(unsigned long long)a0;
+- (BOOL)isAllowedToLookupContainerIdentity:(id)a0;
+- (BOOL)isAllowedToLookupGroupContainersOfClass:(unsigned long long)a0 ownedByIdentifiers:(id)a1;
+- (BOOL)isAllowedToLookupViaPrivateEntitlementWithClass:(unsigned long long)a0 identifier:(id)a1;
+- (BOOL)isAllowedToReadReferences;
+- (BOOL)isAllowedToRecreateContainerStructure;
+- (BOOL)isAllowedToRegenerateDirectoryUUIDs;
+- (BOOL)isAllowedToReplaceContainers;
+- (BOOL)isAllowedToRestoreContainer;
+- (BOOL)isAllowedToSetDataProtection;
+- (BOOL)isAllowedToStageSharedContent;
+- (BOOL)isAllowedToStartDataMigration;
+- (BOOL)isAllowedToStartUserDataMigration;
+- (BOOL)isAllowedToWipePlugInDataContainerWithIdentifier:(id)a0;
+- (BOOL)isEntitledForLookupWithClass:(unsigned long long)a0 identifier:(id)a1;
+- (BOOL)isOwnerOfContainerWithClass:(unsigned long long)a0 identifier:(id)a1;
+- (BOOL)isOwnerOfProtectedAppGroupContainerWithIdentifier:(id)a0;
+- (id)lookupForContainerClass:(unsigned long long)a0;
+- (BOOL)negatesReferenceToAppGroupIdentifier:(id)a0;
+- (id)noReferenceAppGroupIdentifiers;
+- (id)protectedAppGroupIdentifiers;
+- (id)publicAppGroupIdentifiers;
+- (id)systemGroupIdentifiers;
+
+@end

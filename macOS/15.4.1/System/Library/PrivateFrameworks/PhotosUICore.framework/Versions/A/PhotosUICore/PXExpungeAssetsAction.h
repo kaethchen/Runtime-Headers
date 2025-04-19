@@ -1,0 +1,6 @@
+@interface PXExpungeAssetsAction : PXDestructiveAssetsAction
+
+- (id)actionIdentifier;
+- (void)executeWithUndoManager:(id)a0 completionHandler:(id /* block */)a1;
+
+@end

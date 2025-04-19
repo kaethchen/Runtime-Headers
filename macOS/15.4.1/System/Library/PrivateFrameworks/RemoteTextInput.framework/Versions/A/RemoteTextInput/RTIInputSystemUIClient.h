@@ -1,0 +1,3 @@
+@interface RTIInputSystemUIClient : RTIInputSystemClient
+
+@end

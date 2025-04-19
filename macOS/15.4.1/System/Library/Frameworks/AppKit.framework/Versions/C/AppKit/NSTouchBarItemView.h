@@ -1,0 +1,3 @@
+@interface NSTouchBarItemView : NSTouchBarItemContainerView
+
+@end

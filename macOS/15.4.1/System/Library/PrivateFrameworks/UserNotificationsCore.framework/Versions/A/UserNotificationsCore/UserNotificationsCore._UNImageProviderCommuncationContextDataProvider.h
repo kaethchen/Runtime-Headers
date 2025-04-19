@@ -1,0 +1,3 @@
+@interface UserNotificationsCore._UNImageProviderCommuncationContextDataProvider : _TtCs12_SwiftObject
+
+@end

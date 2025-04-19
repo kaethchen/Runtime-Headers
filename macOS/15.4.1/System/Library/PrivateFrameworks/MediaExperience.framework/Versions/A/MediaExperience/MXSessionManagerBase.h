@@ -1,0 +1,3 @@
+@interface MXSessionManagerBase : NSObject
+
+@end

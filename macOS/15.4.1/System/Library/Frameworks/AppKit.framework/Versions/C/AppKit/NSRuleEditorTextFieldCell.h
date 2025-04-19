@@ -1,0 +1,3 @@
+@interface NSRuleEditorTextFieldCell : NSTextFieldCell
+
+@end

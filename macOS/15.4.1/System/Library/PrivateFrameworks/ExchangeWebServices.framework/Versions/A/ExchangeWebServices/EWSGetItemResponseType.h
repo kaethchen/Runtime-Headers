@@ -1,0 +1,3 @@
+@interface EWSGetItemResponseType : EWSBaseMessageResponseType
+
+@end

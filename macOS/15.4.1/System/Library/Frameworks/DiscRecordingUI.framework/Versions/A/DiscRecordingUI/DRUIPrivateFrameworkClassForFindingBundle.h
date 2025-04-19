@@ -1,0 +1,3 @@
+@interface DRUIPrivateFrameworkClassForFindingBundle : NSObject
+
+@end

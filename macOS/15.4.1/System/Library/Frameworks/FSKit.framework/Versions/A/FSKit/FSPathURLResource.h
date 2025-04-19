@@ -1,0 +1,3 @@
+@interface FSPathURLResource : FSGenericURLResource
+
+@end

@@ -1,0 +1,105 @@
+@class NSDate, NSString, CLRegion, HMFTimer, _HMDPendingRegionUpdate, HMDHomeLocationData, HMFMessageDispatcher, NSUUID, NSObject, NSTimeZone, CLLocation, HMDHome;
+@protocol OS_dispatch_queue, HMMLogEventSubmitting;
+
+@interface HMDHomeLocationHandler : HMFObject <HMDLocationDelegate, HMFLogging, HMFTimerDelegate, HMDHomeMessageReceiver, NSSecureCoding> {
+    struct os_unfair_recursive_lock_s { struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } ourl_lock; unsigned int ourl_count; } _lock;
+}
+
+@property (class, readonly) BOOL supportsSecureCoding;
+
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue;
+@property (retain, nonatomic) HMFMessageDispatcher *msgDispatcher;
+@property (weak, nonatomic) HMDHome *home;
+@property (readonly, nonatomic) id<HMMLogEventSubmitting> logEventSubmitter;
+@property (retain, nonatomic) NSTimeZone *timeZone;
+@property (retain, nonatomic) NSDate *locationUpdateTimestamp;
+@property (nonatomic) long long locationAuthorization;
+@property (retain, nonatomic) CLRegion *regionAtHome;
+@property (retain, nonatomic) CLRegion *regionNearbyHome;
+@property (nonatomic) long long regionStateAtHome;
+@property (nonatomic) long long regionStateNearbyHome;
+@property (retain, nonatomic) NSString *isoCountryCode;
+@property (nonatomic) BOOL firstAccessoryReachable;
+@property (nonatomic) BOOL pairingHomeLocationOverride;
+@property (retain, nonatomic) HMFTimer *homeRegionUpdateTimer;
+@property (retain, nonatomic) _HMDPendingRegionUpdate *pendingAtHomeRegionUpdate;
+@property (retain, nonatomic) _HMDPendingRegionUpdate *pendingNearbyHomeRegionUpdate;
+@property (nonatomic) double coalesceRegionUpdateIntervalInSeconds;
+@property (retain, nonatomic) NSDate *lastArrival;
+@property (retain, nonatomic) NSDate *lastExit;
+@property (retain, nonatomic) NSDate *lastAttemptedLocationUpdate;
+@property (nonatomic) BOOL resendOnce;
+@property (nonatomic) long long cachedSource;
+@property (retain, nonatomic) CLLocation *cachedLocation;
+@property (nonatomic) BOOL shouldUpdateHomeLocation;
+@property (retain, nonatomic) NSDate *homeLocationUpdateRequestTime;
+@property (retain, nonatomic) CLLocation *location;
+@property (nonatomic) long long locationSource;
+@property (readonly, nonatomic) HMDHomeLocationData *locationData;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (readonly, nonatomic) NSUUID *messageTargetUUID;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *messageReceiveQueue;
+
++ (id)logCategory;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (id)logIdentifier;
+- (void)timerDidFire:(id)a0;
+- (id)messageDestination;
+- (long long)__getAtHomeCalculatedState;
+- (long long)__getNearByHomeCalculatedState;
+- (id)__initForUnitTesting:(double)a0 home:(id)a1 queue:(id)a2 messageDispatcher:(id)a3 location:(id)a4;
+- (void)__setHomeLocation:(id)a0;
+- (void)__setHomeLocationSource:(long long)a0;
+- (void)__setHomeLocationTimestamp:(id)a0;
+- (void)__simulateAtHomeRegionState:(long long)a0;
+- (void)__simulateNearByHomeRegionState:(long long)a0;
+- (BOOL)_canExtractLocation;
+- (void)_evaluateHomeRegionStateForCurrentDeviceLocation:(id)a0;
+- (id)_handleHomeLocationData:(id)a0 message:(id)a1;
+- (id)_handleHomeLocationDataForHH2:(id)a0 fromMessage:(id)a1;
+- (void)_handleLocationAuthorization:(long long)a0;
+- (void)_handleLocationAuthorizationChangedNotification:(id)a0;
+- (void)_handleRetrieveLocation:(id)a0;
+- (BOOL)_hasReachableAccessoriesExcludingMatter;
+- (BOOL)_needToExtractLocations;
+- (void)_processPendingRegionStateUpdates;
+- (void)_registerForMessages;
+- (void)_registerForRegionUpdate;
+- (void)_sendLocationUpdateToClients;
+- (BOOL)_shouldRegisterForSignificantRegion;
+- (BOOL)_shouldUpdateHomeLocation;
+- (void)_updateTimeZone:(id)a0;
+- (void)accessoriesBecomeReachable;
+- (void)accessoriesBecomeUnreachable;
+- (void)accessoryReachabilityChanged:(int)a0 previousReachableAccessoriesCount:(int)a1 reachableAppleMediaAccessoriesCount:(int)a2 previousReachableAppleMediaAccessoriesCount:(int)a3;
+- (void)checkFalsePresence;
+- (void)coalesceRegionUpdateState:(long long)a0 forRegion:(id)a1;
+- (void)configure:(id)a0 queue:(id)a1 messageDispatcher:(id)a2;
+- (void)didDetermineLocation:(id)a0;
+- (void)didDetermineState:(long long)a0 forRegion:(id)a1;
+- (void)getReachableIPAccessory:(unsigned long long *)a0 btleAccessory:(unsigned long long *)a1 mediaAccessory:(unsigned long long *)a2;
+- (void)handleHomeLocationForHH2:(id)a0 updatedTime:(id)a1 source:(long long)a2;
+- (BOOL)isDate:(id)a0 laterThanDate:(id)a1;
+- (BOOL)isLocation:(id)a0 closeToLocation:(id)a1;
+- (BOOL)isNewHomeLocationTooCloseToPreviousLocation:(id)a0 newLocation:(id)a1;
+- (void)logHomeLocationEventWithLocation:(id)a0;
+- (void)matterAccessoryBecameReachable;
+- (void)runTransactionWithLocation:(id)a0 updatedTime:(id)a1 source:(long long)a2;
+- (BOOL)shouldAllowHomeLocationUpdateWithSource:(long long)a0 newLocation:(id)a1;
+- (BOOL)shouldUpdateFromSingleLocation;
+- (BOOL)shouldUpdateLocationFromLocationData:(id)a0;
+- (void)updateHomeLocation;
+- (void)updateHomeLocationForPairing;
+- (void)updateHomeLocationFromCoreRoutine;
+- (void)updateHomeLocationFromSingle;
+- (void)updateHomeLocationFromSingleOrCoreRoutine;
+
+@end

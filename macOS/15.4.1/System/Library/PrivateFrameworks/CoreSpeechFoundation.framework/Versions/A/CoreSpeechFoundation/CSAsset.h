@@ -1,0 +1,96 @@
+@class NSString, NSArray, NSDictionary;
+
+@interface CSAsset : NSObject {
+    NSDictionary *_decodedInfo;
+}
+
+@property (readonly, nonatomic) float startOfSpeechThresholdDuration;
+@property (readonly, nonatomic) float startOfSpeechPrependAudioDuration;
+@property (readonly, nonatomic) NSString *gazeDetectionModelFile;
+@property (readonly, nonatomic) NSString *mimVotingConfigFile;
+@property (readonly, nonatomic) NSString *lipMovementVADModelFile;
+@property (readonly, nonatomic) long long numOfConsecutiveBoronActivationThreshold;
+@property (readonly, nonatomic) float attendingTimeoutValueInSecs;
+@property (readonly, nonatomic) BOOL useGazeSignal;
+@property (readonly, nonatomic) float mitigationModelDefaultAFTMScore;
+@property (readonly, nonatomic) float mitigationModelDefaultELFusionScore;
+@property (readonly, nonatomic) float mitigationModelDefaultNLDAScore;
+@property (readonly, nonatomic) NSString *allowKeywordsFile;
+@property (readonly, nonatomic) unsigned long long allowListWordCountThreshold;
+@property (readonly, nonatomic) BOOL isMagusSupported;
+@property (readonly, nonatomic) float eagerMitigationDurationThreshold;
+@property (readonly, nonatomic) BOOL isJSSupported;
+@property (readonly, nonatomic) NSString *progCheckerConfigFile;
+@property (readonly, nonatomic) NSArray *progCheckerRecognizerConfigFiles;
+@property (readonly, nonatomic) unsigned long long supportedInputOrigins;
+@property (readonly, nonatomic) NSArray *checkerThresholds;
+@property (readonly, nonatomic) BOOL progCheckerShadowMode;
+@property (readonly, nonatomic) NSString *contConvConfigFile;
+@property (readonly, nonatomic) NSArray *contConvRecognizerConfigFiles;
+@property (readonly, nonatomic) NSArray *contConvThresholds;
+@property (readonly, nonatomic) NSString *keywordDetectorConfigPathRecognizer;
+@property (readonly, nonatomic) float keywordDetectorThreshold;
+@property (readonly, nonatomic) float keywordDetectorWaitTimeSinceVT;
+@property (readonly, nonatomic) NSString *path;
+@property (readonly, nonatomic) NSString *resourcePath;
+@property (readonly, nonatomic) NSDictionary *dictionary;
+@property (readonly, nonatomic) NSString *hashFromResourcePath;
+@property (readonly, nonatomic) NSString *configVersion;
+@property (readonly, nonatomic) unsigned long long assetProvider;
+@property (readonly, nonatomic) unsigned long long assetVariant;
+@property (readonly, nonatomic) unsigned long long assetType;
+@property (readonly, nonatomic) NSString *identity;
+@property (readonly, nonatomic) NSString *assistantLanguageCode;
+
++ (id)assetForAssetType:(unsigned long long)a0 resourcePath:(id)a1 configVersion:(id)a2;
++ (id)assetForAssetType:(unsigned long long)a0 resourcePath:(id)a1 configVersion:(id)a2 assetProvider:(unsigned long long)a3;
++ (id)decodeJson:(id)a0;
++ (id)defaultFallBackAssetForVoiceTrigger;
++ (id)fallBackAssetResourcePath;
++ (id)assetForAssetType:(unsigned long long)a0 resourcePath:(id)a1 configVersion:(id)a2 assetProvider:(unsigned long long)a3 assetVariant:(unsigned long long)a4 identity:(id)a5 assistantLanguageCode:(id)a6;
++ (id)assetForAssetType:(unsigned long long)a0 resourcePath:(id)a1 configVersion:(id)a2 assetProvider:(unsigned long long)a3 identity:(id)a4 assistantLanguageCode:(id)a5;
++ (id)defaultFallBackAssetForAdBlocker;
++ (id)defaultFallBackAssetForHearst;
++ (id)defaultFallBackAssetForSmartSiriVolume;
++ (id)getAssetFileForAssetType:(unsigned long long)a0 resourcePath:(id)a1 assetProvider:(unsigned long long)a2;
++ (id)getConfigFileNameForAssetType:(unsigned long long)a0;
++ (id)hybridEndpointerAssetFilename;
++ (BOOL)isLeftConfigVersion:(id)a0 newerThanRightConfigVersion:(id)a1;
++ (id)overrideAssetForVoiceTrigger;
++ (unsigned long long)parseCompatibilityFromConfigVersion:(id)a0;
+
+- (id)description;
+- (void).cxx_destruct;
+- (BOOL)getBoolForKey:(id)a0 category:(id)a1 default:(BOOL)a2;
+- (id)assetHashInResourcePath:(id)a0;
+- (BOOL)containsCategory:(id)a0;
+- (id)getNumberForKey:(id)a0 category:(id)a1 default:(id)a2;
+- (id)getStringForKey:(id)a0 category:(id)a1 default:(id)a2;
+- (id)getValueForKey:(id)a0 category:(id)a1;
+- (BOOL)isCompactVersion;
+- (BOOL)isEqualAsset:(id)a0;
+- (void)logAssetVersionForInsight;
+- (id)mitigationConfigFileForCategory:(id)a0;
+- (BOOL)shouldRunCAROverrideForCategory:(id)a0;
+- (id)uesConfigFileForCategory:(id)a0;
+- (id)_sha1ForString:(id)a0;
+- (unsigned long long)_mapInputOriginFromAssetToCSAudioRecordType:(id)a0;
+- (void)_updateAssetVariantIfNeeded;
+- (id)assetHashForTrial:(id)a0;
+- (BOOL)containsKey:(id)a0 category:(id)a1;
+- (id)getAllMitigationConfigFiles;
+- (id)getAllNldaConfigFiles;
+- (id)getCategoryKeyWithRecordCtx:(id)a0;
+- (id)getRecognizerConfigsFrom:(id)a0;
+- (id)getStringForKey:(id)a0;
+- (id)initWithResourcePath:(id)a0 configFile:(id)a1 configVersion:(id)a2 assetProvderType:(unsigned long long)a3 assetType:(unsigned long long)a4;
+- (id)initWithResourcePath:(id)a0 configFile:(id)a1 configVersion:(id)a2 assetProvderType:(unsigned long long)a3 assetType:(unsigned long long)a4 assetVariant:(unsigned long long)a5 identity:(id)a6 assistantLanguageCode:(id)a7;
+- (BOOL)isHSVoiceTrigger:(id)a0;
+- (BOOL)isJSVoiceTrigger:(id)a0;
+- (id)mitigatonConfigFile;
+- (id)nldaConfigFile;
+- (id)nldaConfigFileForCategory:(id)a0;
+- (BOOL)shouldRunSpkrIdForCategory:(id)a0;
+- (id)stringForCurrentAssetProviderType;
+
+@end

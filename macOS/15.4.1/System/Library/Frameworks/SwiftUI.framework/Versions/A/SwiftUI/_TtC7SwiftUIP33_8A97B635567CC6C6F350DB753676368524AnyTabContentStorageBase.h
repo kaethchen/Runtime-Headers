@@ -1,0 +1,3 @@
+@interface _TtC7SwiftUIP33_8A97B635567CC6C6F350DB753676368524AnyTabContentStorageBase : _TtCs12_SwiftObject
+
+@end

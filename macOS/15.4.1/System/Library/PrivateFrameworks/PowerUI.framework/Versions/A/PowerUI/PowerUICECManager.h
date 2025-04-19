@@ -1,0 +1,83 @@
+@class NSDate, PowerUIBDCDataManager, NSString, NSDictionary, PowerUIAnalyticsManager, NSObject, PowerUIChargingController, NSUserDefaults, PowerUICECPredictedTimeManager;
+@protocol OS_os_log, OS_dispatch_source, OS_dispatch_queue, _CDLocalContext;
+
+@interface PowerUICECManager : NSObject <PowerUINotificationManagerClient, PowerUISignalMonitor>
+
+@property (retain, nonatomic) NSObject<OS_os_log> *log;
+@property (retain, nonatomic) id<_CDLocalContext> context;
+@property (retain, nonatomic) NSDictionary *phaseDescriptions;
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (nonatomic) unsigned long long currentPhase;
+@property (nonatomic) BOOL isChargingPaused;
+@property (nonatomic) BOOL displayedFirstTimeNotification;
+@property (nonatomic) BOOL isCECEnabled;
+@property (nonatomic) BOOL isCECTemporarilyDisabled;
+@property (retain, nonatomic) NSDate *cecTemporarilyDisabledDate;
+@property (retain, nonatomic) NSDate *userDeadline;
+@property (retain, nonatomic) NSDate *pauseChargingCheckDate;
+@property (retain, nonatomic) PowerUICECPredictedTimeManager *pluggedInTimeManager;
+@property (retain, nonatomic) NSUserDefaults *defaults;
+@property (retain, nonatomic) PowerUIChargingController *chargingController;
+@property (retain, nonatomic) PowerUIAnalyticsManager *analyticsManager;
+@property (retain, nonatomic) NSObject<OS_dispatch_source> *timer;
+@property (nonatomic) double tPluggedInWaitInterval;
+@property (nonatomic) BOOL tOverrideActiveCheck;
+@property (nonatomic) BOOL firstChargingEvaluation;
+@property (nonatomic) unsigned long long currentState;
+@property (retain, nonatomic) NSDate *pluggedInDate;
+@property (nonatomic) long long pluggedInBatteryLevel;
+@property (retain, nonatomic) PowerUIBDCDataManager *bdcDataManager;
+@property (readonly, nonatomic) NSString *debugStatus;
+@property (nonatomic) BOOL shouldSupportCEC;
+@property (nonatomic) BOOL isInternal;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)manager;
++ (BOOL)isCECSupported;
++ (id)monitorWithDelegate:(id)a0;
+
+- (id)init;
+- (void).cxx_destruct;
+- (BOOL)isEnabled;
+- (id)status;
+- (id)dateFormatter;
+- (void)startMonitoring;
+- (void)resetState;
+- (void)stopMonitoring;
+- (void)loadState;
+- (void)handleCallback:(id)a0;
+- (BOOL)shouldEngageCEC;
+- (void)unregisterTimer;
+- (void)recordAnalytics;
+- (void)analyticsCECEngagementEvaluation:(BOOL)a0 byPredictedTime:(BOOL)a1 byGridMix:(BOOL)a2;
+- (void)analyticsCECSessionChargingState:(BOOL)a0;
+- (unsigned long long)cecState;
+- (void)clearAnalyticsDate;
+- (id)defaultDateToDisableUntilGivenDate:(id)a0;
+- (BOOL)evaluateEngagementAndSetup;
+- (void)evaluatePausingNow;
+- (void)handleChargeUp;
+- (void)handleDisengagement;
+- (void)handleNewDebugState:(id)a0;
+- (void)handleNotificationResponse:(id)a0;
+- (void)handlePowerUICECStateChange:(unsigned long long)a0 withHandler:(id /* block */)a1;
+- (BOOL)hasInfluencedCharging;
+- (BOOL)isActiveRegion;
+- (BOOL)isEngaged;
+- (void)monitorBatteryNotifications;
+- (void)promptBDCToQueryCurrentState;
+- (void)recordPowerLogCECState:(unsigned long long)a0;
+- (void)recordPowerLogEvent;
+- (void)refreshShouldSupportCEC;
+- (void)registerTimer;
+- (id)requiredFullChargeDate;
+- (id)sessionEndCECAnalytics;
+- (void)setTemporarilyDisabled:(BOOL)a0 from:(id)a1;
+- (void)setupTempDisabledCheckAfterInterval:(double)a0;
+- (unsigned long long)signalID;
+- (void)updatePhaseFrom:(unsigned long long)a0 to:(unsigned long long)a1;
+
+@end

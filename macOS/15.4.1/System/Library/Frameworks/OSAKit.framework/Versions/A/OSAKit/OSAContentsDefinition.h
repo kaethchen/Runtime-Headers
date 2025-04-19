@@ -1,0 +1,3 @@
+@interface OSAContentsDefinition : OSADefinition
+
+@end

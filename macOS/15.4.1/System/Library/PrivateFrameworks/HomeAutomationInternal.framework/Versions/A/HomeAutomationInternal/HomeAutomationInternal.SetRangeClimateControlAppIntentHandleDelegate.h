@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.SetRangeClimateControlAppIntentHandleDelegate : HomeAutomationInternal.SetClimateControlAppIntentHandleDelegate
+
+@end

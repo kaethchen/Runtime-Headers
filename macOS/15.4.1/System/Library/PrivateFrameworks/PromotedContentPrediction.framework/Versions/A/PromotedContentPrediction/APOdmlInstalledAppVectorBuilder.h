@@ -1,0 +1,3 @@
+@interface APOdmlInstalledAppVectorBuilder : APOdmlVectorBuilder
+
+@end

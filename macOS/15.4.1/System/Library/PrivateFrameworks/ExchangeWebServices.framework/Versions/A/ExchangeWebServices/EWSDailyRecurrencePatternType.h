@@ -1,0 +1,3 @@
+@interface EWSDailyRecurrencePatternType : EWSIntervalRecurrencePatternBaseType
+
+@end

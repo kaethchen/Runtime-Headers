@@ -1,0 +1,73 @@
+@class IOBluetoothDevice, NSArray, IOBluetoothDeviceInquiry, ObjectTableDataSource, NSString, NSMutableArray, NSTableColumn;
+
+@interface IOBluetoothDeviceInquiryTableView : NSTableView {
+    IOBluetoothDeviceInquiry *_inquiry;
+    ObjectTableDataSource *_currentTableViewStorage;
+    ObjectTableDataSource *_tableViewStorageAllDevices;
+    ObjectTableDataSource *_tableViewStorageFiltered;
+    int _inquiryIterations;
+    unsigned int _displayExtendedInfoBits;
+    unsigned int _majorServiceClass;
+    unsigned int _majorDeviceClass;
+    unsigned int _minorDeviceClass;
+    int _tmpDevicesRemaining;
+    unsigned char _deviceTypeFilter;
+    unsigned char _deviceCategoryFilter;
+    NSArray *_favoriteDevices;
+    NSArray *_recentDevices;
+    NSMutableArray *_discoveredDevices;
+    NSString *_lastColumnSelected;
+    NSTableColumn *_addressColumn;
+    IOBluetoothDevice *_updatingNameOfDevice;
+    BOOL _updateNewDeviceNames;
+    BOOL _busy;
+    BOOL _infSearch;
+    BOOL _suppressPrefillRecents;
+    BOOL _suppressPrefillFavorites;
+    void *_expansion;
+    void *_expansion2;
+}
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)stop;
+- (void)awakeFromNib;
+- (BOOL)isBusy;
+- (void)setSearchType:(unsigned int)a0;
+- (void)deviceInquiryComplete:(id)a0 error:(int)a1 aborted:(BOOL)a2;
+- (void)deviceInquiryDeviceFound:(id)a0 device:(id)a1;
+- (void)deviceInquiryDeviceNameUpdated:(id)a0 device:(id)a1 devicesRemaining:(unsigned int)a2;
+- (void)deviceInquiryStarted:(id)a0;
+- (void)deviceInquiryUpdatingDeviceNamesStarted:(id)a0 devicesRemaining:(unsigned int)a1;
+- (void)setUpdateNewDeviceNames:(BOOL)a0;
+- (id)selectedDevice;
+- (id)getDeviceAtRow:(int)a0;
+- (BOOL)addOrUpdateTableItemWithDevice:(id)a0;
+- (void)deviceInquiryIterationComplete:(id)a0;
+- (id)inquiry;
+- (void)clearInquiryResults:(id)a0;
+- (void)deviceInquiryDeviceNameUpdatedDelayed:(id)a0;
+- (void)deviceInquiryNameRequestUpdateStarted:(id)a0 device:(id)a1 devicesRemaining:(int)a2;
+- (BOOL)deviceMatchesCategoryFilter:(id)a0;
+- (BOOL)deviceMatchesTypeFilter:(id)a0;
+- (id)getInquiryResults;
+- (id)getTableNameStringForDevice:(id)a0;
+- (id)getTableTypeStringForDevice:(id)a0;
+- (void)importItemsIntoTableWithArrayOfDeviceAddressStrings:(id)a0;
+- (int)iterations;
+- (unsigned int)majorDeviceClass;
+- (unsigned int)majorServiceClass;
+- (unsigned int)minorDeviceClass;
+- (void)setDeviceAddressColumnHidden:(BOOL)a0;
+- (void)setDeviceTypeFilter:(unsigned char)a0 deviceCategoryFilter:(unsigned char)a1;
+- (void)setDisplayExtendedInfoBits:(unsigned int)a0;
+- (void)setSearchInfinitely:(BOOL)a0;
+- (void)sortForTableColumnWithIdentifier:(id)a0 selectedDevice:(id)a1;
+- (int)startInquiryForDevicesOfServiceClass:(unsigned int)a0 majorDeviceClass:(unsigned int)a1 minorDeviceClass:(unsigned int)a2 length:(int)a3;
+- (int)startInquiryForDevicesOfServiceClass:(unsigned int)a0 majorDeviceClass:(unsigned int)a1 minorDeviceClass:(unsigned int)a2 length:(int)a3 maxNumberOfResults:(int)a4 searchAttributes:(struct IOBluetoothDeviceSearchAttributes { unsigned int x0; unsigned int x1; unsigned int x2; struct IOBluetoothDeviceSearchDeviceAttributes *x3; } *)a5;
+- (int)startInquiryForDevicesOfServiceClass:(unsigned int)a0 majorDeviceClass:(unsigned int)a1 minorDeviceClass:(unsigned int)a2 length:(int)a3 searchAttributes:(struct IOBluetoothDeviceSearchAttributes { unsigned int x0; unsigned int x1; unsigned int x2; struct IOBluetoothDeviceSearchDeviceAttributes *x3; } *)a4;
+- (void)startLastInquiryAgain:(BOOL)a0;
+- (void)suppressPrefillingFavoriteDevices:(BOOL)a0 recentDevices:(BOOL)a1;
+- (void)syncTableDataStates;
+
+@end

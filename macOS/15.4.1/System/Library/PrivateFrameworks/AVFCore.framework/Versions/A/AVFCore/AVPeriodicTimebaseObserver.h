@@ -1,0 +1,21 @@
+@interface AVPeriodicTimebaseObserver : AVTimebaseObserver {
+    struct { long long value; int timescale; unsigned int flags; long long epoch; } _intervalRequested;
+    struct { long long value; int timescale; unsigned int flags; long long epoch; } _lastIntervalUsed;
+    struct { long long value; int timescale; unsigned int flags; long long epoch; } _lastPeriodicFireTime;
+    struct { long long value; int timescale; unsigned int flags; long long epoch; } _lastNonperiodicFireTime;
+    struct { long long value; int timescale; unsigned int flags; long long epoch; } _lastStopTime;
+    struct { long long value; int timescale; unsigned int flags; long long epoch; } _nonPeriodicOffset;
+    unsigned int _sequenceNum;
+    id /* block */ _block;
+}
+
+- (void)dealloc;
+- (void)_effectiveRateChanged;
+- (void)_fireBlockForTime:(struct { long long x0; int x1; unsigned int x2; long long x3; })a0;
+- (void)_handleTimeDiscontinuity;
+- (void)_resetNextFireTime;
+- (void)initGutsWithTimebase:(struct OpaqueCMTimebase { } *)a0 interval:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1 offset:(struct { long long x0; int x1; unsigned int x2; long long x3; })a2 queue:(id)a3 block:(id /* block */)a4;
+- (id)initWithTimebase:(struct OpaqueCMTimebase { } *)a0 interval:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1 offset:(struct { long long x0; int x1; unsigned int x2; long long x3; })a2 queue:(id)a3 block:(id /* block */)a4;
+- (id)initWithTimebase:(struct OpaqueCMTimebase { } *)a0 interval:(struct { long long x0; int x1; unsigned int x2; long long x3; })a1 queue:(id)a2 block:(id /* block */)a3;
+
+@end

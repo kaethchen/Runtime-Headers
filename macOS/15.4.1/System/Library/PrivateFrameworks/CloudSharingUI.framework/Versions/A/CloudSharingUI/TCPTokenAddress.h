@@ -1,0 +1,86 @@
+@class NSMenu, NSString, NSArray, NSTokenField, CNContact, NSTextView, CNGroup, CNAutocompleteStore, NSObject;
+@protocol TCPTokenAddressDelegate, CNCancelable;
+
+@interface TCPTokenAddress : NSObject <CNAutocompleteFetchDelegate, NSCopying, NSMenuItemValidation>
+
+@property (nonatomic) BOOL shouldRefreshNameIfPossible;
+@property (retain, nonatomic) id<CNCancelable> autocompletionSearchRequest;
+@property (readonly, nonatomic) CNAutocompleteStore *autocompleteStore;
+@property (retain, nonatomic) NSObject<TCPTokenAddressDelegate> *delegate;
+@property (nonatomic) NSTokenField *tokenField;
+@property (nonatomic) NSTextView *textView;
+@property (retain, nonatomic) CNContact *contact;
+@property (retain, nonatomic) CNGroup *group;
+@property (copy, nonatomic) NSString *recentRawAddress;
+@property (copy, nonatomic) NSString *recentName;
+@property (copy, nonatomic) NSString *currentRawAddress;
+@property (copy, nonatomic) NSString *currentName;
+@property (nonatomic) long long tokenStyle;
+@property (readonly, nonatomic) BOOL isExternal;
+@property (readonly, copy, nonatomic) NSString *formattedAddress;
+@property (readonly, copy, nonatomic) NSArray *writablePasteboardTypes;
+@property (readonly, nonatomic) NSMenu *menu;
+@property (readonly, copy, nonatomic) NSArray *expandedTokens;
+@property (nonatomic) long long addressType;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)_contactsCache;
++ (BOOL)addressIsExternal:(id)a0;
++ (id)keyPathsForValuesAffectingIsExternal;
++ (id)tokenWithAddress:(id)a0;
++ (id)tokenWithAddress:(id)a0 isRecent:(BOOL)a1 contact:(id)a2;
++ (void)writeTokens:(id)a0 toPasteboard:(id)a1;
+
+- (void)dealloc;
+- (id)copyWithZone:(struct _NSZone { } *)a0;
+- (id)init;
+- (void).cxx_destruct;
+- (BOOL)validateMenuItem:(id)a0;
+- (void)writeToPasteboard:(id)a0;
+- (id)initWithGroup:(id)a0;
+- (void)autocompleteFetch:(id)a0 didFailWithError:(id)a1;
+- (void)autocompleteFetch:(id)a0 didReceiveResults:(id)a1;
+- (void)_contactsChanged:(id)a0;
+- (id)refetchContact:(id)a0;
+- (void)openInContacts:(id)a0;
+- (void)addToContacts:(id)a0;
+- (void)removeAddress:(id)a0;
+- (void)openPersonCard:(id)a0;
+- (void)openNewMessage:(id)a0;
+- (void)searchForToken:(id)a0;
+- (id)_contactForEmail:(id)a0;
+- (id)_contactsOperationQueue;
+- (id)_formattedCurrentAddress;
+- (void)_getRecordFromAddress;
+- (void)_refreshToken;
+- (id)_suggestionSerializedRepresentation;
+- (id)_tokenForTokenAddress:(id)a0;
+- (void)_writeToPasteboard:(id)a0 forceAddressOnly:(BOOL)a1;
+- (BOOL)_writeToPasteboard:(id)a0 type:(id)a1 forceAddressOnly:(BOOL)a2;
+- (void)addToVIPSenders:(id)a0;
+- (void)changeAddress:(id)a0;
+- (void)copyAddressToClipboard:(id)a0;
+- (id)displayStringWithMode:(long long)a0;
+- (void)editAddress:(id)a0;
+- (void)expandGroupAddress:(id)a0;
+- (void)getRecordFromAddress;
+- (id)initWithAddress:(id)a0 isRecent:(BOOL)a1 contact:(id)a2;
+- (void)removeFromAddressHistory:(id)a0;
+- (void)removeFromVIPSenders:(id)a0;
+- (id)suggestionWithGenius:(id)a0;
+- (id)toolTipWithMode:(long long)a0;
+- (BOOL)writeToPasteboard:(id)a0 type:(id)a1;
+- (id)_contactFormatter;
+- (id)_formattedRecentAddress;
+- (void)_getAddressAndNameFromRecord;
+- (void)_tcpTokenAddressCommonInit;
+- (void)addSenderToBulk:(id)a0;
+- (void)exemptSender:(id)a0;
+- (id)initWithName:(id)a0 rawAddress:(id)a1 addressType:(long long)a2 isRecent:(BOOL)a3 contact:(id)a4;
+- (void)removeSenderFromBulk:(id)a0;
+- (void)stopExemptingSender:(id)a0;
+
+@end

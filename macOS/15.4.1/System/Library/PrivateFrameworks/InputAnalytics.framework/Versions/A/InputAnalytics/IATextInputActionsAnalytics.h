@@ -1,0 +1,82 @@
+@class IATextInputActionsSessionAction, NSUUID, IATextInputActionsServer, IAXPCClient, NSObject;
+@protocol OS_dispatch_queue, IATextInputActionsMetadataObserving;
+
+@interface IATextInputActionsAnalytics : NSObject {
+    IAXPCClient *_xpcClient;
+    BOOL _useAnalyticsDaemon;
+    BOOL _useLocalAnalytics;
+    IATextInputActionsServer *_localServer;
+    IATextInputActionsSessionAction *_lastAction;
+}
+
+@property (retain, nonatomic) NSObject<OS_dispatch_queue> *queue;
+@property (weak, nonatomic) id<IATextInputActionsMetadataObserving> analyticsDelegate;
+@property (copy, nonatomic) NSUUID *sessionIdentifier;
+
+- (void).cxx_destruct;
+- (void)didDictationEnd;
+- (void)didSessionBegin;
+- (void)didAutocorrectReplacementForText:(id)a0 withText:(id)a1;
+- (void)didCalloutBarReplacementForText:(id)a0 withText:(id)a1;
+- (void)didCandidateBarReplacementForText:(id)a0 withText:(id)a1;
+- (void)didChangeToSelection:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a0 relativeRangeBefore:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1;
+- (void)didConversionForMarkedText:(id)a0 withText:(id)a1;
+- (void)didDeleteBackwardCount:(unsigned long long)a0 withType:(long long)a1;
+- (void)didDeleteBackwardText:(id)a0;
+- (void)didDeletionKeyPress;
+- (void)didDictationBegin:(BOOL)a0 usesMultiModalDictation:(BOOL)a1;
+- (void)didInlineCompletionReplacementForText:(id)a0 withText:(id)a1;
+- (void)didInsertText:(id)a0 withType:(long long)a1;
+- (void)didInsertText:(id)a0 withType:(long long)a1 selectedTextBefore:(id)a2;
+- (void)didInsertionKeyPress;
+- (void)didSessionEnd;
+- (id)initWithAnalyticsMetadataObserver:(id)a0;
+- (id)server;
+- (void)invalidateConnection;
+- (id)lastAction;
+- (void)didCut:(id)a0;
+- (void)didUndo;
+- (void)didDeleteBackwardText:(id)a0 withType:(long long)a1;
+- (void)didRedo;
+- (void)_didDeleteBackwardAction:(id)a0;
+- (id)_instanceOfActionClass:(Class)a0;
+- (void)didAutocorrectTapOnCompletionReplacementForText:(id)a0 withText:(id)a1;
+- (void)didCompositionReplacementForText:(id)a0 withText:(id)a1;
+- (void)didCopy:(id)a0;
+- (void)didDecompositionReplacementForText:(id)a0 withText:(id)a1;
+- (void)didDeletionKeyPressOfKey:(id)a0 withType:(long long)a1;
+- (void)didGlomojiTap:(id)a0 newInputMode:(id)a1;
+- (void)didGlomojiTap:(unsigned long long)a0 originalInputMode:(id)a1 newInputMode:(id)a2;
+- (void)didInlineCompletionTapOnCompletionReplacementForText:(id)a0 withText:(id)a1;
+- (void)didInsertText:(id)a0 withType:(long long)a1 relativeRangeBefore:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a2 withNumAlternatives:(long long)a3 selectedTextBefore:(id)a4 withInputMode:(id)a5;
+- (void)didInsertionKeyPressOfKey:(id)a0 withType:(long long)a1;
+- (void)didKBMenuAppear:(id)a0;
+- (void)didKBMenuAppear:(unsigned long long)a0 originalInputMode:(id)a1;
+- (void)didKBMenuDismiss:(unsigned long long)a0;
+- (void)didKBMenuInteraction:(unsigned long long)a0 selectedAction:(unsigned long long)a1 newInputMode:(id)a2;
+- (void)didKeyboardDockItemButtonPress:(unsigned long long)a0 buttonType:(unsigned long long)a1 buttonSize:(struct CGSize { double x0; double x1; })a2 touchDown:(struct CGPoint { double x0; double x1; })a3 touchUp:(struct CGPoint { double x0; double x1; })a4 touchDuration:(double)a5 inputSource:(long long)a6 inputType:(long long)a7 uiInterfaceOrientation:(long long)a8;
+- (void)didOther;
+- (void)didPaste:(id)a0;
+- (void)didReplaceWithCandidate:(long long)a0;
+- (void)didRevisionBubbleReplacementForText:(id)a0 withText:(id)a1;
+- (void)didRevisionBubbleTap;
+- (id)initWithAnalyticsMetadataObserver:(id)a0 withEventHandler:(id /* block */)a1;
+- (void)_didDeleteBackwardCount:(unsigned long long)a0 withType:(long long)a1 shouldOverrideInputActionCountToZero:(BOOL)a2 withInputMode:(id)a3 forceNotMarkedText:(BOOL)a4;
+- (void)_didDeleteBackwardText:(id)a0 withType:(long long)a1 shouldOverrideInputActionCountToZero:(BOOL)a2 withInputMode:(id)a3 forceNotMarkedText:(BOOL)a4;
+- (void)_didDeleteBackwardTextDetails:(id)a0 withType:(long long)a1 shouldOverrideInputActionCountToZero:(BOOL)a2 withInputMode:(id)a3 forceNotMarkedText:(BOOL)a4;
+- (void)_didDeletionKeyPressOfKey:(id)a0 withType:(long long)a1;
+- (void)_didInsertTextAction:(id)a0;
+- (void)_didInsertionKeyPressOfKey:(id)a0 withType:(long long)a1;
+- (void)_didReplacementForText:(id)a0 withText:(id)a1 allowNilText:(BOOL)a2 allowEmptyText:(BOOL)a3 allowNilReplacement:(BOOL)a4 withSource:(long long)a5 withType:(long long)a6 withInputActionCount:(long long)a7;
+- (void)didCandidateBarAction;
+- (void)didDeleteBackwardText:(id)a0 withType:(long long)a1 withInputMode:(id)a2;
+- (void)didInsertText:(id)a0 withType:(long long)a1 selectedTextBefore:(id)a2 withInputMode:(id)a3;
+- (void)didInsertText:(id)a0 withType:(long long)a1 withInputMode:(id)a2;
+- (void)dispatchToAnalyticsQueue:(id /* block */)a0;
+- (void)flushAndSetLastAction:(id)a0;
+- (id)initWithAnalyticsDelegate:(id)a0;
+- (id)initWithAnalyticsMetadataObserver:(id)a0 withServiceName:(id)a1;
+- (void)mergeOrConsumeAction:(id)a0;
+- (void)populateActionInputMode:(id)a0 withInputMode:(id)a1;
+
+@end

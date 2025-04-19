@@ -1,0 +1,3 @@
+@interface _TtC6SiriUIP33_5EBD836BE542EF50D6687BC02646BFD819ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

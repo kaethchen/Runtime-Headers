@@ -1,0 +1,3 @@
+@interface NSNavSplitView : NSSplitView
+
+@end

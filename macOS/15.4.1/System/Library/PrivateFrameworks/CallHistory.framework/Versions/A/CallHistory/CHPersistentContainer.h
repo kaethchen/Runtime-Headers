@@ -1,0 +1,3 @@
+@interface CHPersistentContainer : NSPersistentContainer
+
+@end

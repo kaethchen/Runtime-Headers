@@ -1,0 +1,3 @@
+@interface _TtCE17PasswordManagerUICSo62PMSafariAutoFillEditingStrongPasswordInformationViewController21ConfigurationProvider : PasswordManagerUI.PMSafariAutoFillStrongPasswordViewConfigurationProvider
+
+@end

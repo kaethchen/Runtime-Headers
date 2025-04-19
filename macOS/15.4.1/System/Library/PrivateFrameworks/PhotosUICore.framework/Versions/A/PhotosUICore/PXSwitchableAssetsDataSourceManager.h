@@ -1,0 +1,77 @@
+@class PXPhotosViewLens, PXUpdater, NSDictionary, NSSet, PXAssetsDataSourceManager, PXAssetsDataSource, NSString;
+@protocol NSCopying;
+
+@interface PXSwitchableAssetsDataSourceManager : PXAssetsDataSourceManager <PXAssetsDataSourceManagerObserver, PXLensInterchangeable>
+
+@property (readonly, nonatomic) NSDictionary *dataSourceManagerByKey;
+@property (readonly, nonatomic) PXUpdater *updater;
+@property (readonly, nonatomic) NSSet *allKeys;
+@property (retain, nonatomic) id<NSCopying> currentDataSourceKey;
+@property (retain, nonatomic) PXAssetsDataSource *currentDataSource;
+@property (copy, nonatomic) id<NSCopying> currentKey;
+@property (readonly, nonatomic) PXAssetsDataSourceManager *currentDataSourceManager;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (copy, nonatomic) PXPhotosViewLens *currentLens;
+
+- (id)init;
+- (void).cxx_destruct;
+- (id)sortDescriptors;
+- (void)setSortDescriptors:(id)a0;
+- (id)filterPredicate;
+- (void)setFilterPredicate:(id)a0;
+- (void)setReverseSortOrder:(BOOL)a0;
+- (void)_setNeedsUpdate;
+- (void)observable:(id)a0 didChange:(unsigned long long)a1 context:(void *)a2;
+- (void)assetsDataSourceManagerDidFinishBackgroundFetching:(id)a0;
+- (void)assetsDataSourceManagerDidFinishLoadingInitialDataSource:(id)a0;
+- (id)createInitialDataSource;
+- (void)didPerformChanges;
+- (void)ensureStartingSectionHasContent;
+- (void)forceIncludeAssetsAtIndexPaths:(id)a0;
+- (void)_enumerateAllDataSourceManagers:(id /* block */)a0;
+- (void)_invalidateCurrentDataSource;
+- (void)_updateCurrentDataSource;
+- (long long)backgroundFetchOriginSection;
+- (id)createDataSourceManagerForAsset:(id)a0;
+- (id)createDataSourceManagerForAssetsInSectionOfAsset:(id)a0 usingNewTransientAssetCollection:(BOOL)a1;
+- (id)createReverselySortedDataSourceManager;
+- (id)dataSourceManagerForKey:(id)a0;
+- (void)ensureLastSectionHasContent;
+- (void)excludeAssetsAtIndexPaths:(id)a0;
+- (BOOL)forceAccurateAllSectionsIfNeeded;
+- (BOOL)forceAccurateSection:(long long)a0 andSectionsBeforeAndAfter:(long long)a1;
+- (BOOL)forceAccurateSectionsIfNeeded:(id)a0;
+- (BOOL)includeOthersInSocialGroupAssets;
+- (id)initWithDataSourceManagerByKey:(id)a0 currentKey:(id)a1;
+- (BOOL)isBackgroundFetching;
+- (BOOL)isLoadingInitialDataSource;
+- (BOOL)isReverseSortOrder;
+- (id)localizedEmptyPlaceholderAttributedMessage;
+- (id)localizedEmptyPlaceholderTitle;
+- (id)localizedLoadingInitialDataSourceMessage;
+- (void)markContentAsViewed;
+- (id)pauseChangeDeliveryWithTimeout:(double)a0 identifier:(id)a1;
+- (void)refreshResultsForAssetCollection:(id)a0;
+- (void)resumeChangeDeliveryAndBackgroundLoading:(id)a0;
+- (void)setAllowedUUIDs:(id)a0;
+- (void)setAllowedUUIDs:(id)a0 manualOrderUUIDs:(id)a1 forAssetCollections:(id)a2;
+- (void)setBackgroundFetchOriginSection:(long long)a0;
+- (void)setCurationEnabled:(BOOL)a0 forAssetCollection:(id)a1;
+- (void)setCurationEnabledForAllCollections:(BOOL)a0 curationLength:(long long)a1 collectionsToDiff:(id)a2;
+- (void)setFilterPredicate:(id)a0 provideIncrementalChangeDetailsForAssetCollections:(id)a1;
+- (void)setFilteringDisabled:(BOOL)a0 forAssetCollection:(id)a1;
+- (void)setIncludeOthersInSocialGroupAssets:(BOOL)a0;
+- (void)setIncludeOthersInSocialGroupAssets:(BOOL)a0 provideIncrementalChangeDetailsForAssetCollections:(id)a1;
+- (id)sharedLibraryStatusProvider;
+- (void)startBackgroundFetchIfNeeded;
+- (void)stopExcludingAssets:(id)a0;
+- (void)stopForceIncludingAllAssets;
+- (BOOL)supportsCurationToggling;
+- (BOOL)supportsFiltering;
+- (BOOL)supportsLens:(id)a0;
+- (void)waitForAvailabilityOfAsset:(id)a0 timeout:(double)a1 completionHandler:(id /* block */)a2;
+
+@end

@@ -1,0 +1,64 @@
+@interface DMCoreStorage : NSObject {
+    id _instPriv;
+}
+
+- (void)dealloc;
+- (id)init;
+- (id)initWithManager:(id)a0;
+- (int)isEncryptedDiskForLogicalVolume:(id)a0 encrypted:(BOOL *)a1 locked:(BOOL *)a2 type:(id *)a3;
+- (int)logicalVolumeForDisk:(struct __DADisk { } *)a0 logicalVolume:(id *)a1;
+- (int)copyDiskForPhysicalVolume:(id)a0 disk:(struct __DADisk **)a1;
+- (int)isValidLVFUUID:(id)a0;
+- (int)isValidLVGUUID:(id)a0;
+- (int)nameForLogicalVolumeGroup:(id)a0 name:(id *)a1;
+- (int)sizeForLogicalVolumeGroup:(id)a0 size:(id *)a1;
+- (int)addPhysicalVolumeDisk:(struct __DADisk { } *)a0 toLogicalVolumeGroup:(id)a1;
+- (int)changePassphraseForLogicalVolume:(id)a0 options:(id)a1;
+- (int)checkNotUsedOrExportedByCoreStorage:(struct DMUDSPrivRec { unsigned long long x0; long long x1; char x2[150]; } *)a0;
+- (int)checkPartitionScheme:(struct DMUDSPrivRec { unsigned long long x0; long long x1; char x2[150]; } *)a0;
+- (int)convertDisk:(struct __DADisk { } *)a0 options:(id)a1;
+- (int)copyDiskForLogicalVolume:(id)a0 disk:(struct __DADisk **)a1;
+- (int)createLogicalVolumeGroup:(id)a0 withDisks:(id)a1 options:(id)a2;
+- (int)createLogicalVolumeOnLogicalVolumeGroup:(id)a0 fs:(id)a1 name:(id)a2 size:(id)a3 options:(id)a4;
+- (int)decryptLogicalVolume:(id)a0 options:(id)a1;
+- (int)decryptSuitableDisk:(struct __DADisk { } *)a0 options:(id)a1;
+- (int)designatedPhysicalVolumeForResizeLogicalAndPhysicalStackForLogicalVolume:(id)a0 physicalVolume:(id *)a1 disk:(struct __DADisk **)a2;
+- (int)destroyLogicalVolume:(id)a0 options:(id)a1;
+- (int)destroyLogicalVolumeGroup:(id)a0 options:(id)a1;
+- (int)doCallDaemonForCoreStorage:(id)a0 inputDict:(id)a1 outputDict:(id *)a2 checkDelegate:(BOOL)a3 sync:(BOOL)a4;
+- (int)encodeReserveKekAuthRefIfAnyInDMCoreStorageOptions:(id)a0;
+- (int)encryptLogicalVolume:(id)a0 options:(id)a1;
+- (int)encryptSuitableDisk:(struct __DADisk { } *)a0 options:(id)a1;
+- (int)finishRevertVolume:(id)a0;
+- (int)freeSpaceForLogicalVolumeGroup:(id)a0 freeSpace:(id *)a1;
+- (int)isCompositeDiskForLogicalVolume:(id)a0 composite:(BOOL *)a1;
+- (int)isDamagedLogicalVolumeGroup:(id)a0 damaged:(BOOL *)a1 how:(id *)a2;
+- (int)isDiskLogicalVolumeWithDesignatedBootCampVolume:(struct __DADisk { } *)a0 bootCamp:(BOOL *)a1;
+- (int)isDiskSuitableForDecryption:(struct __DADisk { } *)a0 suitable:(BOOL *)a1 why:(id *)a2 options:(id)a3;
+- (int)isDiskSuitableForEncryption:(struct __DADisk { } *)a0 suitable:(BOOL *)a1 why:(id *)a2 options:(id)a3;
+- (int)isLogicalVolumeFamilyEncrypted:(id)a0 isFullyOrPartiallyEncrypted:(BOOL *)a1 isFullyEncrypted:(BOOL *)a2 encryptionType:(id *)a3 isLocked:(BOOL *)a4;
+- (int)isLogicalVolumeFamilyEncrypted:(id)a0 isFullyOrPartiallyEncrypted:(BOOL *)a1 isLocked:(BOOL *)a2;
+- (int)isSparseLogicalVolumeGroup:(id)a0 sparse:(BOOL *)a1;
+- (int)isValidLVUUID:(id)a0;
+- (int)isValidPVUUID:(id)a0;
+- (int)logicalVolumeAndLogicalVolumeGroupForDisk:(struct __DADisk { } *)a0 logicalVolume:(id *)a1 logicalVolumeGroup:(id *)a2;
+- (int)logicalVolumeFamilyForLogicalVolume:(id)a0 logicalVolumeFamily:(id *)a1;
+- (int)logicalVolumeGroupForLogicalVolume:(id)a0 logicalVolumeGroup:(id *)a1;
+- (int)logicalVolumeGroupForLogicalVolumeFamily:(id)a0 logicalVolumeGroup:(id *)a1;
+- (int)logicalVolumeGroupForPhysicalVolume:(id)a0 logicalVolumeGroup:(id *)a1;
+- (int)logicalVolumeGroups:(id *)a0;
+- (int)logicalVolumesForLogicalVolumeGroup:(id)a0 dictionaries:(id *)a1;
+- (int)makeSparseLogicalVolumeGroup:(id)a0 options:(id)a1;
+- (int)nameForLogicalVolume:(id)a0 name:(id *)a1;
+- (int)physicalVolumeAndLogicalVolumeGroupForDisk:(struct __DADisk { } *)a0 physicalVolume:(id *)a1 logicalVolumeGroup:(id *)a2;
+- (int)physicalVolumesForLogicalVolumeGroup:(id)a0 dictionaries:(id *)a1;
+- (int)removePhysicalVolume:(id)a0 options:(id)a1;
+- (int)renameLogicalVolumeGroup:(id)a0 newName:(id)a1 options:(id)a2;
+- (int)resizeLogicalAndPhysicalStackForLogicalVolume:(id)a0 size:(id)a1 withNewMapEntries:(id)a2 options:(id)a3;
+- (int)resizeLogicalVolume:(id)a0 size:(id)a1 options:(id)a2;
+- (int)resizePhysicalVolume:(id)a0 size:(id)a1 withNewMapEntries:(id)a2 options:(id)a3;
+- (int)revertVolume:(id)a0 options:(id)a1;
+- (int)sizeForLogicalVolume:(id)a0 size:(id *)a1;
+- (int)unlockLogicalVolume:(id)a0 options:(id)a1;
+
+@end

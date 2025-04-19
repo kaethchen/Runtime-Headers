@@ -1,0 +1,3 @@
+@interface NoteContext : NSObject
+
+@end

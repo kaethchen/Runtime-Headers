@@ -1,0 +1,3 @@
+@interface _TtCC9Calculate19CalculateExpression15RollInOperation : _TtCC9Calculate19CalculateExpression9Operation
+
+@end

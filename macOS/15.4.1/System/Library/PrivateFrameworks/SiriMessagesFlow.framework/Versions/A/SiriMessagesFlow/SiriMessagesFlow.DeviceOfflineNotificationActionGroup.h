@@ -1,0 +1,3 @@
+@interface SiriMessagesFlow.DeviceOfflineNotificationActionGroup : SiriMessagesFlow.MessageReadingActionGroup
+
+@end

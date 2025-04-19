@@ -1,0 +1,3 @@
+@interface SiriUIOrbView : SUICOrbView
+
+@end

@@ -1,0 +1,3 @@
+@interface PostSiriEngagement.PostInteractionEngagementCollector : PostSiriEngagement.PostSiriEngagementMetricsCollector
+
+@end

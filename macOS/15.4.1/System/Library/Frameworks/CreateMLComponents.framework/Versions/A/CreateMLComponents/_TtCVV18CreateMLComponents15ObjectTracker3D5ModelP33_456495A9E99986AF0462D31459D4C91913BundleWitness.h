@@ -1,0 +1,3 @@
+@interface _TtCVV18CreateMLComponents15ObjectTracker3D5ModelP33_456495A9E99986AF0462D31459D4C91913BundleWitness : _TtCs12_SwiftObject
+
+@end

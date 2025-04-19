@@ -1,0 +1,3 @@
+@interface SiriMessageTypes.LLMBasedResultCandidateMessage : SiriMessageTypes.TextBasedResultCandidateMessage
+
+@end

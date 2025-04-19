@@ -1,0 +1,70 @@
+@interface SFKeychainSettingsPanel : NSPanel {
+    id _reserved_SFKeychainSettingsPanel;
+}
+
++ (id)dotMacPrefPanePath;
++ (id)sharedKeychainSettingsPanel;
+
+- (void)dealloc;
+- (id)init;
+- (void)lock;
+- (void)unlock;
+- (id)_panel;
+- (void)_setDidEndSelector:(SEL)a0;
+- (void)controlTextDidChange:(id)a0;
+- (void)set_panel:(id)a0;
+- (BOOL)textView:(id)a0 shouldChangeTextInRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 replacementString:(id)a2;
+- (void)_setRunAsSheet:(BOOL)a0;
+- (id)_autoLockCtrl;
+- (id)_autoLockValue;
+- (id)_cancelButton;
+- (void)_chSheetDidEnd:(id)a0 returnCode:(long long)a1 contextInfo:(void *)a2;
+- (id)_autoLockStepper;
+- (id)_syncDotMacCtrl;
+- (BOOL)_updateSettings;
+- (void)set_saveButton:(id)a0;
+- (id)_dotMacButton;
+- (void *)_getClientContext;
+- (id)_getClientDelegate;
+- (SEL)_getDidEndSelector;
+- (id)_initWithNib:(id)a0;
+- (id)_ivars;
+- (unsigned int)_lockInterval;
+- (id)_lockOnSleepCtrl;
+- (id)_panelMessage;
+- (id)_parentWindowForSheet;
+- (void)_prepPanel:(struct SecKeychainSettings { unsigned int x0; unsigned char x1; unsigned char x2; unsigned int x3; } *)a0 keychain:(struct __SecKeychain { } *)a1;
+- (id)_progressCtrl;
+- (BOOL)_runAsSheet;
+- (long long)_runFullDialog;
+- (void)_runFullDialogSheet;
+- (id)_saveButton;
+- (void)_setContextInfo:(void *)a0;
+- (void)_setKeychainName:(id)a0;
+- (void)_setKeychainRef:(struct __SecKeychain { } *)a0;
+- (void)_setParentWindowForSheet:(id)a0;
+- (void)_setSavedDelegate:(id)a0;
+- (void)_syncSheetDidDismiss:(id)a0 returnCode:(int)a1 contextInfo:(void *)a2;
+- (id)_syncStateMessage;
+- (int)_updateSyncState;
+- (void)beginSheetForWindow:(id)a0 modalDelegate:(id)a1 didEndSelector:(SEL)a2 contextInfo:(void *)a3 settings:(struct SecKeychainSettings { unsigned int x0; unsigned char x1; unsigned char x2; unsigned int x3; } *)a4 keychain:(struct __SecKeychain { } *)a5;
+- (void)cancelClicked:(id)a0;
+- (void)dotMacClicked:(id)a0;
+- (void)lockAfterClicked:(id)a0;
+- (void)okClicked:(id)a0;
+- (long long)runModalForSettings:(struct SecKeychainSettings { unsigned int x0; unsigned char x1; unsigned char x2; unsigned int x3; } *)a0 keychain:(struct __SecKeychain { } *)a1;
+- (long long)runModalForSettingsDictionary:(id)a0 keychain:(struct __SecKeychain { } *)a1;
+- (void)setRef:(id *)a0 toObj:(id)a1;
+- (void)set_autoLockCtrl:(id)a0;
+- (void)set_autoLockStepper:(id)a0;
+- (void)set_autoLockValue:(id)a0;
+- (void)set_cancelButton:(id)a0;
+- (void)set_dotMacButton:(id)a0;
+- (void)set_lockOnSleepCtrl:(id)a0;
+- (void)set_panelMessage:(id)a0;
+- (void)set_progressCtrl:(id)a0;
+- (void)set_syncDotMacCtrl:(id)a0;
+- (void)set_syncStateMessage:(id)a0;
+- (void)syncClicked:(id)a0;
+
+@end

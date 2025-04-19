@@ -1,0 +1,3 @@
+@interface _TtCO16CryptoKitPrivate2HE24ObjectStorageWithZeroize : _TtCO16CryptoKitPrivate2HE13ObjectStorage
+
+@end

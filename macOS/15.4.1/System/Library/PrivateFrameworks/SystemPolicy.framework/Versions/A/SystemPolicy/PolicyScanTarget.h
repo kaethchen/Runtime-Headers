@@ -1,0 +1,80 @@
+@class NSNumber, NSUUID, NSString, NSURL, NSDate, NSData, NSDictionary;
+
+@interface PolicyScanTarget : NSObject {
+    NSDate *_chgTime;
+    NSURL *_mainExecutableURL;
+    NSString *_bundleID;
+    NSString *_bundleVersion;
+    BOOL _isDirectory;
+    struct __CFBundle { } *_bundle;
+    struct __SecCode { } *_staticCodeRef;
+    NSDictionary *_signingInfo;
+    NSString *_cdhash;
+    NSData *_cdhashData;
+    unsigned int _cdhashDigestAlgorithm;
+    NSString *_teamID;
+    NSString *_signingID;
+    NSDictionary *_entitlements;
+    BOOL _quarantineChecked;
+    BOOL _isQuarantined;
+    BOOL _isUserApproved;
+    BOOL _resourceDirectorySlotChecked;
+    BOOL _powerfulEntitlementsChecked;
+    BOOL _backingStoreChecked;
+    BOOL _isBackingDMGNotarizationChecked;
+    NSURL *_trashedMainExe;
+}
+
+@property (readonly, nonatomic) NSURL *originalURL;
+@property (readonly, nonatomic) NSURL *url;
+@property (readonly, nonatomic) NSUUID *volumeUUID;
+@property (readonly, nonatomic) NSString *volumePath;
+@property (readonly, nonatomic) NSString *pathOnVolume;
+@property (readonly, nonatomic) NSString *blockDevice;
+@property (readonly, nonatomic) NSString *fsTypeName;
+@property (readonly, nonatomic) unsigned long long objectID;
+@property (readonly, nonatomic) NSString *bundleID;
+@property (readonly, nonatomic) NSString *bundleVersion;
+@property (readonly, nonatomic) NSDate *createdTime;
+@property (readonly, nonatomic) NSDate *modTime;
+@property (readonly, nonatomic) NSDate *mountTime;
+@property (readonly, nonatomic) NSURL *mainExecutableURL;
+@property (readonly, nonatomic) struct __SecCode { } *staticCodeRef;
+@property (readonly, nonatomic) NSString *cdhash;
+@property (readonly, nonatomic) NSData *cdhashData;
+@property (readonly, nonatomic) unsigned int cdhashDigestAlgorithm;
+@property (readonly, nonatomic) NSString *teamID;
+@property (readonly, nonatomic) NSString *signingID;
+@property (readonly, nonatomic) NSDictionary *entitlements;
+@property (readonly, nonatomic) NSDictionary *infoPlist;
+@property (readonly, nonatomic) BOOL isQuarantinedMount;
+@property (readonly, nonatomic) BOOL isBackingDMGNotarized;
+@property (readonly, nonatomic) BOOL isQuarantined;
+@property (readonly, nonatomic) BOOL isUserApproved;
+@property (readonly, nonatomic) BOOL isNotarized;
+@property (readonly, nonatomic) BOOL isAppWrapper;
+@property (nonatomic) BOOL isBadAppWrapper;
+@property (nonatomic) BOOL checkValidity;
+@property (nonatomic) BOOL triggeredByLibraryLoad;
+@property (nonatomic) BOOL isBundled;
+@property (nonatomic) BOOL hasResourceDirectorySlot;
+@property (nonatomic) BOOL hasPowerfulEntitlements;
+@property (nonatomic) long long backingStore;
+@property (nonatomic) BOOL isScript;
+@property (nonatomic) int pid;
+@property (nonatomic) int csflags;
+@property (nonatomic) BOOL isMovedToTrash;
+@property (retain, nonatomic) NSURL *trashedURL;
+@property (readonly, nonatomic) NSURL *trashedMainExe;
+@property (retain, nonatomic) NSNumber *validationCategory;
+
+- (void)dealloc;
+- (id)description;
+- (id)init;
+- (void).cxx_destruct;
+- (id)initWithURL:(id)a0;
+- (id)redactedDescription;
+- (id)signingInfo;
+- (void)reloadSigningInfo;
+
+@end

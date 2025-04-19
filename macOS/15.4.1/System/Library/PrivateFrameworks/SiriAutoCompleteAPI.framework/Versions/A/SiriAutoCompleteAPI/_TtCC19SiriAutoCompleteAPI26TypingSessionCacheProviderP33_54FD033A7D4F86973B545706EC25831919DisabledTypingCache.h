@@ -1,0 +1,3 @@
+@interface _TtCC19SiriAutoCompleteAPI26TypingSessionCacheProviderP33_54FD033A7D4F86973B545706EC25831919DisabledTypingCache : _TtCs12_SwiftObject
+
+@end

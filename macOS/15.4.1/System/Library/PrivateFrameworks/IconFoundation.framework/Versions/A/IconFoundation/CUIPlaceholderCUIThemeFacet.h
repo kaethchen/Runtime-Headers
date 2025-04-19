@@ -1,0 +1,3 @@
+@interface CUIPlaceholderCUIThemeFacet : NSObject
+
+@end

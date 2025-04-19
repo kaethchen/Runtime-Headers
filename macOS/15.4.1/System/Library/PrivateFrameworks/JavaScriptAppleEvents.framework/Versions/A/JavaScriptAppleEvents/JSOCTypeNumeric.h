@@ -1,0 +1,3 @@
+@interface JSOCTypeNumeric : JSOCType
+
+@end

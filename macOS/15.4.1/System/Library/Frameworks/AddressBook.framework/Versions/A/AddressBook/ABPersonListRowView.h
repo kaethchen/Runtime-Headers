@@ -1,0 +1,3 @@
+@interface ABPersonListRowView : NSTableRowView
+
+@end

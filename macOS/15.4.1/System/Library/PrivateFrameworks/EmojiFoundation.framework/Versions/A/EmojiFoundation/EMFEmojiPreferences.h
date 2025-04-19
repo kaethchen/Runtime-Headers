@@ -1,0 +1,90 @@
+@class NSArray, NSMutableDictionary, NSString, NSMutableArray;
+
+@interface EMFEmojiPreferences : NSObject <EMFEmojiPreferenceActions> {
+    NSMutableDictionary *_usageHistory;
+    NSMutableArray *_recents;
+    NSMutableDictionary *_typingNames;
+    NSMutableDictionary *_skinToneBaseKeyPreferences;
+    NSMutableDictionary *_categoryIndexes;
+    long long _currentSequence;
+    struct unique_ptr<CEM::AdaptationDatabaseController, std::default_delete<CEM::AdaptationDatabaseController>> { struct __compressed_pair<CEM::AdaptationDatabaseController *, std::default_delete<CEM::AdaptationDatabaseController>> { struct AdaptationDatabaseController *__value_; } __ptr_; } _adaptationController;
+}
+
+@property (retain) NSMutableDictionary *defaults;
+@property BOOL isDefaultDirty;
+@property (nonatomic) unsigned long long maximumRecentsCount;
+@property (readonly, nonatomic) NSArray *allRecents;
+@property (readonly, nonatomic) NSArray *recentEmojis;
+@property (readonly, nonatomic) NSString *previouslyUsedCategory;
+@property (readonly, nonatomic) BOOL hasDisplayedSkinToneHelp;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)defaultsDomain;
++ (id)_allRecentStrings;
++ (id)_recentEmojiStrings;
++ (id)_cacheDomain;
++ (id)_cachedFlagCategoryEmoji:(id /* block */)a0;
++ (id)_recentStringsInCharacterSet:(id)a0;
++ (BOOL)deviceStateIsLocked;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (id).cxx_construct;
+- (void)didUseEmoji:(id)a0;
+- (id)lastUsedVariantEmojiForEmoji:(id)a0;
+- (void)writeEmojiDefaults;
+- (void)didUseEmojiInDictation:(id)a0 replacementContext:(id)a1;
+- (BOOL)hasLastUsedVariantForEmoji:(id)a0;
+- (void)readEmojiDefaults;
+- (void)didDisplaySkinToneHelp;
+- (void)didUseEmoji:(id)a0 usageMode:(id)a1;
+- (void)resetEmojiDefaults;
+- (void)_checkForDingbatDuplicates;
+- (void)_cleanUpOldFlagsCaches;
+- (void)_forceReadEmojiDefaults;
+- (void)_pruneInvalidEmojiFromHistory;
+- (void)_pruneOldestEmojiUsageFromHistory;
+- (void)_readPreferencesFromDefaults;
+- (void)_setRecentStrings:(id)a0;
+- (void *)adaptationControllerForLocaleIdentifier:(id)a0;
+- (id)copySortedEmojis:(id)a0 keyword:(id)a1 localeIdentifier:(id)a2;
+- (void)didUseEmoji:(id)a0 usageMode:(id)a1 typingName:(id)a2;
+- (void)didUseEmoji:(id)a0 usageMode:(id)a1 typingName:(id)a2 replacementContext:(id)a3;
+- (void)didUseEmoji:(id)a0 usageSource:(unsigned long long)a1 replacementContext:(id)a2 searchQuery:(id)a3 resultPosition:(id)a4 numberSearchQueriesRun:(id)a5 wasPositiveEngagement:(BOOL)a6;
+- (void)didUseEmojiInCharacterPickerExtended:(id)a0 finalQuery:(id)a1 resultIndex:(id)a2;
+- (void)didUseEmojiInCharacterPickerLightweight:(id)a0 replacementContext:(id)a1;
+- (void)didUseEmojiInCharacterPickerPopover:(id)a0 finalQuery:(id)a1 resultIndex:(id)a2;
+- (void)didUseEmojiInDFRBar:(id)a0 replacementContext:(id)a1;
+- (void)didUseEmojiInEmojiKeyboardPalette:(id)a0 wasFromRecentsSection:(BOOL)a1;
+- (void)didUseEmojiInEmojiKeyboardSearch:(id)a0 finalQuery:(id)a1 resultIndex:(id)a2;
+- (void)didUseEmojiInHandwriting:(id)a0 replacementContext:(id)a1;
+- (void)didUseEmojiInKeyboardCandidateBar:(id)a0 candidatePosition:(id)a1 replacementContext:(id)a2;
+- (void)didUseEmojiInKeyboardCandidateBar:(id)a0 replacementContext:(id)a1;
+- (void)didViewEmojiIndex:(long long)a0 forCategory:(id)a1;
+- (void)loadDefaultsIfNecessaryThreadSafe;
+- (void)migrateFromMajorOSVersion:(long long)a0;
+- (void)migrateInDidDisplaySkinToneHelp:(BOOL)a0;
+- (void)migrateInPreviouslyUsedCategory:(id)a0;
+- (void)migrateInPreviouslyUsedCategoryIndexes:(id)a0;
+- (void)migrateInRecentEmoji:(id)a0 usages:(id)a1 typingNames:(id)a2;
+- (void)migrateInSkinTonePreferences:(id)a0;
+- (unsigned long long)previouslyUsedIndexInCategory:(id)a0;
+- (id)recentEmojisByFillingWithPrepopulatedEmojisUpTo:(unsigned long long)a0;
+- (id)recentVariantEmojiForEmoji:(id)a0;
+- (id)recentsInCharacterSet:(id)a0;
+- (BOOL)recordEmojiEngagement:(id)a0 keyword:(id)a1 localeIdentifier:(id)a2;
+- (double)scoreForEmojiString:(id)a0;
+- (double)scoreForEmojiStringUnsafe:(id)a0;
+- (double)scoreForSequence:(long long)a0;
+- (double)scoreForSequenceUnsafe:(long long)a0;
+- (BOOL)shouldCountEmojiStringForUsageHistory:(id)a0;
+- (void)sortedEmojis:(id)a0 keyword:(id)a1 localeIdentifier:(id)a2 handler:(id /* block */)a3;
+- (id)typingNameForEmoji:(id)a0;
+- (id)valueForKeyInLocalCachedDefaultsThreadsafe:(id)a0;
+- (void)writeEmojiDefaultsThreadSafeAndNotify:(BOOL)a0;
+
+@end

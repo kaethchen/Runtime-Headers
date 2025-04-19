@@ -1,0 +1,3 @@
+@interface NSAccessibilityChildPanel : NSPanel
+
+@end

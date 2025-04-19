@@ -1,0 +1,3 @@
+@interface PXGRenderSnapshot : NSObject
+
+@end

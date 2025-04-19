@@ -1,0 +1,3 @@
+@interface _TtC14WritingToolsUIP33_A92FE46C93FAFDAD52C64B879D91A7F919ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

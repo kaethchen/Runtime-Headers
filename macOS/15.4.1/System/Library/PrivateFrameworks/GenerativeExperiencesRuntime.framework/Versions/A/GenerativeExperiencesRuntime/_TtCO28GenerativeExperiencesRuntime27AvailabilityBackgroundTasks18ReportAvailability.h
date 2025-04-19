@@ -1,0 +1,3 @@
+@interface _TtCO28GenerativeExperiencesRuntime27AvailabilityBackgroundTasks18ReportAvailability : _TtCs12_SwiftObject
+
+@end

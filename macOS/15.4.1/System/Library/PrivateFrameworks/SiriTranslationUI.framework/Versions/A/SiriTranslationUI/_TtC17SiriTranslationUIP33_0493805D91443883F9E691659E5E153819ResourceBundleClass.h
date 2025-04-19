@@ -1,0 +1,3 @@
+@interface _TtC17SiriTranslationUIP33_0493805D91443883F9E691659E5E153819ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

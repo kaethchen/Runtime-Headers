@@ -1,0 +1,3 @@
+@interface CUIPlaceholderCUIBackgroundStyleEffectConfiguration : NSObject
+
+@end

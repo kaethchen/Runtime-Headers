@@ -1,0 +1,3 @@
+@interface EWSSyncFolderItemsCreateType : EWSSyncFolderItemsCreateOrUpdateType
+
+@end

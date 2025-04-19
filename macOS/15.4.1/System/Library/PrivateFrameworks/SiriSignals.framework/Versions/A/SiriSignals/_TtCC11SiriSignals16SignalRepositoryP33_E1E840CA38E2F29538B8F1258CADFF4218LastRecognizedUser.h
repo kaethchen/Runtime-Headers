@@ -1,0 +1,3 @@
+@interface _TtCC11SiriSignals16SignalRepositoryP33_E1E840CA38E2F29538B8F1258CADFF4218LastRecognizedUser : _TtCs12_SwiftObject
+
+@end

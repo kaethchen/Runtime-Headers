@@ -1,0 +1,3 @@
+@interface _TtC17CoreAccessibilityP33_BF7ACDCB6EC01E58D32CE36E0FF1189A10AnyTextBox : _TtCs12_SwiftObject
+
+@end

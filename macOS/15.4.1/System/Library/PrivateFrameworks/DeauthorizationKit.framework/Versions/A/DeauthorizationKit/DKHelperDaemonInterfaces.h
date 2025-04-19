@@ -1,0 +1,3 @@
+@interface DKHelperDaemonInterfaces : NSObject
+
+@end

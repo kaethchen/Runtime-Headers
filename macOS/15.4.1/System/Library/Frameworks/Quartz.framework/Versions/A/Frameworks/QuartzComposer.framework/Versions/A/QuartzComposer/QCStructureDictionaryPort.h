@@ -1,0 +1,3 @@
+@interface QCStructureDictionaryPort : QCStructurePort
+
+@end

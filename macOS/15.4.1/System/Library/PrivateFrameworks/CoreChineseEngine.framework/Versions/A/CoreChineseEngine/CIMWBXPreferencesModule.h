@@ -1,0 +1,3 @@
+@interface CIMWBXPreferencesModule : CIMPreferencesModule
+
+@end

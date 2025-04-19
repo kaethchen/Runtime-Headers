@@ -1,0 +1,3 @@
+@interface MKFMatterPathDatabaseID : MKFModelDatabaseID
+
+@end

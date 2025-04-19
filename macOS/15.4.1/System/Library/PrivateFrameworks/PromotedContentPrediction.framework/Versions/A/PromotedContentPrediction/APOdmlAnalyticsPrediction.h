@@ -1,0 +1,3 @@
+@interface APOdmlAnalyticsPrediction : APOdmlAnalytics
+
+@end

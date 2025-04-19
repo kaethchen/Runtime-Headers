@@ -1,0 +1,3 @@
+@interface _TtC14SiriNotebookUIP33_5B5B4621C807449B6706ED099DD558F820SiriNotebookUIBundle : _TtCs12_SwiftObject
+
+@end

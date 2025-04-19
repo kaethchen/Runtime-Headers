@@ -1,0 +1,81 @@
+@class NSString, NSArray, UXLabel, KHPhotoBinDragView, KHProjectPhoto, NSMutableArray, NSLayoutConstraint, NSIndexPath;
+@protocol KHPhotoBinViewControllerDelegate;
+
+@interface KHPhotoBinViewController : UXCollectionViewController <KHPhotoBinPhotoCellAccessibilitySelectionDelegate, UXCollectionViewAccessibilityDelegate, KHPhotoBinDragViewDelegate, UXCollectionViewDelegateFlowLayout> {
+    double _anchoredScrollFactor;
+    NSLayoutConstraint *_collectionViewHeightConstraint;
+}
+
+@property (retain) NSArray *photos;
+@property (retain) KHPhotoBinDragView *photoBinDraggingView;
+@property (retain, nonatomic) KHProjectPhoto *draggingPhoto;
+@property (retain, nonatomic) NSIndexPath *clickedIndexPath;
+@property (nonatomic) BOOL selectionShouldStealFocus;
+@property (retain) id observationObject;
+@property (retain, nonatomic) NSString *observationKeyPath;
+@property (retain, nonatomic) NSArray *delayedPhotoSelection;
+@property (retain, nonatomic) NSMutableArray *pendingGhostedPhotos;
+@property (nonatomic) BOOL updatingSelection;
+@property (nonatomic) BOOL updatingContent;
+@property (nonatomic) BOOL requiresContentUpdateOnAppear;
+@property (retain, nonatomic) UXLabel *emptyBinLabel;
+@property (weak) id<KHPhotoBinViewControllerDelegate> delegate;
+@property (readonly) BOOL isEmpty;
+@property (readonly) NSArray *availablePhotos;
+@property (nonatomic) BOOL canDeleteContents;
+@property (nonatomic) BOOL shouldHandleDraggingEvents;
+@property (nonatomic) double contentLength;
+@property (copy, nonatomic) NSString *emptyDescription;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (id)init;
+- (void).cxx_destruct;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (void)_reloadData;
+- (void)collectionView:(id)a0 draggingSession:(id)a1 endedAtPoint:(struct CGPoint { double x0; double x1; })a2 dragOperation:(unsigned long long)a3;
+- (struct NSEdgeInsets { double x0; double x1; double x2; double x3; })collectionView:(id)a0 layout:(id)a1 insetForSectionAtIndex:(long long)a2;
+- (struct CGSize { double x0; double x1; })collectionView:(id)a0 layout:(id)a1 sizeForItemAtIndexPath:(id)a2;
+- (long long)collectionView:(id)a0 numberOfItemsInSection:(long long)a1;
+- (void)copy:(id)a0;
+- (void)keyDown:(id)a0;
+- (void)mouseDown:(id)a0;
+- (void)mouseUp:(id)a0;
+- (long long)numberOfSectionsInCollectionView:(id)a0;
+- (void)paste:(id)a0;
+- (void)selectAll:(id)a0;
+- (void)viewDidAppear;
+- (void)viewDidLoad;
+- (void)viewWillAppear;
+- (void)collectionView:(id)a0 didSelectItemAtIndexPath:(id)a1;
+- (id)collectionView:(id)a0 cellForItemAtIndexPath:(id)a1;
+- (void)collectionView:(id)a0 didDeselectItemAtIndexPath:(id)a1;
+- (void)collectionView:(id)a0 createdDraggingSession:(id)a1 forItemsAtIndexPaths:(id)a2;
+- (id)collectionView:(id)a0 draggingItemForIndexPath:(id)a1 proposedDraggingItem:(id)a2;
+- (unsigned long long)collectionView:(id)a0 draggingSession:(id)a1 sourceOperationMaskForDraggingContext:(long long)a2;
+- (BOOL)collectionView:(id)a0 shouldBeginDraggingSessionWithClickedItemAtIndexPath:(id)a1;
+- (struct CGPoint { double x0; double x1; })collectionView:(id)a0 targetContentOffsetOnResizeForProposedContentOffset:(struct CGPoint { double x0; double x1; })a1;
+- (id)collectionViewAccessibilityRoleDescription:(id)a0;
+- (void)collectionViewDidEndScrolling:(id)a0;
+- (void)viewDidLiveResize;
+- (void)viewWillLiveResize;
+- (void)_contentUpdated;
+- (struct CGSize { double x0; double x1; })_imageSizeForAspectRatio:(double)a0;
+- (struct CGSize { double x0; double x1; })_imageSizeForProjectPhoto:(id)a0;
+- (void)_updateCellForPhoto:(id)a0;
+- (void)_updatePhotos:(id)a0;
+- (void)markPhoto:(id)a0 transitioning:(BOOL)a1;
+- (struct CGSize { double x0; double x1; })photoBinDragView:(id)a0 itemSizeForAspectRatio:(double)a1;
+- (void)photoBinPhotoCellWasPicked:(id)a0;
+- (void)photoBinPhotoCellWasPressed:(id)a0;
+- (void)photoId:(id)a0 droppedOnPhotoView:(id)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })rectForPhoto:(id)a0;
+- (void)removeObservationForPhotos;
+- (void)setupObservationForObject:(id)a0 keyPath:(id)a1;
+- (void)setupObservationForPhotos;
+- (void)updateSelectionWithPhotos:(id)a0 scroll:(BOOL)a1 animated:(BOOL)a2;
+
+@end

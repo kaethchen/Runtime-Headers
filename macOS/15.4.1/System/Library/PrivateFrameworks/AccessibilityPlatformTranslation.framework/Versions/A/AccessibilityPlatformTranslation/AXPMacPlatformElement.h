@@ -1,0 +1,95 @@
+@class NSArray, NSMutableDictionary, NSString, AXPTranslationObject;
+
+@interface AXPMacPlatformElement : NSAccessibilityElement <NSAccessibilityCustomRotorItemSearchDelegate, NSAccessibilityCustomElementDataProvider, AXPTranslationElementProtocol, NSAccessibilityElement> {
+    NSMutableDictionary *_selectiveCache;
+}
+
+@property (retain, nonatomic) AXPTranslationObject *translation;
+@property (retain, nonatomic) NSArray *cachedCustomActions;
+@property (retain, nonatomic) NSArray *cachedCustomRotors;
+@property (retain, nonatomic) NSMutableDictionary *cachedRotorResult;
+@property (copy, nonatomic) id /* block */ nsPostEventTestingCallback;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
++ (id)elementWithAccessibilityCustomElementData:(id)a0;
++ (id)applicationElement;
++ (id)platformElementWithTranslationObject:(id)a0;
+
+- (void)dealloc;
+- (BOOL)isEqual:(id)a0;
+- (BOOL)respondsToSelector:(SEL)a0;
+- (void).cxx_destruct;
+- (id)role;
+- (id)accessibilityActionDescription:(id)a0;
+- (BOOL)isAccessibilitySelectorAllowed:(SEL)a0;
+- (id)_accessibilityTopLevelUIElementForPopUpMenu;
+- (id)accessibilityActionNames;
+- (struct CGPoint { double x0; double x1; })accessibilityActivationPoint;
+- (id)accessibilityAttributeNames;
+- (id)accessibilityAttributeValue:(id)a0;
+- (id)accessibilityAttributeValue:(id)a0 forParameter:(id)a1;
+- (id)accessibilityCustomActions;
+- (id)accessibilityCustomElementData;
+- (id)accessibilityCustomRotors;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })accessibilityFrame;
+- (id)accessibilityHitTest:(struct CGPoint { double x0; double x1; })a0;
+- (BOOL)accessibilityIsAttributeSettable:(id)a0;
+- (BOOL)accessibilityIsIgnored;
+- (id)accessibilityLabel;
+- (id)accessibilityMultipleAttributes:(id)a0;
+- (id)accessibilityParameterizedAttributeNames;
+- (id)accessibilityParent;
+- (void)accessibilityPerformAction:(id)a0;
+- (BOOL)accessibilityPerformPress;
+- (BOOL)accessibilityPerformShowMenu;
+- (int)accessibilityPresenterProcessIdentifier;
+- (id)accessibilityRole;
+- (void)accessibilitySetValue:(id)a0 forAttribute:(id)a1;
+- (BOOL)accessibilityShouldUseUniqueId;
+- (BOOL)accessibilitySupportsCustomElementData;
+- (BOOL)isAccessibilityEnabled;
+- (id)rotor:(id)a0 resultForSearchParameters:(id)a1;
+- (id)_accessibilityProcessAttribute:(id)a0;
+- (void)performScrollPreviousPageAction;
+- (id)_accessibilityProcessAttribute:(id)a0 parameter:(id)a1;
+- (id)_accessibilityProcessImmediateAttributeResult:(id)a0;
+- (id)_accessibilityTranslationRootParent;
+- (unsigned long long)_attributeTypeForMacAttribute:(id)a0;
+- (void)_cacheAXTreeDumpResult:(id)a0 attribute:(unsigned long long)a1;
+- (void)_cacheResultSelectively:(id)a0 attribute:(unsigned long long)a1;
+- (id)_cachedRole;
+- (BOOL)_clientSideRemoteElement;
+- (id)_convertMacMarkerRangeToiOSMarkerRange:(id)a0;
+- (id)_convertMacMarkerToiOSMarker:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })_convertPlatformFrameToSystemFrame:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)_convertTranslatorResponse:(id)a0 forAttribute:(unsigned long long)a1;
+- (id)_convertiOSMarkerRangeToMacMarkerRange:(id)a0;
+- (id)_convertiOSMarkerToMacMarker:(id)a0;
+- (id)_customRotorData:(id)a0;
+- (BOOL)_isRemoteElement;
+- (id)_macAttributeTypeForAXPAttribute:(unsigned long long)a0;
+- (id)_postProcessResult:(id)a0 attributeType:(unsigned long long)a1;
+- (id)_preprocessRequest:(unsigned long long)a0 parameter:(id)a1;
+- (int)_remoteElementPid;
+- (BOOL)_shouldPostProcessSubstituteRemoteRepresentationWithObject:(id)a0 forAttribute:(unsigned long long)a1;
+- (BOOL)_synthesizeMouseClick:(unsigned int)a0;
+- (unsigned int)_windowContextId;
+- (long long)_windowNumberForRootParent:(id)a0;
+- (id)accessibilityHitTest:(struct CGPoint { double x0; double x1; })a0 withDisplayId:(unsigned int)a1 contextId:(unsigned int)a2;
+- (void)performDecrementAction;
+- (void)performEscapeAction;
+- (void)performIncrementAction;
+- (void)performMagicTapAction;
+- (BOOL)performNotifyVoiceOverAnnouncementCompletionWithValue:(id)a0;
+- (void)performScrollDownByPageAction;
+- (void)performScrollLeftByPageAction;
+- (void)performScrollNextPageAction;
+- (void)performScrollRightByPageAction;
+- (void)performScrollToVisible;
+- (void)performScrollUpByPageAction;
+
+@end

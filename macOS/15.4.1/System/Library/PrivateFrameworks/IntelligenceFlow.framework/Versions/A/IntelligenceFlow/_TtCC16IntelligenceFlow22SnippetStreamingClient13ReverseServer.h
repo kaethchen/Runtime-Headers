@@ -1,0 +1,3 @@
+@interface _TtCC16IntelligenceFlow22SnippetStreamingClient13ReverseServer : _TtCs12_SwiftObject <LXSnippetStreamingXPCProtocol>
+
+@end

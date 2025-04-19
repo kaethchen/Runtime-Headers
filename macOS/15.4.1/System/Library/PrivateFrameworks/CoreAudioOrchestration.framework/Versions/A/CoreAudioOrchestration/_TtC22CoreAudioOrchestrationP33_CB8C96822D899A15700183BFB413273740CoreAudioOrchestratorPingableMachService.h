@@ -1,0 +1,3 @@
+@interface _TtC22CoreAudioOrchestrationP33_CB8C96822D899A15700183BFB413273740CoreAudioOrchestratorPingableMachService : _TtCs12_SwiftObject
+
+@end

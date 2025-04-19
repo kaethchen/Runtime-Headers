@@ -1,0 +1,3 @@
+@interface FBWorkspaceIncomingConnection : FBWorkspaceConnection
+
+@end

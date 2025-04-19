@@ -1,0 +1,3 @@
+@interface EWSGetEventsResponseType : EWSBaseMessageResponseType
+
+@end

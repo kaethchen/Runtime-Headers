@@ -1,0 +1,3 @@
+@interface DocumentUnderstandingClient.SpotlightRestaurantEventValidator : _TtCs12_SwiftObject
+
+@end

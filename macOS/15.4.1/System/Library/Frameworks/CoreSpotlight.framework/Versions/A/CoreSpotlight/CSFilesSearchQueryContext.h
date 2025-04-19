@@ -1,0 +1,3 @@
+@interface CSFilesSearchQueryContext : CSSearchQueryContext
+
+@end

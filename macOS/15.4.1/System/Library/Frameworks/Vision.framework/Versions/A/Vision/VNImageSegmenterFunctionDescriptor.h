@@ -1,0 +1,3 @@
+@interface VNImageSegmenterFunctionDescriptor : VisionCoreE5RTInferenceFunctionDescriptor
+
+@end

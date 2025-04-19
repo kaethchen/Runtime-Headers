@@ -1,0 +1,3 @@
+@interface WFConfiguredStaccatoTopHitAction : WFConfiguredSystemContextualAction
+
+@end

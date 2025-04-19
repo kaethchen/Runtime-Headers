@@ -1,0 +1,3 @@
+@interface CoreAudioOrchestration.CoreAudioOrchestratorClientXPC : CoreAudioOrchestration.CoreAudioOrchestratorXPC
+
+@end

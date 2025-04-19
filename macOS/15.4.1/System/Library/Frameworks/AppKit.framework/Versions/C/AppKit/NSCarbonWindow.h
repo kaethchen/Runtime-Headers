@@ -1,0 +1,86 @@
+@interface NSCarbonWindow : NSWindow {
+    struct OpaqueWindowPtr { } *_windowRef;
+    BOOL _windowRefIsOwned;
+    void /* function */ *_handleEventUPP;
+    struct OpaqueEventHandlerRef { } *_eventHandler;
+    BOOL _passingCarbonWindowActivationEvents;
+    BOOL _forceNotKeyWindowForInputContext;
+    BOOL _handlingCarbonWindowActivationEvents;
+}
+
+@property unsigned int cwFlags;
+
++ (Class)frameViewClassForStyleMask:(unsigned long long)a0;
++ (void)setWindowLevelOfWindowGroupForWindowRef:(struct OpaqueWindowPtr { } *)a0 toLevel:(long long)a1;
+
+- (void)dealloc;
+- (void)encodeWithCoder:(id)a0;
+- (id)initWithCoder:(id)a0;
+- (long long)level;
+- (void)becomeKeyWindow;
+- (void)display;
+- (void)resignKeyWindow;
+- (void)sendSuperEvent:(id)a0;
+- (void)setContentView:(id)a0;
+- (BOOL)_allowsActiveInputContext;
+- (void)_cancelKey:(id)a0;
+- (unsigned int)_carbonWindowClass;
+- (void)_cleanup;
+- (id)_clearModalWindowLevel;
+- (void)_commonAwake;
+- (id)_destroyRealWindow:(BOOL)a0;
+- (int)_focusAcquired;
+- (int)_focusRelinquished;
+- (BOOL)_handleEventsTheCarbonWay;
+- (BOOL)_hasWindowRef;
+- (BOOL)_managesWindowRef;
+- (void)_oldPlaceWindow:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 fromServer:(BOOL)a1;
+- (void)_postCarbonWindowActivateEvent:(BOOL)a0 makeKeyWindow:(BOOL)a1;
+- (void)_reallyDoOrderWindow:(id)a0;
+- (void)_removeReferencesToCarbonWindowRef;
+- (void)_removeWindowRef;
+- (void)_resetDragMargins;
+- (void)_restoreLevelAfterRunningModal;
+- (void)_setCarbonWindowVisibility:(BOOL)a0;
+- (void)_setEventMask:(unsigned long long)a0;
+- (void)_setForceNotKeyWindowForInputContext:(BOOL)a0;
+- (void)_setModalWindowLevel;
+- (void)_setWindowRef:(struct OpaqueWindowPtr { } *)a0;
+- (void)_termWindowIfOwner;
+- (Class)_trackingAreaManagerClass;
+- (void)_windowMovedToRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (void)becomeMainWindow;
+- (BOOL)canBecomeKeyWindow;
+- (BOOL)canBecomeMainWindow;
+- (unsigned int)carbonHICommandIDFromActionSelector:(SEL)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })carbonPlatformWindowBounds;
+- (void)clear:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })constrainFrameRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 toScreen:(id)a1;
+- (void)copy:(id)a0;
+- (void)cut:(id)a0;
+- (void)handleCarbonBoundsChange;
+- (int)handleMouseDownEvent:(struct OpaqueEventRef { } *)a0 at:(struct Point { short x0; short x1; })a1 inPart:(short)a2 withMods:(unsigned int)a3;
+- (id)initWithCarbonWindowRef:(struct OpaqueWindowPtr { } *)a0 takingOwnership:(BOOL)a1;
+- (id)initWithCarbonWindowRef:(struct OpaqueWindowPtr { } *)a0 takingOwnership:(BOOL)a1 disableOrdering:(BOOL)a2;
+- (id)initWithContentRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 styleMask:(unsigned long long)a1 backing:(unsigned long long)a2 defer:(BOOL)a3;
+- (BOOL)isExcludedFromWindowsMenu;
+- (void)paste:(id)a0;
+- (BOOL)performKeyEquivalent:(id)a0;
+- (BOOL)reconcileToCarbonWindowBounds;
+- (void)redo:(id)a0;
+- (void)resignMainWindow;
+- (void)selectAll:(id)a0;
+- (void)sendCarbonProcessHICommandEvent:(unsigned int)a0;
+- (unsigned char)sendCarbonUpdateHICommandStatusEvent:(unsigned int)a0 withMenuRef:(struct OpaqueMenuRef { } *)a1 andMenuItemIndex:(unsigned short)a2;
+- (void)sendEvent:(id)a0;
+- (void)setHasShadow:(BOOL)a0;
+- (void)setHidesOnDeactivate:(BOOL)a0;
+- (void)setLevel:(long long)a0;
+- (void)setStyleMask:(unsigned long long)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })startRectForSheet:(id)a0;
+- (void)undo:(id)a0;
+- (BOOL)validateMenuItem:(id)a0;
+- (struct OpaqueWindowPtr { } *)windowRef;
+- (BOOL)worksWhenModal;
+
+@end

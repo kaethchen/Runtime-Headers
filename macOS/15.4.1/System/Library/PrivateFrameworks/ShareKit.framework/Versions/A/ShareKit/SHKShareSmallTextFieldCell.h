@@ -1,0 +1,3 @@
+@interface SHKShareSmallTextFieldCell : NSTextFieldCell
+
+@end

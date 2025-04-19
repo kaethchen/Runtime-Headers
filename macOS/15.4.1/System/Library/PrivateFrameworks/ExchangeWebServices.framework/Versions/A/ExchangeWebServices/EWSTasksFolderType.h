@@ -1,0 +1,3 @@
+@interface EWSTasksFolderType : EWSFolderType
+
+@end

@@ -1,0 +1,3 @@
+@interface EWSRuleOperationType : NSObject
+
+@end

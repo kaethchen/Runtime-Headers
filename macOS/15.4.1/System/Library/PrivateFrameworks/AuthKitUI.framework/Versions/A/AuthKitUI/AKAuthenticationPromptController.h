@@ -1,0 +1,72 @@
+@class AKTooManyAttemptsController, AKAuthWebTabView, AKIDPProvidedSignInViewController, AKKeepUsingController, NSImageView, AKServerRequestConfiguration, AKLargeSignInPromptViewController, AKSecondFactorCodeEntryController, NSMutableArray, CDPEnrollViewController, NSString, NSTouchBar, AKIDPHandler, AKNoCodeReceivedController, AKDefaultSignInPromptViewController, NSView;
+
+@interface AKAuthenticationPromptController : AKPromptWindowController <NSTouchBarProvider, AuthWebViewDelegate, AKAppleIDAuthenticationInAppContextPasswordDelegate>
+
+@property (nonatomic) BOOL _currentlyActive;
+@property (retain, nonatomic) NSImageView *highlightingView;
+@property (retain, nonatomic) AKDefaultSignInPromptViewController *signInPromptController;
+@property (retain, nonatomic) AKLargeSignInPromptViewController *bigSignInPromptController;
+@property (retain, nonatomic) AKTooManyAttemptsController *tooManyAttemptsController;
+@property (retain, nonatomic) AKSecondFactorCodeEntryController *secondFactorController;
+@property (retain, nonatomic) AKNoCodeReceivedController *noCodeReceivedController;
+@property (retain, nonatomic) AKKeepUsingController *keepUsingController;
+@property (retain, nonatomic) AKAuthWebTabView *webviewController;
+@property (retain, nonatomic) AKIDPProvidedSignInViewController *idpViewController;
+@property (retain, nonatomic) NSView *signInView;
+@property (retain, nonatomic) NSView *tooManyAttemptsView;
+@property (retain, nonatomic) NSView *secondFactorView;
+@property (retain, nonatomic) NSView *noCodeReceivedView;
+@property (retain, nonatomic) NSView *keepUsingView;
+@property (retain, nonatomic) NSView *webView;
+@property (retain, nonatomic) NSMutableArray *viewStack;
+@property (nonatomic) long long previousMode;
+@property (retain, nonatomic) NSView *view;
+@property (retain, nonatomic) NSString *windowTitle;
+@property (weak, nonatomic) NSView *hostView;
+@property (readonly, nonatomic) long long mode;
+@property (nonatomic) BOOL useLargePrompt;
+@property (retain, nonatomic) AKServerRequestConfiguration *serverRequestConfiguration;
+@property (retain, nonatomic) id clientInfo;
+@property (retain, nonatomic) NSView *icscView;
+@property (retain, nonatomic) CDPEnrollViewController *iCSCController;
+@property (retain, nonatomic) AKIDPHandler *idpHandler;
+@property (copy, nonatomic) id /* block */ passwordHandler;
+@property (readonly) NSTouchBar *touchBar;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (id)init;
+- (void).cxx_destruct;
+- (void)setMode:(long long)a0;
+- (void)runModal;
+- (void)present;
+- (void)awakeFromNib;
+- (void)runModalWithCompletion:(id /* block */)a0;
+- (void)refreshForMode:(long long)a0;
+- (void)windowWillClose;
+- (void)_addSubView:(id)a0;
+- (void)_refreshForMode:(long long)a0;
+- (void)_setupHighlightingView;
+- (id)_signInPrompt;
+- (id)_viewForMode:(long long)a0;
+- (double)animationResizeTime;
+- (void)context:(id)a0 needsPasswordWithCompletion:(id /* block */)a1;
+- (id)currentViewController;
+- (void)endWebView:(id)a0;
+- (id)initAtMode:(long long)a0;
+- (BOOL)isViewBasedContext;
+- (void)leaveAllModes;
+- (BOOL)leaveMode;
+- (void)loadFailed:(id)a0 withError:(id)a1;
+- (void)presentWithCompletion:(id /* block */)a0;
+- (void)settleNewMode;
+- (void)setupViewsForActiveMode;
+- (void)sizeChangedFrom:(struct CGSize { double x0; double x1; })a0 toSize:(struct CGSize { double x0; double x1; })a1 webViewName:(id)a2 callback:(id)a3;
+- (void)skipAndContinueSignIn;
+- (void)switchToView:(id)a0;
+- (void)switchToView:(id)a0 fromView:(id)a1;
+- (id)viewControllerForMode:(long long)a0;
+
+@end

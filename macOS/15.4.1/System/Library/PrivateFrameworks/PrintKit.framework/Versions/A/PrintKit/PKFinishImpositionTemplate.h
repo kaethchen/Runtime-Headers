@@ -1,0 +1,3 @@
+@interface PKFinishImpositionTemplate : PKCollectionSpecialization
+
+@end

@@ -1,0 +1,3 @@
+@interface HAPPGFrame : NSObject
+
+@end

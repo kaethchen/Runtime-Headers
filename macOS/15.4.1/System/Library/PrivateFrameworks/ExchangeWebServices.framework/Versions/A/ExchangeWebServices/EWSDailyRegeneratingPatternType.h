@@ -1,0 +1,3 @@
+@interface EWSDailyRegeneratingPatternType : EWSRegeneratingPatternBaseType
+
+@end

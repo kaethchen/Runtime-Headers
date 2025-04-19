@@ -1,0 +1,3 @@
+@interface _TtC22HomeAutomationInternalP33_1876F3BEF0473779440EA2C92E34C8C321SimpleHandoffStrategy : _TtCs12_SwiftObject
+
+@end

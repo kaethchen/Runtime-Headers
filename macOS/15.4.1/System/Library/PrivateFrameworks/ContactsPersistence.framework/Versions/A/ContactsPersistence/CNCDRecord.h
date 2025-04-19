@@ -1,0 +1,102 @@
+@class NSDate, NSString, NSURL, NSData, NSSet, ABRecord, NSMutableDictionary, NSManagedObjectModel, NSNumber;
+
+@interface CNCDRecord : NSManagedObject {
+    ABRecord *_publicRecord;
+    NSMutableDictionary *_propertyValueCache;
+}
+
+@property (class, readonly) NSURL *managedObjectModelUrl;
+@property (class, readonly) NSManagedObjectModel *managedObjectModel;
+
+@property (retain, nonatomic) NSString *primitiveUniqueId;
+@property (retain, nonatomic) NSDate *primitiveCreationDate;
+@property (retain, nonatomic) NSNumber *primitiveCreationDateYearless;
+@property (retain, nonatomic) NSNumber *primitiveCreationDateYear;
+@property (retain, nonatomic) NSDate *primitiveModificationDate;
+@property (retain, nonatomic) NSNumber *primitiveModificationDateYearless;
+@property (retain, nonatomic) NSNumber *primitiveModificationDateYear;
+@property (retain, nonatomic) NSString *externalPropertiesJSON;
+@property (retain, nonatomic) NSString *uniqueId;
+@property (readonly, weak, nonatomic) NSString *displayName;
+@property (nonatomic) int iOSLegacyIdentifier;
+@property (readonly, nonatomic) NSDate *creationDate;
+@property (readonly, nonatomic) NSDate *modificationDate;
+@property (retain, nonatomic) NSString *externalUUID;
+@property (retain, nonatomic) NSString *externalModificationTag;
+@property (retain, nonatomic) NSString *externalURI;
+@property (retain, nonatomic) NSString *externalCollectionPath;
+@property (retain, nonatomic) NSString *externalFilename;
+@property (retain, nonatomic) NSString *externalHash;
+@property (retain, nonatomic) NSData *externalRepresentation;
+@property (retain, nonatomic) NSString *externalImageURI;
+@property (nonatomic) long long syncStatus;
+@property (retain, nonatomic) NSSet *customProperties;
+@property (retain, nonatomic) NSSet *unknownProperties;
+@property (retain, nonatomic) NSSet *remoteLocations;
+@property (readonly, nonatomic) BOOL ignoresGuardianRestrictionsDuringValidation;
+
++ (void)initialize;
++ (id)os_log;
++ (BOOL)_isPublicRecord;
++ (BOOL)hasAddressBookContentForRecord:(id)a0;
++ (id)_newUniqueIdForTable:(id)a0;
++ (id)_table;
++ (BOOL)abEntityKnowsKey:(id)a0 inManagedObjectContext:(id)a1;
++ (id)abEntityName;
++ (id)bitwiseAndPredicateForKey:(id)a0 andNumber:(long long)a1 comparingToNumber:(long long)a2 withComparisonType:(unsigned long long)a3;
++ (void)clearCachedPropertyValue:(id)a0;
++ (id)compoundPredicateForKey:(id)a0 option:(id)a1 andSubPredicate:(id)a2;
++ (void)extractYear:(long long *)a0 yearlessDate:(double *)a1 fromDate:(id)a2;
++ (id)fetchObjectForClass:(Class)a0 withUniqueId:(id)a1 managedObjectContext:(id)a2;
++ (id)fetchObjectForClass:(Class)a0 withUniqueId:(id)a1 managedObjectContext:(id)a2 affectedStores:(id)a3;
++ (id)insertNewObjectInManagedObjectContact:(id)a0;
++ (id)loadManagedObjectModel;
++ (id)makeUniqueId;
++ (id)managedObjectModelForName:(id)a0;
++ (id)newIncrementedSearchString:(id)a0;
++ (id)newNormalizedSortString:(id)a0;
++ (id)prefetchRelationshipKeyPaths;
++ (BOOL)validateContainedRecord:(id)a0 forGuardianRestrictions:(id *)a1;
++ (void)validateForInsertContainedRecord:(id)a0;
+
+- (void).cxx_destruct;
+- (id)initWithEntity:(id)a0 insertIntoManagedObjectContext:(id)a1;
+- (void)setCreationDate:(id)a0;
+- (void)awakeFromInsert;
+- (void)didTurnIntoFault;
+- (void)setModificationDate:(id)a0;
+- (BOOL)_isPublicRecord;
+- (id)_table;
+- (BOOL)_valueHasChangedForKey:(id)a0;
+- (id)aggregateModificationDate;
+- (id)bucketKey;
+- (void)cachePropertyValue:(id)a0 withKey:(id)a1 uniqueId:(id)a2;
+- (void)clearCachedPropertyValue:(id)a0 withKey:(id)a1;
+- (void)clearCachedPropertyValuesWithKey:(id)a0;
+- (long long)creationDateYear;
+- (double)creationDateYearless;
+- (id)initWithEntity:(id)a0 uniqueId:(id)a1 insertIntoManagedObjectContext:(id)a2;
+- (id)initWithUniqueId:(id)a0 managedObjectContext:(id)a1;
+- (void)invalidateAllCachedPropertyValues;
+- (void)invalidateCachedPropertyValuesWithKey:(id)a0;
+- (BOOL)isKindOfEntityNamed:(id)a0;
+- (long long)modificationDateYear;
+- (double)modificationDateYearless;
+- (unsigned long long)nameOrderWithFormatter:(id)a0;
+- (id)nameWithFormatter:(id)a0 rangeOfSortingSubstring:(struct _NSRange { unsigned long long x0; unsigned long long x1; } *)a1;
+- (id)nts_ChangedProperties;
+- (BOOL)nts_HasChangedProperties;
+- (id)nts_UniqueId;
+- (id)primitivePublicRecord;
+- (id)propertyValueCache;
+- (void)setAggregateModificationDate:(id)a0;
+- (void)setCreationDateYear:(id)a0;
+- (void)setCreationDateYearless:(id)a0;
+- (void)setModificationDateYear:(id)a0;
+- (void)setModificationDateYearless:(id)a0;
+- (void)setPrimitivePublicRecord:(id)a0;
+- (void)setValue:(id)a0 forKey:(id)a1 withEntityName:(id)a2 entityKey:(id)a3;
+- (void)touch:(id)a0;
+- (id)valueForKey:(id)a0 withEntityName:(id)a1 entityKey:(id)a2;
+
+@end

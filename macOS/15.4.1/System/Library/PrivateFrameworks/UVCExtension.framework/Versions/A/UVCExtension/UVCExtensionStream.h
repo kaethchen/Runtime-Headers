@@ -1,0 +1,84 @@
+@class NSString, NSArray, UVCDeviceStreamFormat, UVCUSBDeviceStreamingInterface, UVCExtensionDevice, NSSet, UVCFrameProcessorNative, NSObject, UVCExtensionStateMachine;
+@protocol OS_dispatch_queue;
+
+@interface UVCExtensionStream : CMIOExtensionStream <CMIOExtensionStreamSource> {
+    NSArray *_streamFormats;
+    long long _activeFormatIndex;
+    UVCExtensionStateMachine *_stateMachine;
+    NSArray *_streamProcessingPipeline;
+    UVCFrameProcessorNative *_nativeFrameProcessor;
+    NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_processingQueue;
+    id _cachedFormatDescriptor;
+    unsigned long long _vendorID;
+    unsigned long long _productID;
+    BOOL _builtIn;
+    unsigned long long _rollAngle;
+    NSString *_lastStreamStartTime;
+    NSString *_lastStreamStopTime;
+    NSString *_lastStreamFirstPacketTime;
+    unsigned long long _lastStreamTotalPackets;
+    unsigned long long _lastStreamTotalFramesDispatched;
+    NSString *_lastStreamFirstFrameDispatchTime;
+    unsigned long long _streamStartTimeInHostClock;
+    unsigned long long _firstFrameStreamStartDelta;
+    _Atomic BOOL _terminationInProgress;
+}
+
+@property (readonly, weak) UVCExtensionDevice *device;
+@property (readonly) UVCUSBDeviceStreamingInterface *streamSource;
+@property (readonly) BOOL streaming;
+@property (readonly) UVCDeviceStreamFormat *activeFormat;
+@property (readonly) unsigned long long activeFrameInterval;
+@property (readonly) unsigned long long activeMaxFrameInterval;
+@property (readonly) NSArray *formats;
+@property (readonly, copy) NSSet *availableProperties;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id)queue;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (id)serialize;
+- (long long)activeFormatIndex;
+- (BOOL)authorizedToStartStreamForClient:(id)a0;
+- (BOOL)setActiveFormatIndex:(unsigned long long)a0;
+- (BOOL)setStreamProperties:(id)a0 error:(id *)a1;
+- (BOOL)startStreamAndReturnError:(id *)a0;
+- (BOOL)stopStreamAndReturnError:(id *)a0;
+- (id)streamPropertiesForProperties:(id)a0 error:(id *)a1;
+- (id)streamFormats;
+- (void)setupStateMachine;
+- (BOOL)commitStream:(BOOL)a0 error:(id *)a1;
+- (id)createCMIOFormat:(id)a0 attributes:(id)a1;
+- (id)filterFormats:(id)a0;
+- (struct opaqueCMFormatDescription { } *)getCMFormatDescription:(id)a0 attributes:(id)a1;
+- (id)getValidFrameDurations:(id)a0;
+- (void)handleDataFromStreamSource:(id)a0 error:(id)a1;
+- (void)handleProcessingError:(id)a0;
+- (id)initWithDevice:(id)a0 uvcFormats:(id)a1 source:(id)a2 attributes:(id)a3;
+- (void)logStreamSessionAnalytics;
+- (void)observeValueForKeyPathSync:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (BOOL)postEvent:(id)a0 error:(id *)a1;
+- (BOOL)postEventSync:(id)a0 error:(id *)a1;
+- (id)serializeSync;
+- (BOOL)setActiveFrameDuration:(id)a0;
+- (void)setActiveMaxFrameDuration:(id)a0;
+- (BOOL)setStreamPropertiesSync:(id)a0 error:(id *)a1;
+- (BOOL)setupFormats:(id)a0;
+- (BOOL)setupStreamingPipeline:(id)a0 frameInterval:(unsigned long long)a1 error:(id *)a2;
+- (BOOL)stateMachineIsBuilitIn;
+- (BOOL)stateMachineStartStream:(id *)a0;
+- (BOOL)stateMachineStopStream:(id *)a0;
+- (BOOL)stateMachineStreamGuard;
+- (BOOL)stateMachineTerminate:(id *)a0;
+- (id)streamProcessingPipeline;
+- (id)streamPropertiesForPropertiesSync:(id)a0 error:(id *)a1;
+- (void)terminationReceived;
+- (id)updateFormatsForFieldOfView:(id)a0;
+- (void)updateStreamFormatForRoll;
+
+@end

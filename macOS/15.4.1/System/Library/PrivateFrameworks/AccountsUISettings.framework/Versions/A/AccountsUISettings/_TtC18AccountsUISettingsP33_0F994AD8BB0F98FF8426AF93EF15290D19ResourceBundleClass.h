@@ -1,0 +1,3 @@
+@interface _TtC18AccountsUISettingsP33_0F994AD8BB0F98FF8426AF93EF15290D19ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

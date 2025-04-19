@@ -1,0 +1,3 @@
+@interface MKFUserActivityStatusDatabaseID : MKFModelDatabaseID
+
+@end

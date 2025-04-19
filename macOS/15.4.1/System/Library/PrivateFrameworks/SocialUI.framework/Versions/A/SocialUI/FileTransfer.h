@@ -1,0 +1,94 @@
+@class IMHandle, NSString, NSImage, IMServiceImpl, NSURL, NSNumber;
+
+@interface FileTransfer : IMFileTransfer <FileTransferIconLoaderDelegate, QLPreviewItem> {
+    NSString *_displayNameCache;
+    NSImage *_icon;
+    NSImage *_previewImage;
+    IMHandle *_otherIMHandle;
+    unsigned char _iconWasGuessedFromTransferInformation : 1;
+    NSString *_livePhotoImagePath;
+    NSString *_livePhotoVideoPath;
+    NSURL *_livePhotoBundleURL;
+    NSNumber *_photosAutoloopVideoValue;
+    NSNumber *_qtAutoloopVideoValue;
+    BOOL _hasGeneratedPreviewImage;
+}
+
+@property (retain, nonatomic) NSNumber *map;
+@property (retain, nonatomic) NSNumber *pass;
+@property (retain, nonatomic) NSNumber *walletOrder;
+@property (retain, nonatomic) NSNumber *image;
+@property (retain, nonatomic) NSNumber *movie;
+@property (retain, nonatomic) NSNumber *animatedEmoji;
+@property (retain, nonatomic) NSNumber *livePhoto;
+@property (readonly, nonatomic) BOOL isiMessage;
+@property (readonly, nonatomic) BOOL isCKTapToDownloadImage;
+@property (readonly, nonatomic) BOOL isMap;
+@property (readonly, nonatomic) BOOL isPass;
+@property (readonly, nonatomic) BOOL isWalletOrder;
+@property (readonly, nonatomic) BOOL isImage;
+@property (readonly, nonatomic) BOOL isMovie;
+@property (readonly, nonatomic) BOOL isAnimatedEmoji;
+@property (readonly, nonatomic) BOOL isLivePhoto;
+@property (retain, nonatomic) IMServiceImpl *service;
+@property (readonly, nonatomic, getter=isPhotosAutoloopVideo) BOOL photosAutoloopVideo;
+@property (readonly, getter=isQTAutoloopVideo) BOOL qtAutoloopVideo;
+@property (nonatomic) BOOL isCopying;
+@property (readonly, nonatomic) NSString *livePhotoImagePath;
+@property (readonly, nonatomic) NSString *livePhotoVideoPath;
+@property (readonly, nonatomic) NSURL *livePhotoBundleURL;
+@property (readonly) NSURL *previewItemURL;
+@property (readonly) NSString *previewItemTitle;
+@property (readonly) id previewItemDisplayState;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)downloadPath;
++ (id)archiveLocalURL:(id)a0 completionBlock:(id /* block */)a1;
++ (BOOL)canExportToPhotos;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id)displayName;
+- (void)_setIcon:(id)a0;
+- (void)_cancel;
+- (id)icon;
+- (id)previewImage;
+- (void)download;
+- (id)accountID;
+- (void)openURL;
+- (id)errorString;
+- (BOOL)isImage;
+- (BOOL)isMovie;
+- (BOOL)isMap;
+- (BOOL)_updateWithDictionaryRepresentation:(id)a0;
+- (BOOL)isPass;
+- (BOOL)isLivePhoto;
+- (id)otherIMHandle;
+- (BOOL)isiMessage;
+- (BOOL)isAnimatedEmoji;
+- (id)newOpenMenuItem;
+- (id)otherPersonName;
+- (void)_revealInFinder:(id)a0;
+- (id)_tempLivePhotoBundleURL;
+- (void)_updateDisplayNameCache;
+- (void)_updateIconUsingFileTransferInformation;
+- (void)_updateIconUsingLocalPath;
+- (void)createUserVisibleLocation;
+- (void)exportToPhotoLibraryWithCompletionBlock:(id /* block */)a0;
+- (void)fileTransferIconDidLoad:(id)a0;
+- (BOOL)isCKTapToDownloadImage;
+- (BOOL)isWalletOrder;
+- (id)livePhotoBundleURL;
+- (id)livePhotoImagePath;
+- (id)livePhotoVideoPath;
+- (id)menuItemsGivenQuickLookSelector:(SEL)a0 target:(id)a1;
+- (id)newSaveToLibraryMenuItem;
+- (id)newSetDesktopPictureMenuItemForScreen:(id)a0;
+- (void)revealInFinder;
+- (void)saveToLibrary:(id)a0;
+- (void)setDesktopPicture:(id)a0;
+
+@end

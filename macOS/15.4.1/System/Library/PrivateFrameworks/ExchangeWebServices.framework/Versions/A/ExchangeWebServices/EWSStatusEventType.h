@@ -1,0 +1,3 @@
+@interface EWSStatusEventType : EWSBaseNotificationEventType
+
+@end

@@ -1,0 +1,3 @@
+@interface PKStrokeSelectionCoherence : PKStrokeSelection
+
+@end

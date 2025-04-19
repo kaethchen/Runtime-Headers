@@ -1,0 +1,3 @@
+@interface FIExtensionItemForCollaboration : NSExtensionItem
+
+@end

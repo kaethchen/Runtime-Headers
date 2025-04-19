@@ -1,0 +1,3 @@
+@interface SiriMessagesFlow.MessagesPostPersonalDomainActivityNotificationFlowStrategy : _TtCs12_SwiftObject
+
+@end

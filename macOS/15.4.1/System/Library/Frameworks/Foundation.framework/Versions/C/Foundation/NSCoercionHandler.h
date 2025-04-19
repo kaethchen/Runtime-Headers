@@ -1,0 +1,3 @@
+@interface NSCoercionHandler : NSScriptCoercionHandler
+
+@end

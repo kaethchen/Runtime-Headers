@@ -1,0 +1,3 @@
+@interface _TtC16ScreenSharingKitP33_E486BC24D0FBB1CF7CA8A1F0DF314F0833ScreenSharingKitBundleMarkerClass : _TtCs12_SwiftObject
+
+@end

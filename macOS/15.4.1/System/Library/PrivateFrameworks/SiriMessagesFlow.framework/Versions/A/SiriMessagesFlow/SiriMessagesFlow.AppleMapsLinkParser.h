@@ -1,0 +1,7 @@
+@interface SiriMessagesFlow.AppleMapsLinkParser : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ linkMetadata;
+    void /* unknown type, empty encoding */ urlString;
+    void /* unknown type, empty encoding */ appCheckClient;
+}
+
+@end

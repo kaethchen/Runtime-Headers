@@ -1,0 +1,8 @@
+@interface RemindersUICore.TTRRemindersListDataModelSourceShowCompletedContext : _TtCs12_SwiftObject {
+    void /* unknown type, empty encoding */ delegate;
+    void /* unknown type, empty encoding */ userDefaultsProperty;
+    void /* unknown type, empty encoding */ showCompletedSnapshot;
+    void /* unknown type, empty encoding */ allowlistCompletedReminderIDs;
+}
+
+@end

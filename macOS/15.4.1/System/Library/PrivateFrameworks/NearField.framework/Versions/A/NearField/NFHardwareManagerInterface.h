@@ -1,0 +1,3 @@
+@interface NFHardwareManagerInterface : NSObject
+
+@end

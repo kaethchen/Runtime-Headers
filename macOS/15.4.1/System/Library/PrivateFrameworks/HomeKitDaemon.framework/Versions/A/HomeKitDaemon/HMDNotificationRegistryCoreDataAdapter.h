@@ -1,0 +1,87 @@
+@class HMDHome, NSSet, NSString;
+
+@interface HMDNotificationRegistryCoreDataAdapter : HMFObject <HMFLogging>
+
+@property (readonly, weak) HMDHome *home;
+@property (readonly, copy) NSSet *characteristicRegistrations;
+@property (readonly, copy) NSSet *mediaRegistrations;
+@property (readonly, copy) NSSet *actionSetRegistrations;
+@property (readonly, copy) NSSet *enabledCharacteristicRegistrations;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)logCategory;
+
+- (void).cxx_destruct;
+- (id)shortDescription;
+- (id)initWithHome:(id)a0;
+- (id)removeAllActionSetRegistrations;
+- (id)processCharacteristicsRequests:(id)a0;
+- (BOOL)_deleteAllCharacteristicRegistrationsWithContext:(id)a0;
+- (BOOL)_deleteAllMKFRegistrationsForActionSetUUID:(id)a0 hmcContext:(id)a1;
+- (BOOL)_deleteAllMKFRegistrationsForMediaProfileUUID:(id)a0 withMediaProperty:(id)a1 hmcContext:(id)a2;
+- (BOOL)_deleteAllRegistrationsForCharacteristicIIDs:(id)a0 withAccessoryUUID:(id)a1 hmcContext:(id)a2;
+- (BOOL)_deleteAllRegistrationsWithEntityName:(id)a0 withHomeKeypath:(id)a1 hmcContext:(id)a2;
+- (BOOL)_disableRegistration:(id)a0;
+- (BOOL)_enableRegistration:(id)a0;
+- (id)_fetchEnabledMKFRegistrationsForActionSetUUID:(id)a0 context:(id)a1;
+- (id)_fetchEnabledMKFRegistrationsForHMDCharacteristic:(id)a0 exceedingChangeThresholdForCurrentValue:(id)a1 context:(id)a2;
+- (id)_fetchEnabledMKFRegistrationsForHMDCharacteristics:(id)a0 context:(id)a1;
+- (id)_fetchEnabledMKFRegistrationsForMediaProfileUUID:(id)a0 withMediaProperty:(id)a1 context:(id)a2;
+- (id)_fetchHomeMemberWithUUID:(id)a0 context:(id)a1;
+- (id)_fetchMKFActionSetWithUUID:(id)a0 context:(id)a1;
+- (id)_fetchMKFCharacteristicsFromHMDCharacteristics:(id)a0 context:(id)a1;
+- (id)_fetchMKFHAPAccessoryWithUUID:(id)a0 context:(id)a1;
+- (id)_fetchMKFRegistrationsWithUserUUID:(id)a0 actionSetUUID:(id)a1 deviceIdsDestination:(id)a2 prefetchPaths:(id)a3 isRestrictedGuest:(BOOL)a4 context:(id)a5;
+- (id)_fetchMKFRegistrationsWithUserUUID:(id)a0 withCharacteristicIIDs:(id)a1 withAccessoryUUID:(id)a2 withDeviceIdsDestination:(id)a3 withPrefetchPaths:(id)a4 isRestrictedGuest:(BOOL)a5 context:(id)a6;
+- (id)_fetchMKFRegistrationsWithUserUUID:(id)a0 withCharacteristicIIDs:(id)a1 withAccessoryUUIDs:(id)a2 withDeviceIdsDestination:(id)a3 withPrefetchPaths:(id)a4 isRestrictedGuest:(BOOL)a5 context:(id)a6;
+- (id)_fetchMKFRegistrationsWithUserUUID:(id)a0 withMediaProfileUUID:(id)a1 withMediaPropertyIn:(id)a2 withDeviceIdsDestination:(id)a3 withAccessoryUUID:(id)a4 withPrefetchPaths:(id)a5 isRestrictedGuest:(BOOL)a6 context:(id)a7;
+- (id)_fetchMKFUserAndRegistrationsWithUserUUID:(id)a0 actionSetUUID:(id)a1 deviceIdsDestination:(id)a2 prefetchPaths:(id)a3 isRestrictedGuest:(BOOL)a4 outHomeMember:(id *)a5 context:(id)a6;
+- (id)_fetchMKFUserAndRegistrationsWithUserUUID:(id)a0 withCharacteristicIIDs:(id)a1 withAccessoryUUID:(id)a2 withDeviceIdsDestination:(id)a3 withPrefetchPaths:(id)a4 isRestrictedGuest:(BOOL)a5 outHomeMember:(id *)a6 context:(id)a7;
+- (id)_fetchMKFUserAndRegistrationsWithUserUUID:(id)a0 withCharacteristicIIDs:(id)a1 withAccessoryUUIDs:(id)a2 withDeviceIdsDestination:(id)a3 withPrefetchPaths:(id)a4 isRestrictedGuest:(BOOL)a5 outHomeMember:(id *)a6 context:(id)a7;
+- (id)_fetchMKFUserAndRegistrationsWithUserUUID:(id)a0 withMediaProfileUUID:(id)a1 withMediaPropertyIn:(id)a2 withDeviceIdsDestination:(id)a3 withAccessoryUUID:(id)a4 withPrefetchPaths:(id)a5 isRestrictedGuest:(BOOL)a6 outHomeMember:(id *)a7 context:(id)a8;
+- (id)_fetchRequestForActionSetRegistrationsWithoutAllowedDestinations:(id)a0;
+- (id)_fetchRequestForAllActionSetRegistrations;
+- (id)_fetchRequestForAllCharacteristicRegistrations;
+- (id)_fetchRequestForAllMediaProfileRegistrations;
+- (id)_fetchRequestForCharacteristicRegistrationsWithoutAllowedDestinations:(id)a0;
+- (id)_fetchRequestForMediaProfileRegistrationsWithoutAllowedDestinations:(id)a0;
+- (id)_filterCharacteristicRegistrations:(id)a0 home:(id)a1;
+- (BOOL)_insertNotificationRegistrationForCharacteristic:(id)a0 notificationThreshold:(id)a1 deviceIdsDestination:(id)a2 homeMember:(id)a3 mkfCharacteristic:(id)a4 context:(id)a5;
+- (BOOL)_insertNotificationRegistrationForMKFActionSet:(id)a0 deviceIdsDestination:(id)a1 homeMember:(id)a2 context:(id)a3;
+- (BOOL)_insertNotificationRegistrationForMediaProperty:(id)a0 mediaProfile:(id)a1 deviceIdsDestination:(id)a2 homeMember:(id)a3 accessory:(id)a4 context:(id)a5;
+- (id)_processDisableCharacteristicsRequest:(id)a0 registrationsForAccessory:(id)a1 context:(id)a2;
+- (id)_processEnableCharacteristicsRequest:(id)a0 homeMember:(id)a1 registrationsForAccessory:(id)a2 context:(id)a3;
+- (id)_processGroupedCharacteristicsRequests:(id)a0 user:(id)a1 destination:(id)a2 context:(id)a3;
+- (id)_registrationsForCharacteristicIID:(id)a0 exceedingChangeThresholdForCurrentValue:(id)a1 accessoryUUID:(id)a2 moc:(id)a3 error:(id *)a4;
+- (id)_registrationsForCharacteristicIIDs:(id)a0 accessoryUUID:(id)a1 moc:(id)a2 error:(id *)a3;
+- (id)_requestToFetchMKFRegistrationsWithActionSetUUID:(id)a0 context:(id)a1;
+- (id)_requestToFetchMKFRegistrationsWithMediaProfileUUID:(id)a0 withMediaProperty:(id)a1 context:(id)a2;
+- (BOOL)_updateThresholdRegistration:(id)a0 threshold:(id)a1;
+- (id)destinationsToNotifyForActionSetUUID:(id)a0;
+- (id)destinationsToNotifyForCharacteristic:(id)a0 applyChangeThresholding:(BOOL)a1;
+- (id)destinationsToNotifyForMediaPropertyResponse:(id)a0;
+- (id)disableAllActionSetRegistrations;
+- (void)disableAllCharacteristicRegistrations;
+- (id)disableAllMediaProfileRegistrations;
+- (BOOL)disableNotificationForActionSetUUID:(id)a0 user:(id)a1 deviceIdsDestination:(id)a2;
+- (id)disableNotificationForCharacteristics:(id)a0 user:(id)a1 deviceIdsDestination:(id)a2;
+- (BOOL)disableNotificationForMediaProfile:(id)a0 mediaProperties:(id)a1 user:(id)a2 deviceIdsDestination:(id)a3;
+- (BOOL)enableNotificationForActionSetUUID:(id)a0 user:(id)a1 deviceIdsDestination:(id)a2;
+- (BOOL)enableNotificationForMediaProfile:(id)a0 mediaProperties:(id)a1 user:(id)a2 deviceIdsDestination:(id)a3;
+- (BOOL)enableNotificationsForCharacteristics:(id)a0 user:(id)a1 deviceIdsDestination:(id)a2;
+- (BOOL)hasEnabledRegistrationForActionSetUUID:(id)a0;
+- (id)homeMemberForRegistrations:(id)a0 userUUID:(id)a1 isRestrictedGuest:(BOOL)a2 context:(id)a3;
+- (id)mediaPropertiesRegisteredForMediaProfileUniqueIdentifier:(id)a0;
+- (id)removeActionSetRegistrationsWithoutAllowedDestinations:(id)a0;
+- (void)removeAllCharacteristicRegistrations;
+- (id)removeAllMediaProfileRegistrations;
+- (id)removeCharacteristicRegistrationsWithoutAllowedDestinations:(id)a0;
+- (id)removeMediaRegistrationsWithoutAllowedDestinations:(id)a0;
+- (BOOL)removeRegistrationsForActionSetUUID:(id)a0;
+- (void)removeRegistrationsForCharacteristics:(id)a0;
+- (BOOL)removeRegistrationsForMediaProfile:(id)a0;
+
+@end

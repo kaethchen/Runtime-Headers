@@ -1,0 +1,88 @@
+@class NSThread, _PGDevice, PGMapping;
+@protocol MTLEvent;
+
+@interface PGFIFO : NSObject {
+    BOOL _running;
+    NSThread *_fifoThread;
+    struct PGPendingStampQueue { void /* function */ **_vptr$PGPendingStampQueue; struct mutex { struct _opaque_pthread_mutex_t { long long __sig; char __opaque[56]; } __m_; } _mutex; struct condition_variable { struct _opaque_pthread_cond_t { long long __sig; char __opaque[40]; } __cv_; } _pendingCond; struct condition_variable { struct _opaque_pthread_cond_t { long long __sig; char __opaque[40]; } __cv_; } _drainedCond; struct PendingStamp { unsigned int stampValue; unsigned int commandID; union { struct { unsigned char signaled : 1; unsigned char faulted : 1; unsigned int offset : 30; } ; unsigned int flags; } ; } _pending[128]; unsigned int _writeCount; unsigned int _completeCount; void *_lastPending; BOOL _faulted; BOOL _quiesced; id /* block */ _signal; id /* block */ _fault; } _pending;
+    struct mutex { struct _opaque_pthread_mutex_t { long long __sig; char __opaque[56]; } __m_; } _fifoMutex;
+    struct condition_variable { struct _opaque_pthread_cond_t { long long __sig; char __opaque[40]; } __cv_; } _fifoCond;
+    struct condition_variable { struct _opaque_pthread_cond_t { long long __sig; char __opaque[40]; } __cv_; } _exitCond;
+    BOOL _faulted;
+    unsigned long long _traceId;
+    id<MTLEvent> _fifoEvent;
+    unsigned long long _fifoEventValue;
+    PGMapping *_mapping;
+}
+
+@property (readonly) _PGDevice *device;
+@property (readonly) unsigned int commandLength;
+@property (readonly) BOOL isRootFifo;
+@property (readonly) unsigned int currentCommandOffset;
+@property (readonly) unsigned int stampIndex;
+@property (readonly) BOOL isQuiesced;
+@property unsigned int faultOffset;
+
+- (void)dealloc;
+- (void)drain;
+- (void).cxx_destruct;
+- (void)resume;
+- (id).cxx_construct;
+- (BOOL)start;
+- (void)stop;
+- (void)advance;
+- (void)poke;
+- (void)resetPending;
+- (void)CmdDefineChildFIFO:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdDelay:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdDeleteIOSurfaceBacking2:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdDeleteResource:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdDeleteTask:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdDiscardResources:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdDisplayCompositorParameters:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdDisplayCursorShow:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdDisplaySetProperties:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdDisplaySleepState:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdDisplayTransaction2_DEPRECATED:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdExecIndirect2:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdGetComputeInfo:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdHeapTextureSizeAndAlign:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdMapMemory2:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdReplacePhysical:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdSetObjectAndPlacementList:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdSynchronizeAndDiscardResources:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdUnmapMemory:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)teardownMapping;
+- (void)CmdDebug:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdDefineTask2:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdDeleteChildFIFO:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdDeleteObject:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdDeleteSharedTextureBacking:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdDeprecated:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdDisplayAck:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdDisplayCursorGlyph:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdDisplaySetGuestICCProfile:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdDisplaySetSharedStatePage:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdDisplaySwapMapping:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdDisplayTransaction3:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdExecIndirect3:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdGetDeviceInfo:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdInvalidateResources:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdNOP:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdResetRasterizationRateMap:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdSetObjectList:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (void)CmdSynchronizeResources:(struct { unsigned short x0; unsigned short x1; unsigned int x2; unsigned int x3; } *)a0 stampValue:(unsigned int)a1 withPayload:(void *)a2 payloadSize:(unsigned long long)a3;
+- (id)describePending;
+- (void)quiesce;
+- (BOOL)barrierWait:(unsigned int)a0 barrier:(struct { unsigned int x0; unsigned int x1; } *)a1;
+- (void)faultAtOffset:(unsigned int)a0 stampValue:(unsigned int)a1;
+- (void)faultAtStampValue:(unsigned int)a0;
+- (BOOL)getFifoBytes:(unsigned long long)a0 into:(void *)a1;
+- (id)initWithDevice:(id)a0 lastPending:(void *)a1;
+- (void)latchCommandOffset;
+- (void)processFifo;
+- (void)pushStamp:(unsigned int)a0 cmdID:(unsigned short)a1;
+- (BOOL)setupMapping;
+- (void)signalStampValue:(unsigned int)a0;
+
+@end

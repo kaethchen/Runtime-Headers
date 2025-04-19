@@ -1,0 +1,88 @@
+@class NSString, NSArray, NSTimer, NSUbiquitousKeyValueStore;
+
+@interface CIMPreferences : NSObject
+
+@property (readonly, nonatomic) NSString *applicationIdentifier;
+@property (readonly, nonatomic) NSString *showsAssociatedWordsDefaultsKey;
+@property (readonly, nonatomic) NSString *adjustsWordFrequencyDefaultsKey;
+@property (readonly, nonatomic) NSString *fontSizeDefaultsKey;
+@property (nonatomic) BOOL fromiCloudUpdate;
+@property (copy, nonatomic) NSString *inputMode;
+@property (nonatomic) BOOL ubiquityEnabled;
+@property (nonatomic) double localTimeStamp;
+@property (readonly, nonatomic) unsigned long long scriptType;
+@property (readonly, nonatomic) BOOL usesDynamicPrompt;
+@property (nonatomic) BOOL usesCangjieDynamicPrompt;
+@property (nonatomic) BOOL usesSuchengDynamicPrompt;
+@property (nonatomic) BOOL showsAssociatedWords;
+@property (nonatomic) BOOL showsAssociatedWordsWubi;
+@property (nonatomic) BOOL adjustsWordFrequency;
+@property (nonatomic) BOOL adjustsWordFrequencyZhuyin;
+@property (nonatomic) BOOL adjustsWordFrequencySucheng;
+@property (nonatomic) BOOL adjustsWordFrequencyStroke;
+@property (nonatomic) BOOL adjustsWordFrequencyWubixing;
+@property (nonatomic) BOOL WBHInputKeysRemapped;
+@property (nonatomic) BOOL usesWBHSCIM;
+@property (nonatomic) BOOL usesWBHTCIM;
+@property (nonatomic) BOOL autocorrectionEnabled;
+@property (nonatomic) int shuangpinLayout;
+@property (nonatomic) BOOL fuzzyPinyinEnabled;
+@property (retain, nonatomic) NSArray *fuzzyPinyinPairs;
+@property (readonly, nonatomic) unsigned long long candidateWindowOrientation;
+@property (nonatomic) unsigned long long candidateWindowOrientationSCIM;
+@property (nonatomic) unsigned long long candidateWindowOrientationTCIM;
+@property (readonly, nonatomic) double fontSize;
+@property (nonatomic) double SCIMFontSize;
+@property (nonatomic) double TCIMFontSize;
+@property (nonatomic) BOOL SCIMShowsTraditionalCharacters;
+@property (nonatomic) BOOL TCIMShowsSimplifiedCharacters;
+@property (readonly, nonatomic) BOOL pairedPunctuationEnabled;
+@property (retain, nonatomic) NSArray *enabledExpertDictionaryKeys;
+@property (readonly, nonatomic) NSArray *expertDictionaryKeys;
+@property (retain, nonatomic) NSUbiquitousKeyValueStore *defaultStore;
+@property (readonly, nonatomic) NSString *wubihuaKeyMappingToolTip;
+@property (retain, nonatomic) NSTimer *loggingTimer;
+@property (nonatomic) BOOL usesLastUsedLatinKeyboardLayout;
+@property (nonatomic) BOOL usesHalfwidthPunctuation;
+@property (nonatomic) int wubiStandard;
+@property (nonatomic) long long pinyinDialect;
+@property (nonatomic) BOOL loggingEnabled;
+@property (nonatomic) unsigned long long logLevel;
+@property (nonatomic) BOOL collapseOnEdit;
+
++ (BOOL)isAppleInternal;
++ (unsigned long long)logLevel;
++ (void)setLogLevel:(unsigned long long)a0;
++ (BOOL)loggingEnabled;
++ (void)setLoggingEnabled:(BOOL)a0;
++ (id)validFuzzyPinyinPairs;
++ (id)sharedUserDefaults;
++ (id)expertSCIMDictionaryDefaultsKeys;
++ (id)expertTCIMDictionaryDefaultsKeys;
++ (BOOL)isLastLayoutQWERTY;
++ (BOOL)isQWERTYLayoutCompatibleWithStandardPinyin:(id)a0;
++ (id)lastUsedLatinLayoutID;
++ (id)preferencesForInputMode:(id)a0;
++ (id)sharedUserDefaultsWithoutFallbackValues;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)synchronize;
+- (unsigned long long)language;
+- (id)initWithInputMode:(id)a0;
+- (void)logStatistics;
+- (void)disableUbiquity;
+- (void)enableUbiquity;
+- (void)keyboardLayoutIDWithHandler:(id /* block */)a0;
+- (void)logStats:(id)a0;
+- (void)migratePreferences;
+- (void)migratePreferences_10_13;
+- (void)migratePreferences_10_15;
+- (void)postDistributedNotificationName:(id)a0 withUserInfo:(id)a1;
+- (void)pushToCloud;
+- (void)saveToiCloud;
+- (void)storeToCloudIfLocalExists:(id)a0;
+- (void)updateFromCloud:(id)a0;
+- (void)updatePreferences:(id)a0 shouldMerge:(BOOL)a1 localTimestamp:(unsigned long long)a2;
+
+@end

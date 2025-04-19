@@ -1,0 +1,3 @@
+@interface APOdmlAnalyticsModelTraining : APOdmlAnalytics
+
+@end

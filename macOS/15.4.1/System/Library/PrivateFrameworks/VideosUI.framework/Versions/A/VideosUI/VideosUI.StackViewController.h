@@ -1,0 +1,64 @@
+@interface VideosUI.StackViewController : VideosUI.VUIViewController <VUICollectionViewCellInteractor, VideosUI.VUICollectionViewContextMenuDelegate, VideosUI.VUICollectionViewHoverDelegate, VideosUI.VUIScrollViewDelegate, VideosUI.VUICollectionViewDelegate, VideosUI.CollectionChevronIndicatorViewDelegate, VideosUI.ChevronIndicatorHost> {
+    void /* unknown type, empty encoding */ peekingEnabled;
+    void /* unknown type, empty encoding */ logForMissingUpNextCell;
+    void /* unknown type, empty encoding */ collectionImpressioner;
+    void /* unknown type, empty encoding */ stackType;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_collectionView;
+    void /* unknown type, empty encoding */ supplementaryHeaderTypeToKindMap;
+    void /* unknown type, empty encoding */ supplementaryFooterTypeToKindMap;
+    void /* unknown type, empty encoding */ supplementaryKindToReuseIdentifierMap;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_dataSource;
+    void /* unknown type, empty encoding */ templateViewModel;
+    void /* unknown type, empty encoding */ collectionViewModel;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_prototypeCells;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_supplementaryCells;
+    void /* unknown type, empty encoding */ sectionViewModels;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_hostingCellViewControllers;
+    void /* unknown type, empty encoding */ cellConfigurator;
+    void /* unknown type, empty encoding */ cellActionInterceptor;
+    void /* unknown type, empty encoding */ sectionMetrics;
+    void /* unknown type, empty encoding */ _showcasePercentage;
+    void /* unknown type, empty encoding */ showcasePercentageContentTopAdjustment;
+    void /* unknown type, empty encoding */ _showcaseHeight;
+    void /* unknown type, empty encoding */ orthogonalScrollViewVisibilityMonitor;
+    void /* unknown type, empty encoding */ orthogonalScrollVisibilityChangedHandler;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_orthogonalScrollViews;
+    void /* unknown type, empty encoding */ _isInitialSnapshotApplied;
+    void /* unknown type, empty encoding */ $__lazy_storage_$_sectionHeaderMap;
+    void /* unknown type, empty encoding */ verticalPaginationMonitor;
+    void /* unknown type, empty encoding */ horizontalPaginationMonitors;
+    void /* unknown type, empty encoding */ contextMenuInteractor;
+    void /* unknown type, empty encoding */ signpostID;
+    void /* unknown type, empty encoding */ didTrackFirstDisplay;
+    void /* unknown type, empty encoding */ didAppearOnce;
+}
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id)initWithCoder:(id)a0;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)vui_viewDidLoad;
+- (id)chevronIndicatorOf:(long long)a0 kind:(id)a1;
+- (void)handlePlaybackFinishedNotification:(id)a0;
+- (void)orthogonalScrollViewDidEndLiveScrollWithNotification:(id)a0;
+- (void)orthogonalScrollViewDidLiveScrollByChevronIndicatorsWithNotification:(id)a0;
+- (void)orthogonalScrollViewDidLiveScrollWithNotification:(id)a0;
+- (void)scrollPageFrom:(id)a0 for:(long long)a1;
+- (void)vuiCollectionView:(id)a0 didEndDisplaying:(id)a1 for:(id)a2;
+- (void)vuiCollectionView:(id)a0 didSelectItemAt:(id)a1;
+- (BOOL)vuiCollectionView:(id)a0 shouldHoverItemAt:(id)a1;
+- (void)vuiCollectionView:(id)a0 willDisplay:(id)a1 for:(id)a2;
+- (void)vuiCollectionView:(id)a0 willDisplaySupplementaryView:(id)a1 forElementKind:(id)a2 at:(id)a3;
+- (double)vuiCollectionViewHoverDelayDuration:(id)a0 at:(id)a1;
+- (void)vuiScrollViewDidEndScrollingAnimation:(id)a0;
+- (void)vuiScrollViewDidScroll:(id)a0;
+- (void)vuiShowContextMenu:(id)a0 event:(id)a1 at:(id)a2;
+- (void)vui_cellNeedsReloading:(id)a0;
+- (BOOL)vui_handleActionInCell:(id)a0 fromSubview:(id)a1 details:(id)a2;
+- (void)vui_loadView;
+- (void)vui_viewDidAppear:(BOOL)a0;
+- (void)vui_viewDidDisappear:(BOOL)a0;
+- (void)vui_viewDidLayoutSubviews;
+- (void)vui_viewWillAppear:(BOOL)a0;
+
+@end

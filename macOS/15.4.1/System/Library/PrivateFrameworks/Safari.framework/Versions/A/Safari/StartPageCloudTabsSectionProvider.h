@@ -1,0 +1,85 @@
+@class NSTimer, NSString, NSArray, StartPageCollectionViewLayoutSection, NSAppearance, NSMutableDictionary, WBSRecentCloudTabsProvider, WBSRecentsStore, NSButton;
+@protocol StartPageCollectionSectionProviderDelegate, WBSCloudTabDeviceProvider, WBSCloudTabProvider;
+
+@interface StartPageCloudTabsSectionProvider : NSObject <StartPageFullDescriptionViewItemDelegate, StartPageViewItemDelegate, StartPageCollectionSectionProvider> {
+    WBSRecentCloudTabsProvider *_recentCloudTabsProvider;
+    WBSRecentsStore *_recentsStore;
+    NSArray *_recentItems;
+    NSArray *_availableDevices;
+    NSMutableDictionary *_recentItemsByDeviceUUID;
+    NSTimer *_coalescedSectionUpdateTimer;
+    StartPageCollectionViewLayoutSection *_cachedConsentUILayoutSection;
+    BOOL _isBeingShownInSideBarSection;
+    BOOL _isShowingConsentUI;
+    BOOL _cloudTabsConsentObtained;
+    id<WBSCloudTabDeviceProvider> _cloudTabStore;
+    NSArray *_cachedCloudTabDevices;
+    id<WBSCloudTabProvider> _selectedCloudTabDevice;
+    NSButton *_deviceButton;
+    BOOL _isStandaloneCloudTabsStartPage;
+    NSString *_profileIdentifier;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+@property (copy, nonatomic) NSString *identifier;
+@property (weak, nonatomic) id<StartPageCollectionSectionProviderDelegate> sectionProviderDelegate;
+@property (nonatomic) BOOL usesPrivateBrowsing;
+@property (readonly, nonatomic) BOOL usesCompactAppearance;
+@property (retain, nonatomic) NSAppearance *backgroundAppearance;
+@property (readonly, copy, nonatomic) NSArray *draggedTypes;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (long long)_sectionIndex;
+- (void)collectionView:(id)a0 didEndDisplayingItem:(id)a1 forRepresentedObjectAtIndexPath:(id)a2;
+- (void)collectionView:(id)a0 didSelectItemsAtIndexPaths:(id)a1;
+- (id)collectionView:(id)a0 itemForRepresentedObjectAtIndexPath:(id)a1;
+- (long long)collectionView:(id)a0 numberOfItemsInSection:(long long)a1;
+- (id)collectionView:(id)a0 shouldSelectItemsAtIndexPaths:(id)a1;
+- (long long)numberOfSectionsInCollectionView:(id)a0;
+- (void)reloadData;
+- (id)_makeDeviceMenu;
+- (void)_recentCloudTabItemsDidRebuild:(id)a0;
+- (id)_browserWindowController;
+- (BOOL)_canCollapseSection:(long long)a0;
+- (void)_changeSelectedTabItem:(id)a0;
+- (void)_cloudDevicesDidChange:(id)a0 previousDevices:(id)a1;
+- (void)_cloudTabsConsentStateDidChange:(id)a0;
+- (void)_cloudTabsItemsDidChange:(id)a0;
+- (void)_configureConsentItem:(id)a0;
+- (id)_consentItemForCollectionView:(id)a0 indexPath:(id)a1;
+- (id)_contextMenuForCloudTab:(id)a0;
+- (id /* block */)_deviceButtonAction;
+- (void)_didUpdateSectionVisibility:(id)a0;
+- (void)_enableCloudTabsSelected:(id)a0;
+- (void)_hideCloudTabsSelected:(id)a0;
+- (BOOL)_isAnyUIDisplayable;
+- (BOOL)_isCollapsedSection:(long long)a0;
+- (void)_recentCloudTabItemsDidReceiveMetadata:(id)a0;
+- (id)_recentItemsForDevice:(id)a0;
+- (id)_sectionTitleForSelectedTabDevice;
+- (id)_sectionTitleForTabDeviceForDevice:(id)a0;
+- (BOOL)_shouldShowConsentUI;
+- (void)_showContextMenuInView:(id)a0 forCloudTab:(id)a1 inDevice:(id)a2 event:(id)a3;
+- (void)_showDeviceMenu:(id)a0;
+- (id)_tabPlacementHint;
+- (void)_updateRecentItemsAndDevices;
+- (void)_updateSection;
+- (void)_updateTitleViewIfNeeded;
+- (id)accessibilityIdentifierForSection:(long long)a0;
+- (id)accessibilityTitleForSection:(long long)a0;
+- (long long)columnTypeForLayoutSectionAtIndex:(long long)a0 withLayoutEnvironment:(id)a1;
+- (void)didCollapse:(BOOL)a0 section:(long long)a1;
+- (void)goBackInSection:(long long)a0;
+- (id)initWithCompactAppearance:(BOOL)a0 forStandaloneStartPage:(BOOL)a1 forProfileWithIdentifier:(id)a2 forSideBarSection:(BOOL)a3;
+- (id)layoutSectionAtIndex:(long long)a0 withLayoutEnvironment:(id)a1;
+- (void)navigateToCloudTab:(id)a0;
+- (void)setUpReusableViewsUsingRegister:(id)a0;
+- (void)startPageFullDescriptionViewItem:(id)a0 showContextMenuWithEvent:(id)a1;
+- (void)startPageViewItem:(id)a0 didShowContextMenuWithEvent:(id)a1;
+- (id)titleConfigurationForSection:(long long)a0;
+
+@end

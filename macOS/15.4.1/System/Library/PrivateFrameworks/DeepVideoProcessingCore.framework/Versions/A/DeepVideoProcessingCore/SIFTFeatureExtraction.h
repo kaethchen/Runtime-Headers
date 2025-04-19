@@ -1,0 +1,82 @@
+@class MPSImageBilinearScale, MPSImageConvolution;
+@protocol MTLComputePipelineState, MTLBuffer, MTLTexture;
+
+@interface SIFTFeatureExtraction : VEMetalBase {
+    float sigma_diff;
+    float contrastThreshold;
+    float edgeThreshold;
+    float threshold;
+    float imageScale;
+    float gradual_guassian_kernel_sigmas[8];
+    float direct_guassian_kernel_sigmas[8];
+    int width;
+    int height;
+    int nOctaveLayers;
+    int gradualCoefsWidth[8];
+    int directCoefsWidth[8];
+    unsigned int baseType;
+    id<MTLComputePipelineState> _HorFilterGuass;
+    id<MTLComputePipelineState> _VerFilterGuass;
+    id<MTLComputePipelineState> _SubtractKernel;
+    id<MTLComputePipelineState> _IsExtermum;
+    id<MTLComputePipelineState> _ResizeKernel;
+    id<MTLComputePipelineState> _refineExterma;
+    id<MTLComputePipelineState> _calculateOrientation;
+    id<MTLComputePipelineState> _calcSIFTDescriptor;
+    id<MTLComputePipelineState> _mergeSort;
+    id<MTLComputePipelineState> _unique;
+    id<MTLComputePipelineState> _scaleKernel;
+    id<MTLComputePipelineState> _subtractKernelOctave;
+    id<MTLBuffer> _keyPoints[2][10];
+    id<MTLBuffer> _keyPointsCount[2][10];
+    id<MTLBuffer> _adjustedKeyPointsCount[2][10];
+    id<MTLBuffer> _finalCount[2];
+    id<MTLBuffer> gradual_gaussianCoeffs[8];
+    id<MTLBuffer> direct_gaussianCoeffs[8];
+    MPSImageConvolution *gradualHorConvFilters[8];
+    MPSImageConvolution *gradualVerConvFilters[8];
+    MPSImageConvolution *directHorConvFilters[8];
+    MPSImageConvolution *directVerConvFilters[8];
+    MPSImageBilinearScale *MPSscale;
+    struct __CVBuffer *base_image_buffer[2];
+    struct __CVBuffer *_gaussPyrImagesBuffer[2][80];
+    id<MTLTexture> scaled_input_texture[2];
+    id<MTLTexture> base_image[2];
+    id<MTLTexture> _gaussPyrImagesTexture[2][80];
+    struct __CVBuffer *_DoGImagesBuffer[2][80];
+    id<MTLTexture> _DoGImagesTexture[2][80];
+    id<MTLTexture> adjustExtermaInputTextures[10][8];
+    struct __CVBuffer *intermedia_base_image_buffer[2];
+    id<MTLTexture> intermedia_base_image[2];
+}
+
+@property (readonly) int num_octaves;
+@property (readonly) int num_intervals;
+@property (readonly) float sigma;
+@property BOOL accuracyMode;
+@property (nonatomic) BOOL streamingMode;
+@property (nonatomic) BOOL refreshCalculation;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (BOOL)setupMetal;
+- (long long)ExtractKeyPointFromInput1:(id)a0 toHdr1:(id)a1 Input2:(id)a2 toHdr2:(id)a3 count1:(int *)a4 count2:(int *)a5;
+- (long long)adjustLocalExtremasWithThreshold:(float)a0 waitForComplete:(BOOL)a1 edgeThreshold:(float)a2 ind:(int)a3;
+- (long long)allocateResourceWidth:(unsigned int)a0 andHeight:(unsigned int)a1 ind:(int)a2;
+- (long long)calculateDescriptorsForKeypoints:(id)a0 keypointsCount:(int)a1 intoHdr:(id)a2 waitForComplete:(BOOL)a3 ind:(int)a4;
+- (long long)calculateOrientations:(id)a0 withCounterBuffer:(id)a1 waitForComplete:(BOOL)a2 ind:(int)a3;
+- (void)cleanResources;
+- (long long)detect1:(id)a0 toHdr1:(id)a1 detect2:(id)a2 toHdr2:(id)a3 count1:(int *)a4 count2:(int *)a5;
+- (long long)findScaleSpaceExtremaWithWaitForComplete:(BOOL)a0 ind:(int)a1;
+- (void)freeResourceFromind:(int)a0;
+- (long long)generateBaseImage:(id)a0 waitForComplete:(BOOL)a1 ind:(int)a2;
+- (long long)generateDoGImagesOctaveWaitForComplete:(BOOL)a0 ind:(int)a1;
+- (long long)generateGaussianImagesWaitForComplete:(BOOL)a0 ind:(int)a1;
+- (struct __CVBuffer { } *)getDoGPyramidBufferImageOfOctave:(int)a0 andLayer:(int)a1 ind:(int)a2;
+- (struct __CVBuffer { } *)getGaussPyramidBufferImageOfOctave:(int)a0 andLayer:(int)a1 ind:(int)a2;
+- (id)initWithAll:(id)a0 commmandQueue:(id)a1 NumberOfOctaveLayers:(int)a2 withSigma:(float)a3 contrastThreshold:(float)a4 edgeThreshold:(float)a5 accuracyMode:(BOOL)a6;
+- (id)initWithDevice:(id)a0 commmandQueue:(id)a1;
+- (BOOL)isResourceAllocationNeededWidth:(unsigned int)a0 Height:(unsigned int)a1;
+- (int)removeDuplicatedSorted:(id)a0 keypointsCount:(int)a1;
+
+@end

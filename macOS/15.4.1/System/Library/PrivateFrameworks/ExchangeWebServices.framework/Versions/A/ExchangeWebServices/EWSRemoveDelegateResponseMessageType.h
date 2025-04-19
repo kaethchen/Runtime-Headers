@@ -1,0 +1,3 @@
+@interface EWSRemoveDelegateResponseMessageType : EWSBaseDelegateResponseMessageType
+
+@end

@@ -1,0 +1,3 @@
+@interface CNUIPRLikenessResolverReplaySubject : CNReplaySubject
+
+@end

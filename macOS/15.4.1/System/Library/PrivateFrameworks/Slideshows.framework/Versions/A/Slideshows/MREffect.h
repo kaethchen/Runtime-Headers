@@ -1,0 +1,92 @@
+@class NSString, NSDictionary, MRLayerEffect, MRImage, NSOperation, NSMutableDictionary;
+
+@interface MREffect : NSObject <MRLoadable, MRRenderable> {
+    NSDictionary *mDescription;
+    MRLayerEffect *mEffectLayer;
+    MRImage *mOutputImage;
+    NSDictionary *mFlattenedAttributes;
+    unsigned long long mSeed;
+    BOOL mNeedsToUpdateAttributes;
+    BOOL mIsNative3D;
+    BOOL mIsOpaque;
+    BOOL mIsAlphaFriendly;
+    NSOperation *mPreloadOperation;
+    double mDefaultPhaseInDuration;
+    double mDefaultMainDuration;
+    double mDefaultPhaseOutDuration;
+    NSMutableDictionary *_panoramaPanningOffsets;
+    double _panoramaPanningEndTime;
+    double _panoramaPanningAmount;
+}
+
+@property (readonly, nonatomic) BOOL supportsDynamicExpansion;
+@property (readonly, nonatomic) long long typicalSlideBatchSize;
+@property (readonly) BOOL isInInteractiveMode;
+@property (readonly) NSString *effectID;
+@property (retain, nonatomic) NSDictionary *attributes;
+@property (nonatomic) struct CGSize { double width; double height; } pixelSize;
+@property (nonatomic) BOOL needsToUpdateSlides;
+@property (nonatomic) BOOL needsToUpdateTexts;
+@property (nonatomic) struct _NSRange { unsigned long long location; unsigned long long length; } multiImageSlideRange;
+@property (readonly, nonatomic) double phaseInDuration;
+@property (readonly, nonatomic) double mainDuration;
+@property (readonly, nonatomic) double phaseOutDuration;
+@property (readonly, nonatomic) BOOL isNative3D;
+@property (readonly, nonatomic) BOOL isOpaque;
+@property (readonly, nonatomic) BOOL isAlphaFriendly;
+@property (readonly, nonatomic) BOOL isInfinite;
+
++ (BOOL)hasCustomTiming;
++ (id)customTimingWithEffectID:(id)a0 effectAttributes:(id)a1 slideInformation:(id)a2 textInformation:(id)a3 inAspectRatio:(double)a4;
++ (id)defaultEffectAttributesWithEffectID:(id)a0 andSlideInformation:(id)a1;
++ (id)retainedEffectWithEffectID:(id)a0 forEffectLayer:(id)a1;
++ (BOOL)supportsDynamicExpansionForEffectID:(id)a0;
++ (unsigned long long)typicalSlideBatchSizeForEffectID:(id)a0;
+
+- (void)dealloc;
+- (void)cleanup;
+- (void)unload;
+- (void)_cleanup;
+- (void)cancelLoading;
+- (void)_unload;
+- (double)_computePhaseTimeForTime:(double)a0;
+- (double)_computeTimeForPhaseTime:(double)a0;
+- (void)_loadForTime:(double)a0 inContext:(id)a1 withArguments:(id)a2;
+- (long long)_maxLinesForTextElement:(id)a0;
+- (struct CGSize { double x0; double x1; })_maxSizeForTextElement:(id)a0;
+- (void)beginMorphingToAspectRatio:(double)a0 withDuration:(double)a1;
+- (id)elementHitAtPoint:(struct CGPoint { double x0; double x1; })a0 withInverseMatrix:(float[16])a1 localPoint:(struct CGPoint { double x0; double x1; } *)a2;
+- (void)endMorphing;
+- (void)endPanoramaPanning;
+- (void)enterInteractiveModeAtTime:(double)a0;
+- (void)exitInteractiveMode;
+- (unsigned long long)firstSlideIndexStillNeededAtTime:(double)a0;
+- (BOOL)getCurrentCenter:(struct CGPoint { double x0; double x1; } *)a0 scale:(double *)a1 rotation:(double *)a2 isMain:(BOOL *)a3 forElement:(id)a4;
+- (void)getLazyDuration:(double *)a0 lazyFactor:(double *)a1 animationDuration:(double *)a2 fromInterestingTime:(double)a3;
+- (BOOL)getStartTime:(double *)a0 andDuration:(double *)a1 forMovingToElementID:(id)a2 backwards:(BOOL)a3;
+- (BOOL)getVerticesCoordinates:(struct CGPoint { double x0; double x1; }[4] *)a0 withMatrix:(float[16])a1 forElement:(id)a2;
+- (BOOL)hasMoreSlidesFromTime:(double)a0 backwards:(BOOL)a1 startTime:(double *)a2 duration:(double *)a3;
+- (id)initWithEffectID:(id)a0;
+- (double)interestingTimeForElement:(id)a0;
+- (double)interestingTimeForTime:(double)a0;
+- (BOOL)isLoadedForTime:(double)a0;
+- (BOOL)isRetainedByEffectLayer;
+- (void)loadForTime:(double)a0 inContext:(id)a1 withArguments:(id)a2 now:(BOOL)a3;
+- (void)loadWithArguments:(id)a0;
+- (BOOL)needsMoreSlidesAtTime:(double)a0;
+- (id)patchworkAtTime:(double)a0 inContext:(id)a1 withArguments:(id)a2;
+- (BOOL)prerenderForTime:(double)a0 inContext:(id)a1 withArguments:(id)a2;
+- (void)releaseByEffectLayer:(id)a0;
+- (void)renderAtTime:(double)a0 inContext:(id)a1 withArguments:(id)a2;
+- (void)retainByEffectLayer:(id)a0;
+- (id)retainedByUserRenderedImageAtTime:(double)a0 inContext:(id)a1 withArguments:(id)a2;
+- (void)setLiveAttributes:(id)a0;
+- (void)setPhaseInDuration:(double)a0 mainDuration:(double)a1 phaseOutDuration:(double)a2;
+- (BOOL)startPanoramaPanningForElementID:(id)a0 isLandscape:(BOOL *)a1;
+- (BOOL)supportsChapters;
+- (double)timeForNextChapterAfterTime:(double)a0;
+- (double)timeForPreviousChapterBeforeTime:(double)a0;
+- (void)updatePanoramaPanningForElementID:(id)a0 withDelta:(double)a1;
+- (double)valueForPanoramaPanningForElementID:(id)a0 value:(double)a1 minValue:(double)a2 maxValue:(double)a3;
+
+@end

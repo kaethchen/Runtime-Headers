@@ -1,0 +1,71 @@
+@class NSDictionary, NSMutableDictionary, NSMutableSet;
+
+@interface ISDSchemaParser : NSObject {
+    NSMutableDictionary *_schemas;
+    NSMutableDictionary *_dataClasses;
+    NSMutableDictionary *_entities;
+    NSMutableSet *_undefinedObjects;
+    NSDictionary *_existingEntities;
+    NSDictionary *_existingDataclasses;
+    BOOL _relaxSchemaParsing;
+}
+
+- (void)dealloc;
+- (id)entities;
+- (void)_addEntitiesForCoreDataEntityAndChildren:(id)a0 toArray:(id)a1 schema:(id)a2;
+- (id)parseDescription:(id)a0 linkedOnTiger:(BOOL)a1;
+- (id)_dataClassNameForManagedObjectEntity:(id)a0 inSchema:(id)a1;
+- (id)_dataClassWithName:(id)a0 create:(BOOL)a1;
+- (id)schemas;
+- (void)_ensureDescriptionComponent:(id)a0 hasNoUnknownKeysForComponentType:(int)a1 parentEntity:(id)a2;
+- (id)_entityWithName:(id)a0 create:(BOOL)a1;
+- (id)_findInverseRelationshipForDefinition:(id)a0 entity:(id)a1;
+- (id)_findVersionEntryForSchema:(id)a0 inVersionInfo:(id)a1;
+- (id)_fullyQualifiedNameForManagedObjectEntity:(id)a0 inSchema:(id)a1;
+- (id)_identityPropertyNamesSetFromCoreDataEntity:(id)a0;
+- (BOOL)_isCoreDataEntitySyncable:(id)a0 inSchema:(id)a1;
+- (BOOL)_isCoreDataPropertySyncable:(id)a0 inSchema:(id)a1;
+- (id)_mergedManagedObjectModelsInDescription:(id)a0 schema:(id)a1;
+- (id)_newEntityFromCoreDataEntity:(id)a0 inManagedObjectModel:(id)a1 schema:(id)a2 versionInfo:(id)a3;
+- (id)_newEntityInDescription:(id)a0 schema:(id)a1 versionInfo:(id)a2;
+- (id)_newRelationshipInDescription:(id)a0 component:(id)a1 schema:(id)a2;
+- (id)_newUserInfoForCoreDataEntity:(id)a0 schema:(id)a1;
+- (void)_parseAttributesInCoreDataEntity:(id)a0 component:(id)a1 userInfo:(id)a2 schema:(id)a3;
+- (void)_parseAttributesInDescription:(id)a0 component:(id)a1 schema:(id)a2;
+- (void)_parseDataClassesInDescription:(id)a0 schema:(id)a1 versionInfo:(id)a2;
+- (void)_parseDataClassesInManagedObjectModel:(id)a0 schema:(id)a1 versionInfo:(id)a2;
+- (void)_parseDependenciesInCoreDataEntity:(id)a0 component:(id)a1 userInfo:(id)a2 schema:(id)a3;
+- (void)_parseDependenciesInDescription:(id)a0 component:(id)a1;
+- (void)_parseEntitiesInDescription:(id)a0 schema:(id)a1 versionInfo:(id)a2;
+- (void)_parseEntitiesInManagedObjectModel:(id)a0 schema:(id)a1 versionInfo:(id)a2;
+- (void)_parseFileReferencesInDescription:(id)a0 schema:(id)a1;
+- (void)_parseIdentityKeysInDescription:(id)a0 component:(id)a1;
+- (void)_parseInverseRelationshipsInCoreDataRelationship:(id)a0 forEntity:(id)a1;
+- (void)_parseInverseRelationshipsInDescription:(id)a0 schema:(id)a1;
+- (void)_parseInverseRelationshipsInManagedObjectModel:(id)a0 schema:(id)a1;
+- (void)_parseInverseRelationshipsInRelationshipDescription:(id)a0 forRelationship:(id)a1 entity:(id)a2;
+- (void)_parseManagedObjectModelsInDescription:(id)a0 schema:(id)a1 versionInfo:(id)a2;
+- (void)_parseRelationshipsInCoreDataEntity:(id)a0 component:(id)a1 userInfo:(id)a2 schema:(id)a3;
+- (void)_parseRelationshipsInDescription:(id)a0 component:(id)a1 schema:(id)a2;
+- (BOOL)_propertyIsRequiredInDescription:(id)a0 propertyName:(id)a1 withEntityComponent:(id)a2;
+- (int)_relationshipDeleteRuleInDescription:(id)a0 withComponent:(id)a1;
+- (BOOL)_relationshipIsMatchableInDescription:(id)a0 withComponent:(id)a1;
+- (BOOL)_relationshipIsToManyInDescription:(id)a0 withComponent:(id)a1;
+- (int)_relationshipOrderingInDescription:(id)a0 withComponent:(id)a1;
+- (id)_relationshipTargetsInDescription:(id)a0 withComponent:(id)a1;
+- (id)_relationshipWithName:(id)a0 forEntity:(id)a1 create:(BOOL)a2;
+- (id)_schemaWithName:(id)a0 create:(BOOL)a1 bundleRef:(id)a2;
+- (void)_setHasDefinition:(BOOL)a0 forObject:(id)a1;
+- (BOOL)_setVersionInformation:(id)a0 forObject:(id)a1 isExtension:(BOOL)a2;
+- (id)_syncAttributeTypeFromCoreDataAttributeType:(unsigned long long)a0;
+- (int)_syncDeleteRuleFromCoreDataDeleteRule:(unsigned long long)a0;
+- (void)_validateParentRelationshipInEntityComponent:(id)a0 parentName:(id)a1;
+- (id)_validatePreferredClientTypes:(id)a0;
+- (id)_validateType:(id)a0 subtype:(id)a1 enumValues:(id)a2;
+- (id)_validateTypeSimply:(id)a0;
+- (id)dataClasses;
+- (id)initWithExistingEntities:(id)a0 andDataclasses:(id)a1;
+- (id)parseDescription:(id)a0 bundleRef:(id)a1 linkedOnTiger:(BOOL)a2;
+- (id)undefinedObjects;
+
+@end

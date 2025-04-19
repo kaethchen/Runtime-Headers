@@ -1,0 +1,3 @@
+@interface CNKCNSharedProfileOnboardingController : NSObject
+
+@end

@@ -1,0 +1,3 @@
+@interface LocalAuthenticationCore.LACPreboardACMContextProviderFactory : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,85 @@
+@class NSURL, NSDictionary, NSButton, NSScrollView, GKServerWebViewJSRoot, NSLayoutConstraint, NSString, WebView, NSURLRequest, GKAppearanceWebViewWrapper, NSData, GKMTextFieldPlus, NSTextField, NSArray;
+
+@interface GKServerWebViewController : UXViewController <WebResourceLoadDelegate, WebDownloadDelegate, WebFrameLoadDelegate, WebUIDelegate, WebPolicyDelegate, GKServerWebViewJSRootDelegate>
+
+@property (nonatomic) long long alertTag;
+@property (weak, nonatomic) NSScrollView *scrollView;
+@property (retain, nonatomic) GKAppearanceWebViewWrapper *webViewWrapper;
+@property (nonatomic) double contentWidth;
+@property (nonatomic) NSLayoutConstraint *widthLayoutConstraint;
+@property BOOL showSpinner;
+@property (retain, nonatomic) NSTextField *errorTitle;
+@property (retain, nonatomic) GKMTextFieldPlus *errorDescription;
+@property (retain, nonatomic) NSURL *url;
+@property BOOL waitForLoad;
+@property BOOL navbarSetupCompleted;
+@property (retain) GKServerWebViewJSRoot *jsRoot;
+@property (copy, nonatomic) NSDictionary *buttonInfo;
+@property (retain, nonatomic) WebView *webView;
+@property (retain, nonatomic) NSButton *innerLeftButton;
+@property (retain, nonatomic) NSButton *outerLeftButton;
+@property (retain, nonatomic) NSButton *innerRightButton;
+@property (retain, nonatomic) NSButton *outerRightButton;
+@property (retain, nonatomic) NSString *okCallback;
+@property (retain, nonatomic) NSString *cancelCallback;
+@property (retain, nonatomic) NSString *playerID;
+@property (retain, nonatomic) NSString *authToken;
+@property (retain, nonatomic) NSURLRequest *previousRequest;
+@property (nonatomic) long long status;
+@property (retain, nonatomic) NSData *pushToken;
+@property (retain, nonatomic) NSArray *heightLayoutConstraints;
+@property (nonatomic) BOOL dismissOnAuthenticate;
+@property (retain, nonatomic) NSString *urlTypeRequested;
+@property (copy, nonatomic) id /* block */ completionHandler;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)keyPathsForValuesAffectingContentWidth;
++ (id)keyPathsForValuesAffectingScrollView;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (void)finish;
+- (id)initWithNibName:(id)a0 bundle:(id)a1;
+- (void)awakeFromNib;
+- (void)loadView;
+- (void)presentError:(id)a0;
+- (void)viewDidAppear;
+- (id)willPresentError:(id)a0;
+- (void)webView:(id)a0 decidePolicyForNavigationAction:(id)a1 request:(id)a2 frame:(id)a3 decisionListener:(id)a4;
+- (void)webView:(id)a0 didFailProvisionalLoadWithError:(id)a1 forFrame:(id)a2;
+- (void)webView:(id)a0 didFinishLoadForFrame:(id)a1;
+- (void)webView:(id)a0 didStartProvisionalLoadForFrame:(id)a1;
+- (id)webView:(id)a0 resource:(id)a1 willSendRequest:(id)a2 redirectResponse:(id)a3 fromDataSource:(id)a4;
+- (void)webView:(id)a0 didClearWindowObject:(id)a1 forFrame:(id)a2;
+- (unsigned long long)webView:(id)a0 dragDestinationActionMaskForDraggingInfo:(id)a1;
+- (void)alertDidEnd:(id)a0 returnCode:(long long)a1 contextInfo:(void *)a2;
+- (double)defaultWidth;
+- (void)loadURL:(id)a0;
+- (void)updateScrollView;
+- (void)clearBackground;
+- (void)startLoadingURL:(id)a0 forLocalPlayer:(id)a1;
+- (void)_didBeginSheet;
+- (void)authenticateAndTryURLRequestAgain:(id)a0;
+- (void)changePhoto;
+- (id)decodeDashEncodedString:(id)a0;
+- (void)getAccountURLsForPlayer:(id)a0 handler:(id /* block */)a1;
+- (void)getAuthTokenForPlayer:(id)a0 withCompletionHandler:(id /* block */)a1;
+- (void)javaScriptAlertDidEnd:(id)a0 returnCode:(long long)a1 contextInfo:(void *)a2;
+- (void)makeCancellable:(id)a0;
+- (void)navButtonPressed:(id)a0;
+- (void)parseAlertURLString:(id)a0;
+- (void)parseNavBarURLString:(id)a0;
+- (void)processGameKitURLComponents:(id)a0;
+- (void)serverWebViewJSRoot:(id)a0 changeNavBarWithButtons:(id)a1 showSpinner:(BOOL)a2;
+- (void)serverWebViewJSRoot:(id)a0 presentAlert:(id)a1 withCompletionHandler:(id /* block */)a2;
+- (void)serverWebViewJSRoot:(id)a0 reauthenticateWithDisplayTitle:(id)a1 displayString:(id)a2 username:(id)a3 completionHandler:(id /* block */)a4;
+- (void)serverWebViewJSRoot:(id)a0 saveFile:(id)a1 suggestedFilename:(id)a2 mimeType:(id)a3;
+- (void)setHeadersForRequest:(id)a0;
+- (BOOL)shouldStartLoadWithURL:(id)a0 request:(id)a1 redirectTo:(id *)a2;
+- (void)showMessageForError:(id)a0;
+- (void)uploadContacts;
+
+@end

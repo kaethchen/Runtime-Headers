@@ -1,0 +1,3 @@
+@interface EWSCreateAttachmentResponseType : EWSBaseMessageResponseType
+
+@end

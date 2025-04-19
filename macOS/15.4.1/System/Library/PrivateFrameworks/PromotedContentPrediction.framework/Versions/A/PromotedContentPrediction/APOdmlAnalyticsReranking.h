@@ -1,0 +1,3 @@
+@interface APOdmlAnalyticsReranking : APOdmlAnalytics
+
+@end

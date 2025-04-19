@@ -1,0 +1,3 @@
+@interface KHNoiseLayerRenderer : NSObject
+
+@end

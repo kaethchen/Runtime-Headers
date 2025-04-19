@@ -1,0 +1,3 @@
+@interface _TtCO27SiriSuggestionsIntelligence27SiriSuggestionsIntelligence20NoopBrightnessClient : _TtCs12_SwiftObject
+
+@end

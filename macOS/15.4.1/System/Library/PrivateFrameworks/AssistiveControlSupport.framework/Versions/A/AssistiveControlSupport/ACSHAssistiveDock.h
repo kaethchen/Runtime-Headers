@@ -1,0 +1,3 @@
+@interface ACSHAssistiveDock : ACSHPanel
+
+@end

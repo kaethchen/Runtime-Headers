@@ -1,0 +1,3 @@
+@interface PAPreviewImageAssetClient : PARenderedImageAssetClient
+
+@end

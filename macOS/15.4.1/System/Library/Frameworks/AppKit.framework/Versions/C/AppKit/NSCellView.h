@@ -1,0 +1,3 @@
+@interface NSCellView : NSControl
+
+@end

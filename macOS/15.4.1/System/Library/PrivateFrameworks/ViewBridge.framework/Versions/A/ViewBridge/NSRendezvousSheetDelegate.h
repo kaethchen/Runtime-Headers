@@ -1,0 +1,3 @@
+@interface NSRendezvousSheetDelegate : NSRendezvousWindowRemoteViewDelegate
+
+@end

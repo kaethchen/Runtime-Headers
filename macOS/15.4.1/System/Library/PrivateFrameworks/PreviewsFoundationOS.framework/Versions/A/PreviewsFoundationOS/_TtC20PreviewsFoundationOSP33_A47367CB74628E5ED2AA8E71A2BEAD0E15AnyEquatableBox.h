@@ -1,0 +1,3 @@
+@interface _TtC20PreviewsFoundationOSP33_A47367CB74628E5ED2AA8E71A2BEAD0E15AnyEquatableBox : _TtCs12_SwiftObject
+
+@end

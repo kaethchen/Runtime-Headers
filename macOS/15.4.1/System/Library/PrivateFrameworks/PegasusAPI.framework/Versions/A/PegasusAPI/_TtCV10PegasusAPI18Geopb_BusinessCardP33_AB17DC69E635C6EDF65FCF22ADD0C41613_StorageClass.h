@@ -1,0 +1,3 @@
+@interface _TtCV10PegasusAPI18Geopb_BusinessCardP33_AB17DC69E635C6EDF65FCF22ADD0C41613_StorageClass : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface EWSResolveNamesResponseType : EWSBaseMessageResponseType
+
+@end

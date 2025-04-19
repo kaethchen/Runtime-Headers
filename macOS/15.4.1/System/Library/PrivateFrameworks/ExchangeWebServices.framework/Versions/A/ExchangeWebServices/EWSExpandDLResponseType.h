@@ -1,0 +1,3 @@
+@interface EWSExpandDLResponseType : EWSBaseMessageResponseType
+
+@end

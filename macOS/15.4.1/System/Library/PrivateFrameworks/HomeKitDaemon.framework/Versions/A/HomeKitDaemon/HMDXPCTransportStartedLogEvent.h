@@ -1,0 +1,3 @@
+@interface HMDXPCTransportStartedLogEvent : HMMLogEvent
+
+@end

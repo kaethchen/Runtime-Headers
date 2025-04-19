@@ -1,0 +1,103 @@
+@class ACSHPanelView, NSString, ACSHResizeHandlesView, NSArray, ACSHResourceCollection, NSMutableArray, ACSHPanelElement;
+
+@interface ACSHPanelElementView : ACSHView <ACSHPanelElementViewContainer> {
+    unsigned long long _updateNeeded;
+}
+
+@property (class, readonly, nonatomic) double viewPadding;
+
+@property (retain, nonatomic) ACSHResizeHandlesView *_resizeHandleView;
+@property BOOL hitTestShouldIgnoreGroupViews;
+@property (nonatomic) struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } _lastUpdatedDrawingFrame;
+@property (retain) NSMutableArray *_panelElementViews;
+@property (retain) NSMutableArray *_editorSelectedPanelElementViews;
+@property (nonatomic) BOOL _isObservingModel;
+@property (nonatomic) BOOL _wasObservingModel;
+@property (retain, nonatomic) ACSHPanelElement *panelElement;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } _rectForDrawingPanelElementViews;
+@property (nonatomic) BOOL selected;
+@property (nonatomic) BOOL highlighted;
+@property (nonatomic) BOOL semiHighlighted;
+@property (nonatomic) BOOL disabled;
+@property (nonatomic) BOOL editorFocused;
+@property (readonly, nonatomic) NSArray *panelElementViews;
+@property (readonly, nonatomic) NSArray *editorSelectedPanelElementViews;
+@property (readonly, nonatomic) NSArray *editorSelectedPanelElements;
+@property (readonly, nonatomic) ACSHPanelElementView *editorSelectedPanelElementView;
+@property (readonly, nonatomic) ACSHPanelElementView *editorDeepestFocusedView;
+@property (readonly, nonatomic) ACSHResourceCollection *resourceCollection;
+@property (readonly, nonatomic) ACSHPanelView *panelView;
+@property (nonatomic) double customScaleFactor;
+@property (readonly, nonatomic) struct CGSize { double x0; double x1; } sizeForFittingDisplayText;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } frameForDrawing;
+@property (readonly, nonatomic) BOOL supportsResizeHandleDrawing;
+@property (readonly, nonatomic) struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } resizeHandleRect;
+@property (nonatomic) BOOL canShowResizeHandles;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (void)initialize;
++ (Class)_viewClassForPanelElement:(id)a0;
++ (id)createWithPanelElement:(id)a0;
++ (void)setModelObservationEnabled:(BOOL)a0;
+
+- (void)dealloc;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (void)observeValueForKeyPath:(id)a0 ofObject:(id)a1 change:(id)a2 context:(void *)a3;
+- (struct CGSize { double x0; double x1; })defaultSpace;
+- (void)drawRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0;
+- (id)hitTest:(struct CGPoint { double x0; double x1; })a0;
+- (void)updateLayer;
+- (void)_startObservingModel;
+- (void)_stopObservingModel;
+- (void)performBlockOnViewAndAncestors:(id /* block */)a0;
+- (void)removeAllEditorAllSelectedViews;
+- (void)_addPanelElementView:(id)a0 animated:(BOOL)a1;
+- (void)_addPanelElementView:(id)a0 animated:(BOOL)a1 atIndex:(unsigned long long)a2;
+- (void)_didChangeSelectedViews;
+- (void)_editorUpdateUIForSelection;
+- (void)_performBlockOnAncestors:(id /* block */)a0 includeSelf:(BOOL)a1;
+- (void)_performBlockOnDescendents:(id /* block */)a0 includeSelf:(BOOL)a1;
+- (void)_removePanelElementView:(id)a0 animated:(BOOL)a1;
+- (void)_resumeObservingModel;
+- (void)_suspendObservingModel;
+- (void)_updateResizeHandleVisibility;
+- (void)_willChangeSelectedViews;
+- (void)addViewToEditorSelection:(id)a0;
+- (id)adjustedFontForBaseFontSize:(double)a0;
+- (void)clearUpdateNeeded;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })convertRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 fromDefaultSpaceToSpace:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })convertRect:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a0 toDefaultSpaceFromSpace:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })a1;
+- (void)editorUpdateUIForSelection;
+- (id)hitTest:(struct CGPoint { double x0; double x1; })a0 allowingGroupViews:(BOOL)a1;
+- (void)initView;
+- (void)inputMethodWasUpdated;
+- (void)notifyAncestorsOfUserViewManipulationEnd;
+- (void)notifyAncestorsOfUserViewManipulationStart;
+- (id)panelElementViewAtIndexPath:(id)a0;
+- (id)panelElementViewContainer;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })panelRectForItemAtIndexPath:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })panelRectForLeadingExtraAtIndexPath:(id)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })panelRectForTrailingExtraAtIndexPath:(id)a0;
+- (id)parentPanelElementView;
+- (void)performBlockOnAncestors:(id /* block */)a0;
+- (void)performBlockOnDescendents:(id /* block */)a0;
+- (void)performBlockOnViewAndDescendents:(id /* block */)a0;
+- (void)removeViewFromEditorSelection:(id)a0;
+- (void)requestDisplayUpdate:(unsigned long long)a0;
+- (void)resetLook;
+- (void)setHighlightedRecursive:(BOOL)a0;
+- (void)setPanelElement:(id)a0 animated:(BOOL)a1;
+- (void)setShowResizeHandles:(BOOL)a0;
+- (unsigned long long)updateNeeded;
+- (void)updateSizeAndPositionOfPanelElementViews;
+- (void)updateSubviewZOrder;
+- (void)userViewManipulationDidBegin;
+- (void)userViewManipulationDidEnd;
+- (id)viewInTreeForPanelElement:(id)a0;
+- (void)willRemovePanelElementView:(id)a0;
+
+@end

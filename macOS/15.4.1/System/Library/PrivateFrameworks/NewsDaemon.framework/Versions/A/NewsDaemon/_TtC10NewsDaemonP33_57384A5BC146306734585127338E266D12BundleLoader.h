@@ -1,0 +1,3 @@
+@interface _TtC10NewsDaemonP33_57384A5BC146306734585127338E266D12BundleLoader : _TtCs12_SwiftObject
+
+@end

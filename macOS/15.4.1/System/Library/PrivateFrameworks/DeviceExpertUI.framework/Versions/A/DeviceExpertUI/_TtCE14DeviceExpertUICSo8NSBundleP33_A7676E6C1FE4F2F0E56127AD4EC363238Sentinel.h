@@ -1,0 +1,3 @@
+@interface _TtCE14DeviceExpertUICSo8NSBundleP33_A7676E6C1FE4F2F0E56127AD4EC363238Sentinel : _TtCs12_SwiftObject
+
+@end

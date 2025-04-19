@@ -1,0 +1,3 @@
+@interface _TtCO24IntelligencePlatformCore10ViewUpdate9LiveState : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface CTXPCResponseMessage : CTXPCMessage
+
+@end

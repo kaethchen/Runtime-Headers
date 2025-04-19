@@ -1,0 +1,81 @@
+@class NSUUID, NSString, NSArray, UARPUploaderUARP, NSSet, UARPPacketDumper, UARPAccessory, NSObject, UARPAssetVersion, NSMutableArray, NSMutableSet;
+@protocol OS_os_log, OS_dispatch_queue, OS_dispatch_source;
+
+@interface UARPUploaderEndpoint : NSObject {
+    NSObject<OS_os_log> *_log;
+    NSObject<OS_dispatch_queue> *_queue;
+    NSObject<OS_dispatch_queue> *_personalizationQueue;
+    NSObject<OS_dispatch_source> *_layer2WatchdogTimer;
+    struct uarpPlatformRemoteEndpoint { struct uarpPlatformOptionsObj { unsigned int x0; unsigned int x1; unsigned int x2; unsigned short x3; unsigned char x4; unsigned short x5; unsigned short x6; unsigned short x7; int x8; unsigned short x9; unsigned short x10; unsigned char x11; } x0; void *x1; unsigned short x2; unsigned char x3; int x4; unsigned char x5; unsigned char x6; unsigned short x7; unsigned short x8; struct UARPStatistics { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; } x9; struct UARP4ccTag *x10; struct uarpPlatformStreamingBuffer *x11; unsigned short x12; struct uarpPlatformTransmitBufferEntry **x13; unsigned short x14; struct uarpPlatformTransmitBufferEntry **x15; struct uarpPlatformTransmitBufferEntry *x16; unsigned short x17; struct UARPVersion { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; } x18; struct UARPVersion { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; } x19; struct uarpPlatformRemoteEndpoint *x20; } *_uarpEndpoint;
+    struct uarpPlatformOptionsObj { unsigned int maxTxPayloadLength; unsigned int maxRxPayloadLength; unsigned int payloadWindowLength; unsigned short protocolVersion; unsigned char reofferFirmwareOnSync; unsigned short responseTimeout; unsigned short retryLimit; unsigned short maxTransmitsInFlight; int endpointType; unsigned short solicitationQueueDepth; unsigned short txBufferOverhead; unsigned char upgradeOnly; } _uarpOptions;
+    NSMutableArray *_txFirmwareAssets;
+    NSMutableArray *_txDynamicAssets;
+    NSMutableArray *_rxDynamicAssets;
+    NSUUID *_uuid;
+    BOOL _isDownstreamEndpoint;
+    void *_layer2Context;
+    NSMutableArray *_downstreamEndpoints;
+    UARPUploaderEndpoint *_directEndpoint;
+    UARPPacketDumper *_packetDumper;
+    NSMutableSet *_infoPropertiesToQuery;
+    NSMutableSet *_applePropertiesToQuery;
+}
+
+@property (readonly, weak) UARPUploaderUARP *uploader;
+@property (readonly) UARPAccessory *accessory;
+@property (readonly) struct uarpPlatformRemoteEndpoint { struct uarpPlatformOptionsObj { unsigned int x0; unsigned int x1; unsigned int x2; unsigned short x3; unsigned char x4; unsigned short x5; unsigned short x6; unsigned short x7; int x8; unsigned short x9; unsigned short x10; unsigned char x11; } x0; void *x1; unsigned short x2; unsigned char x3; int x4; unsigned char x5; unsigned char x6; unsigned short x7; unsigned short x8; struct UARPStatistics { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; } x9; struct UARP4ccTag *x10; struct uarpPlatformStreamingBuffer *x11; unsigned short x12; struct uarpPlatformTransmitBufferEntry **x13; unsigned short x14; struct uarpPlatformTransmitBufferEntry **x15; struct uarpPlatformTransmitBufferEntry *x16; unsigned short x17; struct UARPVersion { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; } x18; struct UARPVersion { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; } x19; struct uarpPlatformRemoteEndpoint *x20; } *uarpEndpoint;
+@property (readonly) struct uarpPlatformOptionsObj { unsigned int x0; unsigned int x1; unsigned int x2; unsigned short x3; unsigned char x4; unsigned short x5; unsigned short x6; unsigned short x7; int x8; unsigned short x9; unsigned short x10; unsigned char x11; } *uarpOptions;
+@property (readonly) NSArray *txFirmwareAssets;
+@property (readonly) NSArray *txDynamicAssets;
+@property (readonly) NSArray *rxDynamicAssets;
+@property unsigned long long uarpVersion;
+@property (readonly) unsigned short downstreamID;
+@property (readonly) UARPUploaderEndpoint *directEndpoint;
+@property (readonly) NSSet *infoPropertiesToQuery;
+@property (readonly) NSSet *applePropertiesToQuery;
+@property (retain) NSString *manufacturerName;
+@property (retain) NSString *modelName;
+@property (retain) NSString *serialNumber;
+@property (retain) NSString *friendlyName;
+@property (retain) NSString *appleModelNumber;
+@property (retain) NSString *hwFusingType;
+@property (retain) NSString *hardwareVersion;
+@property (retain) UARPAssetVersion *firmwareVersion;
+@property (retain) UARPAssetVersion *stagedFirmwareVersion;
+
+- (void)dealloc;
+- (void).cxx_destruct;
+- (id)findMatch:(id)a0;
+- (void)removeAsset:(id)a0;
+- (id)initWithUARPAccessory:(id)a0 uploader:(id)a1;
+- (void)abandonRxDynamicAsset:(id)a0;
+- (void)abandonTxDynamicAsset:(id)a0;
+- (void)addDownstreamEndpoint:(id)a0;
+- (void)addRxDynamicAsset:(id)a0;
+- (void)addTxDynamicAsset:(id)a0;
+- (void)addTxFirmwareAsset:(id)a0;
+- (void)cancelLayer2WatchdogTimer;
+- (void)clearQueuedAppleProperties;
+- (void)clearQueuedInfoProperties;
+- (id)downstreamEndpoint:(unsigned long long)a0;
+- (void)dumpRxUARPMsg:(id)a0;
+- (void)dumpTxUARPMsg:(id)a0;
+- (void)handleLayer2WatchdogTimer:(id)a0;
+- (void)handlePersonalizationRequest;
+- (void)handlePersonalizationRequest:(id)a0 tatsuSigningServer:(id)a1;
+- (BOOL)handlePersonalizationResponse:(id)a0;
+- (BOOL)hasFullPersonality:(id)a0;
+- (id)idealTxFirmwareAsset;
+- (BOOL)im4mAssetReceived:(id)a0;
+- (id)initDownstreamWithDirectEndpoint:(id)a0 layer2Context:(void *)a1 uploader:(id)a2;
+- (id)initWithUARPAccessory:(id)a0 layer2Context:(struct uarpPlatformRemoteEndpoint { struct uarpPlatformOptionsObj { unsigned int x0; unsigned int x1; unsigned int x2; unsigned short x3; unsigned char x4; unsigned short x5; unsigned short x6; unsigned short x7; int x8; unsigned short x9; unsigned short x10; unsigned char x11; } x0; void *x1; unsigned short x2; unsigned char x3; int x4; unsigned char x5; unsigned char x6; unsigned short x7; unsigned short x8; struct UARPStatistics { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; } x9; struct UARP4ccTag *x10; struct uarpPlatformStreamingBuffer *x11; unsigned short x12; struct uarpPlatformTransmitBufferEntry **x13; unsigned short x14; struct uarpPlatformTransmitBufferEntry **x15; struct uarpPlatformTransmitBufferEntry *x16; unsigned short x17; struct UARPVersion { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; } x18; struct UARPVersion { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; } x19; struct uarpPlatformRemoteEndpoint *x20; } *)a1 uploader:(id)a2;
+- (BOOL)isDownstreamEndpoint;
+- (id)pendingTssRequests;
+- (void)qcancelLayer2WatchdogTimer;
+- (void)queueAppleProperty:(unsigned int)a0;
+- (void)queueInfoProperty:(unsigned int)a0;
+- (void)removeDownstreamEndpoint:(id)a0;
+- (void)respondIM4M:(id)a0;
+- (void)setLayer2WatchdogTimer:(id)a0 timeoutMS:(unsigned long long)a1;
+
+@end

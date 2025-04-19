@@ -1,0 +1,3 @@
+@interface _TtCC14libWebKitSwift27IntelligenceTextEffectChunk9Pondering : libWebKitSwift.IntelligenceTextEffectChunk
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtC9WidgetKitP33_AA653B53D50F1AA7F37C1C220CADA4F533_DefaultExtensionIdentityProvider : _TtCs12_SwiftObject
+
+@end

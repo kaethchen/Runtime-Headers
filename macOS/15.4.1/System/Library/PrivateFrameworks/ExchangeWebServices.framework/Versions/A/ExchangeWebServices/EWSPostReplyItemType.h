@@ -1,0 +1,3 @@
+@interface EWSPostReplyItemType : EWSPostReplyItemBaseType
+
+@end

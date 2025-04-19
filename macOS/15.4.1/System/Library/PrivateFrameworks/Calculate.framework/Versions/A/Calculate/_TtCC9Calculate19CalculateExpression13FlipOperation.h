@@ -1,0 +1,3 @@
+@interface _TtCC9Calculate19CalculateExpression13FlipOperation : _TtCC9Calculate19CalculateExpression17FunctionOperation
+
+@end

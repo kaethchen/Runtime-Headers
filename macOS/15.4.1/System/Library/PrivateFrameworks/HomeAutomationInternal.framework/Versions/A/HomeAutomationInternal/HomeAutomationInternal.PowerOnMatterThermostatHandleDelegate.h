@@ -1,0 +1,3 @@
+@interface HomeAutomationInternal.PowerOnMatterThermostatHandleDelegate : _TtCs12_SwiftObject
+
+@end

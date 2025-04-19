@@ -1,0 +1,3 @@
+@interface RSCurvedWallDetection : NSObject
+
+@end

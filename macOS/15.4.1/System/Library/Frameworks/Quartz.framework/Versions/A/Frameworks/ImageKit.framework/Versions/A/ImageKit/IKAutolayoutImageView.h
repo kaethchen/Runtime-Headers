@@ -1,0 +1,3 @@
+@interface IKAutolayoutImageView : NSImageView
+
+@end

@@ -1,0 +1,3 @@
+@interface _TtCC14ReplicatorCore8Database31MutablePairingRelationshipStore : _TtCC14ReplicatorCore8Database24PairingRelationshipStore
+
+@end

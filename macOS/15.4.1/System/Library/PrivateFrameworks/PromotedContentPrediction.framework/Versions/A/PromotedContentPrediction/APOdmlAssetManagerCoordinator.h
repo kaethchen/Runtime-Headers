@@ -1,0 +1,3 @@
+@interface APOdmlAssetManagerCoordinator : NSObject
+
+@end

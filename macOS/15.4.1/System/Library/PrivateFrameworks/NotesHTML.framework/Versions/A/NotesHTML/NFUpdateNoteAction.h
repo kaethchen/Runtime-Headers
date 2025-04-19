@@ -1,0 +1,3 @@
+@interface NFUpdateNoteAction : NFNoteAction
+
+@end

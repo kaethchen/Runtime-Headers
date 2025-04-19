@@ -1,0 +1,3 @@
+@interface GenerativeExperiencesRuntime.SystemRetrievalXPCServiceServer : _TtCs12_SwiftObject
+
+@end

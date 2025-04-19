@@ -1,0 +1,3 @@
+@interface _TtCC3VFX12GraphCodeGenP33_22BEB975C8D88BF1BD499327E6FD4D1D7CFGNode : _TtCs12_SwiftObject
+
+@end

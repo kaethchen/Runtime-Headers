@@ -1,0 +1,98 @@
+@class NSMutableArray, NSMapTable, NSUUID, NSData, NSArray, NSNumber, NSObject;
+@protocol OS_dispatch_queue, MTRDeviceControllerDelegate, MTROTAProviderDelegate;
+
+@interface MTRDeviceController : NSObject {
+    struct os_unfair_lock_s { unsigned int _os_unfair_lock_opaque; } _underlyingDeviceMapLock;
+    struct atomic<bool> { struct __cxx_atomic_impl<bool, std::__cxx_atomic_base_impl<bool>> { _Atomic BOOL __a_value; } __a_; } _suspended;
+    NSMutableArray *_delegates;
+    id<MTRDeviceControllerDelegate> _strongDelegateForSetDelegateAPI;
+}
+
+@property (readonly, nonatomic) NSNumber *controllerNodeId;
+@property (readonly, nonatomic) NSMapTable *nodeIDToDeviceMap;
+@property (readonly) struct os_unfair_lock_s { unsigned int x0; } *deviceMapLock;
+@property (retain, nonatomic) NSUUID *uniqueIdentifier;
+@property (readonly, nonatomic) NSNumber *compressedFabricID;
+@property (readonly, nonatomic) id<MTROTAProviderDelegate> otaProviderDelegate;
+@property (readonly, nonatomic) NSObject<OS_dispatch_queue> *otaProviderDelegateQueue;
+@property (retain, nonatomic) NSNumber *fabricID;
+@property (retain, nonatomic) NSNumber *nodeID;
+@property (retain, nonatomic) NSData *rootPublicKey;
+@property (readonly, nonatomic, getter=isRunning) BOOL running;
+@property (readonly, nonatomic, getter=isSuspended) BOOL suspended;
+@property (readonly, nonatomic) NSNumber *controllerNodeID;
+@property (readonly, nonatomic) NSArray *devices;
+@property (readonly, nonatomic) NSArray *nodesWithStoredData;
+
++ (id)decodeXPCReadParams:(id)a0;
++ (BOOL)checkForError:(struct ChipError { unsigned int x0; char *x1; unsigned int x2; })a0 logMsg:(id)a1 error:(id *)a2;
++ (id)computePASEVerifierForSetupPasscode:(id)a0 iterations:(id)a1 salt:(id)a2 error:(id *)a3;
++ (id)decodeXPCResponseValues:(id)a0;
++ (id)decodeXPCSubscribeParams:(id)a0;
++ (id)encodeXPCReadParams:(id)a0;
++ (id)encodeXPCResponseValues:(id)a0;
++ (id)encodeXPCSubscribeParams:(id)a0;
++ (id)sharedControllerWithID:(id)a0 xpcConnectBlock:(id /* block */)a1;
++ (id)sharedControllerWithId:(id)a0 xpcConnectBlock:(id /* block */)a1;
++ (id)xpcInterfaceForClientProtocol;
++ (id)xpcInterfaceForServerProtocol;
+
+- (void)dealloc;
+- (id)description;
+- (void).cxx_destruct;
+- (void)resume;
+- (void)suspend;
+- (void)shutdown;
+- (void)removeDevice:(id)a0;
+- (id)initWithParameters:(id)a0 error:(id *)a1;
+- (void)_clearDeviceControllerDelegates;
+- (id)openPairingWindowWithPIN:(unsigned long long)a0 duration:(unsigned long long)a1 discriminator:(unsigned long long)a2 setupPIN:(unsigned long long)a3 error:(id *)a4;
+- (void)removeDeviceControllerDelegate:(id)a0;
+- (void)_callDelegatesWithBlock:(id /* block */)a0 logString:(const char *)a1;
+- (void)_controllerResumed;
+- (void)_controllerSuspended;
+- (id)_deviceForNodeID:(id)a0 createIfNeeded:(BOOL)a1;
+- (unsigned long long)_iterateDelegateInfoWithBlock:(id /* block */)a0;
+- (void)_notifyDelegatesOfSuspendState;
+- (id)_setupDeviceForNodeID:(id)a0 prefetchedClusterData:(id)a1;
+- (void)addDeviceControllerDelegate:(id)a0 queue:(id)a1;
+- (BOOL)addServerEndpoint:(id)a0;
+- (void)asyncDispatchToMatterQueue:(id /* block */)a0 errorHandler:(id /* block */)a1;
+- (id)attestationChallengeForDeviceID:(id)a0;
+- (id)baseDeviceForNodeID:(id)a0;
+- (BOOL)cancelCommissioningForNodeID:(id)a0 error:(id *)a1;
+- (BOOL)commissionDevice:(unsigned long long)a0 commissioningParams:(id)a1 error:(id *)a2;
+- (BOOL)commissionNodeWithID:(id)a0 commissioningParams:(id)a1 error:(id *)a2;
+- (id)computePaseVerifier:(unsigned int)a0 iterations:(unsigned int)a1 salt:(id)a2;
+- (BOOL)continueCommissioningDevice:(void *)a0 ignoreAttestationFailure:(BOOL)a1 error:(id *)a2;
+- (void)controller:(id)a0 commissioningComplete:(id)a1 nodeID:(id)a2 metrics:(id)a3;
+- (void)controller:(id)a0 commissioningSessionEstablishmentDone:(id)a1;
+- (void)controller:(id)a0 readCommissioneeInfo:(id)a1;
+- (void)controller:(id)a0 statusUpdate:(long long)a1;
+- (id)deviceBeingCommissionedWithNodeID:(id)a0 error:(id *)a1;
+- (void)deviceDeallocated;
+- (id)deviceForNodeID:(id)a0;
+- (id)fetchAttestationChallengeForDeviceId:(unsigned long long)a0;
+- (void)forgetDeviceWithNodeID:(id)a0;
+- (BOOL)getBaseDevice:(unsigned long long)a0 queue:(id)a1 completionHandler:(id /* block */)a2;
+- (id)getDeviceBeingCommissioned:(unsigned long long)a0 error:(id *)a1;
+- (id)initForSubclasses:(BOOL)a0;
+- (BOOL)openPairingWindow:(unsigned long long)a0 duration:(unsigned long long)a1 error:(id *)a2;
+- (BOOL)pairDevice:(unsigned long long)a0 address:(id)a1 port:(unsigned short)a2 setupPINCode:(unsigned int)a3 error:(id *)a4;
+- (BOOL)pairDevice:(unsigned long long)a0 discriminator:(unsigned short)a1 setupPINCode:(unsigned int)a2 error:(id *)a3;
+- (BOOL)pairDevice:(unsigned long long)a0 onboardingPayload:(id)a1 error:(id *)a2;
+- (void)preWarmCommissioningSession;
+- (void)removeServerEndpoint:(id)a0;
+- (void)removeServerEndpoint:(id)a0 queue:(id)a1 completion:(id /* block */)a2;
+- (void)removeServerEndpointInternal:(id)a0 queue:(id)a1 completion:(id /* block */)a2;
+- (void)setDeviceControllerDelegate:(id)a0 queue:(id)a1;
+- (void)setNocChainIssuer:(id)a0 queue:(id)a1;
+- (BOOL)setOperationalCertificateIssuer:(id)a0 queue:(id)a1;
+- (void)setPairingDelegate:(id)a0 queue:(id)a1;
+- (BOOL)setupCommissioningSessionWithDiscoveredDevice:(id)a0 payload:(id)a1 newNodeID:(id)a2 error:(id *)a3;
+- (BOOL)setupCommissioningSessionWithPayload:(id)a0 newNodeID:(id)a1 error:(id *)a2;
+- (BOOL)startBrowseForCommissionables:(id)a0 queue:(id)a1;
+- (BOOL)stopBrowseForCommissionables;
+- (BOOL)stopDevicePairing:(unsigned long long)a0 error:(id *)a1;
+
+@end

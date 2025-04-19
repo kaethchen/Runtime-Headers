@@ -1,0 +1,3 @@
+@interface _TtC10LoginUIKitP33_A1DEAC7A62D54122F0BB54D6FDDAC70019ResourceBundleClass : _TtCs12_SwiftObject
+
+@end

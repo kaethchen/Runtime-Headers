@@ -1,0 +1,3 @@
+@interface _TtCC9ChronoKit19ChronoMetadataStore27MutablePushSubcriptionStore : _TtCC9ChronoKit19ChronoMetadataStore21PushSubscriptionStore
+
+@end

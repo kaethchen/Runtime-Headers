@@ -1,0 +1,56 @@
+@interface TSWPUserDefaults : NSObject
+
++ (void)initialize;
++ (unsigned long long)minimumFontSize;
++ (BOOL)allowsFontSmoothing;
++ (void)setUnderlineLinks:(BOOL)a0;
++ (BOOL)underlineLinks;
++ (id)invisiblesColor;
++ (unsigned long long)maximumFontSize;
++ (BOOL)automaticallyDetectLinks;
++ (BOOL)automaticallyDetectLists;
++ (BOOL)p_UserDefaultSet:(id)a0 force:(BOOL)a1;
++ (void)registerUserDefaults:(BOOL)a0;
++ (void)setAutomaticallyDetectLinks:(BOOL)a0;
++ (void)setAutomaticallyDetectLists:(BOOL)a0;
++ (void)setInvisiblesColor:(id)a0;
++ (void)setSpellCheckingEnabled:(BOOL)a0;
++ (void)setSuperscriptNumericalSuffixes:(BOOL)a0;
++ (BOOL)spellCheckingEnabled;
++ (BOOL)superscriptNumericalSuffixes;
++ (BOOL)addIgnoredWord:(id)a0;
++ (BOOL)grammarChecking;
++ (void)setAutomaticSpellingCorrection:(BOOL)a0;
++ (id)appReplacementsDictionary;
++ (BOOL)automaticCapitalization;
++ (BOOL)automaticDashSubstitution;
++ (BOOL)automaticQuoteSubstitution;
++ (BOOL)automaticSpellingCorrection;
++ (BOOL)automaticTextReplacement;
++ (BOOL)automaticallyDetectPhoneLinks;
++ (BOOL)automaticallyFormatFractions;
++ (long long)doubleQuotes;
++ (id)doubleQuotesOptions;
++ (id)ignoredWordsArray;
++ (BOOL)p_cachedBoolForKey:(id)a0;
++ (id)p_caseInsensitiveDictionary:(id)a0 mergedWithDictionary:(id)a1;
++ (void)p_defaultsChanged:(id)a0;
++ (id)quotesArrayForLanguage:(id)a0;
++ (id)replacementsDictionaryAllowingFractions:(BOOL)a0;
++ (void)setAutomaticCapitalization:(BOOL)a0;
++ (void)setAutomaticDashSubstitution:(BOOL)a0;
++ (void)setAutomaticQuoteSubstitution:(BOOL)a0;
++ (void)setAutomaticTextReplacement:(BOOL)a0;
++ (void)setAutomaticallyDetectPhoneLinks:(BOOL)a0;
++ (void)setAutomaticallyFormatFractions:(BOOL)a0;
++ (void)setDoubleQuotes:(long long)a0;
++ (void)setGrammarChecking:(BOOL)a0;
++ (void)setIgnoredWordsArray:(id)a0;
++ (void)setReplacementsDictionary:(id)a0;
++ (void)setSingleQuotes:(long long)a0;
++ (BOOL)shouldShowInvisibles;
++ (long long)singleQuotes;
++ (id)singleQuotesOptions;
++ (BOOL)spellCheckingAllowed;
+
+@end

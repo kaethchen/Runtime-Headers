@@ -1,0 +1,3 @@
+@interface APOdmlRecipe : NSObject
+
+@end

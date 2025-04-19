@@ -1,0 +1,3 @@
+@interface CKContextExtractionUtil : NSObject
+
+@end

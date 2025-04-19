@@ -1,0 +1,75 @@
+@class NSImmediateActionGestureRecognizer, PDFScrollView, PDFPasswordViewController, PDFPage, NSObject, PDFAnnotation, NSMutableArray, PDFRenderingProperties, PDFPageView, PDFDocument, PDFRevealManager, PDFCoachMarkManager, NSCursor, PDFSelection, PDFViewLayout, NSArray, PDFViewController, NSTrackingArea, PDFTimer;
+@protocol PDFViewDelegate, OS_dispatch_queue;
+
+@interface PDFViewPrivate : NSObject {
+    PDFDocument *document;
+    PDFScrollView *scrollView;
+    PDFViewController *controller;
+    PDFSelection *currentSelection;
+    BOOL autoScale;
+    BOOL scaling;
+    double zoomIncrement;
+    id<PDFViewDelegate> delegate;
+    BOOL delegateWillScale;
+    BOOL delegateOrdersPageDrawing;
+    BOOL delegateRespondsToAllowFormFilling;
+    BOOL delegateRespondsToAllowFormFillingWithAutoFill;
+    BOOL delegateRespondsToAllowFormFillingWithConfidence;
+    double gutterWide;
+    BOOL displaysPageBreaks;
+    struct NSEdgeInsets { double top; double left; double bottom; double right; } pageBreakMargins;
+    struct NSEdgeInsets { double top; double left; double bottom; double right; } documentMargins;
+    long long displayMode;
+    long long displayDirection;
+    PDFViewLayout *viewLayout;
+    BOOL displaysAsBook;
+    BOOL displaysRTL;
+    PDFRenderingProperties *renderingProperties;
+    unsigned long long lastVerticalScrollDirection;
+    unsigned long long lastHorizontalScrollDirection;
+    BOOL displaysBookmarksForPages;
+    unsigned long long firstVisiblePage;
+    unsigned long long lastVisiblePage;
+    BOOL inhibitAutoScroll;
+    PDFPage *fromPage;
+    PDFPage *toPage;
+    PDFTimer *pageSyncTimer;
+    NSObject<OS_dispatch_queue> *pagePreloadQueue;
+    NSMutableArray *destinationHistory;
+    long long historyIndex;
+    NSArray *highlights;
+    PDFCoachMarkManager *coachMarkManager;
+    PDFPasswordViewController *passwordViewController;
+    PDFAnnotation *annotationOver;
+    BOOL showsScrollIndicators;
+    BOOL dataDetectorsEnabled;
+    BOOL wantsForceUpdate;
+    double blockingWaitDuration;
+    unsigned long long activeMarkupStyle;
+    BOOL inFormFillingMode;
+    BOOL formFillingUpdatesAnnotationOnEveryTextChange;
+    BOOL allowsMarkupAnnotationEditing;
+    BOOL allowsUndo;
+    BOOL textSelectionEnabled;
+    PDFPageView *rotatingPageView;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } rotatingPageOriginalFrame;
+    BOOL enableSwipeGestures;
+    BOOL isActivelyFluidSwiping;
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } originalCurrentPageViewFrames[2];
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } originalTopPageViewFrames[2];
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } sourcePageFrames[2];
+    struct CGRect { struct CGPoint { double x; double y; } origin; struct CGSize { double width; double height; } size; } targetPageFrames[2];
+    NSTrackingArea *trackingArea;
+    long long mouseEventAreasOfInterestMask;
+    NSImmediateActionGestureRecognizer *deepPressRecognizer;
+    PDFRevealManager *revealManager;
+    BOOL isPresentingRVItem;
+    NSCursor *annotationCursor;
+    BOOL allowsDragging;
+    PDFAnnotation *currentRedaction;
+    BOOL isAXPageChangeNotificationEnabled;
+}
+
+- (void).cxx_destruct;
+
+@end

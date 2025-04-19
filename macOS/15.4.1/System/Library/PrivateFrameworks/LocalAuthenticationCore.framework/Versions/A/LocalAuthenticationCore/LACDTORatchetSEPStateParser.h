@@ -1,0 +1,19 @@
+@interface LACDTORatchetSEPStateParser : NSObject
+
+- (double)_scaleDuration:(double)a0;
+- (id)_biometryWatchdogDTOFromConfig:(const struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; unsigned long long x5; } *)a0 status:(const struct { int x0; unsigned long long x1; struct { unsigned char x0[16]; } x2; BOOL x3; unsigned long long x4; unsigned int x5; BOOL x6; unsigned long long x7; unsigned long long x8; unsigned long long x9; unsigned long long x10; unsigned char x11; } *)a1;
+- (id)_biometryWatchdogGlobalFromConfig:(const struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; unsigned long long x5; } *)a0 status:(const struct { int x0; unsigned long long x1; struct { unsigned char x0[16]; } x2; BOOL x3; unsigned long long x4; unsigned int x5; BOOL x6; unsigned long long x7; unsigned long long x8; unsigned long long x9; unsigned long long x10; unsigned char x11; } *)a1;
+- (struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; unsigned long long x5; })_configFromRatchetState:(id)a0;
+- (double)_durationFromRatchetStatus:(struct { int x0; unsigned long long x1; struct { unsigned char x0[16]; } x2; BOOL x3; unsigned long long x4; unsigned int x5; BOOL x6; unsigned long long x7; unsigned long long x8; unsigned long long x9; unsigned long long x10; unsigned char x11; } *)a0 config:(struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; unsigned long long x5; } *)a1;
+- (id)_gracePeriodStateFromConfig:(const struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; unsigned long long x5; } *)a0 status:(const struct { int x0; unsigned long long x1; struct { unsigned char x0[16]; } x2; BOOL x3; unsigned long long x4; unsigned int x5; BOOL x6; unsigned long long x7; unsigned long long x8; unsigned long long x9; unsigned long long x10; unsigned char x11; } *)a1;
+- (long long)_ratchetStateFromACMRatchetState:(struct { int x0; unsigned long long x1; struct { unsigned char x0[16]; } x2; BOOL x3; unsigned long long x4; unsigned int x5; BOOL x6; unsigned long long x7; unsigned long long x8; unsigned long long x9; unsigned long long x10; unsigned char x11; } *)a0;
+- (id)_ratchetUUIDFromACMRatchetState:(struct { int x0; unsigned long long x1; struct { unsigned char x0[16]; } x2; BOOL x3; unsigned long long x4; unsigned int x5; BOOL x6; unsigned long long x7; unsigned long long x8; unsigned long long x9; unsigned long long x10; unsigned char x11; } *)a0;
+- (double)_resetDurationFromRatchetStatus:(struct { int x0; unsigned long long x1; struct { unsigned char x0[16]; } x2; BOOL x3; unsigned long long x4; unsigned int x5; BOOL x6; unsigned long long x7; unsigned long long x8; unsigned long long x9; unsigned long long x10; unsigned char x11; } *)a0 config:(struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; unsigned long long x5; } *)a1;
+- (struct { int x0; unsigned long long x1; struct { unsigned char x0[16]; } x2; BOOL x3; unsigned long long x4; unsigned int x5; BOOL x6; unsigned long long x7; unsigned long long x8; unsigned long long x9; unsigned long long x10; unsigned char x11; })_statusFromRatchetState:(id)a0;
+- (id)_timerConfigurationFromConfig:(const struct { unsigned long long x0; unsigned long long x1; unsigned long long x2; unsigned long long x3; unsigned long long x4; unsigned long long x5; } *)a0;
+- (id)gracePeriodStateFromState:(id)a0;
+- (id)ratchetStateFromState:(id)a0;
+- (id)timerConfigurationFromState:(id)a0;
+- (id)watchdogPackFromState:(id)a0;
+
+@end

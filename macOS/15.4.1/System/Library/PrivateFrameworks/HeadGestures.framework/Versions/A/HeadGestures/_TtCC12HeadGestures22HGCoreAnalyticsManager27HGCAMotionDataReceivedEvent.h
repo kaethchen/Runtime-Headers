@@ -1,0 +1,3 @@
+@interface _TtCC12HeadGestures22HGCoreAnalyticsManager27HGCAMotionDataReceivedEvent : _TtCC12HeadGestures22HGCoreAnalyticsManager9HGCAEvent
+
+@end

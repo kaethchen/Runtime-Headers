@@ -1,0 +1,3 @@
+@interface MADOptions : NSObject
+
+@end

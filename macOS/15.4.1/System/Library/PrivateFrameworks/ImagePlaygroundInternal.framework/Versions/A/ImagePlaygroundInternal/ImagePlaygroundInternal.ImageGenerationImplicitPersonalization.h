@@ -1,0 +1,3 @@
+@interface ImagePlaygroundInternal.ImageGenerationImplicitPersonalization : _TtCs12_SwiftObject
+
+@end

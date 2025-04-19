@@ -1,0 +1,3 @@
+@interface AuthenticationPanel : NSPanel
+
+@end

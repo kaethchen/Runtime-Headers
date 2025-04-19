@@ -1,0 +1,3 @@
+@interface DocumentUnderstandingClient.SpotlightAppointmentEventValidator : _TtCs12_SwiftObject
+
+@end

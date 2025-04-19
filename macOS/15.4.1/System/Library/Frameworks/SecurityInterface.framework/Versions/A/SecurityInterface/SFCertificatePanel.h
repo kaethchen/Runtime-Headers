@@ -1,0 +1,93 @@
+@class NSString;
+
+@interface SFCertificatePanel : NSPanel <NSSplitViewDelegate> {
+    id _reserved_SFCertificatePanel;
+}
+
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
++ (id)sharedCertificatePanel;
+
+- (void)dealloc;
+- (id)init;
+- (void)lock;
+- (void)unlock;
+- (id)helpAnchor;
+- (id)_helpButton;
+- (id)_panel;
+- (void)_setDidEndSelector:(SEL)a0;
+- (id)_splitView;
+- (long long)numberOfRowsInTableView:(id)a0;
+- (void)setDefaultButtonCell:(id)a0;
+- (void)setDefaultButtonTitle:(id)a0;
+- (void)setHelpAnchor:(id)a0;
+- (void)setShowsHelp:(BOOL)a0;
+- (void)set_panel:(id)a0;
+- (BOOL)showsHelp;
+- (id)tableView:(id)a0 objectValueForTableColumn:(id)a1 row:(int)a2;
+- (BOOL)tableView:(id)a0 shouldEditTableColumn:(id)a1 row:(int)a2;
+- (void)tableView:(id)a0 willDisplayCell:(id)a1 forTableColumn:(id)a2 row:(int)a3;
+- (void)tableViewSelectionDidChange:(id)a0;
+- (id)policies;
+- (void)setPolicies:(id)a0;
+- (id)_clientDelegate;
+- (void)_SFCertificatePanel_disclosureStateChanged:(id)a0;
+- (id)_alternateButton;
+- (void)_setRunAsSheet:(BOOL)a0;
+- (void)_sizeToFitView:(BOOL)a0;
+- (id)_certDataArray;
+- (id)_certTable;
+- (id)_certView;
+- (id)_certificates;
+- (SEL)_clientDidEndSelector;
+- (long long)_dataIndexFromRowIndex:(long long)a0;
+- (id)_defaultButton;
+- (id)_defaultHelpAnchor;
+- (void)set_helpButton:(id)a0;
+- (void)_cancelClicked:(id)a0;
+- (id)_alternateButtonTitle;
+- (float)_autosizedWindowHeight;
+- (id)_certGroupView;
+- (void)_certPanelSheetDidEnd:(id)a0 returnCode:(int)a1 contextInfo:(void *)a2;
+- (id)certificateView;
+- (void *)_clientContextInfo;
+- (id)_dataAtIndex:(long long)a0;
+- (id)_defaultButtonTitle;
+- (void)_dismissWithCode:(long long)a0;
+- (void)_evaluateTrust;
+- (void)_helpClicked:(id)a0;
+- (void)_okClicked:(id)a0;
+- (id)_parentWindowForSheet;
+- (long long)_prepPanel:(struct __SecTrust { } *)a0 showGroup:(BOOL)a1;
+- (BOOL)_rowContainsLeaf:(long long)a0;
+- (BOOL)_runAsSheet;
+- (long long)_runFullDialog;
+- (void)_runFullDialogSheet;
+- (void)_setAutosizedWindowHeight:(float)a0;
+- (void)_setCertificates:(id)a0;
+- (void)_setContextInfo:(void *)a0;
+- (void)_setEditableTrust:(BOOL)a0;
+- (void)_setParentWindowForSheet:(id)a0;
+- (void)_setSavedDelegate:(id)a0;
+- (void)_setTrust:(struct __SecTrust { } *)a0;
+- (void)_setTrustWithPolicies:(id)a0;
+- (struct __SecTrust { } *)_trust;
+- (void)beginSheetForWindow:(id)a0 modalDelegate:(id)a1 didEndSelector:(SEL)a2 contextInfo:(void *)a3 certificates:(id)a4 showGroup:(BOOL)a5;
+- (void)beginSheetForWindow:(id)a0 modalDelegate:(id)a1 didEndSelector:(SEL)a2 contextInfo:(void *)a3 trust:(struct __SecTrust { } *)a4 showGroup:(BOOL)a5;
+- (BOOL)editableTrust;
+- (long long)runModalForCertificates:(id)a0 showGroup:(BOOL)a1;
+- (long long)runModalForTrust:(struct __SecTrust { } *)a0 showGroup:(BOOL)a1;
+- (void)setAlternateButtonTitle:(id)a0;
+- (void)setEditableTrust:(BOOL)a0;
+- (void)setRef:(id *)a0 toObj:(id)a1;
+- (void)set_alternateButton:(id)a0;
+- (void)set_certGroupView:(id)a0;
+- (void)set_certTable:(id)a0;
+- (void)set_certView:(id)a0;
+- (void)set_defaultButton:(id)a0;
+- (void)set_splitView:(id)a0;
+
+@end

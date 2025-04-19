@@ -1,0 +1,88 @@
+@class NSData, NSString, NSArray, NSDate, NSAttributedString, IMDHandleRecord, NSDictionary, IMDChatRecord;
+
+@interface IMDMessageRecord : IMDRecord <IMDBridgedRecord>
+
+@property (readonly, nonatomic) BOOL hasDdResults;
+@property (readonly, copy, nonatomic) NSString *service;
+@property (readonly, nonatomic, getter=isArchive) BOOL archive;
+@property (readonly, nonatomic) long long rowID;
+@property (readonly, copy, nonatomic) NSString *guid;
+@property (readonly, copy, nonatomic) NSString *fallbackHash;
+@property (readonly, copy, nonatomic) NSString *serviceName;
+@property (readonly, copy, nonatomic) NSString *text;
+@property (readonly, copy, nonatomic) NSString *subject;
+@property (readonly, nonatomic) long long itemType;
+@property (readonly, copy, nonatomic) NSString *account;
+@property (readonly, nonatomic) NSDate *date;
+@property (readonly, nonatomic) long long rawDate;
+@property (readonly, copy, nonatomic) NSDate *dateRead;
+@property (readonly, nonatomic) long long rawDateRead;
+@property (readonly, copy, nonatomic) NSDate *dateDelivered;
+@property (readonly, nonatomic) long long rawDateDelivered;
+@property (readonly, nonatomic) NSDate *datePlayed;
+@property (readonly, nonatomic) long long rawDatePlayed;
+@property (readonly, nonatomic) long long scheduleType;
+@property (readonly, nonatomic) long long scheduleState;
+@property (readonly, copy, nonatomic) NSData *attributedBodyData;
+@property (readonly, copy, nonatomic) NSAttributedString *attributedBodyText;
+@property (readonly, copy, nonatomic) NSData *messageSummaryInfoData;
+@property (readonly, copy, nonatomic) NSDictionary *messageSummaryInfo;
+@property (readonly, copy, nonatomic) NSString *associatedMessageGUID;
+@property (readonly, nonatomic) long long associatedMessageType;
+@property (readonly, copy, nonatomic) NSString *associatedMessageEmoji;
+@property (readonly, copy, nonatomic) NSString *groupTitle;
+@property (readonly, copy, nonatomic) NSString *iMessageAppBundleID;
+@property (readonly, copy, nonatomic) NSData *iMessageAppData;
+@property (readonly, copy, nonatomic) NSString *threadOriginatorGUID;
+@property (readonly, copy, nonatomic) NSString *threadOriginatorPart;
+@property (readonly, nonatomic, getter=isReply) BOOL reply;
+@property (readonly, nonatomic) long long partCount;
+@property (readonly, nonatomic, getter=isAssociatedMessage) BOOL associatedMessage;
+@property (readonly, nonatomic, getter=isDelivered) BOOL delivered;
+@property (readonly, nonatomic, getter=isFinished) BOOL finished;
+@property (readonly, nonatomic, getter=isEmote) BOOL emote;
+@property (readonly, nonatomic, getter=isFromMe) BOOL fromMe;
+@property (readonly, nonatomic, getter=isEmpty) BOOL empty;
+@property (readonly, nonatomic, getter=isDelayed) BOOL delayed;
+@property (readonly, nonatomic, getter=isAutoReply) BOOL autoReply;
+@property (readonly, nonatomic, getter=isPrepared) BOOL prepared;
+@property (readonly, nonatomic, getter=isRead) BOOL read;
+@property (readonly, nonatomic, getter=isSystemMessage) BOOL systemMessage;
+@property (readonly, nonatomic, getter=isSent) BOOL sent;
+@property (readonly, nonatomic) BOOL hasDataDetectorResults;
+@property (readonly, nonatomic, getter=isServiceMessage) BOOL serviceMessage;
+@property (readonly, nonatomic, getter=isForward) BOOL forward;
+@property (readonly, nonatomic) BOOL wasDowngraded;
+@property (readonly, nonatomic, getter=isArchived) BOOL archived;
+@property (readonly, nonatomic) BOOL cacheHasAttachments;
+@property (readonly, nonatomic) BOOL wasDataDetected;
+@property (readonly, nonatomic) BOOL wasDeduplicated;
+@property (readonly, nonatomic, getter=isAudioMessage) BOOL audioMessage;
+@property (readonly, nonatomic, getter=isPlayed) BOOL played;
+@property (readonly, copy, nonatomic) NSString *destinationCallerID;
+@property (readonly, nonatomic, getter=isPendingSatelliteSend) BOOL pendingSatelliteSend;
+@property (readonly, nonatomic) BOOL needsRelay;
+@property (readonly, nonatomic) BOOL sentOrReceivedOffGrid;
+@property (readonly, nonatomic) IMDHandleRecord *handleRecord;
+@property (readonly, nonatomic) IMDHandleRecord *otherHandleRecord;
+@property (readonly, nonatomic) NSArray *attachmentRecords;
+@property (readonly, nonatomic) IMDChatRecord *chatRecord;
+@property (readonly, copy, nonatomic) NSDate *dateEdited;
+@property (readonly, copy, nonatomic) NSDate *dateRecovered;
+
++ (id)allocWithZone:(struct _NSZone { } *)a0;
++ (id)keyPathsToColumns;
+
+- (id)init;
+- (unsigned long long)_cfTypeID;
+- (struct __CFArray { } *)_localCache;
+- (struct { char *x0; long long x1; struct *x2; unsigned int x3; void *x4; })_propertyDescriptorForProperty:(long long)a0;
+- (struct _IMDMessageRecordStruct { struct __CFRuntimeBase { unsigned long long x0; _Atomic unsigned long long x1; } x0; long long x1; struct __CFArray *x2; struct _IMDHandleRecordStruct *x3; struct _IMDHandleRecordStruct *x4; struct __CFArray *x5; struct __CFDictionary *x6; } *)cfMessageRecord;
+- (void *)_fetchUpdatedRecord;
+- (int)_propertyIDForProperty:(long long)a0;
+- (id)initWithItemType:(long long)a0 text:(id)a1 date:(long long)a2 dateRead:(long long)a3 dateDelivered:(long long)a4 datePlayed:(long long)a5 error:(long long)a6 type:(long long)a7 replaceID:(long long)a8 flags:(id)a9 guid:(id)a10 attributedBody:(id)a11 service:(id)a12 account:(id)a13 accountGUID:(id)a14 subject:(id)a15 handleID:(id)a16 countryCode:(id)a17 unformattedID:(id)a18 otherHandleID:(id)a19 groupTitle:(id)a20 groupActionType:(long long)a21 shareStatus:(long long)a22 shareDirection:(long long)a23 expireState:(long long)a24 messageActionType:(long long)a25 associatedMessageGUID:(id)a26 associatedMessageType:(long long)a27 associatedMessageRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a28 associatedMessageEmoji:(id)a29 balloonBundleID:(id)a30 payloadData:(id)a31 expressiveSendStyleID:(id)a32 timeExpressiveSendPlayed:(long long)a33 messageSummaryInfo:(id)a34 cloudKitSyncState:(long long)a35 cloudKitRecordID:(id)a36 cloudKitServerChangeTokenBlob:(id)a37 cloudKitRecordChangeTag:(id)a38 dataDetectorsInfo:(id)a39 destinationCallerID:(id)a40 replyToGUID:(id)a41 sortID:(long long)a42 threadOriginatorGUID:(id)a43 threadOriginatorPart:(id)a44 syndicationRanges:(id)a45 syncedSyndicationRanges:(id)a46 partCount:(long long)a47 dateEdited:(long long)a48 dateRecovered:(long long)a49 biaReferenceID:(id)a50 fallbackHash:(id)a51 scheduleType:(long long)a52 scheduleState:(long long)a53;
+- (id)initWithRecordRef:(struct _IMDMessageRecordStruct { } *)a0;
+- (long long)rawDateEdited;
+- (long long)rawDateRecovered;
+
+@end

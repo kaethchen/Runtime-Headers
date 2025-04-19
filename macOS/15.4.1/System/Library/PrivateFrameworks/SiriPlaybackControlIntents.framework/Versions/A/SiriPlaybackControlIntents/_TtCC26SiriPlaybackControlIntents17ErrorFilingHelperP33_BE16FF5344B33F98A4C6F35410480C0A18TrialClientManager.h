@@ -1,0 +1,3 @@
+@interface _TtCC26SiriPlaybackControlIntents17ErrorFilingHelperP33_BE16FF5344B33F98A4C6F35410480C0A18TrialClientManager : _TtCs12_SwiftObject
+
+@end

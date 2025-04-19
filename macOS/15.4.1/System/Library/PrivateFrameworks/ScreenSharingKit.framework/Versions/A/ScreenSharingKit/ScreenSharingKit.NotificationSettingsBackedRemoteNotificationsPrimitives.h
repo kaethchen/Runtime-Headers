@@ -1,0 +1,3 @@
+@interface ScreenSharingKit.NotificationSettingsBackedRemoteNotificationsPrimitives : _TtCs12_SwiftObject
+
+@end

@@ -1,0 +1,3 @@
+@interface HMDUserActivityReportValue : HMFObject
+
+@end

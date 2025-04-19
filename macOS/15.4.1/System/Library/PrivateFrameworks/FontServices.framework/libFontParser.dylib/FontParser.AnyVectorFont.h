@@ -1,0 +1,81 @@
+@class _TtC10FontParser13AnyVectorFont, NSArray, NSDictionary, NSData, NSString;
+
+@interface FontParser.AnyVectorFont : NSObject
+
+@property (nonatomic, readonly) unsigned int numberOfGlyphs;
+@property (nonatomic, readonly) unsigned short unitsPerEm;
+@property (nonatomic, readonly) struct FPFontVMetrics { int x0; int x1; int x2; int x3; int x4; int x5; double x6; double x7; struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x8; } vMetrics;
+@property (nonatomic, readonly) struct FPFontInfo { unsigned long long x0; int x1; int x2; int x3; int x4; int x5; int x6; int x7; int x8; int x9; int x10; BOOL x11; BOOL x12; double x13; double x14; double x15; double x16; double x17; struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } x18; BOOL x19; } fontInfo;
+@property (nonatomic, readonly) BOOL isSFNT;
+@property (nonatomic, readonly) NSData *sfntData;
+@property (nonatomic, readonly) NSArray *tableTags;
+@property (nonatomic, readonly) NSDictionary *metadata;
+@property (nonatomic, readonly) NSString *postScriptName;
+@property (nonatomic, readonly) NSString *nameTablePostScriptName;
+@property (nonatomic, readonly) NSString *variationPostScriptNamePrefix;
+@property (nonatomic, readonly) NSArray *additionalPostScriptNames;
+@property (nonatomic, readonly) NSArray *allNames;
+@property (nonatomic, readonly) NSString *fullName;
+@property (nonatomic, readonly) NSString *familyName;
+@property (nonatomic, readonly) const struct __CFDictionary { } *names;
+@property (nonatomic, readonly) _TtC10FontParser13AnyVectorFont *defaultInstance;
+@property (nonatomic, readonly) BOOL isNamedInstance;
+@property (nonatomic, readonly) NSString *instanceName;
+@property (nonatomic, readonly) unsigned short instanceNameID;
+@property (nonatomic, readonly) BOOL hasNamedInstanceWithOpticalSize;
+@property (nonatomic, readonly) BOOL isBitmapOnly;
+@property (nonatomic, readonly) BOOL isSuitcase;
+@property (nonatomic, readonly) const struct __CFCharacterSet { } *characterSet;
+@property (nonatomic, readonly) unsigned int protectionInfo;
+@property (nonatomic, readonly) NSArray *type1Encoding;
+@property (nonatomic, readonly) long long dataResidence;
+@property (nonatomic, readonly) long long encodingType;
+@property (nonatomic, readonly) NSDictionary *splicedStash;
+@property (nonatomic, readonly) NSArray *variationScalars;
+
++ (id)anyVectorFontsWithData:(id)a0 path:(id)a1;
+
+- (id)init;
+- (BOOL)getGlyphsWithCids:(const unsigned short *)a0 glyphs:(unsigned short *)a1 count:(long long)a2;
+- (BOOL)canCreatePostScriptSubsetWithFormat:(long long)a0;
+- (id)controlPointsWithGlyph:(unsigned int)a0;
+- (id)copyBitmapWithGlyph:(unsigned int)a0 transform:(const struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; } *)a1 options:(unsigned int)a2 bounds:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a3 bytesPerRow:(long long *)a4;
+- (id)copyOriginalPathWithGlyph:(unsigned int)a0;
+- (id)copyTableDataWithTag:(unsigned int)a0;
+- (id)createPostScriptEncoding:(const unsigned short *)a0;
+- (id)createPostScriptSubsetWithFormat:(long long)a0 name:(id)a1 glyphs:(const unsigned short *)a2 glyphCount:(long long)a3 encoding:(const unsigned short *)a4;
+- (void)createSubsetWithName:(const char *)a0 glyphBits:(unsigned int *)a1 glyphBitsSize:(long long)a2 cmap_1_0:(const unsigned short *)a3 remapArray:(id *)a4 data:(id *)a5;
+- (BOOL)getCIDsWithGlyphs:(const unsigned short *)a0 cids:(unsigned short *)a1 count:(long long)a2;
+- (struct CGSize { double x0; double x1; })getDeviceAdvanceWithGlyph:(unsigned int)a0 transform:(const struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; } *)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })getDeviceBoundsWithGlyph:(unsigned int)a0 transform:(const struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; } *)a1;
+- (void)getGlyphIdealAdvanceWidthsWithGlyphs:(const unsigned short *)a0 advances:(double *)a1 count:(long long)a2;
+- (void)getGlyphX:(unsigned short *)a0 o:(unsigned short *)a1;
+- (BOOL)getGlyphsWithCharacterRange:(struct { long long x0; long long x1; })a0 glyphs:(unsigned short *)a1;
+- (BOOL)getGlyphsWithCharacterRange:(struct { long long x0; long long x1; })a0 longGlyphs:(unsigned int *)a1;
+- (long long)getGlyphsWithCharacters:(const unsigned short *)a0 glyphs:(unsigned short *)a1 count:(long long)a2;
+- (long long)getGlyphsWithCharacters:(const unsigned short *)a0 longGlyphs:(unsigned int *)a1 count:(long long)a2;
+- (long long)getGlyphsWithEncoding:(struct FPEncoding { unsigned short x0; unsigned short x1; unsigned short x2; })a0 text:(const char *)a1 glyphs:(unsigned short *)a2 count:(long long)a3;
+- (void)getGlyphsWithGlyphNames:(const char **)a0 glyphs:(unsigned short *)a1 count:(long long)a2;
+- (struct CGFloat2 { double x0; double x1; })getIdealAdvanceAndSideBearingWithGlyph:(unsigned int)a0 vertical:(BOOL)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })getIdealBoundsWithGlyph:(unsigned int)a0;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })getIdealVerticalBoundsWithGlyph:(unsigned int)a0;
+- (struct OS2UnicodeRanges { unsigned int x0; unsigned int x1; unsigned int x2; unsigned int x3; })getOS2UnicodeRangesWithMinCoveragePercent:(float)a0;
+- (BOOL)getRegistryOrderingSupplement:(id *)a0 :(id *)a1 :(int *)a2;
+- (BOOL)getStemsInto:(struct CGFloat2 { double x0; double x1; } *)a0;
+- (BOOL)getStrikeoutInto:(struct CGFloat2 { double x0; double x1; } *)a0;
+- (BOOL)getSubscriptInto:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a0;
+- (BOOL)getSuperscriptInto:(struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; } *)a0;
+- (BOOL)getTrueTypeEncodingWithPlatform:(unsigned short)a0 script:(unsigned short)a1 indexMap:(void *)a2;
+- (BOOL)getTypoMetricsInto:(struct CGFloat3 { double x0; double x1; double x2; } *)a0;
+- (long long)getUnicharsWithGlyph:(unsigned short)a0 unicodes:(unsigned short *)a1 count:(long long)a2;
+- (struct CGSize { double x0; double x1; })getVerticalDeviceAdvanceWithGlyph:(unsigned int)a0 transform:(const struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; } *)a1;
+- (struct CGRect { struct CGPoint { double x0; double x1; } x0; struct CGSize { double x0; double x1; } x1; })getVerticalDeviceBoundsWithGlyph:(unsigned int)a0 transform:(const struct CGAffineTransform { double x0; double x1; double x2; double x3; double x4; double x5; } *)a1;
+- (struct CGSize { double x0; double x1; })getVerticalTranslateWithGlyph:(unsigned int)a0;
+- (BOOL)getWindowsMetricsInto:(struct CGFloat2 { double x0; double x1; } *)a0;
+- (id)glyphNameWithGlyph:(unsigned short)a0;
+- (unsigned short)variationAxisFlagsWithTag:(unsigned int)a0;
+- (unsigned short)variationAxisNameIDWithTag:(unsigned int)a0;
+- (double)variationScalarWithTupleIndex:(long long)a0;
+- (id)variationWithPostScriptNameSuffix:(id)a0;
+
+@end

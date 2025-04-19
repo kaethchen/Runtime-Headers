@@ -1,0 +1,83 @@
+@class ODDSiriSchemaODDRequestsWithoutAssetsDigestReported, SISchemaInstrumentationMessage, ODDSiriSchemaODDDictationDeviceDigestsReported, ODDSiriSchemaODDvisionOSDevicePropertiesReported, ODDSiriSchemaODDExecutionMetadataReported, ODDSiriSchemaODDiOSDevicePropertiesReported, ODDSiriSchemaODDwatchOSDevicePropertiesReported, ODDSiriSchemaODDAssetSetStatusDigestReported, ODDSiriSchemaODDDeviceCohortsReported, NSData, ODDSiriSchemaODDSiriAccountInformation, ODDSiriSchemaODDDeviceSegmentsReported, ODDSiriSchemaODDtvOSDevicePropertiesReported, ODDSiriSchemaODDDictationExperimentDigestsReported, ODDSiriSchemaODDAssistantDiagnosticAndUsageOptInDigestsReported, ODDSiriSchemaODDmacOSDevicePropertiesReported, ODDSiriSchemaODDAssistantExperimentDigestsReported, ODDSiriSchemaODDAssistantDeviceDigestsReported, ODDSiriSchemaODDAssetAvailabilityFromBootDigestReported, ODDSiriSchemaODDClientEventMetadata, ODDSiriSchemaODDAssistantCarPlayDigestReported;
+
+@interface ODDSiriSchemaODDSiriClientEvent : SISchemaTopLevelUnionType <SISchemaInnerEventContainer>
+
+@property (readonly, nonatomic) SISchemaInstrumentationMessage *innerEvent;
+@property (retain, nonatomic) ODDSiriSchemaODDClientEventMetadata *eventMetadata;
+@property (nonatomic) BOOL hasEventMetadata;
+@property (retain, nonatomic) ODDSiriSchemaODDDeviceSegmentsReported *deviceSegmentsReported;
+@property (nonatomic) BOOL hasDeviceSegmentsReported;
+@property (retain, nonatomic) ODDSiriSchemaODDDeviceCohortsReported *deviceCohortsReported;
+@property (nonatomic) BOOL hasDeviceCohortsReported;
+@property (retain, nonatomic) ODDSiriSchemaODDAssistantDeviceDigestsReported *assistantDeviceDigestReported;
+@property (nonatomic) BOOL hasAssistantDeviceDigestReported;
+@property (retain, nonatomic) ODDSiriSchemaODDDictationDeviceDigestsReported *dictationDeviceDigestReported;
+@property (nonatomic) BOOL hasDictationDeviceDigestReported;
+@property (retain, nonatomic) ODDSiriSchemaODDSiriAccountInformation *siriAccountInformation;
+@property (nonatomic) BOOL hasSiriAccountInformation;
+@property (retain, nonatomic) ODDSiriSchemaODDAssistantExperimentDigestsReported *assistantExperimentDigestReported;
+@property (nonatomic) BOOL hasAssistantExperimentDigestReported;
+@property (retain, nonatomic) ODDSiriSchemaODDAssistantDiagnosticAndUsageOptInDigestsReported *assistantDiagnosticAndUsageOptInDigestReported;
+@property (nonatomic) BOOL hasAssistantDiagnosticAndUsageOptInDigestReported;
+@property (retain, nonatomic) ODDSiriSchemaODDiOSDevicePropertiesReported *iOSDevicePropertiesReported;
+@property (nonatomic) BOOL hasIOSDevicePropertiesReported;
+@property (retain, nonatomic) ODDSiriSchemaODDwatchOSDevicePropertiesReported *watchOSDevicePropertiesReported;
+@property (nonatomic) BOOL hasWatchOSDevicePropertiesReported;
+@property (retain, nonatomic) ODDSiriSchemaODDtvOSDevicePropertiesReported *tvOSDevicePropertiesReported;
+@property (nonatomic) BOOL hasTvOSDevicePropertiesReported;
+@property (retain, nonatomic) ODDSiriSchemaODDmacOSDevicePropertiesReported *macOSDevicePropertiesReported;
+@property (nonatomic) BOOL hasMacOSDevicePropertiesReported;
+@property (retain, nonatomic) ODDSiriSchemaODDvisionOSDevicePropertiesReported *visionOSDevicePropertiesReported;
+@property (nonatomic) BOOL hasVisionOSDevicePropertiesReported;
+@property (retain, nonatomic) ODDSiriSchemaODDAssistantCarPlayDigestReported *assistantCarPlayDigestReported;
+@property (nonatomic) BOOL hasAssistantCarPlayDigestReported;
+@property (retain, nonatomic) ODDSiriSchemaODDRequestsWithoutAssetsDigestReported *requestsWithoutAssetsDigestReported;
+@property (nonatomic) BOOL hasRequestsWithoutAssetsDigestReported;
+@property (retain, nonatomic) ODDSiriSchemaODDAssetAvailabilityFromBootDigestReported *assetAvailabilityFromBootDigestReported;
+@property (nonatomic) BOOL hasAssetAvailabilityFromBootDigestReported;
+@property (retain, nonatomic) ODDSiriSchemaODDAssetSetStatusDigestReported *assetSetStatusDigestReported;
+@property (nonatomic) BOOL hasAssetSetStatusDigestReported;
+@property (retain, nonatomic) ODDSiriSchemaODDExecutionMetadataReported *executionMetadataReported;
+@property (nonatomic) BOOL hasExecutionMetadataReported;
+@property (retain, nonatomic) ODDSiriSchemaODDDictationExperimentDigestsReported *dictationExperimentDigestsReported;
+@property (nonatomic) BOOL hasDictationExperimentDigestsReported;
+@property (readonly, nonatomic) NSData *jsonData;
+@property (readonly, nonatomic) unsigned long long whichEvent_Type;
+
++ (id)getInnerTypeStringByTag:(unsigned long long)a0;
+
+- (unsigned long long)hash;
+- (BOOL)isEqual:(id)a0;
+- (void).cxx_destruct;
+- (id)initWithDictionary:(id)a0;
+- (id)dictionaryRepresentation;
+- (BOOL)readFrom:(id)a0;
+- (void)writeTo:(id)a0;
+- (id)initWithJSON:(id)a0;
+- (void)deleteExecutionMetadataReported;
+- (int)getAnyEventType;
+- (id)applySensitiveConditionsPolicy:(id)a0;
+- (int)clockIsolationLevel;
+- (void)deleteAssetAvailabilityFromBootDigestReported;
+- (void)deleteAssetSetStatusDigestReported;
+- (void)deleteAssistantCarPlayDigestReported;
+- (void)deleteAssistantDeviceDigestReported;
+- (void)deleteAssistantDiagnosticAndUsageOptInDigestReported;
+- (void)deleteAssistantExperimentDigestReported;
+- (void)deleteDeviceCohortsReported;
+- (void)deleteDeviceSegmentsReported;
+- (void)deleteDictationDeviceDigestReported;
+- (void)deleteDictationExperimentDigestsReported;
+- (void)deleteEventMetadata;
+- (void)deleteIOSDevicePropertiesReported;
+- (void)deleteMacOSDevicePropertiesReported;
+- (void)deleteRequestsWithoutAssetsDigestReported;
+- (void)deleteSiriAccountInformation;
+- (void)deleteTvOSDevicePropertiesReported;
+- (void)deleteVisionOSDevicePropertiesReported;
+- (void)deleteWatchOSDevicePropertiesReported;
+- (id)qualifiedMessageName;
+- (id)suppressMessageUnderConditions;
+- (unsigned long long)whichInnerEventType;
+
+@end

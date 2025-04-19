@@ -1,0 +1,98 @@
+@class NSArray, NSMutableDictionary, PIEStatistics, NSDictionary, NSCalendar, PIEPhotoDateRange;
+
+@interface PIEPhotoGroupAnalyzer : NSObject {
+    NSMutableDictionary *_cachedPhotoFeatureExtractions;
+    PIEStatistics *_photoTimeGapStats;
+    NSDictionary *_photoChronologicalSequenceMap;
+    NSDictionary *_photoTimeClusterMap;
+    NSDictionary *_photoEventMap;
+    NSArray *_photosOrderedByTime;
+    NSArray *_photosOrderedByImportance;
+    NSDictionary *_photosGroupedByEvent;
+    NSDictionary *_photosGroupedByPlace;
+    NSDictionary *_photoTopCrustScoreMap;
+    NSDictionary *_photoBottomCrustScoreMap;
+    NSDictionary *_photoImportanceScoreMap;
+    NSDictionary *_photoScaledImportanceScoreMap;
+    NSArray *_personsOfInterest;
+    NSDictionary *_personsOfInterestScoreMap;
+    NSDictionary *_photosSortedByPerson;
+    double _minGeoDistanceBetweenPhotos;
+    double _maxGeoDistanceBetweenPhotos;
+    BOOL _geoDistanceRangeCalculated;
+    long long _photosWithLocationInfoCount;
+    NSCalendar *_gregorianCalendar;
+}
+
+@property (readonly) NSArray *photoInfos;
+@property (readonly) PIEPhotoDateRange *photoDateRange;
+
++ (id)_ensureSegmentMinSize:(unsigned long long)a0 segmentationMap:(id)a1 photoSequence:(id)a2;
++ (id)_shatterMapUsingMap:(id)a0 andMap:(id)a1;
+
+- (void)dealloc;
+- (id)_calculatePhotoImportanceScores;
+- (id)serveCalendarSlicesUsingParams:(id)a0;
+- (double)__calculateIncrementalScoreWithPhotos:(id)a0 withPhotoIndexRange:(struct _NSRange { unsigned long long x0; unsigned long long x1; })a1 andSubsequence:(id)a2 withAvailableHoleCounts:(id)a3 favoredHoleCountCycle:(id)a4 allowDroppingPhotos:(BOOL)a5 segmentationMap:(id)a6 minSliceCount:(unsigned long long)a7 maxSliceCount:(unsigned long long)a8 holeCountFavorabilityMap:(id)a9;
+- (id)__determineBestHoleCountSequence:(long long)a0 bestHoleCounts:(long long *)a1;
+- (id)__groupByCalendarUnit:(unsigned long long)a0 photos:(id)a1;
+- (id)__refractPhotoPools:(id)a0 intoCount:(unsigned long long)a1;
+- (id)__sortedCentroidIndicesByDate:(id)a0;
+- (id)_buildPhotoEventMap;
+- (id)_buildPhotoTimeSegmentationMap;
+- (id)_buildSequenceMap:(id)a0;
+- (void)_calculateCrustScoreMaps;
+- (void)_calculatePairwiseGeoDistanceRange;
+- (id)_calculatePersonsOfInterestScoreMap;
+- (id)_choosePhotosForSlicesFromPools:(id)a0 params:(id)a1;
+- (id)_dynamicProgrammingByPhotoAffinityWithHoleCounts:(id)a0 photos:(id)a1 startIndex:(unsigned long long)a2 length:(unsigned long long)a3 minSlices:(unsigned long long)a4 maxSlices:(unsigned long long)a5 allowDroppingPhotos:(BOOL)a6 favoredHoleCountCycle:(id)a7 segmentationMap:(id)a8 holeCountFavorabilityMap:(id)a9;
+- (id)_groupByCalendarDay:(id)a0;
+- (id)_groupByCalendarMonth:(id)a0;
+- (id)_groupByEvent:(id)a0;
+- (id)_groupByPlace:(id)a0;
+- (id)_groupByTimeClusters:(id)a0 clusterCount:(unsigned long long)a1;
+- (id)_orderPhotoByImportance:(id)a0;
+- (id)_orderPhotoByTime:(id)a0;
+- (id)_orderPhotoGroupsByTime:(id)a0;
+- (BOOL)_photoContainsFacesOfAnyPersonsOfInterest:(id)a0;
+- (id)_photoDateFor:(id)a0;
+- (id)_photoFaceCountStatistics:(id)a0;
+- (id)_photoFaceInfosFor:(id)a0;
+- (id)_photoKeywordCountStatistics:(id)a0;
+- (id)_photoLocationInfoFor:(id)a0;
+- (id)_photoRatingStatistics:(id)a0;
+- (id)_photoTitleLengthStatistics:(id)a0;
+- (id)_representativeSubset:(id)a0 count:(unsigned long long)a1;
+- (long long)_representativeSubsetPhotoCount:(id)a0 forPhotos:(id)a1;
+- (id)_slicePhotoPoolsByDay:(unsigned long long)a0;
+- (id)_slicePhotoPoolsByMonth:(unsigned long long)a0;
+- (id)_slicePhotoPoolsByPlace:(unsigned long long)a0;
+- (id)_slicePhotoPoolsByTimeClustering:(unsigned long long)a0;
+- (id)_sortPhotosByPerson:(id)a0;
+- (id)_sortPhotosByPerson:(id)a0 groupUnnamedWithKey:(id)a1;
+- (id)_sortPhotosByPerson:(id)a0 groupUnnamedWithKey:(id)a1 groupNoFacesWithKey:(id)a2;
+- (id)bestTitle:(id)a0;
+- (id)calculateAffinityScoreBetweenPhoto:(id)a0 andPhoto:(id)a1;
+- (id)initWithPhotoInfos:(id)a0;
+- (double)maxGeoDistanceBetweenPhotos;
+- (double)minGeoDistanceBetweenPhotos;
+- (id)mostRepresentedEventId;
+- (id)personsOfInterest;
+- (id)personsOfInterestScoreMap;
+- (id)personsSortedByInterestScore;
+- (id)photoChronologicalSequenceMap;
+- (id)photoEventMap;
+- (id)photoImportanceScoreMap;
+- (id)photoScaledImportanceScoreMap;
+- (id)photoTimeClusterMap;
+- (id)photoTimeGapStatistics;
+- (id)photosGroupedByEvent;
+- (id)photosGroupedByPlace;
+- (id)photosOrderedByImportance;
+- (id)photosOrderedByTime;
+- (id)photosSortedByPerson;
+- (long long)photosWithLocationInfoCount;
+- (id)serveCrustSlicesUsingParams:(id)a0;
+- (id)serveSlicesUsingParams:(id)a0;
+
+@end

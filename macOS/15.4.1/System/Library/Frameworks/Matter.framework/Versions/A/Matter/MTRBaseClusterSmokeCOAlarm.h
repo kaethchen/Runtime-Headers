@@ -1,0 +1,63 @@
+@interface MTRBaseClusterSmokeCOAlarm : MTRGenericBaseCluster
+
++ (void)readAttributeAcceptedCommandListWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeAttributeListWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeBatteryAlertWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeCOStateWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeClusterRevisionWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeContaminationStateWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeDeviceMutedWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeEndOfServiceAlertWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeExpiryDateWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeExpressedStateWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeFeatureMapWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeGeneratedCommandListWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeHardwareFaultAlertWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeInterconnectCOAlarmWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeInterconnectSmokeAlarmWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeSmokeSensitivityLevelWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeSmokeStateWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
++ (void)readAttributeTestInProgressWithClusterStateCache:(id)a0 endpoint:(id)a1 queue:(id)a2 completion:(id /* block */)a3;
+
+- (void)writeAttributeSmokeSensitivityLevelWithValue:(id)a0 params:(id)a1 completion:(id /* block */)a2;
+- (void)readAttributeAcceptedCommandListWithCompletion:(id /* block */)a0;
+- (void)readAttributeAttributeListWithCompletion:(id /* block */)a0;
+- (void)readAttributeBatteryAlertWithCompletion:(id /* block */)a0;
+- (void)readAttributeCOStateWithCompletion:(id /* block */)a0;
+- (void)readAttributeClusterRevisionWithCompletion:(id /* block */)a0;
+- (void)readAttributeContaminationStateWithCompletion:(id /* block */)a0;
+- (void)readAttributeDeviceMutedWithCompletion:(id /* block */)a0;
+- (void)readAttributeEndOfServiceAlertWithCompletion:(id /* block */)a0;
+- (void)readAttributeExpiryDateWithCompletion:(id /* block */)a0;
+- (void)readAttributeExpressedStateWithCompletion:(id /* block */)a0;
+- (void)readAttributeFeatureMapWithCompletion:(id /* block */)a0;
+- (void)readAttributeGeneratedCommandListWithCompletion:(id /* block */)a0;
+- (void)readAttributeHardwareFaultAlertWithCompletion:(id /* block */)a0;
+- (void)readAttributeInterconnectCOAlarmWithCompletion:(id /* block */)a0;
+- (void)readAttributeInterconnectSmokeAlarmWithCompletion:(id /* block */)a0;
+- (void)readAttributeSmokeSensitivityLevelWithCompletion:(id /* block */)a0;
+- (void)readAttributeSmokeStateWithCompletion:(id /* block */)a0;
+- (void)readAttributeTestInProgressWithCompletion:(id /* block */)a0;
+- (void)selfTestRequestWithCompletion:(id /* block */)a0;
+- (void)selfTestRequestWithParams:(id)a0 completion:(id /* block */)a1;
+- (void)subscribeAttributeAcceptedCommandListWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeAttributeListWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeBatteryAlertWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeCOStateWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeClusterRevisionWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeContaminationStateWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeDeviceMutedWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeEndOfServiceAlertWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeExpiryDateWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeExpressedStateWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeFeatureMapWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeGeneratedCommandListWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeHardwareFaultAlertWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeInterconnectCOAlarmWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeInterconnectSmokeAlarmWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeSmokeSensitivityLevelWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeSmokeStateWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)subscribeAttributeTestInProgressWithParams:(id)a0 subscriptionEstablished:(id /* block */)a1 reportHandler:(id /* block */)a2;
+- (void)writeAttributeSmokeSensitivityLevelWithValue:(id)a0 completion:(id /* block */)a1;
+
+@end

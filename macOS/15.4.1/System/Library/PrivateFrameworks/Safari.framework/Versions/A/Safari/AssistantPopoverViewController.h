@@ -1,0 +1,86 @@
+@class NSView, NSString, NSArray, AssistantPopoverPageMenuItemInfo, AssistantPopoverSection, NSMutableDictionary, AssistantPopoverResultCollectionViewCellActionButton, NSMutableArray, AssistantPopoverResultsCollectionViewController, NSLayoutConstraint, BrowserWindowController;
+@protocol AssistantPopoverViewControllerDelegate, ReaderAppearanceViewControllerDelegate;
+
+@interface AssistantPopoverViewController : NSViewController <NSPopoverDelegate> {
+    AssistantPopoverSection *_websiteActionsSection;
+    AssistantPopoverPageMenuItemInfo *_textSizeAction;
+    AssistantPopoverPageMenuItemInfo *_findInPageAction;
+    AssistantPopoverPageMenuItemInfo *_websiteSettingsAction;
+    AssistantPopoverSection *_pageMenuSection;
+    AssistantPopoverSection *_entityCardSection;
+    AssistantPopoverSection *_readerSection;
+    AssistantPopoverResultCollectionViewCellActionButton *_showReaderButton;
+    AssistantPopoverSection *_readerAppearanceSection;
+    AssistantPopoverSection *_finalButtonsSection;
+    AssistantPopoverSection *_consentSection;
+    NSArray *_searchResults;
+    NSMutableDictionary *_resultsCollectionViewSections;
+    NSArray *_visibleResultSections;
+    NSMutableArray *_updatingEntityCardSectionResults;
+    NSMutableArray *_updatingVideoSectionResults;
+    AssistantPopoverResultsCollectionViewController *_resultsCollectionViewController;
+    unsigned long long _hiddenElementCount;
+    AssistantPopoverPageMenuItemInfo *_scribblePageMenuItem;
+    AssistantPopoverPageMenuItemInfo *_clearScribblePageMenuItem;
+    AssistantPopoverPageMenuItemInfo *_reportScribbleIssuePageMenuItem;
+    AssistantPopoverPageMenuItemInfo *_theaterModePageMenuItem;
+    BOOL _readerVisibilityDetermined;
+    BOOL _rowActionsVisibilityDetermined;
+    NSLayoutConstraint *_popoverWidthConstraint;
+}
+
+@property (readonly, nonatomic) NSView *resultsView;
+@property (weak, nonatomic) id<AssistantPopoverViewControllerDelegate> delegate;
+@property (weak, nonatomic) id<ReaderAppearanceViewControllerDelegate> readerAppearanceDelegate;
+@property (readonly, weak, nonatomic) BrowserWindowController *browserWindowController;
+@property (copy, nonatomic) NSString *webpageIdentifier;
+@property (nonatomic) BOOL enableScribble;
+@property (readonly) unsigned long long hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+- (void).cxx_destruct;
+- (void)loadView;
+- (void)popoverWillClose:(id)a0;
+- (void)viewDidLoad;
+- (void)viewWillAppear;
+- (BOOL)_addItemToPageMenu:(id)a0;
+- (void)_addOrRemovePageMenuSectionIfNeeded;
+- (void)_addSearchResultToSection:(id)a0;
+- (void)_addSectionToPopover:(id)a0;
+- (void)_addUserConsentSectionIfNeeded;
+- (void)_assistantConsentAllowed;
+- (void)_assistantConsentNotAllowed;
+- (void)_computeAndUpdateResultSectionsWithAnimation:(BOOL)a0;
+- (void)_createReportScribbleIssuePageMenuItemIfNeeded;
+- (void)_didClickClearScribble:(id)a0;
+- (void)_didClickReportScribbleIssue:(id)a0;
+- (void)_didClickStartScribble:(id)a0;
+- (void)_findInPageButtonClicked:(id)a0;
+- (long long)_getSearchResultSection:(id)a0;
+- (id)_imageForSymbol:(id)a0;
+- (void)_initializeAllSectionsIfNeeded;
+- (id)_itemInfoForPageMenuWithTitle:(id)a0 symbolName:(id)a1 target:(id)a2 action:(SEL)a3 pageMenuType:(long long)a4;
+- (BOOL)_removeItemFromPageMenu:(id)a0;
+- (void)_removeSectionFromPopover:(id)a0;
+- (BOOL)_shouldLaunchFeedbackAppForScribble;
+- (BOOL)_shouldShowScribbleFeedbackButton;
+- (void)_showOrHideReader;
+- (void)_startTheaterMode;
+- (id)_summaryDisclamerTextFromSearchResult:(id)a0;
+- (id)_summaryTextFromSearchResult:(id)a0;
+- (void)_updatePopoverWithPegasusContent;
+- (void)_updateScribbleMenuItemsWithCount:(unsigned long long)a0;
+- (void)_websiteSettingsButtonClicked:(id)a0;
+- (void)addDefaultPageMenuItems;
+- (void)clearAssistantPopover;
+- (id)initWithBrowserWindowController:(id)a0;
+- (void)pegasusResultsUpdated:(id)a0;
+- (void)readerVisibilityHasBeenDetermined;
+- (void)updateIfNeededWithHiddenElementCount:(unsigned long long)a0;
+- (void)updateReaderResultsIfNeededWithTitle:(id)a0 readerCellDelegate:(id)a1;
+- (void)updateScribbleFeedbackItemVisibility;
+- (void)updateTheaterModeItemIfPlaying:(BOOL)a0 isInWindowActive:(BOOL)a1;
+
+@end

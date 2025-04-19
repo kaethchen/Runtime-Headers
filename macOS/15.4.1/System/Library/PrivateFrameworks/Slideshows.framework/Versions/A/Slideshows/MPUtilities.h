@@ -1,0 +1,54 @@
+@interface MPUtilities : NSObject
+
++ (id)colorFromString:(id)a0;
++ (id)stringFromColor:(id)a0;
++ (id)colorFromCGColor:(struct CGColor { } *)a0;
++ (struct CGColor { } *)CGColorFromColor:(id)a0;
++ (struct CGColor { } *)CGColorWithRed:(double)a0 green:(double)a1 blue:(double)a2 alpha:(double)a3;
++ (id)idOfCombinedID:(id)a0;
++ (struct CGColor { } *)CGColorFromString:(id)a0;
++ (id)createMCAction:(id)a0 forPlug:(id)a1 withKey:(id)a2;
++ (BOOL)pathIsRelative:(id)a0;
++ (double)transformTime:(double)a0 forAnimationPath:(id)a1;
++ (id)animationsPathsFromFilterID:(id)a0 andPresetID:(id)a1;
++ (double)aspectRatioOfLayerable:(id)a0 relativeToAspectRatio:(double)a1;
++ (id)attributesFormMPFilter:(id)a0 atTime:(double)a1;
++ (id)attributesFromAnimationPathsInFilter:(id)a0 atTime:(double)a1;
++ (id)attributesFromCIFilter:(id)a0 fromSourceSize:(struct CGSize { double x0; double x1; })a1;
++ (struct CGColor { } *)blackCGColor;
++ (void)collectAllActionableLayers:(id)a0 inDictionary:(id)a1;
++ (struct CGPoint { double x0; double x1; })computePointValueForAnimationPath:(id)a0 atTime:(double)a1 defaultsTo:(struct CGPoint { double x0; double x1; })a2;
++ (double)computeScalarValueForAnimationPath:(id)a0 atTime:(double)a1 defaultsTo:(double)a2 context:(id)a3;
++ (id)computeVectorValueForAnimationPath:(id)a0 atTime:(double)a1 defaultsTo:(id)a2;
++ (id)createPlugInContainer:(id)a0 forLayer:(id)a1 key:(id)a2 inDocument:(id)a3;
++ (id)createPlugInSlide:(id)a0 forLayer:(id)a1 inDocument:(id)a2;
++ (id)createPlugPathToContainer:(id)a0 inDocument:(id)a1;
++ (id)createPlugPathToObject:(id)a0 inDocument:(id)a1;
++ (id)defaultAttributesForMPFilter:(id)a0;
++ (id)defaultAttributesForMPTransition:(id)a0;
++ (double)displayTimeForText:(id)a0;
++ (id)effectContainersForTime:(double)a0 inDocument:(id)a1;
++ (id)effectForMCContainerEffect:(id)a0 inDocument:(id)a1;
++ (id)effectForMCContainerWithObjectID:(id)a0 inDocument:(id)a1;
++ (id)executeScript:(id)a0 withHeader:(id)a1 andAttributes:(id)a2;
++ (id)layerForContainer:(id)a0 inDocument:(id)a1;
++ (struct CGColorSpace { } *)newColorSpaceForDevice;
++ (id)parentsOfObject:(id)a0;
++ (id)placesPinLabelForSlideAssetPath:(id)a0 inDocument:(id)a1;
++ (id)presetIDOfCombinedID:(id)a0;
++ (void)registerUndoForDocument:(id)a0 toReceiver:(id)a1 withSelector:(SEL)a2 object:(id)a3;
++ (struct CGPoint { double x0; double x1; })scaledFilterPresetPointValue:(struct CGPoint { double x0; double x1; })a0 withKey:(id)a1 forFilterID:(id)a2 andPresetID:(id)a3;
++ (double)scaledFilterPresetScalarValue:(double)a0 withKey:(id)a1 forFilterID:(id)a2 andPresetID:(id)a3;
++ (struct { unsigned char x0; float x1[4]; })scaledFilterPresetVectorValue:(struct { unsigned char x0; float x1[4]; })a0 withKey:(id)a1 forFilterID:(id)a2 andPresetID:(id)a3;
++ (id)slideForElementID:(id)a0 withMCContainerEffect:(id)a1 inDocument:(id)a2;
++ (id)slideForPath:(id)a0 inDocument:(id)a1;
++ (id)slideForSlide:(id)a0 inDocument:(id)a1;
++ (id)stringFromCGColor:(struct CGColor { } *)a0;
++ (id)stringWithNewUUID;
++ (void)syncAnimationPaths:(id)a0;
++ (id)textForElementID:(id)a0 withMCContainerEffect:(id)a1 inDocument:(id)a2;
++ (id)textForIndex:(long long)a0 inMCContainerWithObjectID:(id)a1 inDocument:(id)a2;
++ (id)textsDisplayedAtTime:(double)a0 inDocument:(id)a1;
++ (unsigned long long)timeOffSetFromString:(id)a0;
+
+@end

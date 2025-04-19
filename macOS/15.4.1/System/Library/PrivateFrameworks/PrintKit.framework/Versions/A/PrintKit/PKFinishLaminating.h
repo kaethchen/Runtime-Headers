@@ -1,0 +1,3 @@
+@interface PKFinishLaminating : PKCollectionSpecialization
+
+@end

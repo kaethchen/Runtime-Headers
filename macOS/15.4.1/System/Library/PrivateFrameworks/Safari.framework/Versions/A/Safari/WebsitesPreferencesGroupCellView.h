@@ -1,0 +1,3 @@
+@interface WebsitesPreferencesGroupCellView : NSTableCellView
+
+@end

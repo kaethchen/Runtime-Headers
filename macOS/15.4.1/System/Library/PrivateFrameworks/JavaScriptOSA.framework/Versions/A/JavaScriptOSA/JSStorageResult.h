@@ -1,0 +1,3 @@
+@interface JSStorageResult : JSValue
+
+@end
